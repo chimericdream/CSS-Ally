@@ -2,7 +2,7 @@
 /**
  * @author Bill
  */
-class CssPrefixer {
+class CssAlly {
     private $_browsers = array(
         'explorer'  => true,
         'konqueror' => false,
@@ -36,4 +36,4 @@ class CssPrefixer {
     {
         
     } //end borderRadius
-} //end class CssPrefixer
+} //end class CssAlly
