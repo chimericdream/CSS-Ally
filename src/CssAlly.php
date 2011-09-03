@@ -24,7 +24,7 @@ class CssAlly {
     {
     } //end getBrowser
     
-    public function setBrowser($browser, $generate)
+    public function setBrowser($browser, $useBrowserRules)
     {
     } //end setBrowser
     
@@ -34,6 +34,5 @@ class CssAlly {
     
     public function borderRadius($cssString = '')
     {
-        
     } //end borderRadius
 } //end class CssAlly
