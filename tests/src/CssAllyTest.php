@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/../../src/CssAlly.php';
 class CssAllyTest extends PHPUnit_Framework_TestCase {
 
     /**
-     * @var CssPrefixer
+     * @var CssAlly
      */
     protected $object;
 
@@ -26,42 +26,345 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
      * This method is called after a test is executed.
      */
     protected function tearDown() {
-        
+
     }
 
     /**
-     * @covers CssPrefixer::getBrowser
-     * @dataProvider getBrowserProvider
-     * @param type $browser 
+     * @covers CssAlly::__construct
+     * @dataProvider constructorSetsBrowsersProvider
      */
-    public function testGetBrowser($browser)
+    public function testConstructorSetsBrowsers(array $browsers)
     {
-        
+        $this->object = new CssAlly($browsers);
+        foreach ($browsers as $name => $value) {
+            $this->assertEquals($browsers[$name], $this->object->_browsers[$name]);
+        }
     }
-    
-    public function getBrowserProvider()
+
+    public function constructorSetsBrowsersProvider()
     {
-        return array();
+        return array(
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => false,
+                    'mozilla'   => false,
+                    'opera'     => false,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => false,
+                    'mozilla'   => false,
+                    'opera'     => false,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => true,
+                    'mozilla'   => false,
+                    'opera'     => false,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => false,
+                    'mozilla'   => true,
+                    'opera'     => false,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => false,
+                    'mozilla'   => false,
+                    'opera'     => true,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => false,
+                    'mozilla'   => false,
+                    'opera'     => false,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => true,
+                    'mozilla'   => false,
+                    'opera'     => false,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => false,
+                    'mozilla'   => true,
+                    'opera'     => false,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => false,
+                    'mozilla'   => false,
+                    'opera'     => true,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => false,
+                    'mozilla'   => false,
+                    'opera'     => false,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => true,
+                    'mozilla'   => true,
+                    'opera'     => false,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => true,
+                    'mozilla'   => false,
+                    'opera'     => true,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => true,
+                    'mozilla'   => false,
+                    'opera'     => false,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => false,
+                    'mozilla'   => true,
+                    'opera'     => true,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => false,
+                    'mozilla'   => true,
+                    'opera'     => false,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => false,
+                    'mozilla'   => false,
+                    'opera'     => true,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => true,
+                    'mozilla'   => true,
+                    'opera'     => false,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => true,
+                    'mozilla'   => false,
+                    'opera'     => true,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => true,
+                    'mozilla'   => false,
+                    'opera'     => false,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => false,
+                    'mozilla'   => true,
+                    'opera'     => true,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => false,
+                    'mozilla'   => true,
+                    'opera'     => false,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => false,
+                    'mozilla'   => false,
+                    'opera'     => true,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => true,
+                    'mozilla'   => true,
+                    'opera'     => true,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => true,
+                    'mozilla'   => true,
+                    'opera'     => false,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => true,
+                    'mozilla'   => false,
+                    'opera'     => true,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => false,
+                    'mozilla'   => true,
+                    'opera'     => true,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => true,
+                    'mozilla'   => true,
+                    'opera'     => true,
+                    'webkit'    => false,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => true,
+                    'mozilla'   => true,
+                    'opera'     => false,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => true,
+                    'mozilla'   => false,
+                    'opera'     => true,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => false,
+                    'mozilla'   => true,
+                    'opera'     => true,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => false,
+                    'konqueror' => true,
+                    'mozilla'   => true,
+                    'opera'     => true,
+                    'webkit'    => true,
+                ),
+            ),
+            array(
+                array(
+                    'explorer'  => true,
+                    'konqueror' => true,
+                    'mozilla'   => true,
+                    'opera'     => true,
+                    'webkit'    => true,
+                ),
+            ),
+        );
     }
-    
+
     /**
-     * @covers CssPrefixer::setBrowser
-     * @depends testGetBrowser
+     * @depends testConstructorSetsBrowsers
+     * @covers CssAlly::getBrowser
+     * @dataProvider constructorSetsBrowsersProvider
      * @param type $browser
-     * @param type $generate 
      */
-    public function testSetBrowser($browser, $generate)
+    public function testGetBrowser(array $browsers)
     {
-        
+        $this->object = new CssAlly($browsers);
+        foreach ($browsers as $name => $value) {
+            $this->assertEquals($browsers[$name], $this->object->getBrowser($name));
+        }
     }
-    
+
+//    /**
+//     * @covers CssAlly::setBrowser
+//     * @depends testGetBrowser
+//     * @param type $browser
+//     * @param type $generate
+//     */
+//    public function testSetBrowser($browser, $useBrowserRules)
+//    {
+//    }
+
     /**
-     * @covers CssPrefixer::setBrowsers
+     * @covers CssAlly::setBrowsers
      * @depends testSetBrowser
-     * @param array $browsers 
+     * @param array $browsers
      */
     public function testSetMultipleBrowsers(array $browsers)
     {
-        
     }
 }

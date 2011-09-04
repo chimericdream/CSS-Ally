@@ -3,7 +3,7 @@
  * @author Bill
  */
 class CssAlly {
-    private $_browsers = array(
+    public $_browsers = array(
         'explorer'  => true,
         'konqueror' => false,
         'mozilla'   => true,
@@ -11,9 +11,15 @@ class CssAlly {
         'webkit'    => true,
     );
     
-    public function __construct()
+    public function __construct(array $browsers = array(), array $options = array())
     {
-        
+        if (!empty($browsers)) {
+            $this->_browsers['explorer']  = (isset($browsers['explorer']))  ? $browsers['explorer']  : $this->_browsers['explorer'];
+            $this->_browsers['konqueror'] = (isset($browsers['konqueror'])) ? $browsers['konqueror'] : $this->_browsers['konqueror'];
+            $this->_browsers['mozilla']   = (isset($browsers['mozilla']))   ? $browsers['mozilla']   : $this->_browsers['mozilla'];
+            $this->_browsers['opera']     = (isset($browsers['opera']))     ? $browsers['opera']     : $this->_browsers['opera'];
+            $this->_browsers['webkit']    = (isset($browsers['webkit']))    ? $browsers['webkit']    : $this->_browsers['webkit'];
+        }
     } //end __construct
     
     public function prefix()
@@ -22,6 +28,7 @@ class CssAlly {
 
     public function getBrowser($browser)
     {
+        return (isset($this->_browsers[$browser])) ? $this->_browsers[$browser] : false;
     } //end getBrowser
     
     public function setBrowser($browser, $useBrowserRules)
