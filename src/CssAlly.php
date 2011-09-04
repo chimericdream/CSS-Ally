@@ -33,6 +33,7 @@ class CssAlly {
     
     public function setBrowser($browser, $useBrowserRules)
     {
+        $this->_browsers[$browser] = $useBrowserRules;
     } //end setBrowser
     
     public function setBrowsers(array $browsers)

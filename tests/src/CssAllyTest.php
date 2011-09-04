@@ -349,19 +349,39 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
         }
     }
 
-//    /**
-//     * @covers CssAlly::setBrowser
-//     * @depends testGetBrowser
-//     * @param type $browser
-//     * @param type $generate
-//     */
-//    public function testSetBrowser($browser, $useBrowserRules)
-//    {
-//    }
+    /**
+     * @covers CssAlly::setBrowser
+     * @depends testGetBrowser
+     * @dataProvider setBrowserProvider
+     * @param type $browser
+     * @param type $generate
+     */
+    public function testSetBrowser($browser, $useBrowserRules)
+    {
+        $this->object->setBrowser($browser, $useBrowserRules);
+        $this->assertEquals($this->object->getBrowser($browser), $useBrowserRules);
+    }
 
+    public function setBrowserProvider()
+    {
+        return array(
+            array('explorer', true),
+            array('konqueror', true),
+            array('mozilla', true),
+            array('opera', true),
+            array('webkit', true),
+            array('explorer', false),
+            array('konqueror', false),
+            array('mozilla', false),
+            array('opera', false),
+            array('webkit', false),
+        );
+    }
+    
     /**
      * @covers CssAlly::setBrowsers
      * @depends testSetBrowser
+     * @dataProvider constructorSetsBrowsersProvider
      * @param array $browsers
      */
     public function testSetMultipleBrowsers(array $browsers)
