@@ -10,7 +10,7 @@ class CssAlly {
         'opera'     => true,
         'webkit'    => true,
     );
-    
+
     public function __construct(array $browsers = array(), array $options = array())
     {
         if (!empty($browsers)) {
@@ -21,7 +21,7 @@ class CssAlly {
             $this->_browsers['webkit']    = (isset($browsers['webkit']))    ? $browsers['webkit']    : $this->_browsers['webkit'];
         }
     } //end __construct
-    
+
     public function prefix()
     {
     } //end prefix
@@ -30,16 +30,19 @@ class CssAlly {
     {
         return (isset($this->_browsers[$browser])) ? $this->_browsers[$browser] : false;
     } //end getBrowser
-    
+
     public function setBrowser($browser, $useBrowserRules)
     {
         $this->_browsers[$browser] = $useBrowserRules;
     } //end setBrowser
-    
+
     public function setBrowsers(array $browsers)
     {
+        foreach ($browsers as $browser => $useBrowserRules) {
+            $this->setBrowser($browser, $useBrowserRules);
+        }
     } //end setBrowsers
-    
+
     public function borderRadius($cssString = '')
     {
     } //end borderRadius

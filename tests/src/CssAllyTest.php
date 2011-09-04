@@ -359,7 +359,7 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
     public function testSetBrowser($browser, $useBrowserRules)
     {
         $this->object->setBrowser($browser, $useBrowserRules);
-        $this->assertEquals($this->object->getBrowser($browser), $useBrowserRules);
+        $this->assertEquals($useBrowserRules, $this->object->getBrowser($browser));
     }
 
     public function setBrowserProvider()
@@ -377,7 +377,7 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
             array('webkit', false),
         );
     }
-    
+
     /**
      * @covers CssAlly::setBrowsers
      * @depends testSetBrowser
@@ -386,5 +386,9 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
      */
     public function testSetMultipleBrowsers(array $browsers)
     {
+        $this->object->setBrowsers($browsers);
+        foreach ($browsers as $name => $value) {
+            $this->assertEquals($browsers[$name], $this->object->getBrowser($name));
+        }
     }
 }
