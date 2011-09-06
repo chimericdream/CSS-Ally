@@ -7,7 +7,7 @@ require_once dirname(__FILE__) . '/Browser.php';
 class CssAlly {
     public $_browsers = array(
         'explorer'  => true,
-        'konqueror' => false,
+        'konqueror' => null,
         'mozilla'   => true,
         'opera'     => true,
         'webkit'    => true,
