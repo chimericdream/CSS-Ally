@@ -33,6 +33,20 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
      * @covers CssAlly::__construct
      * @dataProvider constructorSetsBrowsersProvider
      */
+    public function testConstructorSetsDefaultBrowsers(array $browsers)
+    {
+        $this->assertInstanceOf('Browser_Explorer', $this->object->_browsers['explorer']);
+        $this->assertNull($this->object->_browsers['konqueror']);
+        $this->assertInstanceOf('Browser_Mozilla', $this->object->_browsers['mozilla']);
+        $this->assertInstanceOf('Browser_Opera', $this->object->_browsers['opera']);
+        $this->assertInstanceOf('Browser_Webkit', $this->object->_browsers['webkit']);
+    }
+    
+    /**
+     * @covers CssAlly::__construct
+     * @covers CssAlly::_loadBrowsers
+     * @dataProvider constructorSetsBrowsersProvider
+     */
     public function testConstructorSetsBrowsers(array $browsers)
     {
         $this->object = new CssAlly($browsers);
