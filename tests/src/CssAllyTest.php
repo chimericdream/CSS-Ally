@@ -37,7 +37,12 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
     {
         $this->object = new CssAlly($browsers);
         foreach ($browsers as $name => $value) {
-            $this->assertEquals($browsers[$name], $this->object->_browsers[$name]);
+            if ($value) {
+                $className = 'Browser_' . ucfirst($name);
+                $this->assertInstanceOf($className, $this->object->_browsers[$name]);
+            } else {
+                $this->assertNull($this->object->_browsers[$name]);
+            }
         }
     }
 
@@ -345,7 +350,12 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
     {
         $this->object = new CssAlly($browsers);
         foreach ($browsers as $name => $value) {
-            $this->assertEquals($browsers[$name], $this->object->getBrowser($name));
+            if ($value) {
+                $className = 'Browser_' . ucfirst($name);
+                $this->assertInstanceOf($className, $this->object->getBrowser($name));
+            } else {
+                $this->assertNull($this->object->getBrowser($name));
+            }
         }
     }
 
@@ -359,7 +369,12 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
     public function testSetBrowser($browser, $useBrowserRules)
     {
         $this->object->setBrowser($browser, $useBrowserRules);
-        $this->assertEquals($useBrowserRules, $this->object->getBrowser($browser));
+        if ($useBrowserRules) {
+            $className = 'Browser_' . ucfirst($browser);
+            $this->assertInstanceOf($className, $this->object->getBrowser($browser));
+        } else {
+            $this->assertNull($this->object->getBrowser($browser));
+        }
     }
 
     public function setBrowserProvider()
@@ -388,7 +403,26 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
     {
         $this->object->setBrowsers($browsers);
         foreach ($browsers as $name => $value) {
-            $this->assertEquals($browsers[$name], $this->object->getBrowser($name));
+            if ($value) {
+                $className = 'Browser_' . ucfirst($name);
+                $this->assertInstanceOf($className, $this->object->getBrowser($name));
+            } else {
+                $this->assertNull($this->object->getBrowser($name));
+            }
         }
+    }
+    
+    /**
+     * @depends testSetBrowser
+     * @dataProvider emptyDataProvider
+     */
+    public function testBorderRadiusCallsMozillaWhenSet()
+    {
+        $this->object->setBrowser('mozilla', true);
+    }
+    
+    public function emptyDataProvider()
+    {
+        return array(array());
     }
 }
