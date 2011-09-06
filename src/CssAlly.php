@@ -45,7 +45,17 @@ class CssAlly {
 
     public function setBrowser($browser, $useBrowserRules)
     {
-        $this->_browsers[$browser] = $useBrowserRules;
+        if (!$useBrowserRules) {
+            $this->_browsers[$browser] = null;
+            return;
+        }
+        
+        $className = 'Browser_' . ucfirst($browser);
+        if ($this->_browsers[$browser] instanceof $className) {
+            return;
+        }
+        
+        $this->_browsers[$browser] = new $className;
     } //end setBrowser
 
     public function setBrowsers(array $browsers)
