@@ -411,18 +411,4 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
             }
         }
     }
-    
-    /**
-     * @depends testSetBrowser
-     * @dataProvider emptyDataProvider
-     */
-    public function testBorderRadiusCallsMozillaWhenSet()
-    {
-        $this->object->setBrowser('mozilla', true);
-    }
-    
-    public function emptyDataProvider()
-    {
-        return array(array());
-    }
 }
