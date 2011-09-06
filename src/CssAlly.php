@@ -22,12 +22,22 @@ class CssAlly {
             $this->_browsers['opera']     = (isset($browsers['opera']))     ? $browsers['opera']     : $this->_browsers['opera'];
             $this->_browsers['webkit']    = (isset($browsers['webkit']))    ? $browsers['webkit']    : $this->_browsers['webkit'];
         }
+        
+        $this->_loadBrowsers($this->_browsers);
     } //end __construct
 
-    public function prefix()
+    private function _loadBrowsers(array $browsers)
     {
-    } //end prefix
-
+        foreach ($browsers as $name => $value) {
+            if ($value) {
+                $className = 'Browser_' . ucfirst($name);
+                $this->_browsers[$name] = new $className;
+            } else {
+                $this->_browsers[$name] = null;
+            }
+        }
+    } //end _loadBrowsers
+    
     public function getBrowser($browser)
     {
         return (isset($this->_browsers[$browser])) ? $this->_browsers[$browser] : null;
