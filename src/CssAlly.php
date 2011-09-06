@@ -30,7 +30,7 @@ class CssAlly {
 
     public function getBrowser($browser)
     {
-        return (isset($this->_browsers[$browser])) ? $this->_browsers[$browser] : false;
+        return (isset($this->_browsers[$browser])) ? $this->_browsers[$browser] : null;
     } //end getBrowser
 
     public function setBrowser($browser, $useBrowserRules)
