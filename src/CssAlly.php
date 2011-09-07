@@ -73,7 +73,7 @@ class CssAlly {
             }
         }
     } //end _loadBrowsers
-    
+
     public function getBrowser($browser)
     {
         return (isset($this->_browsers[$browser])) ? $this->_browsers[$browser] : null;
@@ -85,12 +85,12 @@ class CssAlly {
             $this->_browsers[$browser] = null;
             return;
         }
-        
+
         $className = 'Browser_' . ucfirst($browser);
         if ($this->_browsers[$browser] instanceof $className) {
             return;
         }
-        
+
         $this->_browsers[$browser] = new $className;
     } //end setBrowser
 
