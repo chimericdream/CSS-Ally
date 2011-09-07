@@ -14,7 +14,7 @@ class CssAlly {
     );
 
     public $_options = array();
-    
+
     private $_defaultOptions = array(
         'compress' => true,
         'minify'   => true,
@@ -37,31 +37,31 @@ class CssAlly {
         } else {
             $this->_options = $options;
         }
-        
+
         if (is_null($this->_options['cssDir'])) {
             //@todo: throw exception
         }
-        
+
         $this->_loadBrowsers($this->_browsers);
     } //end __construct
 
     public function run()
     {
-        
+
     } //end run
-    
+
     public function addCssFile($filePath)
     {
         include_once $this->_options['cssDir'] . "/{$filePath}";
     } //end addCssFile
-    
+
     public function addCssFiles(array $filePaths)
     {
         foreach ($filePaths as $file) {
             $this->addCssFile($file);
         }
     } //end addCssFiles
-    
+
     private function _loadBrowsers(array $browsers)
     {
         foreach ($browsers as $name => $value) {
