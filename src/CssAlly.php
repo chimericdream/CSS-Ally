@@ -13,6 +13,15 @@ class CssAlly {
         'webkit'    => true,
     );
 
+    public $_options = array();
+    
+    private $_defaultOptions = array(
+        'compress' => true,
+        'minify'   => true,
+        'gzip'     => true,
+        'cssDir'   => null,
+    );
+
     public function __construct(array $browsers = array(), array $options = array())
     {
         if (!empty($browsers)) {
@@ -21,6 +30,16 @@ class CssAlly {
             $this->_browsers['mozilla']   = (isset($browsers['mozilla']))   ? $browsers['mozilla']   : $this->_browsers['mozilla'];
             $this->_browsers['opera']     = (isset($browsers['opera']))     ? $browsers['opera']     : $this->_browsers['opera'];
             $this->_browsers['webkit']    = (isset($browsers['webkit']))    ? $browsers['webkit']    : $this->_browsers['webkit'];
+        }
+
+        if (empty($options)) {
+            $this->_options = $this->_defaultOptions;
+        } else {
+            $this->_options = $options;
+        }
+        
+        if (is_null($this->_options['cssDir'])) {
+            //@todo: throw exception
         }
         
         $this->_loadBrowsers($this->_browsers);
