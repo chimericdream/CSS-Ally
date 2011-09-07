@@ -45,6 +45,11 @@ class CssAlly {
         $this->_loadBrowsers($this->_browsers);
     } //end __construct
 
+    public function run()
+    {
+        
+    } //end run
+    
     public function addCssFile($filePath)
     {
         include_once $this->_options['cssDir'] . "/{$filePath}";
