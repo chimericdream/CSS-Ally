@@ -39,7 +39,7 @@ class CssAlly {
         if (empty($options)) {
             $this->_options = $this->_defaultOptions;
         } else {
-            $this->_options = $options;
+            $this->_options = array_merge($options, $this->_defaultOptions);
         }
 
         if (is_null($this->_options['cssDir'])) {
