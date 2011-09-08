@@ -145,7 +145,7 @@ class CssAlly {
 
     public function addCssFile($filePath)
     {
-        include_once $this->_options['cssDir'] . "/{$filePath}";
+        $this->_files[] = $this->_options['cssDir'] . "/{$filePath}";
     } //end addCssFile
 
     public function addCssFiles(array $filePaths)
