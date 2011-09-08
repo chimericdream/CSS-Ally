@@ -15,7 +15,7 @@ class CssAlly {
 
     public $_options = array();
 
-    private $_defaultOptions = array(
+    public $_defaultOptions = array(
         'compress' => true,
         'minify'   => true,
         'gzip'     => true,
@@ -62,7 +62,7 @@ class CssAlly {
         }
     } //end addCssFiles
 
-    private function _loadBrowsers(array $browsers)
+    public function _loadBrowsers(array $browsers)
     {
         foreach ($browsers as $name => $value) {
             if ($value) {
