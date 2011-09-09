@@ -41,7 +41,7 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('Browser_Opera', $this->object->_browsers['opera']);
         $this->assertInstanceOf('Browser_Webkit', $this->object->_browsers['webkit']);
     }
-    
+
     /**
      * @covers CssAlly::__construct
      * @covers CssAlly::_loadBrowsers
@@ -430,51 +430,31 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
      * @covers CssAlly::compress
      * @dataProvider compressProvider
      * @param type $cssString
-     * @param type $expectedCompressedString 
+     * @param type $expectedCompressedString
      */
     public function testCompress($cssString, $expectedCompressedString)
     {
         $this->object->_builtCss = $cssString;
         $this->object->compress();
-        
+
         $this->assertEquals($expectedCompressedString, $this->object->_builtCss);
     }
-    
+
     public function compressProvider()
     {
-        return array(
-            array('div#test {
-    background-color: #ffc;
-    background-position: 5px 5px;
-    background-repeat: no-repeat;
-    border: 1px solid #dedede;
-    color: #000;
-    margin: 0 auto;
-    min-height: 20px;
-    padding: 5px;
-    text-align: center;
-    width: 938px;
-}
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
 
-div#test h1 {
-    background-position: top right;
-    background-repeat: no-repeat;
-    font-size: 150%;
-    font-weight: bold;
-}
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css        = file_get_contents("{$path}/{$file}");
+                $compressed = file_get_contents("{$path}/compressed/{$file}");
+                $testCssStrings[] = array($css, $compressed);
+            }
+        }
+        closedir($dh);
 
-div#test a {
-    color: #000 !important;
-    font-weight: bold !important;
-    text-decoration: underline !important;
-}
-
-body {
-    background-attachment: scroll;
-    background-position: top center;
-    background-repeat: no-repeat;
-    padding-top: 150px;
-}', 'div#test{background-color:#ffc;background-position:5px 5px;background-repeat:no-repeat;border:1px solid #dedede;color:#000;margin:0 auto;min-height:20px;padding:5px;text-align:center;width:938px;}div#test h1{background-position:top right;background-repeat:no-repeat;font-size:150%;font-weight:bold;}div#test a{color:#000 !important;font-weight:bold !important;text-decoration:underline !important;}body{background-attachment:scroll;background-position:top center;background-repeat:no-repeat;padding-top:150px;}'),
-        );
+        return $testCssStrings;
     }
 }
