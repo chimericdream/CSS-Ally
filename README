@@ -13,3 +13,10 @@ any or all of the following functions:
 
 AUTHOR
 CSS Ally is created and maintained by Bill Parrott <bill@cssally.com>
+
+FUTURE DEVELOPMENT
+-  Complete the implementation of common CSS rules which require
+   vendor-specific code to work.
+-  Add mixins and variables, similar to LESS, SASS, and others
+-  ???
+-  PROFIT!
