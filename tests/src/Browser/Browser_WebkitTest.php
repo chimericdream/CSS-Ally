@@ -29,6 +29,26 @@ class Browser_WebkitTest extends PHPUnit_Framework_TestCase {
         
     }
 
+    /**
+     * @covers Browser_Webkit::borderRadius
+     * @dataProvider borderRadiusProvider
+     */
+    public function testBorderRadius($cssString, $webkitValue)
+    {
+        $cssString = $this->object->borderRadius($cssString);
+        $this->assertContains($webkitValue, $cssString);
+    }
+    
+    public function borderRadiusProvider()
+    {
+        $strings = array(
+            array("p {border-radius: 5px;}",             "-webkit-border-radius: 5px;"),
+            array("p {border-radius: 5px}",              "-webkit-border-radius: 5px;"),
+            array("p {border-top-right-radius: 5px}",    "-webkit-border-top-right-radius: 5px;"),
+            array("p {border-top-left-radius: 5px}",     "-webkit-border-top-left-radius: 5px;"),
+            array("p {border-bottom-right-radius: 5px}", "-webkit-border-bottom-right-radius: 5px;"),
+            array("p {border-bottom-left-radius: 5px}",  "-webkit-border-bottom-left-radius: 5px;"),
+        );
+        return $strings;
+    }
 }
-
-?>

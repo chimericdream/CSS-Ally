@@ -6,5 +6,10 @@ require_once dirname(__FILE__) . '/../Browser.php';
  *
  * @author Bill
  */
-class Browser_Explorer extends Browser {
+class Browser_Explorer implements Browser {
+    public $targetVersion;
+
+    public function borderRadius($cssString = '')
+    {
+    }
 } //end class Browser_Explorer

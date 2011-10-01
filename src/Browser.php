@@ -10,5 +10,6 @@ require_once dirname(__FILE__) . '/Browser/Webkit.php';
  *
  * @author Bill
  */
-class Browser {
-} //end class Browser
+interface Browser {
+    public function borderRadius($cssString = '');
+} //end interface Browser

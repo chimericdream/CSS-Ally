@@ -46,20 +46,20 @@ class CssAlly {
             //@todo: throw exception
         }
 
-        $this->_loadBrowsers($this->_browsers);
+        $this->setBrowsers($this->_browsers);
     } //end __construct
 
     public function run()
     {
-        $this->runCssRules();
         $this->generateFileName();
         if (!$this->checkCache()) {
             $this->buildCssString();
+            $this->runCssRules();
+            $this->compress();
             $this->writeCache();
         } else {
             $this->getCssFromCache();
         }
-        $this->compress();
         $this->output();
     } //end run
 
@@ -154,18 +154,6 @@ class CssAlly {
             $this->addCssFile($file);
         }
     } //end addCssFiles
-
-    public function _loadBrowsers(array $browsers)
-    {
-        foreach ($browsers as $name => $value) {
-            if ($value) {
-                $className = 'Browser_' . ucfirst($name);
-                $this->_browsers[$name] = new $className;
-            } else {
-                $this->_browsers[$name] = null;
-            }
-        }
-    } //end _loadBrowsers
 
     public function getBrowser($browser)
     {

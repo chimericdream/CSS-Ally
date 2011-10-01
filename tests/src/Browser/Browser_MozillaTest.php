@@ -42,12 +42,12 @@ class Browser_MozillaTest extends PHPUnit_Framework_TestCase {
     public function borderRadiusProvider()
     {
         $strings = array(
-            array("p {border-radius: 5px;}", "-moz-border-radius: 5px;"),
-            array("p {border-radius: 5px}", "-moz-border-radius: 5px;"),
-            array("p {border-top-right-radius: 5px}", "-moz-border-radius-topright: 5px;"),
-            array("p {border-top-left-radius: 5px}", "-moz-border-radius-topleft: 5px;"),
+            array("p {border-radius: 5px;}",             "-moz-border-radius: 5px;"),
+            array("p {border-radius: 5px}",              "-moz-border-radius: 5px;"),
+            array("p {border-top-right-radius: 5px}",    "-moz-border-radius-topright: 5px;"),
+            array("p {border-top-left-radius: 5px}",     "-moz-border-radius-topleft: 5px;"),
             array("p {border-bottom-right-radius: 5px}", "-moz-border-radius-bottomright: 5px;"),
-            array("p {border-bottom-left-radius: 5px}", "-moz-border-radius-bottomleft: 5px;"),
+            array("p {border-bottom-left-radius: 5px}",  "-moz-border-radius-bottomleft: 5px;"),
         );
         return $strings;
     }

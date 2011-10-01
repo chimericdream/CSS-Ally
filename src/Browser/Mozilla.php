@@ -6,7 +6,9 @@ require_once dirname(__FILE__) . '/../Browser.php';
  *
  * @author Bill
  */
-class Browser_Mozilla extends Browser {
+class Browser_Mozilla implements Browser {
+    public $targetVersion;
+
     public function borderRadius($cssString = '')
     {
         $value      = '(\s*)(\d+\.?\d*)(px|em|%);?';

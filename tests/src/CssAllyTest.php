@@ -44,7 +44,7 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
 
     /**
      * @covers CssAlly::__construct
-     * @covers CssAlly::_loadBrowsers
+     * @covers CssAlly::setBrowsers
      * @dataProvider constructorSetsBrowsersProvider
      */
     public function testConstructorSetsBrowsers(array $browsers)
