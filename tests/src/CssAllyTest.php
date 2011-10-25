@@ -35,11 +35,12 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
      */
     public function testConstructorSetsDefaultBrowsers(array $browsers)
     {
-        $this->assertInstanceOf('Browser_Explorer', $this->object->_browsers['explorer']);
-        $this->assertNull($this->object->_browsers['konqueror']);
-        $this->assertInstanceOf('Browser_Mozilla', $this->object->_browsers['mozilla']);
-        $this->assertInstanceOf('Browser_Opera', $this->object->_browsers['opera']);
-        $this->assertInstanceOf('Browser_Webkit', $this->object->_browsers['webkit']);
+        $browserList = $this->object->getBrowsers();
+        $this->assertInstanceOf('Browser_Explorer', $browserList['explorer']);
+        $this->assertNull($browserList['konqueror']);
+        $this->assertInstanceOf('Browser_Mozilla', $browserList['mozilla']);
+        $this->assertInstanceOf('Browser_Opera', $browserList['opera']);
+        $this->assertInstanceOf('Browser_Webkit', $browserList['webkit']);
     }
 
     /**
@@ -50,12 +51,13 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
     public function testConstructorSetsBrowsers(array $browsers)
     {
         $this->object = new CssAlly($browsers);
+        $browserList = $this->object->getBrowsers();
         foreach ($browsers as $name => $value) {
             if ($value) {
                 $className = 'Browser_' . ucfirst($name);
-                $this->assertInstanceOf($className, $this->object->_browsers[$name]);
+                $this->assertInstanceOf($className, $browserList[$name]);
             } else {
-                $this->assertNull($this->object->_browsers[$name]);
+                $this->assertNull($browserList[$name]);
             }
         }
     }
@@ -427,17 +429,30 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * @covers CssAlly::setBuiltCss
+     * @covers CssAlly::getBuiltCss
+     * @dataProvider compressProvider
+     * @param type $cssString 
+     */
+    public function testSetBuiltCss($cssString)
+    {
+        $this->object->setBuiltCss($cssString);
+        $this->assertEquals($cssString, $this->object->getBuiltCss());
+    }
+    
+    /**
      * @covers CssAlly::compress
+     * @depends testSetBuiltCss
      * @dataProvider compressProvider
      * @param type $cssString
      * @param type $expectedCompressedString
      */
     public function testCompress($cssString, $expectedCompressedString)
     {
-        $this->object->_builtCss = $cssString;
+        $this->object->setBuiltCss($cssString);
         $this->object->compress();
 
-        $this->assertEquals($expectedCompressedString, $this->object->_builtCss);
+        $this->assertEquals($expectedCompressedString, $this->object->getBuiltCss());
     }
 
     public function compressProvider()
@@ -448,8 +463,8 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
         $testCssStrings = array();
         while (false !== ($file = readdir($dh))) {
             if (!is_dir("{$path}/{$file}")) {
-                $css        = file_get_contents("{$path}/{$file}");
-                $compressed = file_get_contents("{$path}/compressed/{$file}");
+                $css              = file_get_contents("{$path}/{$file}");
+                $compressed       = file_get_contents("{$path}/compressed/{$file}");
                 $testCssStrings[] = array($css, $compressed);
             }
         }
@@ -457,4 +472,30 @@ class CssAllyTest extends PHPUnit_Framework_TestCase {
 
         return $testCssStrings;
     }
+    
+    /**
+     * @covers CssAlly::addCssFile
+     * @dataProvider addCssFileProvider
+     * @param type $filePath 
+     */
+    public function testAddCssFile($filePath)
+    {
+        $this->object->addCssFile($filePath);
+        $this->assertContains('/' . $filePath, $this->object->getFileList());
+    }
+    
+    public function addCssFileProvider() {
+        $path = dirname(__FILE__) . '/../css';
+        $dh   = opendir($path);
+
+        $fileList = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $fileList[] = array("{$file}");
+            }
+        }
+        closedir($dh);
+        
+        return $fileList;
+   }
 }

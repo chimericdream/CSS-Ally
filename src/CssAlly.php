@@ -5,7 +5,7 @@ require_once dirname(__FILE__) . '/Browser.php';
  * @author Bill
  */
 class CssAlly {
-    public $_browsers = array(
+    private $_browsers = array(
         'explorer'  => true,
         'konqueror' => null,
         'mozilla'   => true,
@@ -13,19 +13,49 @@ class CssAlly {
         'webkit'    => true,
     );
 
-    public $_options = array();
+    private $_options = array();
 
-    public $_defaultOptions = array(
+    private $_defaultOptions = array(
         'compress' => true,
         'minify'   => true,
         'gzip'     => true,
         'cssDir'   => null,
     );
 
-    public $_files = array();
-    public $_cachefile = '';
-    public $_builtCss = '';
+    private $_files     = array();
+    private $_cachefile = '';
+    private $_builtCss  = '';
 
+    public function getBuiltCss()
+    {
+        return $this->_builtCss;
+    }
+    
+    public function setBuiltCss($css)
+    {
+        $this->_builtCss = $css;
+    }
+    
+    public function getCacheFileName()
+    {
+        return $this->_cachefile;
+    }
+    
+    public function getFileList()
+    {
+        return $this->_files;
+    }
+    
+    public function getOptions()
+    {
+        return $this->_options;
+    }
+    
+    public function getBrowsers()
+    {
+        return $this->_browsers;
+    }
+    
     public function __construct(array $browsers = array(), array $options = array())
     {
         if (!empty($browsers)) {
