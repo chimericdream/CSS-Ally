@@ -56,6 +56,16 @@ class CssAlly {
         return $this->_browsers;
     }
     
+    public function getOption($option)
+    {
+        return isset($this->_options[$option]) ? $this->_options[$option] : null;
+    }
+    
+    public function setOption($option, $value)
+    {
+        $this->_options[$option] = $value;
+    }
+    
     public function __construct(array $browsers = array(), array $options = array())
     {
         if (!empty($browsers)) {
@@ -69,11 +79,11 @@ class CssAlly {
         if (empty($options)) {
             $this->_options = $this->_defaultOptions;
         } else {
-            $this->_options = array_merge($options, $this->_defaultOptions);
+            $this->_options = array_merge($this->_defaultOptions, $options);
         }
 
         if (is_null($this->_options['cssDir'])) {
-            //@todo: throw exception
+            throw new InvalidArgumentException('You must specify the directory in which your CSS files are stored.');
         }
 
         $this->setBrowsers($this->_browsers);
