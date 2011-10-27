@@ -14,10 +14,11 @@ class CssAlly {
     );
 
     private $_rules = array(
-        'border-radius' => true,
-        'box-shadow'    => true,
+        'background-size' => true,
+        'border-radius'   => true,
+        'box-shadow'      => true,
     );
-    
+
     private $_options = array();
 
     private $_defaultOptions = array(
@@ -30,46 +31,6 @@ class CssAlly {
     private $_files     = array();
     private $_cachefile = '';
     private $_builtCss  = '';
-
-    public function getBuiltCss()
-    {
-        return $this->_builtCss;
-    }
-
-    public function setBuiltCss($css)
-    {
-        $this->_builtCss = $css;
-    }
-
-    public function getCacheFileName()
-    {
-        return $this->_cachefile;
-    }
-
-    public function getFileList()
-    {
-        return $this->_files;
-    }
-
-    public function getOptions()
-    {
-        return $this->_options;
-    }
-
-    public function getBrowsers()
-    {
-        return $this->_browsers;
-    }
-
-    public function getOption($option)
-    {
-        return isset($this->_options[$option]) ? $this->_options[$option] : null;
-    }
-
-    public function setOption($option, $value)
-    {
-        $this->_options[$option] = $value;
-    }
 
     public function __construct(array $browsers = array(), array $options = array())
     {
@@ -94,43 +55,30 @@ class CssAlly {
         $this->setBrowsers($this->_browsers);
     } //end __construct
 
-    public function run()
+    public function __call($method, $arguments)
     {
-        $this->generateFileName();
-        if (!$this->checkCache()) {
-            $this->buildCssString();
-            $this->runCssRules();
-            $this->compress();
-            $this->writeCache();
-        } else {
-            $this->getCssFromCache();
+        if (method_exists('Browser', $method)) {
+            $cssString = $arguments[0];
+            foreach ($this->_browsers as $browser) {
+                if ($browser instanceof Browser) {
+                    $cssString = $browser->$method($cssString);
+                }
+            }
+            return $cssString;
         }
-        $this->output();
-    } //end run
+    } //end __call
 
-    public function generateFileName()
+    public function addCssFile($filePath)
     {
-        $this->_cachefile = md5(implode('', $this->_files)) . '.css';
-    } //end _generateFileName
+        $this->_files[] = $this->_options['cssDir'] . "/{$filePath}";
+    } //end addCssFile
 
-    public function compress()
+    public function addCssFiles(array $filePaths)
     {
-        if ($this->_options['compress']) {
-            /* remove comments */
-            $this->_builtCss = preg_replace("!/\*[^*]*\*+([^/][^*]*\*+)*/!", "", $this->_builtCss);
-
-            /* remove tabs, spaces, newlines, etc. */
-            $arr = array("\r\n", "\r", "\n", "\t", "  ", "    ", "    ");
-            $this->_builtCss = str_replace($arr, "", $this->_builtCss);
-
-            /* remove extra spaces within property declarations */
-            $this->_builtCss = str_replace(', ', ',', $this->_builtCss);
-            $this->_builtCss = str_replace(array('; ', ' ;', ' ; '), ';', $this->_builtCss);
-            $this->_builtCss = str_replace(array(': ', ' :', ' : '), ':', $this->_builtCss);
-            $this->_builtCss = str_replace(array('{ ', ' {', ' { '), '{', $this->_builtCss);
-            $this->_builtCss = str_replace(array('} ', ' }', ' } '), '}', $this->_builtCss);
+        foreach ($filePaths as $file) {
+            $this->addCssFile($file);
         }
-    } //end _compress
+    } //end addCssFiles
 
     /**
      * Builds CSS string for the cache file
@@ -140,24 +88,7 @@ class CssAlly {
         foreach ($this->_files as $file) {
             $this->_builtCss .= file_get_contents($file);
         }
-    } //end _buildCssString
-
-    public function getCssFromCache()
-    {
-        $this->_builtCss = file_get_contents($this->_cachefile);
-    } //end _getCssFromCache
-
-    /**
-     * Writes the cache into file
-     */
-    public function writeCache()
-    {
-        $f = fopen($this->_cachefile, "w");
-        // lock file to prevent problems under high load
-        flock($f, LOCK_EX);
-        fwrite($f, $this->_builtCss);
-        fclose($f);
-    } //end _writeCache
+    } //end buildCssString
 
     /**
      * Compare the modification time of cache file against the CSS files
@@ -179,31 +110,102 @@ class CssAlly {
             }
         }
         return false;
-    } //end _checkCache
+    } //end checkCache
+
+    public function compress()
+    {
+        if ($this->_options['compress']) {
+            /* remove comments */
+            $this->_builtCss = preg_replace("!/\*[^*]*\*+([^/][^*]*\*+)*/!", "", $this->_builtCss);
+
+            /* remove tabs, spaces, newlines, etc. */
+            $arr = array("\r\n", "\r", "\n", "\t", "  ", "    ", "    ");
+            $this->_builtCss = str_replace($arr, "", $this->_builtCss);
+
+            /* remove extra spaces within property declarations */
+            $this->_builtCss = str_replace(', ', ',', $this->_builtCss);
+            $this->_builtCss = str_replace(array('; ', ' ;', ' ; '), ';', $this->_builtCss);
+            $this->_builtCss = str_replace(array(': ', ' :', ' : '), ':', $this->_builtCss);
+            $this->_builtCss = str_replace(array('{ ', ' {', ' { '), '{', $this->_builtCss);
+            $this->_builtCss = str_replace(array('} ', ' }', ' } '), '}', $this->_builtCss);
+        }
+    } //end compress
+
+    public function generateFileName()
+    {
+        $this->_cachefile = md5(implode('', $this->_files)) . '.css';
+    } //end generateFileName
+
+    public function getBrowser($browser)
+    {
+        return (isset($this->_browsers[$browser])) ? $this->_browsers[$browser] : null;
+    } //end getBrowser
+
+    public function getBrowsers()
+    {
+        return $this->_browsers;
+    } //end getBrowsers
+
+    public function getBuiltCss()
+    {
+        return $this->_builtCss;
+    } //end getBuiltCss
+
+    public function getCacheFileName()
+    {
+        return $this->_cachefile;
+    } //end getCacheFileName
+
+    public function getCssFromCache()
+    {
+        $this->_builtCss = file_get_contents($this->_cachefile);
+    } //end getCssFromCache
+
+    public function getFileList()
+    {
+        return $this->_files;
+    } //end getFileList
+
+    public function getOption($option)
+    {
+        return isset($this->_options[$option]) ? $this->_options[$option] : null;
+    } //end getOption
+
+    public function getOptions()
+    {
+        return $this->_options;
+    } //end getOptions
 
     public function output()
     {
         header("Content-type: text/css");
         echo $this->_builtCss;
         exit;
-    } //end _output
+    } //end output
 
-    public function addCssFile($filePath)
+    public function run()
     {
-        $this->_files[] = $this->_options['cssDir'] . "/{$filePath}";
-    } //end addCssFile
-
-    public function addCssFiles(array $filePaths)
-    {
-        foreach ($filePaths as $file) {
-            $this->addCssFile($file);
+        $this->generateFileName();
+        if (!$this->checkCache()) {
+            $this->buildCssString();
+            $this->runCssRules();
+            $this->compress();
+            $this->writeCache();
+        } else {
+            $this->getCssFromCache();
         }
-    } //end addCssFiles
+        $this->output();
+    } //end run
 
-    public function getBrowser($browser)
+    public function runCssRules()
     {
-        return (isset($this->_browsers[$browser])) ? $this->_browsers[$browser] : null;
-    } //end getBrowser
+        foreach ($this->_rules as $rule => $run) {
+            if ($run) {
+                $methodName = str_replace('-', '_', $rule);
+                $this->$methodName();
+            }
+        }
+    } //end runCssRules
 
     public function setBrowser($browser, $useBrowserRules)
     {
@@ -227,27 +229,25 @@ class CssAlly {
         }
     } //end setBrowsers
 
-    public function runCssRules()
+    public function setBuiltCss($css)
     {
-        foreach ($this->_rules as $rule => $run) {
-            if ($run) {
-                $methodName = str_replace('-', '_', $rule);
-                $this->$methodName();
-            }
-        }
-        $this->border_radius($this->_builtCss);
-    } //end _runCssRules
+        $this->_builtCss = $css;
+    } //end setBuiltCss
 
-    public function __call($method, $arguments)
+    public function setOption($option, $value)
     {
-        if (method_exists('Browser', $method)) {
-            $cssString = $arguments[0];
-            foreach ($this->_browsers as $browser) {
-                if ($browser instanceof Browser) {
-                    $cssString = $browser->$method($cssString);
-                }
-            }
-            return $cssString;
-        }
-    } //end __call
+        $this->_options[$option] = $value;
+    } //end setOption
+
+    /**
+     * Writes the cache into file
+     */
+    public function writeCache()
+    {
+        $f = fopen($this->_cachefile, "w");
+        // lock file to prevent problems under high load
+        flock($f, LOCK_EX);
+        fwrite($f, $this->_builtCss);
+        fclose($f);
+    } //end writeCache
 } //end class CssAlly

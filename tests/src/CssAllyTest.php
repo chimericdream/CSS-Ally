@@ -621,4 +621,34 @@ class CssAllyTest extends BaseTest {
 
         return $testCssStrings;
     }
+
+    /**
+     * @covers Browser::background_size
+     * @dataProvider backgroundSizeProvider
+     * @param type $cssString
+     * @param type $expectedString
+     */
+    public function testBackgroundSize($cssString, $expectedString)
+    {
+        $cssString = $this->object->background_size($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function backgroundSizeProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $compressed       = file_get_contents("{$path}/background-size/{$file}");
+                $testCssStrings[] = array($css, $compressed);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
 }

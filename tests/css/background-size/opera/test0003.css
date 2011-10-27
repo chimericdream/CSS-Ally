@@ -1,0 +1,34 @@
+div.bgsize-one {
+    -o-background-size: 200px;
+    background-size: 200px;
+}
+
+div.bgsize-two {
+    -o-background-size: 200px 100px;
+    background-size: 200px 100px;
+}
+
+div.bgsize-three {
+    -o-background-size: 200px 100px, 400px 200px;
+    background-size: 200px 100px, 400px 200px;
+}
+
+div.bgsize-four {
+    -o-background-size: auto 200px;
+    background-size: auto 200px;
+}
+
+div.bgsize-five {
+    -o-background-size: 50% 25%;
+    background-size: 50% 25%;
+}
+
+div.bgsize-six {
+    -o-background-size: contain;
+    background-size: contain;
+}
+
+div.bgsize-seven {
+    -o-background-size: cover;
+    background-size: cover;
+}

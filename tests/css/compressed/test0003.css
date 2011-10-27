@@ -1,0 +1,1 @@
+div.bgsize-one{background-size:200px;}div.bgsize-two{background-size:200px 100px;}div.bgsize-three{background-size:200px 100px,400px 200px;}div.bgsize-four{background-size:auto 200px;}div.bgsize-five{background-size:50% 25%;}div.bgsize-six{background-size:contain;}div.bgsize-seven{background-size:cover;}

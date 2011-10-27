@@ -1,0 +1,34 @@
+div.bgsize-one {
+    -webkit-background-size: 200px;
+    background-size: 200px;
+}
+
+div.bgsize-two {
+    -webkit-background-size: 200px 100px;
+    background-size: 200px 100px;
+}
+
+div.bgsize-three {
+    -webkit-background-size: 200px 100px, 400px 200px;
+    background-size: 200px 100px, 400px 200px;
+}
+
+div.bgsize-four {
+    -webkit-background-size: auto 200px;
+    background-size: auto 200px;
+}
+
+div.bgsize-five {
+    -webkit-background-size: 50% 25%;
+    background-size: 50% 25%;
+}
+
+div.bgsize-six {
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+
+div.bgsize-seven {
+    -webkit-background-size: cover;
+    background-size: cover;
+}

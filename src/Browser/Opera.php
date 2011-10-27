@@ -7,7 +7,29 @@ require_once dirname(__FILE__) . '/../Browser.php';
  * @author Bill
  */
 class Browser_Opera extends Browser {
-    public $targetVersion;
+    public function background_size($cssString = '')
+    {
+        $length     = $this->length_regex();
+        $bgsize     = '((\s*(' . $length . '|auto)){1,2}|\s*cover|\s*contain)';
+        $value      = '(\s*)(' . $bgsize . '(,\s*' . $bgsize . ')*);?';
+        $replace    = '${2}${3}';
+        $properties = array(
+            'background-size' => array(
+                'prefix' => '-o-background-size',
+                'format' => '${2}${3}',
+            ),
+        );
+
+        foreach ($properties as $standard => $opera) {
+            $search    = "/(\s*)(?<!-){$standard}:{$value}/";
+            $rep       = '${1}' . "{$opera['prefix']}:{$opera['format']};" . '${1}' . "{$standard}:{$replace};";
+
+            echo "\n\n{$search}\n\n{$rep}\n\n";
+            $cssString = preg_replace($search, $rep, $cssString);
+        }
+
+        return $cssString;
+    } //end background_size
 
     public function border_radius($cssString = '')
     {
@@ -48,13 +70,13 @@ class Browser_Opera extends Browser {
                 'prefix' => '-o-border-bottom-left-radius',
             ),
         );
-        
+
         foreach ($properties as $standard => $opera) {
             $search    = "/(\s*)(?<!-){$standard}:{$opera['value']}/";
             $rep       = '${1}' . "{$opera['prefix']}:{$opera['replace']};" . '${1}' . "{$standard}:{$opera['replace']};";
             $cssString = preg_replace($search, $rep, $cssString);
         }
-        
+
         return $cssString;
-    }
+    } //end border_radius
 } //end class Browser_Opera

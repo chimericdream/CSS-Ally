@@ -7,7 +7,29 @@ require_once dirname(__FILE__) . '/../Browser.php';
  * @author Bill
  */
 class Browser_Mozilla extends Browser {
-    public $targetVersion;
+    public function background_size($cssString = '')
+    {
+        $length     = $this->length_regex();
+        $bgsize     = '((\s*(' . $length . '|auto)){1,2}|\s*cover|\s*contain)';
+        $value      = '(\s*)(' . $bgsize . '(,\s*' . $bgsize . ')*);?';
+        $replace    = '${2}${3}';
+        $properties = array(
+            'background-size' => array(
+                'prefix' => '-moz-background-size',
+                'format' => '${2}${3}',
+            ),
+        );
+
+        foreach ($properties as $standard => $mozilla) {
+            $search    = "/(\s*)(?<!-){$standard}:{$value}/";
+            $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};" . '${1}' . "{$standard}:{$replace};";
+
+            echo "\n\n{$search}\n\n{$rep}\n\n";
+            $cssString = preg_replace($search, $rep, $cssString);
+        }
+
+        return $cssString;
+    } //end background_size
 
     public function border_radius($cssString = '')
     {
@@ -57,9 +79,10 @@ class Browser_Mozilla extends Browser {
         }
 
         return $cssString;
-    } //end borderRadius
+    } //end border_radius
 
-    public function box_shadow($cssString = '') {
+    public function box_shadow($cssString = '')
+    {
         $color      = $this->color_regex();
         $length     = $this->length_regex();
         $shadow     = '(inset)?(\s*' . $length . '){2,4}(\s\s*' . $color . ')?';
@@ -79,5 +102,5 @@ class Browser_Mozilla extends Browser {
         }
 
         return $cssString;
-    }
+    } //end box_shadow
 } //end class Browser_Mozilla

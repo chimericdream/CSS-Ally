@@ -7,5 +7,4 @@ require_once dirname(__FILE__) . '/../Browser.php';
  * @author Bill
  */
 class Browser_Explorer extends Browser {
-    public $targetVersion;
 } //end class Browser_Explorer

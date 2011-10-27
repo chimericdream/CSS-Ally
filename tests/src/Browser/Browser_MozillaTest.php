@@ -84,4 +84,32 @@ class Browser_MozillaTest extends BaseTest {
 
         return $testCssStrings;
     }
+
+    /**
+     * @covers Browser_Mozilla::background_size
+     * @dataProvider backgroundSizeProvider
+     */
+    public function testBackgroundSize($cssString, $expectedString)
+    {
+        $cssString = $this->object->background_size($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+    
+    public function backgroundSizeProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $shadowCss        = file_get_contents("{$path}/background-size/mozilla/{$file}");
+                $testCssStrings[] = array($css, $shadowCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
 }
