@@ -43,7 +43,7 @@ class Browser_Opera extends Browser {
         
         foreach ($properties as $standard => $opera) {
             $search    = "/(\s*)(?<!-){$standard}:{$value}/";
-            $rep       = '${1}' . "{$standard}:{$replace};" . '${1}' . "{$opera['prefix']}:{$opera['format']};";
+            $rep       = '${1}' . "{$opera['prefix']}:{$opera['format']};" . '${1}' . "{$standard}:{$replace};";
             $cssString = preg_replace($search, $rep, $cssString);
         }
         

@@ -43,7 +43,7 @@ class Browser_Mozilla extends Browser {
 
         foreach ($properties as $standard => $mozilla) {
             $search    = "/(\s*)(?<!-){$standard}:{$value}/";
-            $rep       = '${1}' . "{$standard}:{$replace};" . '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};";
+            $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};" . '${1}' . "{$standard}:{$replace};";
             $cssString = preg_replace($search, $rep, $cssString);
         }
 
@@ -65,7 +65,7 @@ class Browser_Mozilla extends Browser {
 
         foreach ($properties as $standard => $mozilla) {
             $search    = "/(\s*)(?<!-){$standard}:{$value}/";
-            $rep       = '${1}' . "{$standard}:{$replace};" . '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};";
+            $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};" . '${1}' . "{$standard}:{$replace};";
             $cssString = preg_replace($search, $rep, $cssString);
         }
 

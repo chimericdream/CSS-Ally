@@ -43,7 +43,7 @@ class Browser_Webkit extends Browser {
         
         foreach ($properties as $standard => $webkit) {
             $search    = "/(\s*)(?<!-){$standard}:{$value}/";
-            $rep       = '${1}' . "{$standard}:{$replace};" . '${1}' . "{$webkit['prefix']}:{$webkit['format']};";
+            $rep       = '${1}' . "{$webkit['prefix']}:{$webkit['format']};" . '${1}' . "{$standard}:{$replace};";
             $cssString = preg_replace($search, $rep, $cssString);
         }
         
@@ -65,7 +65,7 @@ class Browser_Webkit extends Browser {
 
         foreach ($properties as $standard => $webkit) {
             $search    = "/(\s*)(?<!-){$standard}:{$value}/";
-            $rep       = '${1}' . "{$standard}:{$replace};" . '${1}' . "{$webkit['prefix']}:{$webkit['format']};";
+            $rep       = '${1}' . "{$webkit['prefix']}:{$webkit['format']};" . '${1}' . "{$standard}:{$replace};";
             $cssString = preg_replace($search, $rep, $cssString);
         }
 
