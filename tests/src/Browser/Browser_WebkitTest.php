@@ -33,22 +33,27 @@ class Browser_WebkitTest extends BaseTest {
      * @covers Browser_Webkit::borderRadius
      * @dataProvider borderRadiusProvider
      */
-    public function testBorderRadius($cssString, $webkitValue)
+    public function testBorderRadius($cssString, $expectedString)
     {
         $cssString = $this->object->borderRadius($cssString);
-        $this->assertContains($webkitValue, $cssString);
+        $this->assertEquals($expectedString, $cssString);
     }
     
     public function borderRadiusProvider()
     {
-        $strings = array(
-            array("p {border-radius: 5px;}",             "-webkit-border-radius: 5px;"),
-            array("p {border-radius: 5px}",              "-webkit-border-radius: 5px;"),
-            array("p {border-top-right-radius: 5px}",    "-webkit-border-top-right-radius: 5px;"),
-            array("p {border-top-left-radius: 5px}",     "-webkit-border-top-left-radius: 5px;"),
-            array("p {border-bottom-right-radius: 5px}", "-webkit-border-bottom-right-radius: 5px;"),
-            array("p {border-bottom-left-radius: 5px}",  "-webkit-border-bottom-left-radius: 5px;"),
-        );
-        return $strings;
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $radiusCss        = file_get_contents("{$path}/border-radius/webkit/{$file}");
+                $testCssStrings[] = array($css, $radiusCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
     }
 }

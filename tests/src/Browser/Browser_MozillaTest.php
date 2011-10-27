@@ -33,22 +33,27 @@ class Browser_MozillaTest extends BaseTest {
      * @covers Browser_Mozilla::borderRadius
      * @dataProvider borderRadiusProvider
      */
-    public function testBorderRadius($cssString, $mozValue)
+    public function testBorderRadius($cssString, $expectedString)
     {
         $cssString = $this->object->borderRadius($cssString);
-        $this->assertContains($mozValue, $cssString);
+        $this->assertEquals($expectedString, $cssString);
     }
     
     public function borderRadiusProvider()
     {
-        $strings = array(
-            array("p {border-radius: 5px;}",             "-moz-border-radius: 5px;"),
-            array("p {border-radius: 5px}",              "-moz-border-radius: 5px;"),
-            array("p {border-top-right-radius: 5px}",    "-moz-border-radius-topright: 5px;"),
-            array("p {border-top-left-radius: 5px}",     "-moz-border-radius-topleft: 5px;"),
-            array("p {border-bottom-right-radius: 5px}", "-moz-border-radius-bottomright: 5px;"),
-            array("p {border-bottom-left-radius: 5px}",  "-moz-border-radius-bottomleft: 5px;"),
-        );
-        return $strings;
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $radiusCss        = file_get_contents("{$path}/border-radius/mozilla/{$file}");
+                $testCssStrings[] = array($css, $radiusCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
     }
 }

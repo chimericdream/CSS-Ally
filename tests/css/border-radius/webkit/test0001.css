@@ -33,24 +33,30 @@ body {
 
 div.radius-one {
     border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 div.radius-two {
     border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 div.radius-three {
     border-top-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
 }
 
 div.radius-four {
     border-top-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
 }
 
 div.radius-five {
     border-bottom-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
 }
 
 div.radius-six {
     border-bottom-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
 }

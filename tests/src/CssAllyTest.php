@@ -359,7 +359,7 @@ class CssAllyTest extends BaseTest {
     /**
      * @covers CssAlly::__construct
      * @dataProvider constructorWithNonDefaultOptionsProvider
-     * @param array $options 
+     * @param array $options
      */
     public function testConstructorWithNonDefaultOptions(array $options)
     {
@@ -368,7 +368,7 @@ class CssAllyTest extends BaseTest {
             $this->assertEquals($value, $this->object->getOption($option));
         }
     }
-    
+
     public function constructorWithNonDefaultOptionsProvider()
     {
         return array(
@@ -406,7 +406,7 @@ class CssAllyTest extends BaseTest {
             ),
         );
     }
-    
+
     /**
      * @covers CssAlly::__construct
      */
@@ -416,7 +416,7 @@ class CssAllyTest extends BaseTest {
         $this->object = new CssAlly();
         $this->assertEquals(true, true);
     }
-    
+
     /**
      * @depends testConstructorSetsBrowsers
      * @covers CssAlly::getBrowser
@@ -493,14 +493,14 @@ class CssAllyTest extends BaseTest {
      * @covers CssAlly::setBuiltCss
      * @covers CssAlly::getBuiltCss
      * @dataProvider compressProvider
-     * @param type $cssString 
+     * @param type $cssString
      */
     public function testSetBuiltCss($cssString)
     {
         $this->object->setBuiltCss($cssString);
         $this->assertEquals($cssString, $this->object->getBuiltCss());
     }
-    
+
     /**
      * @covers CssAlly::compress
      * @depends testSetBuiltCss
@@ -533,11 +533,11 @@ class CssAllyTest extends BaseTest {
 
         return $testCssStrings;
     }
-    
+
     /**
      * @covers CssAlly::addCssFile
      * @dataProvider addCssFileProvider
-     * @param type $filePath 
+     * @param type $filePath
      */
     public function testAddCssFile($filePath)
     {
@@ -545,7 +545,7 @@ class CssAllyTest extends BaseTest {
         $this->object->addCssFile($filePath);
         $this->assertContains('path/' . $filePath, $this->object->getFileList());
     }
-    
+
     public function addCssFileProvider()
     {
         $path = dirname(__FILE__) . '/../css';
@@ -558,14 +558,14 @@ class CssAllyTest extends BaseTest {
             }
         }
         closedir($dh);
-        
+
         return $fileList;
    }
-   
+
    /**
     * @covers CssAlly::addCssFiles
     * @dataProvider addCssFilesProvider
-    * @param array $files 
+    * @param array $files
     */
    public function testAddCssFiles(array $files)
    {
@@ -575,7 +575,7 @@ class CssAllyTest extends BaseTest {
             $this->assertContains('path/' . $file, $this->object->getFileList());
         }
    }
-   
+
    public function addCssFilesProvider()
    {
         $path = dirname(__FILE__) . '/../css';
@@ -588,7 +588,37 @@ class CssAllyTest extends BaseTest {
             }
         }
         closedir($dh);
-        
+
         return array($fileList);
    }
+
+    /**
+     * @covers CssAlly::borderRadius
+     * @dataProvider borderRadiusProvider
+     * @param type $cssString
+     * @param type $expectedString
+     */
+    public function testBorderRadius($cssString, $expectedString)
+    {
+        $cssString = $this->object->borderRadius($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function borderRadiusProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $compressed       = file_get_contents("{$path}/border-radius/{$file}");
+                $testCssStrings[] = array($css, $compressed);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
 }
