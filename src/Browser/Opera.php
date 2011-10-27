@@ -6,10 +6,15 @@ require_once dirname(__FILE__) . '/../Browser.php';
  *
  * @author Bill
  */
-class Browser_Opera implements Browser {
+class Browser_Opera extends Browser {
     public $targetVersion;
 
-    public function borderRadius($cssString = '')
+    /**
+     * @todo Rewrite this to incorporate the entire syntax of border-radius
+     * @param string $cssString
+     * @return string 
+     */
+    public function border_radius($cssString = '')
     {
         $value      = '(\s*)(\d+\.?\d*)(px|em|%);?';
         $replace    = '${2}${3}${4}';

@@ -30,12 +30,12 @@ class Browser_WebkitTest extends BaseTest {
     }
 
     /**
-     * @covers Browser_Webkit::borderRadius
+     * @covers Browser_Webkit::border_radius
      * @dataProvider borderRadiusProvider
      */
     public function testBorderRadius($cssString, $expectedString)
     {
-        $cssString = $this->object->borderRadius($cssString);
+        $cssString = $this->object->border_radius($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
     
@@ -50,6 +50,34 @@ class Browser_WebkitTest extends BaseTest {
                 $css              = file_get_contents("{$path}/{$file}");
                 $radiusCss        = file_get_contents("{$path}/border-radius/webkit/{$file}");
                 $testCssStrings[] = array($css, $radiusCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Webkit::box_shadow
+     * @dataProvider boxShadowProvider
+     */
+    public function testBoxShadow($cssString, $expectedString)
+    {
+        $cssString = $this->object->box_shadow($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+    
+    public function boxShadowProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $shadowCss        = file_get_contents("{$path}/box-shadow/webkit/{$file}");
+                $testCssStrings[] = array($css, $shadowCss);
             }
         }
         closedir($dh);

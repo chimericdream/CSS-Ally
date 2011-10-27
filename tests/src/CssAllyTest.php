@@ -593,14 +593,14 @@ class CssAllyTest extends BaseTest {
    }
 
     /**
-     * @covers CssAlly::borderRadius
+     * @covers Browser::border_radius
      * @dataProvider borderRadiusProvider
      * @param type $cssString
      * @param type $expectedString
      */
     public function testBorderRadius($cssString, $expectedString)
     {
-        $cssString = $this->object->borderRadius($cssString);
+        $cssString = $this->object->border_radius($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 

@@ -1,0 +1,24 @@
+div.shadow-one {
+    box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+div.shadow-two {
+    box-shadow: 10px 10px;
+    -moz-box-shadow: 10px 10px;
+}
+
+div.shadow-three {
+    box-shadow: 10px 10px 5px #888;
+    -moz-box-shadow: 10px 10px 5px #888;
+}
+
+div.shadow-four {
+    box-shadow: inset 2px 2px 2px 2px black;
+    -moz-box-shadow: inset 2px 2px 2px 2px black;
+}
+
+div.shadow-five {
+    box-shadow: 10px 10px #888, -10px -10px #f4f4f4, 0px 0px 5px 5px #cc6600;
+    -moz-box-shadow: 10px 10px #888, -10px -10px #f4f4f4, 0px 0px 5px 5px #cc6600;
+}

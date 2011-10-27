@@ -30,12 +30,12 @@ class Browser_OperaTest extends BaseTest {
     }
 
     /**
-     * @covers Browser_Opera::borderRadius
+     * @covers Browser_Opera::border_radius
      * @dataProvider borderRadiusProvider
      */
     public function testBorderRadius($cssString, $expectedString)
     {
-        $cssString = $this->object->borderRadius($cssString);
+        $cssString = $this->object->border_radius($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
     

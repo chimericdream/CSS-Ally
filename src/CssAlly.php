@@ -13,6 +13,11 @@ class CssAlly {
         'webkit'    => true,
     );
 
+    private $_rules = array(
+        'border-radius' => true,
+        'box-shadow'    => true,
+    );
+    
     private $_options = array();
 
     private $_defaultOptions = array(
@@ -224,16 +229,25 @@ class CssAlly {
 
     public function runCssRules()
     {
-        $this->borderRadius($this->_builtCss);
-    } //end _runCssRules
-
-    public function borderRadius($cssString = '')
-    {
-        foreach ($this->_browsers as $browser) {
-            if ($browser instanceof Browser) {
-                $cssString = $browser->borderRadius($cssString);
+        foreach ($this->_rules as $rule => $run) {
+            if ($run) {
+                $methodName = str_replace('-', '_', $rule);
+                $this->$methodName();
             }
         }
-        return $cssString;
-    } //end borderRadius
+        $this->border_radius($this->_builtCss);
+    } //end _runCssRules
+
+    public function __call($method, $arguments)
+    {
+        if (method_exists('Browser', $method)) {
+            $cssString = $arguments[0];
+            foreach ($this->_browsers as $browser) {
+                if ($browser instanceof Browser) {
+                    $cssString = $browser->$method($cssString);
+                }
+            }
+            return $cssString;
+        }
+    } //end __call
 } //end class CssAlly

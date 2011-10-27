@@ -1,0 +1,56 @@
+div#test {
+    background-color: #ffc;
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    border: 1px solid #dedede;
+    color: #000;
+    margin: 0 auto;
+    min-height: 20px;
+    padding: 5px;
+    text-align: center;
+    width: 938px;
+}
+
+div#test h1 {
+    background-position: top right;
+    background-repeat: no-repeat;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+div#test a {
+    color: #000 !important;
+    font-weight: bold !important;
+    text-decoration: underline !important;
+}
+
+body {
+    background-attachment: scroll;
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding-top: 150px;
+}
+
+div.radius-one {
+    border-radius: 5px;
+}
+
+div.radius-two {
+    border-radius: 5px;
+}
+
+div.radius-three {
+    border-top-right-radius: 5px;
+}
+
+div.radius-four {
+    border-top-left-radius: 5px;
+}
+
+div.radius-five {
+    border-bottom-right-radius: 5px;
+}
+
+div.radius-six {
+    border-bottom-left-radius: 5px;
+}
