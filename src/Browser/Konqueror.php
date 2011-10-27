@@ -11,5 +11,6 @@ class Browser_Konqueror implements Browser {
 
     public function borderRadius($cssString = '')
     {
+        return $cssString;
     }
 } //end class Browser_Konqueror

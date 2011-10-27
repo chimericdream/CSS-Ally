@@ -30,42 +30,42 @@ class CssAlly {
     {
         return $this->_builtCss;
     }
-    
+
     public function setBuiltCss($css)
     {
         $this->_builtCss = $css;
     }
-    
+
     public function getCacheFileName()
     {
         return $this->_cachefile;
     }
-    
+
     public function getFileList()
     {
         return $this->_files;
     }
-    
+
     public function getOptions()
     {
         return $this->_options;
     }
-    
+
     public function getBrowsers()
     {
         return $this->_browsers;
     }
-    
+
     public function getOption($option)
     {
         return isset($this->_options[$option]) ? $this->_options[$option] : null;
     }
-    
+
     public function setOption($option, $value)
     {
         $this->_options[$option] = $value;
     }
-    
+
     public function __construct(array $browsers = array(), array $options = array())
     {
         if (!empty($browsers)) {
@@ -141,7 +141,7 @@ class CssAlly {
     {
         $this->_builtCss = file_get_contents($this->_cachefile);
     } //end _getCssFromCache
-    
+
     /**
      * Writes the cache into file
      */
@@ -226,8 +226,14 @@ class CssAlly {
     {
         $this->borderRadius($this->_builtCss);
     } //end _runCssRules
-    
+
     public function borderRadius($cssString = '')
     {
+        foreach ($this->_browsers as $browser) {
+            if ($browser instanceof Browser) {
+                $cssString = $browser->borderRadius($cssString);
+            }
+        }
+        return $cssString;
     } //end borderRadius
 } //end class CssAlly
