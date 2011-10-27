@@ -9,41 +9,49 @@ require_once dirname(__FILE__) . '/../Browser.php';
 class Browser_Opera extends Browser {
     public $targetVersion;
 
-    /**
-     * @todo Rewrite this to incorporate the entire syntax of border-radius
-     * @param string $cssString
-     * @return string 
-     */
     public function border_radius($cssString = '')
     {
-        $value      = '(\s*)(\d+\.?\d*)(px|em|%);?';
-        $replace    = '${2}${3}${4}';
+        $length     = $this->length_regex();
+        $shorthand  = array(
+            'value'   => '(\s*)((\s*' . $length . '){1,4}(\s*\/\s*(\s*' . $length . '){1,4})?);?',
+            'replace' => '${2}${3}',
+        );
+        $longhand   = array(
+            'value'   => '(\s*)(' . $length . '(\s\s*' . $length . ')?);?',
+            'replace' => '${2}${3}',
+        );
+
         $properties = array(
             'border-radius'              => array(
+                'value'   => $shorthand['value'],
+                'replace' => $shorthand['replace'],
                 'prefix' => '-o-border-radius',
-                'format' => '${2}${3}${4}',
             ),
             'border-top-right-radius'    => array(
+                'value'   => $longhand['value'],
+                'replace' => $longhand['replace'],
                 'prefix' => '-o-border-top-right-radius',
-                'format' => '${2}${3}${4}',
             ),
             'border-top-left-radius'     => array(
+                'value'   => $longhand['value'],
+                'replace' => $longhand['replace'],
                 'prefix' => '-o-border-top-left-radius',
-                'format' => '${2}${3}${4}',
             ),
             'border-bottom-right-radius' => array(
+                'value'   => $longhand['value'],
+                'replace' => $longhand['replace'],
                 'prefix' => '-o-border-bottom-right-radius',
-                'format' => '${2}${3}${4}',
             ),
             'border-bottom-left-radius'  => array(
+                'value'   => $longhand['value'],
+                'replace' => $longhand['replace'],
                 'prefix' => '-o-border-bottom-left-radius',
-                'format' => '${2}${3}${4}',
             ),
         );
         
         foreach ($properties as $standard => $opera) {
-            $search    = "/(\s*)(?<!-){$standard}:{$value}/";
-            $rep       = '${1}' . "{$opera['prefix']}:{$opera['format']};" . '${1}' . "{$standard}:{$replace};";
+            $search    = "/(\s*)(?<!-){$standard}:{$opera['value']}/";
+            $rep       = '${1}' . "{$opera['prefix']}:{$opera['replace']};" . '${1}' . "{$standard}:{$opera['replace']};";
             $cssString = preg_replace($search, $rep, $cssString);
         }
         
