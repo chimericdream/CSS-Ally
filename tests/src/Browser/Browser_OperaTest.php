@@ -30,34 +30,6 @@ class Browser_OperaTest extends BaseTest {
     }
 
     /**
-     * @covers Browser_Opera::border_radius
-     * @dataProvider borderRadiusProvider
-     */
-    public function testBorderRadius($cssString, $expectedString)
-    {
-        $cssString = $this->object->border_radius($cssString);
-        $this->assertEquals($expectedString, $cssString);
-    }
-    
-    public function borderRadiusProvider()
-    {
-        $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
-
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $radiusCss        = file_get_contents("{$path}/border-radius/opera/{$file}");
-                $testCssStrings[] = array($css, $radiusCss);
-            }
-        }
-        closedir($dh);
-
-        return $testCssStrings;
-    }
-
-    /**
      * @covers Browser_Opera::background_size
      * @dataProvider backgroundSizeProvider
      */
@@ -78,6 +50,34 @@ class Browser_OperaTest extends BaseTest {
                 $css              = file_get_contents("{$path}/{$file}");
                 $shadowCss        = file_get_contents("{$path}/background-size/opera/{$file}");
                 $testCssStrings[] = array($css, $shadowCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Opera::border_radius
+     * @dataProvider borderRadiusProvider
+     */
+    public function testBorderRadius($cssString, $expectedString)
+    {
+        $cssString = $this->object->border_radius($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+    
+    public function borderRadiusProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $radiusCss        = file_get_contents("{$path}/border-radius/opera/{$file}");
+                $testCssStrings[] = array($css, $radiusCss);
             }
         }
         closedir($dh);
