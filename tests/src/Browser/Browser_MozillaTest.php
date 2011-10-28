@@ -26,7 +26,7 @@ class Browser_MozillaTest extends BaseTest {
      * This method is called after a test is executed.
      */
     protected function tearDown() {
-        
+
     }
 
     /**
@@ -38,7 +38,7 @@ class Browser_MozillaTest extends BaseTest {
         $cssString = $this->object->background_size($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
-    
+
     public function backgroundSizeProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
@@ -66,7 +66,7 @@ class Browser_MozillaTest extends BaseTest {
         $cssString = $this->object->border_radius($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
-    
+
     public function borderRadiusProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
@@ -94,7 +94,7 @@ class Browser_MozillaTest extends BaseTest {
         $cssString = $this->object->box_shadow($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
-    
+
     public function boxShadowProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
@@ -122,7 +122,7 @@ class Browser_MozillaTest extends BaseTest {
         $cssString = $this->object->column_count($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
-    
+
     public function columnCountProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
@@ -150,7 +150,7 @@ class Browser_MozillaTest extends BaseTest {
         $cssString = $this->object->column_width($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
-    
+
     public function columnWidthProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
