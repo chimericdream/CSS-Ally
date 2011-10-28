@@ -103,4 +103,34 @@ class Browser_Mozilla extends Browser {
 
         return $cssString;
     } //end box_shadow
+
+    public function column_count($cssString = '')
+    {
+        $search    = '/(\s*)column-count:(\s*)(auto|\d+);?/';
+        $replace   = '${1}-moz-column-count:${2}${3};${1}column-count:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end column_count
+
+    public function column_gap($cssString = '')
+    {
+        return $cssString;
+    } //end column_gap
+
+    public function column_rule($cssString = '')
+    {
+        return $cssString;
+    } //end column_rule
+
+    public function column_width($cssString = '')
+    {
+        $length     = $this->length_regex();
+
+        $search    = '/(\s*)column-width:(\s*)(auto|' . $length . ');?/';
+        $replace   = '${1}-moz-column-width:${2}${3};${1}column-width:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end column_width
 } //end class Browser_Mozilla

@@ -1,0 +1,9 @@
+div.colcount-one {
+    -moz-column-count: auto;
+    column-count: auto;
+}
+
+div.colcount-two {
+    -moz-column-count: 5;
+    column-count: 5;
+}

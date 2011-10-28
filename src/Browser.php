@@ -53,7 +53,7 @@ abstract class Browser {
     /**
      * Syntax:
      * background-size: <bg-size> [ , <bg-size> ]*
-     * 
+     *
      * <bg-size> = [ <length> | <percentage> | auto ]{1,2} | cover | contain
      */
     public function background_size($cssString = '')
@@ -81,4 +81,37 @@ abstract class Browser {
     {
         return $cssString;
     } //end box_shadow
+
+    /**
+     * Syntax:
+     * column-count: auto | <integer>
+     */
+    public function column_count($cssString = '')
+    {
+        return $cssString;
+    } //end column_count
+
+    public function column_gap($cssString = '')
+    {
+        return $cssString;
+    } //end column_gap
+
+    public function column_rule($cssString = '')
+    {
+        return $cssString;
+    } //end column_rule
+
+    /**
+     * Syntax:
+     * column-count: auto | <length>
+     */
+    public function column_width($cssString = '')
+    {
+        return $cssString;
+    } //end column_width
+
+    public function columns($cssString = '')
+    {
+        return $cssString;
+    } //end columns
 } //end abstract class Browser

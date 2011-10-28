@@ -112,4 +112,60 @@ class Browser_MozillaTest extends BaseTest {
 
         return $testCssStrings;
     }
+
+    /**
+     * @covers Browser_Mozilla::column_count
+     * @dataProvider columnCountProvider
+     */
+    public function testColumnCount($cssString, $expectedString)
+    {
+        $cssString = $this->object->column_count($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+    
+    public function columnCountProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/column-count/mozilla/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Mozilla::column_width
+     * @dataProvider columnWidthProvider
+     */
+    public function testColumnWidth($cssString, $expectedString)
+    {
+        $cssString = $this->object->column_width($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+    
+    public function columnWidthProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/column-width/mozilla/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
 }

@@ -1,0 +1,14 @@
+div.colwidth-one {
+    -moz-column-width: auto;
+    column-width: auto;
+}
+
+div.colwidth-two {
+    -moz-column-width: 5px;
+    column-width: 5px;
+}
+
+div.colwidth-four {
+    -moz-column-width: 5em;
+    column-width: 5em;
+}
