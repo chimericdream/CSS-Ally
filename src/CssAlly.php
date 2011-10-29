@@ -35,9 +35,32 @@
 require_once dirname(__FILE__) . '/Browser.php';
 
 /**
- * @author Bill
+ * Core class for CssAlly
+ * 
+ * This is the primary class for the CssAlly application. It contains the
+ * functionality to load CSS files, parse them for CSS3 rules, and cache and
+ * output the result. Which browser rules are used may be defined when the class
+ * is instantiated or at any other time. In addition, specific rules may be
+ * turned explicitly on or off (all are on by default).
+ * 
+ * Example:
+ * <code>
+ * $css = new CssAlly();
+ * $css->setOption('cssDir', '/path/to/css/folder');
+ * $files = array('file1.css', 'file2.css', 'file3.css');
+ * $css->addCssFiles($files);
+ * $css->generate()->output();
+ * </code>
+ *
+ * @category   CssAlly
+ * @package    CssAlly
+ * @author     Bill Parrott <bill@cssally.com>
+ * @copyright  2011 Bill Parrott
+ * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link       http://cssally.com/
  */
-class CssAlly {
+class CssAlly
+{
     private $_browsers = array(
         'explorer'  => true,
         'konqueror' => null,
@@ -165,6 +188,20 @@ class CssAlly {
         }
     } //end compress
 
+    public function generate()
+    {
+        $this->generateFileName();
+        if (!$this->checkCache()) {
+            $this->buildCssString();
+            $this->runCssRules();
+            $this->compress();
+            $this->writeCache();
+        } else {
+            $this->getCssFromCache();
+        }
+        return $this;
+    } //end generate
+
     public function generateFileName()
     {
         $this->_cachefile = md5(implode('', $this->_files)) . '.css';
@@ -216,20 +253,6 @@ class CssAlly {
         echo $this->_builtCss;
         exit;
     } //end output
-
-    public function run()
-    {
-        $this->generateFileName();
-        if (!$this->checkCache()) {
-            $this->buildCssString();
-            $this->runCssRules();
-            $this->compress();
-            $this->writeCache();
-        } else {
-            $this->getCssFromCache();
-        }
-        $this->output();
-    } //end run
 
     public function runCssRules()
     {

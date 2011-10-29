@@ -36,11 +36,21 @@
 require_once dirname(__FILE__) . '/../Browser.php';
 
 /**
- * Description of Browser_Mozilla
+ * Mozilla CSS rules
+ * 
+ * This class contains all of the Mozilla-prefixed versions of CSS rules.
  *
- * @author Bill
+ * @category   CssAlly
+ * @package    CssAlly
+ * @subpackage CssAlly_Browser
+ * @author     Bill Parrott <bill@cssally.com>
+ * @uses       Browser
+ * @copyright  2011 Bill Parrott
+ * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link       http://cssally.com/
  */
-class Browser_Mozilla extends Browser {
+class Browser_Mozilla extends Browser
+{
     public function background_size($cssString = '')
     {
         $length     = $this->length_regex();

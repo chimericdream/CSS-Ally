@@ -54,11 +54,27 @@ require_once dirname(__FILE__) . '/Browser/Opera.php';
 require_once dirname(__FILE__) . '/Browser/Webkit.php';
 
 /**
- * Description of Browser
+ * Base class for browser CSS rules
+ * 
+ * This class contains NOP methods for all CSS rules supported by CssAlly. Any
+ * browsers which have vendor-prefixed versions of these rules will override
+ * the appropriate method(s). For all other rules, this class simply returns the
+ * CSS string as it was passed into the method call.
+ * 
+ * In addition, this class holds common regular expressions used in many rules,
+ * such as validating a color, length (px, em, etc), or border-type properties.
  *
- * @author Bill
+ * @abstract
+ * @category   CssAlly
+ * @package    CssAlly
+ * @subpackage CssAlly_Browser
+ * @author     Bill Parrott <bill@cssally.com>
+ * @copyright  2011 Bill Parrott
+ * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link       http://cssally.com/
  */
-abstract class Browser {
+abstract class Browser
+{
     const n0_255_regex = '([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
 
     public function color_regex()
