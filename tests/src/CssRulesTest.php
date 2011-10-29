@@ -89,7 +89,7 @@ class CssRulesTest extends BaseTest {
     }
 
     /**
-     * @covers Browser_Webkit::box_shadow
+     * @covers Browser::box_shadow
      * @dataProvider boxShadowProvider
      */
     public function testBoxShadow($cssString, $expectedString)
@@ -117,7 +117,7 @@ class CssRulesTest extends BaseTest {
     }
 
     /**
-     * @covers Browser_Webkit::column_count
+     * @covers Browser::column_count
      * @dataProvider columnCountProvider
      */
     public function testColumnCount($cssString, $expectedString)
@@ -145,7 +145,7 @@ class CssRulesTest extends BaseTest {
     }
 
     /**
-     * @covers Browser_Webkit::column_gap
+     * @covers Browser::column_gap
      * @dataProvider columnGapProvider
      */
     public function testColumnGap($cssString, $expectedString)
@@ -173,7 +173,7 @@ class CssRulesTest extends BaseTest {
     }
 
     /**
-     * @covers Browser_Webkit::column_rule
+     * @covers Browser::column_rule
      * @dataProvider columnRuleProvider
      */
     public function testColumnRule($cssString, $expectedString)
@@ -201,7 +201,7 @@ class CssRulesTest extends BaseTest {
     }
 
     /**
-     * @covers Browser_Webkit::column_span
+     * @covers Browser::column_span
      * @dataProvider columnSpanProvider
      */
     public function testColumnSpan($cssString, $expectedString)
@@ -229,7 +229,7 @@ class CssRulesTest extends BaseTest {
     }
 
     /**
-     * @covers Browser_Webkit::column_width
+     * @covers Browser::column_width
      * @dataProvider columnWidthProvider
      */
     public function testColumnWidth($cssString, $expectedString)
