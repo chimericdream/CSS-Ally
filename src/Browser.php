@@ -1,8 +1,54 @@
 <?php
+/**
+ * CssAlly
+ *
+ * LICENSE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author     Bill Parrott <bill@cssally.com>
+ * @link       http://cssally.com/
+ * @category   CssAlly
+ * @package    CssAlly
+ * @subpackage CssAlly_Browser
+ * @copyright  2011 Bill Parrott
+ * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+/**
+ * @see Browser_Explorer
+ */
 require_once dirname(__FILE__) . '/Browser/Explorer.php';
+
+/**
+ * @see Browser_Konqueror
+ */
 require_once dirname(__FILE__) . '/Browser/Konqueror.php';
+
+/**
+ * @see Browser_Mozilla
+ */
 require_once dirname(__FILE__) . '/Browser/Mozilla.php';
+
+/**
+ * @see Browser_Opera
+ */
 require_once dirname(__FILE__) . '/Browser/Opera.php';
+
+/**
+ * @see Browser_Webkit
+ */
 require_once dirname(__FILE__) . '/Browser/Webkit.php';
 
 /**
@@ -58,17 +104,17 @@ abstract class Browser {
     public function border_style_regex()
     {
         $border = '(none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset)';
-        
+
         return $border;
     } //end border_style_regex
 
     public function border_width_regex()
     {
         $border = '(thin|medium|thin|' . $this->length_regex() . ')';
-        
+
         return $border;
     } //end border_width_regex
-    
+
     /**
      * Syntax:
      * background-size: <bg-size> [ , <bg-size> ]*
