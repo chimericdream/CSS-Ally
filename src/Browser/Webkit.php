@@ -10,7 +10,8 @@ class Browser_Webkit extends Browser {
     public function background_size($cssString = '')
     {
         $length     = $this->length_regex();
-        $bgsize     = '((\s*(' . $length . '|auto)){1,2}|\s*cover|\s*contain)';
+        $percent    = $this->percent_regex();
+        $bgsize     = '((\s*(' . $length . '|' . $percent . '|auto)){1,2}|\s*cover|\s*contain)';
         $value      = '(\s*)(' . $bgsize . '(,\s*' . $bgsize . ')*);?';
         $replace    = '${2}${3}';
         $properties = array(
@@ -34,12 +35,13 @@ class Browser_Webkit extends Browser {
     public function border_radius($cssString = '')
     {
         $length     = $this->length_regex();
+        $percent    = $this->percent_regex();
         $shorthand  = array(
-            'value'   => '(\s*)((\s*' . $length . '){1,4}(\s*\/\s*(\s*' . $length . '){1,4})?);?',
+            'value'   => '(\s*)((\s*(' . $length . '|' . $percent . ')){1,4}(\s*\/\s*(\s*(' . $length . '|' . $percent . ')){1,4})?);?',
             'replace' => '${2}${3}',
         );
         $longhand   = array(
-            'value'   => '(\s*)(' . $length . '(\s\s*' . $length . ')?);?',
+            'value'   => '(\s*)((' . $length . '|' . $percent . ')(\s\s*(' . $length . '|' . $percent . '))?);?',
             'replace' => '${2}${3}',
         );
 

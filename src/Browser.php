@@ -45,9 +45,16 @@ abstract class Browser {
 
     public function length_regex()
     {
-        $lengths = '(\-?\d+\.?\d*)(px|em|%)';
+        $lengths = '(\-?\d+\.?\d*)(px|em)';
 
         return $lengths;
+    }
+
+    public function percent_regex()
+    {
+        $percents = '(\-?\d+\.?\d*)%';
+
+        return $percents;
     }
 
     /**
