@@ -53,8 +53,8 @@ class Browser_Webkit extends Browser
 {
     public function background_size($cssString = '')
     {
-        $length     = $this->length_regex();
-        $percent    = $this->percent_regex();
+        $length     = $this->lengthRegex();
+        $percent    = $this->percentRegex();
         $bgsize     = '((\s*(' . $length . '|' . $percent . '|auto)){1,2}|\s*cover|\s*contain)';
         $value      = '(\s*)(' . $bgsize . '(,\s*' . $bgsize . ')*);?';
         $replace    = '${2}${3}';
@@ -77,8 +77,8 @@ class Browser_Webkit extends Browser
 
     public function border_radius($cssString = '')
     {
-        $length     = $this->length_regex();
-        $percent    = $this->percent_regex();
+        $length     = $this->lengthRegex();
+        $percent    = $this->percentRegex();
         $shorthand  = array(
             'value'   => '(\s*)((\s*(' . $length . '|' . $percent . ')){1,4}(\s*\/\s*(\s*(' . $length . '|' . $percent . ')){1,4})?);?',
             'replace' => '${2}${3}',
@@ -127,8 +127,8 @@ class Browser_Webkit extends Browser
 
     public function box_shadow($cssString = '')
     {
-        $color      = $this->color_regex();
-        $length     = $this->length_regex();
+        $color      = $this->colorRegex();
+        $length     = $this->lengthRegex();
         $shadow     = '(inset)?(\s*' . $length . '){2,4}(\s\s*' . $color . ')?';
         $value      = '(\s*)(none|' . $shadow . '(,\s*' . $shadow . ')*);?';
         $replace    = '${2}${3}';
@@ -159,7 +159,7 @@ class Browser_Webkit extends Browser
 
     public function column_gap($cssString = '')
     {
-        $length    = $this->length_regex();
+        $length    = $this->lengthRegex();
         $search    = '/(\s*)(?<!-)column-gap:(\s*)(normal|' . $length . ');?/';
         $replace   = '${1}-webkit-column-gap:${2}${3};${1}column-gap:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -169,9 +169,9 @@ class Browser_Webkit extends Browser
 
     public function column_rule($cssString = '')
     {
-        $width      = $this->border_width_regex();
-        $style      = $this->border_style_regex();
-        $color      = $this->color_regex();
+        $width      = $this->borderWidthRegex();
+        $style      = $this->borderStyleRegex();
+        $color      = $this->colorRegex();
 
         $properties = array(
             'column-rule'              => array(
@@ -217,7 +217,7 @@ class Browser_Webkit extends Browser
 
     public function column_width($cssString = '')
     {
-        $length     = $this->length_regex();
+        $length     = $this->lengthRegex();
 
         $search    = '/(\s*)(?<!-)column-width:(\s*)(auto|' . $length . ');?/';
         $replace   = '${1}-webkit-column-width:${2}${3};${1}column-width:${2}${3};';

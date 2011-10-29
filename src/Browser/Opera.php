@@ -53,8 +53,8 @@ class Browser_Opera extends Browser
 {
     public function background_size($cssString = '')
     {
-        $length     = $this->length_regex();
-        $percent    = $this->percent_regex();
+        $length     = $this->lengthRegex();
+        $percent    = $this->percentRegex();
         $bgsize     = '((\s*(' . $length . '|' . $percent . '|auto)){1,2}|\s*cover|\s*contain)';
         $value      = '(\s*)(' . $bgsize . '(,\s*' . $bgsize . ')*);?';
         $replace    = '${2}${3}';
@@ -77,8 +77,8 @@ class Browser_Opera extends Browser
 
     public function border_radius($cssString = '')
     {
-        $length     = $this->length_regex();
-        $percent    = $this->percent_regex();
+        $length     = $this->lengthRegex();
+        $percent    = $this->percentRegex();
         $shorthand  = array(
             'value'   => '(\s*)((\s*(' . $length . '|' . $percent . ')){1,4}(\s*\/\s*(\s*(' . $length . '|' . $percent . ')){1,4})?);?',
             'replace' => '${2}${3}',

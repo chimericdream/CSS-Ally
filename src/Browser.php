@@ -75,9 +75,15 @@ require_once dirname(__FILE__) . '/Browser/Webkit.php';
  */
 abstract class Browser
 {
-    const n0_255_regex = '([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
+    const N0_255_REGEX = '([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
 
-    public function color_regex()
+    /**
+     * Generate a string containing a regular expression for valid color choices
+     * in CSS
+     * 
+     * @return string 
+     */
+    public function colorRegex()
     {
         $colors = '('
                     . '#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})\b|'
@@ -98,46 +104,82 @@ abstract class Browser
                     . 'teal|'
                     . 'white|'
                     . 'yellow|'
-                    . 'rgb\(\s*' . self::n0_255_regex . '\s*,\s*' . self::n0_255_regex . '\s*,\s*' . self::n0_255_regex . '\s*\)|'
-                    . 'rgb\(\s*(\d{1,2}%|100%)\s*,\s*(\d{1,2}%|100%)\s*,\s*(\d{1,2}%|100%)\s*\)'
+                    . 'rgb\(' // Hex value
+                        . '\s*' . self::N0_255_REGEX . '\s*,'
+                        . '\s*' . self::N0_255_REGEX . '\s*,'
+                        . '\s*' . self::N0_255_REGEX . '\s*'
+                        . '\)|'
+                    . 'rgb\(' // Percentage
+                        . '\s*(\d{1,2}%|100%)\s*,'
+                        . '\s*(\d{1,2}%|100%)\s*,'
+                        . '\s*(\d{1,2}%|100%)\s*'
+                        . '\)'
                 . ')';
 
         return $colors;
-    } //end color_regex
+    } //end colorRegex
 
-    public function length_regex()
+    /**
+     * Generate a string containing a regular expression for valid length values
+     * in CSS
+     * 
+     * @return string 
+     */
+    public function lengthRegex()
     {
         $length = '(\-?\d+\.?\d*)(px|em)';
 
         return $length;
-    } //end length_regex
+    } //end lengthRegex
 
-    public function percent_regex()
+    /**
+     * Generate a string containing a regular expression for valid percentages
+     * 
+     * @return string 
+     */
+    public function percentRegex()
     {
         $percent = '((\-?\d+\.?\d*)%)';
 
         return $percent;
-    } //end percent_regex
+    } //end percentRegex
 
-    public function border_style_regex()
+    /**
+     * Generate a string containing a regular expression for valid border-style
+     * values in CSS
+     * 
+     * @return string 
+     */
+    public function borderStyleRegex()
     {
-        $border = '(none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset)';
+        $border = '(none|hidden|dotted|dashed|solid|'
+                . 'double|groove|ridge|inset|outset)';
 
         return $border;
-    } //end border_style_regex
+    } //end borderStyleRegex
 
-    public function border_width_regex()
+    /**
+     * Generate a string containing a regular expression for valid border-width
+     * values in CSS
+     * 
+     * @return string 
+     */
+    public function borderWidthRegex()
     {
-        $border = '(thin|medium|thin|' . $this->length_regex() . ')';
+        $border = '(thin|medium|thin|' . $this->lengthRegex() . ')';
 
         return $border;
-    } //end border_width_regex
+    } //end borderWidthRegex
 
     /**
      * Syntax:
-     * background-size: <bg-size> [ , <bg-size> ]*
+     * background-size: <bg-size> [, <bg-size>]*
      *
-     * <bg-size> = [ <length> | <percentage> | auto ]{1,2} | cover | contain
+     * <bg-size> = [<length>|<percentage>|auto]{1,2} | cover | contain
+     *
+     * @param string $cssString The CSS to be parsed
+     * 
+     * @return string The parsed output
      */
     public function background_size($cssString = '')
     {
@@ -146,8 +188,12 @@ abstract class Browser
 
     /**
      * Syntax:
-     * border-*-*-radius: [ <length> | <%> ] [ <length> | <%> ]?
-     * border-radius: [ <length> | <percentage> ]{1,4} [ / [ <length> | <percentage> ]{1,4} ]?
+     * border-*-*-radius: [<length>|<%>] [<length>|<%>]?
+     * border-radius: [<length>|<percentage>]{1,4} [ / [<length>|<percentage>]{1,4}]?
+     *
+     * @param string $cssString The CSS to be parsed
+     * 
+     * @return string The parsed output
      */
     public function border_radius($cssString = '')
     {
@@ -156,9 +202,13 @@ abstract class Browser
 
     /**
      * Syntax:
-     * box-shadow: none | <shadow> [ , <shadow> ]*
+     * box-shadow: none | <shadow> [, <shadow>]*
      *
-     * <shadow> = inset? && [ <length>{2,4} && <color>? ]
+     * <shadow> = inset? && [<length>{2,4} && <color>?]
+     *
+     * @param string $cssString The CSS to be parsed
+     * 
+     * @return string The parsed output
      */
     public function box_shadow($cssString = '')
     {
@@ -168,6 +218,10 @@ abstract class Browser
     /**
      * Syntax:
      * column-count: <integer> | auto
+     *
+     * @param string $cssString The CSS to be parsed
+     * 
+     * @return string The parsed output
      */
     public function column_count($cssString = '')
     {
@@ -177,6 +231,10 @@ abstract class Browser
     /**
      * Syntax:
      * column-gap: <length> | normal
+     *
+     * @param string $cssString The CSS to be parsed
+     * 
+     * @return string The parsed output
      */
     public function column_gap($cssString = '')
     {
@@ -185,10 +243,14 @@ abstract class Browser
 
     /**
      * Syntax:
-     * column-rule: <column-rule-width> <column-rule-style> (<column-rule-color> | transparent)
-     * column-rule-color: (<color> | transparent)
+     * column-rule: <column-rule-width> <column-rule-style> [<column-rule-color>|transparent]
+     * column-rule-color: [<color>|transparent]
      * column-rule-style: <border-style>
      * column-rule-width: <border-width>
+     *
+     * @param string $cssString The CSS to be parsed
+     * 
+     * @return string The parsed output
      */
     public function column_rule($cssString = '')
     {
@@ -198,6 +260,10 @@ abstract class Browser
     /**
      * Syntax:
      * column-span: none | all
+     *
+     * @param string $cssString The CSS to be parsed
+     * 
+     * @return string The parsed output
      */
     public function column_span($cssString = '')
     {
@@ -207,6 +273,10 @@ abstract class Browser
     /**
      * Syntax:
      * column-width: <length> | auto
+     *
+     * @param string $cssString The CSS to be parsed
+     * 
+     * @return string The parsed output
      */
     public function column_width($cssString = '')
     {
