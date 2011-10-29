@@ -1,0 +1,403 @@
+
+FILE: E:\Web\cssally\project\tests\src\BaseTest.php
+--------------------------------------------------------------------------------
+FOUND 12 ERROR(S) AFFECTING 12 LINE(S)
+--------------------------------------------------------------------------------
+ 24 | ERROR | @category tag comment indented incorrectly; expected 2 spaces but
+    |       | found 3
+ 25 | ERROR | @package tag comment indented incorrectly; expected 3 spaces but
+    |       | found 4
+ 26 | ERROR | @author tag comment indented incorrectly; expected 4 spaces but
+    |       | found 5
+ 27 | ERROR | @copyright tag comment indented incorrectly; expected 1 spaces
+    |       | but found 2
+ 28 | ERROR | @license tag comment indented incorrectly; expected 3 spaces but
+    |       | found 4
+ 29 | ERROR | @link tag comment indented incorrectly; expected 6 spaces but
+    |       | found 7
+ 37 | ERROR | @category tag comment indented incorrectly; expected 2 spaces but
+    |       | found 3
+ 38 | ERROR | @package tag comment indented incorrectly; expected 3 spaces but
+    |       | found 4
+ 39 | ERROR | @author tag comment indented incorrectly; expected 4 spaces but
+    |       | found 5
+ 41 | ERROR | @copyright tag comment indented incorrectly; expected 1 spaces
+    |       | but found 2
+ 42 | ERROR | @license tag comment indented incorrectly; expected 3 spaces but
+    |       | found 4
+ 43 | ERROR | @link tag comment indented incorrectly; expected 6 spaces but
+    |       | found 7
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\BrowserTest.php
+--------------------------------------------------------------------------------
+FOUND 49 ERROR(S) AND 4 WARNING(S) AFFECTING 43 LINE(S)
+--------------------------------------------------------------------------------
+  55 | ERROR   | The @see tag is in the wrong order; the tag follows @link
+  70 | ERROR   | Missing @return tag in function comment
+  71 | ERROR   | Opening brace should be on a new line
+  78 | ERROR   | Missing @return tag in function comment
+  79 | ERROR   | Opening brace should be on a new line
+  84 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  86 | ERROR   | Parameters must appear immediately after the comment
+  86 | ERROR   | Missing comment for param "$cssString" at position 1
+  87 | ERROR   | The comments for parameters $cssString (1) and $expectedString
+     |         | (2) do not align
+  87 | ERROR   | Missing comment for param "$expectedString" at position 2
+  88 | ERROR   | Missing @return tag in function comment
+  95 | ERROR   | Missing function doc comment
+ 104 | WARNING | Line exceeds 85 characters; contains 89 characters
+ 114 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 116 | ERROR   | Parameters must appear immediately after the comment
+ 116 | ERROR   | Missing comment for param "$cssString" at position 1
+ 117 | ERROR   | The comments for parameters $cssString (1) and $expectedString
+     |         | (2) do not align
+ 117 | ERROR   | Missing comment for param "$expectedString" at position 2
+ 118 | ERROR   | Missing @return tag in function comment
+ 125 | ERROR   | Missing function doc comment
+ 134 | WARNING | Line exceeds 85 characters; contains 87 characters
+ 143 | ERROR   | Doc comment for "$cssString" missing
+ 143 | ERROR   | Doc comment for "$expectedString" missing
+ 144 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 146 | ERROR   | Missing @return tag in function comment
+ 153 | ERROR   | Missing function doc comment
+ 171 | ERROR   | Doc comment for "$cssString" missing
+ 171 | ERROR   | Doc comment for "$expectedString" missing
+ 172 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 174 | ERROR   | Missing @return tag in function comment
+ 181 | ERROR   | Missing function doc comment
+ 190 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 199 | ERROR   | Doc comment for "$cssString" missing
+ 199 | ERROR   | Doc comment for "$expectedString" missing
+ 200 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 202 | ERROR   | Missing @return tag in function comment
+ 209 | ERROR   | Missing function doc comment
+ 227 | ERROR   | Doc comment for "$cssString" missing
+ 227 | ERROR   | Doc comment for "$expectedString" missing
+ 228 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 230 | ERROR   | Missing @return tag in function comment
+ 237 | ERROR   | Missing function doc comment
+ 255 | ERROR   | Doc comment for "$cssString" missing
+ 255 | ERROR   | Doc comment for "$expectedString" missing
+ 256 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 258 | ERROR   | Missing @return tag in function comment
+ 265 | ERROR   | Missing function doc comment
+ 283 | ERROR   | Doc comment for "$cssString" missing
+ 283 | ERROR   | Doc comment for "$expectedString" missing
+ 284 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 286 | ERROR   | Missing @return tag in function comment
+ 293 | ERROR   | Missing function doc comment
+ 302 | WARNING | Line exceeds 85 characters; contains 86 characters
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\Browser\Browser_ExplorerTest.php
+--------------------------------------------------------------------------------
+FOUND 5 ERROR(S) AFFECTING 5 LINE(S)
+--------------------------------------------------------------------------------
+ 54 | ERROR | The @see tag is in the wrong order; the tag follows @link
+ 69 | ERROR | Missing @return tag in function comment
+ 70 | ERROR | Opening brace should be on a new line
+ 77 | ERROR | Missing @return tag in function comment
+ 78 | ERROR | Opening brace should be on a new line
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\Browser\Browser_KonquerorTest.php
+--------------------------------------------------------------------------------
+FOUND 5 ERROR(S) AFFECTING 5 LINE(S)
+--------------------------------------------------------------------------------
+ 54 | ERROR | The @see tag is in the wrong order; the tag follows @link
+ 69 | ERROR | Missing @return tag in function comment
+ 70 | ERROR | Opening brace should be on a new line
+ 77 | ERROR | Missing @return tag in function comment
+ 78 | ERROR | Opening brace should be on a new line
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\Browser\Browser_MozillaTest.php
+--------------------------------------------------------------------------------
+FOUND 45 ERROR(S) AND 8 WARNING(S) AFFECTING 45 LINE(S)
+--------------------------------------------------------------------------------
+  54 | ERROR   | The @see tag is in the wrong order; the tag follows @link
+  69 | ERROR   | Missing @return tag in function comment
+  70 | ERROR   | Opening brace should be on a new line
+  77 | ERROR   | Missing @return tag in function comment
+  78 | ERROR   | Opening brace should be on a new line
+  82 | ERROR   | Doc comment for "$cssString" missing
+  82 | ERROR   | Doc comment for "$expectedString" missing
+  83 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  85 | ERROR   | Missing @return tag in function comment
+  92 | ERROR   | Missing function doc comment
+ 101 | WARNING | Line exceeds 85 characters; contains 97 characters
+ 110 | ERROR   | Doc comment for "$cssString" missing
+ 110 | ERROR   | Doc comment for "$expectedString" missing
+ 111 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 113 | ERROR   | Missing @return tag in function comment
+ 120 | ERROR   | Missing function doc comment
+ 129 | WARNING | Line exceeds 85 characters; contains 95 characters
+ 138 | ERROR   | Doc comment for "$cssString" missing
+ 138 | ERROR   | Doc comment for "$expectedString" missing
+ 139 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 141 | ERROR   | Missing @return tag in function comment
+ 148 | ERROR   | Missing function doc comment
+ 157 | WARNING | Line exceeds 85 characters; contains 92 characters
+ 166 | ERROR   | Doc comment for "$cssString" missing
+ 166 | ERROR   | Doc comment for "$expectedString" missing
+ 167 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 169 | ERROR   | Missing @return tag in function comment
+ 176 | ERROR   | Missing function doc comment
+ 185 | WARNING | Line exceeds 85 characters; contains 94 characters
+ 194 | ERROR   | Doc comment for "$cssString" missing
+ 194 | ERROR   | Doc comment for "$expectedString" missing
+ 195 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 197 | ERROR   | Missing @return tag in function comment
+ 204 | ERROR   | Missing function doc comment
+ 213 | WARNING | Line exceeds 85 characters; contains 92 characters
+ 222 | ERROR   | Doc comment for "$cssString" missing
+ 222 | ERROR   | Doc comment for "$expectedString" missing
+ 223 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 225 | ERROR   | Missing @return tag in function comment
+ 232 | ERROR   | Missing function doc comment
+ 241 | WARNING | Line exceeds 85 characters; contains 93 characters
+ 250 | ERROR   | Doc comment for "$cssString" missing
+ 250 | ERROR   | Doc comment for "$expectedString" missing
+ 251 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 253 | ERROR   | Missing @return tag in function comment
+ 260 | ERROR   | Missing function doc comment
+ 269 | WARNING | Line exceeds 85 characters; contains 93 characters
+ 278 | ERROR   | Doc comment for "$cssString" missing
+ 278 | ERROR   | Doc comment for "$expectedString" missing
+ 279 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 281 | ERROR   | Missing @return tag in function comment
+ 288 | ERROR   | Missing function doc comment
+ 297 | WARNING | Line exceeds 85 characters; contains 94 characters
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\Browser\Browser_OperaTest.php
+--------------------------------------------------------------------------------
+FOUND 15 ERROR(S) AND 2 WARNING(S) AFFECTING 15 LINE(S)
+--------------------------------------------------------------------------------
+  54 | ERROR   | The @see tag is in the wrong order; the tag follows @link
+  69 | ERROR   | Missing @return tag in function comment
+  70 | ERROR   | Opening brace should be on a new line
+  77 | ERROR   | Missing @return tag in function comment
+  78 | ERROR   | Opening brace should be on a new line
+  82 | ERROR   | Doc comment for "$cssString" missing
+  82 | ERROR   | Doc comment for "$expectedString" missing
+  83 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  85 | ERROR   | Missing @return tag in function comment
+  92 | ERROR   | Missing function doc comment
+ 101 | WARNING | Line exceeds 85 characters; contains 95 characters
+ 110 | ERROR   | Doc comment for "$cssString" missing
+ 110 | ERROR   | Doc comment for "$expectedString" missing
+ 111 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 113 | ERROR   | Missing @return tag in function comment
+ 120 | ERROR   | Missing function doc comment
+ 129 | WARNING | Line exceeds 85 characters; contains 93 characters
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\Browser\Browser_WebkitTest.php
+--------------------------------------------------------------------------------
+FOUND 45 ERROR(S) AND 8 WARNING(S) AFFECTING 45 LINE(S)
+--------------------------------------------------------------------------------
+  54 | ERROR   | The @see tag is in the wrong order; the tag follows @link
+  69 | ERROR   | Missing @return tag in function comment
+  70 | ERROR   | Opening brace should be on a new line
+  77 | ERROR   | Missing @return tag in function comment
+  78 | ERROR   | Opening brace should be on a new line
+  82 | ERROR   | Doc comment for "$cssString" missing
+  82 | ERROR   | Doc comment for "$expectedString" missing
+  83 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  85 | ERROR   | Missing @return tag in function comment
+  92 | ERROR   | Missing function doc comment
+ 101 | WARNING | Line exceeds 85 characters; contains 96 characters
+ 110 | ERROR   | Doc comment for "$cssString" missing
+ 110 | ERROR   | Doc comment for "$expectedString" missing
+ 111 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 113 | ERROR   | Missing @return tag in function comment
+ 120 | ERROR   | Missing function doc comment
+ 129 | WARNING | Line exceeds 85 characters; contains 94 characters
+ 138 | ERROR   | Doc comment for "$cssString" missing
+ 138 | ERROR   | Doc comment for "$expectedString" missing
+ 139 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 141 | ERROR   | Missing @return tag in function comment
+ 148 | ERROR   | Missing function doc comment
+ 157 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 166 | ERROR   | Doc comment for "$cssString" missing
+ 166 | ERROR   | Doc comment for "$expectedString" missing
+ 167 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 169 | ERROR   | Missing @return tag in function comment
+ 176 | ERROR   | Missing function doc comment
+ 185 | WARNING | Line exceeds 85 characters; contains 93 characters
+ 194 | ERROR   | Doc comment for "$cssString" missing
+ 194 | ERROR   | Doc comment for "$expectedString" missing
+ 195 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 197 | ERROR   | Missing @return tag in function comment
+ 204 | ERROR   | Missing function doc comment
+ 213 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 222 | ERROR   | Doc comment for "$cssString" missing
+ 222 | ERROR   | Doc comment for "$expectedString" missing
+ 223 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 225 | ERROR   | Missing @return tag in function comment
+ 232 | ERROR   | Missing function doc comment
+ 241 | WARNING | Line exceeds 85 characters; contains 92 characters
+ 250 | ERROR   | Doc comment for "$cssString" missing
+ 250 | ERROR   | Doc comment for "$expectedString" missing
+ 251 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 253 | ERROR   | Missing @return tag in function comment
+ 260 | ERROR   | Missing function doc comment
+ 269 | WARNING | Line exceeds 85 characters; contains 92 characters
+ 278 | ERROR   | Doc comment for "$cssString" missing
+ 278 | ERROR   | Doc comment for "$expectedString" missing
+ 279 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 281 | ERROR   | Missing @return tag in function comment
+ 288 | ERROR   | Missing function doc comment
+ 297 | WARNING | Line exceeds 85 characters; contains 93 characters
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\CssAllyTest.php
+--------------------------------------------------------------------------------
+FOUND 76 ERROR(S) AND 2 WARNING(S) AFFECTING 62 LINE(S)
+--------------------------------------------------------------------------------
+  24 | ERROR   | @category tag comment indented incorrectly; expected 2 spaces
+     |         | but found 3
+  25 | ERROR   | @package tag comment indented incorrectly; expected 3 spaces
+     |         | but found 4
+  26 | ERROR   | @author tag comment indented incorrectly; expected 4 spaces
+     |         | but found 5
+  27 | ERROR   | @copyright tag comment indented incorrectly; expected 1 spaces
+     |         | but found 2
+  28 | ERROR   | @license tag comment indented incorrectly; expected 3 spaces
+     |         | but found 4
+  29 | ERROR   | @link tag comment indented incorrectly; expected 6 spaces but
+     |         | found 7
+  49 | ERROR   | @category tag comment indented incorrectly; expected 2 spaces
+     |         | but found 3
+  50 | ERROR   | @package tag comment indented incorrectly; expected 3 spaces
+     |         | but found 4
+  51 | ERROR   | @author tag comment indented incorrectly; expected 4 spaces
+     |         | but found 5
+  53 | ERROR   | The @see tag is in the wrong order; the tag follows @link
+  53 | ERROR   | @see tag comment indented incorrectly; expected 7 spaces but
+     |         | found 8
+  54 | ERROR   | @copyright tag comment indented incorrectly; expected 1 spaces
+     |         | but found 2
+  55 | ERROR   | @license tag comment indented incorrectly; expected 3 spaces
+     |         | but found 4
+  56 | ERROR   | @link tag comment indented incorrectly; expected 6 spaces but
+     |         | found 7
+  68 | ERROR   | Missing @return tag in function comment
+  69 | ERROR   | Opening brace should be on a new line
+  76 | ERROR   | Missing @return tag in function comment
+  77 | ERROR   | Opening brace should be on a new line
+  81 | ERROR   | Doc comment for "$browsers" missing
+  82 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  84 | ERROR   | Missing @return tag in function comment
+  95 | ERROR   | Doc comment for "$browsers" missing
+  96 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  99 | ERROR   | Missing @return tag in function comment
+ 114 | ERROR   | Missing function doc comment
+ 409 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 411 | ERROR   | Parameters must appear immediately after the comment
+ 411 | ERROR   | Missing comment for param "$options" at position 1
+ 412 | ERROR   | Missing @return tag in function comment
+ 421 | ERROR   | Missing function doc comment
+ 460 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 461 | ERROR   | Missing @return tag in function comment
+ 470 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 473 | ERROR   | Parameters must appear immediately after the comment
+ 473 | ERROR   | Doc comment for var $browser does not match actual variable
+     |         | name $browsers at position 1
+ 473 | ERROR   | Missing comment for param "$browser" at position 1
+ 474 | ERROR   | Missing @return tag in function comment
+ 481 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 489 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 492 | ERROR   | Parameters must appear immediately after the comment
+ 492 | ERROR   | Missing comment for param "$browser" at position 1
+ 493 | ERROR   | The comments for parameters $browser (1) and $generate (2) do
+     |         | not align
+ 493 | ERROR   | Doc comment for var $generate does not match actual variable
+     |         | name $useBrowserRules at position 2
+ 493 | ERROR   | Missing comment for param "$generate" at position 2
+ 494 | ERROR   | Missing @return tag in function comment
+ 506 | ERROR   | Missing function doc comment
+ 523 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 526 | ERROR   | Parameters must appear immediately after the comment
+ 526 | ERROR   | Missing comment for param "$browsers" at position 1
+ 527 | ERROR   | Missing @return tag in function comment
+ 534 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 542 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 545 | ERROR   | Parameters must appear immediately after the comment
+ 545 | ERROR   | Missing comment for param "$cssString" at position 1
+ 546 | ERROR   | Missing @return tag in function comment
+ 554 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 557 | ERROR   | Parameters must appear immediately after the comment
+ 557 | ERROR   | Missing comment for param "$cssString" at position 1
+ 558 | ERROR   | The comments for parameters $cssString (1) and
+     |         | $expectedCompressedString (2) do not align
+ 558 | ERROR   | Missing comment for param "$expectedCompressedString" at
+     |         | position 2
+ 559 | ERROR   | Missing @return tag in function comment
+ 568 | ERROR   | Missing function doc comment
+ 587 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 589 | ERROR   | Parameters must appear immediately after the comment
+ 589 | ERROR   | Missing comment for param "$filePath" at position 1
+ 590 | ERROR   | Missing @return tag in function comment
+ 598 | ERROR   | Missing function doc comment
+ 612 | ERROR   | Closing brace indented incorrectly; expected 4 spaces, found 3
+ 614 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 3
+ 615 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 617 | ERROR   | Parameters must appear immediately after the comment
+ 617 | ERROR   | Missing comment for param "$files" at position 1
+ 618 | ERROR   | Missing @return tag in function comment
+ 619 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 3
+ 619 | ERROR   | Line indented incorrectly; expected 4 spaces, found 3
+ 628 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 3
+ 628 | ERROR   | Missing function doc comment
+ 628 | ERROR   | Line indented incorrectly; expected 4 spaces, found 3
+--------------------------------------------------------------------------------
+
+Time: 4 seconds, Memory: 8.00Mb
+
