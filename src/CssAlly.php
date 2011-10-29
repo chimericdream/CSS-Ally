@@ -258,7 +258,19 @@ class CssAlly
     {
         foreach ($this->_rules as $rule => $run) {
             if ($run) {
-                $methodName = str_replace('-', '_', $rule);
+                $methodNameArr = explode('-', $rule);
+                if (count($methodNameArr) > 1) {
+                    $methodName = '';
+                    foreach($methodNameArr as $index => $piece) {
+                        if ($index > 0) {
+                            $methodName .= ucfirst($piece);
+                        } else {
+                            $methodName .= $piece;
+                        }
+                    }
+                } else {
+                    $methodName = $methodNameArr[0];
+                }
                 $this->$methodName();
             }
         }

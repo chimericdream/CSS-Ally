@@ -181,10 +181,10 @@ abstract class Browser
      * 
      * @return string The parsed output
      */
-    public function background_size($cssString = '')
+    public function backgroundSize($cssString = '')
     {
         return $cssString;
-    } //end background_size
+    } //end backgroundSize
 
     /**
      * Syntax:
@@ -195,10 +195,10 @@ abstract class Browser
      * 
      * @return string The parsed output
      */
-    public function border_radius($cssString = '')
+    public function borderRadius($cssString = '')
     {
         return $cssString;
-    } //end border_radius
+    } //end borderRadius
 
     /**
      * Syntax:
@@ -210,10 +210,10 @@ abstract class Browser
      * 
      * @return string The parsed output
      */
-    public function box_shadow($cssString = '')
+    public function boxShadow($cssString = '')
     {
         return $cssString;
-    } //end box_shadow
+    } //end boxShadow
 
     /**
      * Syntax:
@@ -223,10 +223,10 @@ abstract class Browser
      * 
      * @return string The parsed output
      */
-    public function column_count($cssString = '')
+    public function columnCount($cssString = '')
     {
         return $cssString;
-    } //end column_count
+    } //end columnCount
 
     /**
      * Syntax:
@@ -236,10 +236,10 @@ abstract class Browser
      * 
      * @return string The parsed output
      */
-    public function column_gap($cssString = '')
+    public function columnGap($cssString = '')
     {
         return $cssString;
-    } //end column_gap
+    } //end columnGap
 
     /**
      * Syntax:
@@ -252,10 +252,10 @@ abstract class Browser
      * 
      * @return string The parsed output
      */
-    public function column_rule($cssString = '')
+    public function columnRule($cssString = '')
     {
         return $cssString;
-    } //end column_rule
+    } //end columnRule
 
     /**
      * Syntax:
@@ -265,10 +265,10 @@ abstract class Browser
      * 
      * @return string The parsed output
      */
-    public function column_span($cssString = '')
+    public function columnSpan($cssString = '')
     {
         return $cssString;
-    } //end column_span
+    } //end columnSpan
 
     /**
      * Syntax:
@@ -278,10 +278,10 @@ abstract class Browser
      * 
      * @return string The parsed output
      */
-    public function column_width($cssString = '')
+    public function columnWidth($cssString = '')
     {
         return $cssString;
-    } //end column_width
+    } //end columnWidth
 
     public function columns($cssString = '')
     {

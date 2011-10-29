@@ -80,12 +80,12 @@ class Browser_OperaTest extends BaseTest
     }
 
     /**
-     * @covers Browser_Opera::background_size
+     * @covers Browser_Opera::backgroundSize
      * @dataProvider backgroundSizeProvider
      */
     public function testBackgroundSize($cssString, $expectedString)
     {
-        $cssString = $this->object->background_size($cssString);
+        $cssString = $this->object->backgroundSize($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
     
@@ -108,12 +108,12 @@ class Browser_OperaTest extends BaseTest
     }
 
     /**
-     * @covers Browser_Opera::border_radius
+     * @covers Browser_Opera::borderRadius
      * @dataProvider borderRadiusProvider
      */
     public function testBorderRadius($cssString, $expectedString)
     {
-        $cssString = $this->object->border_radius($cssString);
+        $cssString = $this->object->borderRadius($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
     

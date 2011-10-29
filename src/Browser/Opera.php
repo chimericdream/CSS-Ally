@@ -51,7 +51,7 @@ require_once dirname(__FILE__) . '/../Browser.php';
  */
 class Browser_Opera extends Browser
 {
-    public function background_size($cssString = '')
+    public function backgroundSize($cssString = '')
     {
         $length     = $this->lengthRegex();
         $percent    = $this->percentRegex();
@@ -73,9 +73,9 @@ class Browser_Opera extends Browser
         }
 
         return $cssString;
-    } //end background_size
+    } //end backgroundSize
 
-    public function border_radius($cssString = '')
+    public function borderRadius($cssString = '')
     {
         $length     = $this->lengthRegex();
         $percent    = $this->percentRegex();
@@ -117,8 +117,8 @@ class Browser_Opera extends Browser
         );
 
         foreach ($properties as $standard => $opera) {
-            $search    = "/(\s*)(?<!-){$standard}:{$opera['value']}/";
-            $rep       = '${1}' . "{$opera['prefix']}:{$opera['replace']};" . '${1}' . "{$standard}:{$opera['replace']};";
+            $search = "/(\s*)(?<!-){$standard}:{$opera['value']}/";
+            $rep = '${1}' . "{$opera['prefix']}:{$opera['replace']};" . '${1}' . "{$standard}:{$opera['replace']};";
             $cssString = preg_replace($search, $rep, $cssString);
         }
 

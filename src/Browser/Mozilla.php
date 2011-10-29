@@ -51,7 +51,7 @@ require_once dirname(__FILE__) . '/../Browser.php';
  */
 class Browser_Mozilla extends Browser
 {
-    public function background_size($cssString = '')
+    public function backgroundSize($cssString = '')
     {
         $length     = $this->lengthRegex();
         $percent    = $this->percentRegex();
@@ -73,9 +73,9 @@ class Browser_Mozilla extends Browser
         }
 
         return $cssString;
-    } //end background_size
+    } //end backgroundSize
 
-    public function border_radius($cssString = '')
+    public function borderRadius($cssString = '')
     {
         $length     = $this->lengthRegex();
         $percent    = $this->percentRegex();
@@ -124,9 +124,9 @@ class Browser_Mozilla extends Browser
         }
 
         return $cssString;
-    } //end border_radius
+    } //end borderRadius
 
-    public function box_shadow($cssString = '')
+    public function boxShadow($cssString = '')
     {
         $color = $this->colorRegex();
         $length = $this->lengthRegex();
@@ -147,18 +147,18 @@ class Browser_Mozilla extends Browser
         }
 
         return $cssString;
-    } //end box_shadow
+    } //end boxShadow
 
-    public function column_count($cssString = '')
+    public function columnCount($cssString = '')
     {
         $search = '/(\s*)(?<!-)column-count:(\s*)(auto|\d+);?/';
         $replace = '${1}-moz-column-count:${2}${3};${1}column-count:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
         return $cssString;
-    } //end column_count
+    } //end columnCount
 
-    public function column_gap($cssString = '')
+    public function columnGap($cssString = '')
     {
         $length = $this->lengthRegex();
         $search = '/(\s*)(?<!-)column-gap:(\s*)(normal|' . $length . ');?/';
@@ -166,9 +166,9 @@ class Browser_Mozilla extends Browser
         $cssString = preg_replace($search, $replace, $cssString);
 
         return $cssString;
-    } //end column_gap
+    } //end columnGap
 
-    public function column_rule($cssString = '')
+    public function columnRule($cssString = '')
     {
         $width = $this->borderWidthRegex();
         $style = $this->borderStyleRegex();
@@ -205,18 +205,18 @@ class Browser_Mozilla extends Browser
         }
 
         return $cssString;
-    } //end column_rule
+    } //end columnRule
 
-    public function column_span($cssString = '')
+    public function columnSpan($cssString = '')
     {
         $search = '/(\s*)(?<!-)column-span:(\s*)(all|none);?/';
         $replace = '${1}-moz-column-span:${2}${3};${1}column-span:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
         return $cssString;
-    } //end column_span
+    } //end columnSpan
 
-    public function column_width($cssString = '')
+    public function columnWidth($cssString = '')
     {
         $length = $this->lengthRegex();
 
@@ -225,5 +225,5 @@ class Browser_Mozilla extends Browser
         $cssString = preg_replace($search, $replace, $cssString);
 
         return $cssString;
-    } //end column_width
+    } //end columnWidth
 } //end class Browser_Mozilla

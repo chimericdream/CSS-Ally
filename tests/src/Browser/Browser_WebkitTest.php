@@ -80,12 +80,12 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
-     * @covers Browser_Webkit::background_size
+     * @covers Browser_Webkit::backgroundSize
      * @dataProvider backgroundSizeProvider
      */
     public function testBackgroundSize($cssString, $expectedString)
     {
-        $cssString = $this->object->background_size($cssString);
+        $cssString = $this->object->backgroundSize($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
     
@@ -108,12 +108,12 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
-     * @covers Browser_Webkit::border_radius
+     * @covers Browser_Webkit::borderRadius
      * @dataProvider borderRadiusProvider
      */
     public function testBorderRadius($cssString, $expectedString)
     {
-        $cssString = $this->object->border_radius($cssString);
+        $cssString = $this->object->borderRadius($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
     
@@ -136,12 +136,12 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
-     * @covers Browser_Webkit::box_shadow
+     * @covers Browser_Webkit::boxShadow
      * @dataProvider boxShadowProvider
      */
     public function testBoxShadow($cssString, $expectedString)
     {
-        $cssString = $this->object->box_shadow($cssString);
+        $cssString = $this->object->boxShadow($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
     
@@ -164,12 +164,12 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
-     * @covers Browser_Webkit::column_count
+     * @covers Browser_Webkit::columnCount
      * @dataProvider columnCountProvider
      */
     public function testColumnCount($cssString, $expectedString)
     {
-        $cssString = $this->object->column_count($cssString);
+        $cssString = $this->object->columnCount($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -192,12 +192,12 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
-     * @covers Browser_Webkit::column_gap
+     * @covers Browser_Webkit::columnGap
      * @dataProvider columnGapProvider
      */
     public function testColumnGap($cssString, $expectedString)
     {
-        $cssString = $this->object->column_gap($cssString);
+        $cssString = $this->object->columnGap($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -220,12 +220,12 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
-     * @covers Browser_Webkit::column_rule
+     * @covers Browser_Webkit::columnRule
      * @dataProvider columnRuleProvider
      */
     public function testColumnRule($cssString, $expectedString)
     {
-        $cssString = $this->object->column_rule($cssString);
+        $cssString = $this->object->columnRule($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -248,12 +248,12 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
-     * @covers Browser_Webkit::column_span
+     * @covers Browser_Webkit::columnSpan
      * @dataProvider columnSpanProvider
      */
     public function testColumnSpan($cssString, $expectedString)
     {
-        $cssString = $this->object->column_span($cssString);
+        $cssString = $this->object->columnSpan($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -276,12 +276,12 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
-     * @covers Browser_Webkit::column_width
+     * @covers Browser_Webkit::columnWidth
      * @dataProvider columnWidthProvider
      */
     public function testColumnWidth($cssString, $expectedString)
     {
-        $cssString = $this->object->column_width($cssString);
+        $cssString = $this->object->columnWidth($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
