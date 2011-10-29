@@ -12,25 +12,26 @@ class CssAlly {
         'opera'     => true,
         'webkit'    => true,
     );
-
-    private $_rules = array(
-        'background-size' => true,
-        'border-radius'   => true,
-        'box-shadow'      => true,
-    );
-
-    private $_options = array();
-
+    private $_builtCss  = '';
+    private $_cachefile = '';
     private $_defaultOptions = array(
         'compress' => true,
         'minify'   => true,
         'gzip'     => true,
         'cssDir'   => null,
     );
-
     private $_files     = array();
-    private $_cachefile = '';
-    private $_builtCss  = '';
+    private $_options = array();
+    private $_rules = array(
+        'background-size' => true,
+        'border-radius'   => true,
+        'box-shadow'      => true,
+        'column-count'    => true,
+        'column-gap'      => true,
+        'column-rule'     => true,
+        'column-span'     => true,
+        'column-width'    => true,
+    );
 
     public function __construct(array $browsers = array(), array $options = array())
     {

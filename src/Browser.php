@@ -15,7 +15,6 @@ abstract class Browser {
 
     public function color_regex()
     {
-        $p0_100 = '';
         $colors = '('
                     . '#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})\b|'
                     . 'aqua|'
@@ -44,16 +43,16 @@ abstract class Browser {
 
     public function length_regex()
     {
-        $lengths = '(\-?\d+\.?\d*)(px|em)';
+        $length = '(\-?\d+\.?\d*)(px|em)';
 
-        return $lengths;
+        return $length;
     } //end length_regex
 
     public function percent_regex()
     {
-        $percents = '((\-?\d+\.?\d*)%)';
+        $percent = '((\-?\d+\.?\d*)%)';
 
-        return $percents;
+        return $percent;
     } //end percent_regex
 
     public function border_style_regex()
