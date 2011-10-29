@@ -283,6 +283,14 @@ abstract class Browser
         return $cssString;
     } //end columnWidth
 
+    /**
+     * Syntax:
+     * columns: <column-width> | <column-count>
+     *
+     * @param string $cssString The CSS to be parsed
+     * 
+     * @return string The parsed output
+     */
     public function columns($cssString = '')
     {
         return $cssString;
