@@ -1,0 +1,27 @@
+div.colrule-one {
+    -webkit-column-rule-width: 1em;
+    column-rule-width: 1em;
+    -webkit-column-rule-style: solid;
+    column-rule-style: solid;
+    -webkit-column-rule-color: black;
+    column-rule-color: black;
+}
+
+div.colrule-two {
+    -webkit-column-rule-width: 5px;
+    column-rule-width: 5px;
+    -webkit-column-rule-style: dotted;
+    column-rule-style: dotted;
+    -webkit-column-rule-color: #ababab;
+    column-rule-color: #ababab;
+}
+
+div.colrule-three {
+    -webkit-column-rule: 5px dotted #ababab;
+    column-rule: 5px dotted #ababab;
+}
+
+div.colrule-four {
+    -webkit-column-rule: 2em dashed transparent;
+    column-rule: 2em dashed transparent;
+}

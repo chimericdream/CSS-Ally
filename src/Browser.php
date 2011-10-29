@@ -12,7 +12,6 @@ require_once dirname(__FILE__) . '/Browser/Webkit.php';
  */
 abstract class Browser {
     const n0_255_regex = '([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
-    const p0_100_regex = '';
 
     public function color_regex()
     {
@@ -48,15 +47,29 @@ abstract class Browser {
         $lengths = '(\-?\d+\.?\d*)(px|em)';
 
         return $lengths;
-    }
+    } //end length_regex
 
     public function percent_regex()
     {
-        $percents = '(\-?\d+\.?\d*)%';
+        $percents = '((\-?\d+\.?\d*)%)';
 
         return $percents;
-    }
+    } //end percent_regex
 
+    public function border_style_regex()
+    {
+        $border = '(none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset)';
+        
+        return $border;
+    } //end border_style_regex
+
+    public function border_width_regex()
+    {
+        $border = '(thin|medium|thin|' . $this->length_regex() . ')';
+        
+        return $border;
+    } //end border_width_regex
+    
     /**
      * Syntax:
      * background-size: <bg-size> [ , <bg-size> ]*
@@ -91,18 +104,29 @@ abstract class Browser {
 
     /**
      * Syntax:
-     * column-count: auto | <integer>
+     * column-count: <integer> | auto
      */
     public function column_count($cssString = '')
     {
         return $cssString;
     } //end column_count
 
+    /**
+     * Syntax:
+     * column-gap: <length> | normal
+     */
     public function column_gap($cssString = '')
     {
         return $cssString;
     } //end column_gap
 
+    /**
+     * Syntax:
+     * column-rule: <column-rule-width> <column-rule-style> (<column-rule-color> | transparent)
+     * column-rule-color: (<color> | transparent)
+     * column-rule-style: <border-style>
+     * column-rule-width: <border-width>
+     */
     public function column_rule($cssString = '')
     {
         return $cssString;
@@ -110,7 +134,16 @@ abstract class Browser {
 
     /**
      * Syntax:
-     * column-count: auto | <length>
+     * column-span: none | all
+     */
+    public function column_span($cssString = '')
+    {
+        return $cssString;
+    } //end column_span
+
+    /**
+     * Syntax:
+     * column-width: <length> | auto
      */
     public function column_width($cssString = '')
     {

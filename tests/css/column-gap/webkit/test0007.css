@@ -1,0 +1,14 @@
+div.colgap-one {
+    -webkit-column-gap: 20px;
+    column-gap: 20px;
+}
+
+div.colgap-two {
+    -webkit-column-gap: normal;
+    column-gap: normal;
+}
+
+div.colgap-three {
+    -webkit-column-gap: 2em;
+    column-gap: 2em;
+}

@@ -25,7 +25,6 @@ class Browser_Webkit extends Browser {
             $search    = "/(\s*)(?<!-){$standard}:{$value}/";
             $rep       = '${1}' . "{$webkit['prefix']}:{$webkit['format']};" . '${1}' . "{$standard}:{$replace};";
 
-            echo "\n\n{$search}\n\n{$rep}\n\n";
             $cssString = preg_replace($search, $rep, $cssString);
         }
 
@@ -104,4 +103,82 @@ class Browser_Webkit extends Browser {
 
         return $cssString;
     } //end box_shadow
+
+    public function column_count($cssString = '')
+    {
+        $search    = '/(\s*)(?<!-)column-count:(\s*)(auto|\d+);?/';
+        $replace   = '${1}-webkit-column-count:${2}${3};${1}column-count:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end column_count
+
+    public function column_gap($cssString = '')
+    {
+        $length    = $this->length_regex();
+        $search    = '/(\s*)(?<!-)column-gap:(\s*)(normal|' . $length . ');?/';
+        $replace   = '${1}-webkit-column-gap:${2}${3};${1}column-gap:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end column_gap
+
+    public function column_rule($cssString = '')
+    {
+        $width      = $this->border_width_regex();
+        $style      = $this->border_style_regex();
+        $color      = $this->color_regex();
+
+        $properties = array(
+            'column-rule'              => array(
+                'value'   => '(\s*)((' . $width . ')(\s*)(' . $style . ')(\s*)(' . $color . '|transparent)?);?',
+                'replace' => '${2}${3}',
+                'prefix'  => '-webkit-column-rule',
+            ),
+            'column-rule-color'    => array(
+                'value'   => '(\s*)(' . $color . '|transparent);?',
+                'replace' => '${2}${3}',
+                'prefix'  => '-webkit-column-rule-color',
+            ),
+            'column-rule-style'     => array(
+                'value'   => '(\s*)(' . $style . ');?',
+                'replace' => '${2}${3}',
+                'prefix'  => '-webkit-column-rule-style',
+            ),
+            'column-rule-width' => array(
+                'value'   => '(\s*)(' . $width . ');?',
+                'replace' => '${2}${3}',
+                'prefix'  => '-webkit-column-rule-width',
+            ),
+        );
+
+        foreach ($properties as $standard => $mozilla) {
+            $search    = "/(\s*)(?<!-){$standard}:{$mozilla['value']}/";
+            $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['replace']};" . '${1}' . "{$standard}:{$mozilla['replace']};";
+
+            $cssString = preg_replace($search, $rep, $cssString);
+        }
+
+        return $cssString;
+    } //end column_rule
+
+    public function column_span($cssString = '')
+    {
+        $search    = '/(\s*)(?<!-)column-span:(\s*)(all|none);?/';
+        $replace   = '${1}-webkit-column-span:${2}${3};${1}column-span:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end column_span
+
+    public function column_width($cssString = '')
+    {
+        $length     = $this->length_regex();
+
+        $search    = '/(\s*)(?<!-)column-width:(\s*)(auto|' . $length . ');?/';
+        $replace   = '${1}-webkit-column-width:${2}${3};${1}column-width:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end column_width
 } //end class Browser_Webkit

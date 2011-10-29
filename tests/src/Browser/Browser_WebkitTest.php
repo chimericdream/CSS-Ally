@@ -112,4 +112,144 @@ class Browser_WebkitTest extends BaseTest {
 
         return $testCssStrings;
     }
+
+    /**
+     * @covers Browser_Webkit::column_count
+     * @dataProvider columnCountProvider
+     */
+    public function testColumnCount($cssString, $expectedString)
+    {
+        $cssString = $this->object->column_count($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function columnCountProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/column-count/webkit/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Webkit::column_gap
+     * @dataProvider columnGapProvider
+     */
+    public function testColumnGap($cssString, $expectedString)
+    {
+        $cssString = $this->object->column_gap($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function columnGapProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/column-gap/webkit/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Webkit::column_rule
+     * @dataProvider columnRuleProvider
+     */
+    public function testColumnRule($cssString, $expectedString)
+    {
+        $cssString = $this->object->column_rule($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function columnRuleProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/column-rule/webkit/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Webkit::column_span
+     * @dataProvider columnSpanProvider
+     */
+    public function testColumnSpan($cssString, $expectedString)
+    {
+        $cssString = $this->object->column_span($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function columnSpanProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/column-span/webkit/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Webkit::column_width
+     * @dataProvider columnWidthProvider
+     */
+    public function testColumnWidth($cssString, $expectedString)
+    {
+        $cssString = $this->object->column_width($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function columnWidthProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/column-width/webkit/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
 }

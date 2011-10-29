@@ -1,0 +1,9 @@
+div.colspan-one {
+    -webkit-column-span: none;
+    column-span: none;
+}
+
+div.colspan-two {
+    -webkit-column-span: all;
+    column-span: all;
+}

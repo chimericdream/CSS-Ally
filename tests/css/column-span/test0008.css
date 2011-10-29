@@ -1,0 +1,11 @@
+div.colspan-one {
+    -moz-column-span: none;
+    -webkit-column-span: none;
+    column-span: none;
+}
+
+div.colspan-two {
+    -moz-column-span: all;
+    -webkit-column-span: all;
+    column-span: all;
+}

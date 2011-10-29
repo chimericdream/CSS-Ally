@@ -25,7 +25,6 @@ class Browser_Opera extends Browser {
             $search    = "/(\s*)(?<!-){$standard}:{$value}/";
             $rep       = '${1}' . "{$opera['prefix']}:{$opera['format']};" . '${1}' . "{$standard}:{$replace};";
 
-            echo "\n\n{$search}\n\n{$rep}\n\n";
             $cssString = preg_replace($search, $rep, $cssString);
         }
 

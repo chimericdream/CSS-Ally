@@ -142,6 +142,90 @@ class Browser_MozillaTest extends BaseTest {
     }
 
     /**
+     * @covers Browser_Mozilla::column_gap
+     * @dataProvider columnGapProvider
+     */
+    public function testColumnGap($cssString, $expectedString)
+    {
+        $cssString = $this->object->column_gap($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function columnGapProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/column-gap/mozilla/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Mozilla::column_rule
+     * @dataProvider columnRuleProvider
+     */
+    public function testColumnRule($cssString, $expectedString)
+    {
+        $cssString = $this->object->column_rule($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function columnRuleProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/column-rule/mozilla/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Mozilla::column_span
+     * @dataProvider columnSpanProvider
+     */
+    public function testColumnSpan($cssString, $expectedString)
+    {
+        $cssString = $this->object->column_span($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function columnSpanProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/column-span/mozilla/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
      * @covers Browser_Mozilla::column_width
      * @dataProvider columnWidthProvider
      */

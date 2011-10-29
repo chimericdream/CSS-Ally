@@ -1,0 +1,27 @@
+div.colrule-one {
+    -moz-column-rule-width: 1em;
+    column-rule-width: 1em;
+    -moz-column-rule-style: solid;
+    column-rule-style: solid;
+    -moz-column-rule-color: black;
+    column-rule-color: black;
+}
+
+div.colrule-two {
+    -moz-column-rule-width: 5px;
+    column-rule-width: 5px;
+    -moz-column-rule-style: dotted;
+    column-rule-style: dotted;
+    -moz-column-rule-color: #ababab;
+    column-rule-color: #ababab;
+}
+
+div.colrule-three {
+    -moz-column-rule: 5px dotted #ababab;
+    column-rule: 5px dotted #ababab;
+}
+
+div.colrule-four {
+    -moz-column-rule: 2em dashed transparent;
+    column-rule: 2em dashed transparent;
+}
