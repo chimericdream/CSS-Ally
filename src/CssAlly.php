@@ -1,48 +1,48 @@
 <?php
 /**
  * CssAlly
- * 
+ *
  * Copyright (C) 2011 Bill Parrott
- * 
+ *
  * LICENSE
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  * PHP Version 5
- * 
- * @category   CssAlly
- * @package    CssAlly
- * @author     Bill Parrott <bill@cssally.com>
- * @copyright  2011 Bill Parrott
- * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
- * @link       http://cssally.com/
+ *
+ * @category  CssAlly
+ * @package   CssAlly
+ * @author    Bill Parrott <bill@cssally.com>
+ * @copyright 2011 Bill Parrott
+ * @license   GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link      http://cssally.com/
  */
 
 /**
- * @see Browser 
+ * @see Browser
  */
 require_once dirname(__FILE__) . '/Browser.php';
 
 /**
  * Core class for CssAlly
- * 
+ *
  * This is the primary class for the CssAlly application. It contains the
  * functionality to load CSS files, parse them for CSS3 rules, and cache and
  * output the result. Which browser rules are used may be defined when the class
  * is instantiated or at any other time. In addition, specific rules may be
  * turned explicitly on or off (all are on by default).
- * 
+ *
  * Example:
  * <code>
  * $css = new CssAlly();
@@ -52,12 +52,12 @@ require_once dirname(__FILE__) . '/Browser.php';
  * $css->generate()->output();
  * </code>
  *
- * @category   CssAlly
- * @package    CssAlly
- * @author     Bill Parrott <bill@cssally.com>
- * @copyright  2011 Bill Parrott
- * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
- * @link       http://cssally.com/
+ * @category  CssAlly
+ * @package   CssAlly
+ * @author    Bill Parrott <bill@cssally.com>
+ * @copyright 2011 Bill Parrott
+ * @license   GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link      http://cssally.com/
  */
 class CssAlly
 {
@@ -89,14 +89,40 @@ class CssAlly
         'column-width'    => true,
     );
 
+    /**
+     * The constructor sets up the basic settings for the class.
+     *
+     * @param array $browsers An array of the browsers to target. Each browser
+     *                        should have one of the following formats:
+     *                        <code>'name' => true</code> (add prefixes for the browser)
+     *                        <code>'name' => null</code> (don't)
+     * @param array $options  An array containing override values for the class
+     *                        options.
+     *
+     * @return void
+     */
     public function __construct(array $browsers = array(), array $options = array())
     {
         if (!empty($browsers)) {
-            $this->_browsers['explorer']  = (isset($browsers['explorer']))  ? $browsers['explorer']  : $this->_browsers['explorer'];
-            $this->_browsers['konqueror'] = (isset($browsers['konqueror'])) ? $browsers['konqueror'] : $this->_browsers['konqueror'];
-            $this->_browsers['mozilla']   = (isset($browsers['mozilla']))   ? $browsers['mozilla']   : $this->_browsers['mozilla'];
-            $this->_browsers['opera']     = (isset($browsers['opera']))     ? $browsers['opera']     : $this->_browsers['opera'];
-            $this->_browsers['webkit']    = (isset($browsers['webkit']))    ? $browsers['webkit']    : $this->_browsers['webkit'];
+            $this->_browsers['explorer']  = (isset($browsers['explorer'])) ?
+                                            $browsers['explorer'] :
+                                            $this->_browsers['explorer'];
+
+            $this->_browsers['konqueror'] = (isset($browsers['konqueror'])) ?
+                                            $browsers['konqueror'] :
+                                            $this->_browsers['konqueror'];
+
+            $this->_browsers['mozilla']   = (isset($browsers['mozilla'])) ?
+                                            $browsers['mozilla']   :
+                                            $this->_browsers['mozilla'];
+
+            $this->_browsers['opera']     = (isset($browsers['opera'])) ?
+                                            $browsers['opera']     :
+                                            $this->_browsers['opera'];
+
+            $this->_browsers['webkit']    = (isset($browsers['webkit'])) ?
+                                            $browsers['webkit']    :
+                                            $this->_browsers['webkit'];
         }
 
         if (empty($options)) {
@@ -112,6 +138,21 @@ class CssAlly
         $this->setBrowsers($this->_browsers);
     } //end __construct
 
+    /**
+     * The __call method usually serves as a means to call arbitrary functions.
+     * In this case, it is a transparent wrapper for the CSS rules stored in the
+     * Browser and Browser_* classes. This lets us call (for example)
+     * CssAlly->borderRadius($cssString) without having to directly call the
+     * appropriate method in the Browser* class.
+     *
+     * @param string $method    The name of the method requested. Assumed to be
+     *                          the name of a method in the Browser class.
+     * @param array  $arguments The arguments to be passed to the method.
+     *                          Assumed to contain a single element - the CSS
+     *                          string to be parsed.
+     *
+     * @return string The parsed CSS string
+     */
     public function __call($method, $arguments)
     {
         if (method_exists('Browser', $method)) {
@@ -125,11 +166,27 @@ class CssAlly
         }
     } //end __call
 
+    /**
+     * Add a CSS file to be parsed. The path to the file should be relative to
+     * the one specified in in the 'css-dir' option.
+     *
+     * @param string $filePath The path to the CSS file to be parsed
+     *
+     * @return void
+     */
     public function addCssFile($filePath)
     {
         $this->_files[] = $this->_options['cssDir'] . "/{$filePath}";
     } //end addCssFile
 
+    /**
+     * Add an array of CSS files to be parsed. The path to each file should be
+     * relative to the one specified in in the 'css-dir' option.
+     *
+     * @param array $filePaths An array of file paths to queue for parsing
+     *
+     * @return void
+     */
     public function addCssFiles(array $filePaths)
     {
         foreach ($filePaths as $file) {
@@ -138,7 +195,11 @@ class CssAlly
     } //end addCssFiles
 
     /**
-     * Builds CSS string for the cache file
+     * This function gets the contents of each CSS file and concatenates them
+     * together to form the base string which will be parsed for CSS rules
+     * before minifying, caching, etc.
+     *
+     * @return void
      */
     public function buildCssString()
     {
@@ -148,27 +209,35 @@ class CssAlly
     } //end buildCssString
 
     /**
-     * Compare the modification time of cache file against the CSS files
-     * @return bool
+     * Compare the modification time of cache file against each of the CSS files
+     * in the _files array.
+     *
+     * @return bool Whether any CSS files are newer than the cached file
      */
     public function checkCache()
     {
-        if(file_exists($this->_cachefile)) {
+        if (file_exists($this->_cachefile)) {
             $lastModified = 0;
-            foreach($this->_files as $file) {
+            foreach ($this->_files as $file) {
                 $cssModified = filemtime($file);
-                if($cssModified > $lastModified) {
+                if ($cssModified > $lastModified) {
                     $lastModified = $cssModified;
                 }
             }
 
-            if(filemtime($this->_cachefile) >= $lastModified) {
+            if (filemtime($this->_cachefile) >= $lastModified) {
                 return true;
             }
         }
         return false;
     } //end checkCache
 
+    /**
+     * Compress the built CSS string by removing comments, newlines, and extra
+     * whitespace.
+     *
+     * @return void
+     */
     public function compress()
     {
         if ($this->_options['compress']) {
@@ -188,6 +257,19 @@ class CssAlly
         }
     } //end compress
 
+    /**
+     * This method is where the magic happens. First, it determines the name of
+     * the cache file, checks for its existence, and does one of two things. If
+     * the cache file exists and is not out of date, it loads the CSS from the
+     * cache file. If the cache file is out of date or does not exist, it runs
+     * all of the CSS rules to build the CSS string and stores that into the
+     * cache file.
+     *
+     * The method returns the <code>$this</code> reference so that css can be
+     * output immediately, a la <code>CssAlly->generate()->output()</code>.
+     *
+     * @return CssAlly
+     */
     public function generate()
     {
         $this->generateFileName();
@@ -202,16 +284,34 @@ class CssAlly
         return $this;
     } //end generate
 
+    /**
+     * Generate a file name for the cache file. This is based on the names of
+     * all the CSS files used to generate the built CSS.
+     *
+     * @return void
+     */
     public function generateFileName()
     {
         $this->_cachefile = md5(implode('', $this->_files)) . '.css';
     } //end generateFileName
 
+    /**
+     * Get the Browser object for the requested browser name.
+     *
+     * @param string $browser The name of the browser.
+     *
+     * @return null|Browser
+     */
     public function getBrowser($browser)
     {
         return (isset($this->_browsers[$browser])) ? $this->_browsers[$browser] : null;
     } //end getBrowser
 
+    /**
+     * Get the array of Browser objects.
+     *
+     * @return array
+     */
     public function getBrowsers()
     {
         return $this->_browsers;
@@ -227,9 +327,14 @@ class CssAlly
         return $this->_cachefile;
     } //end getCacheFileName
 
+    /**
+     * Load the CSS string from the cache file.
+     *
+     * @return void
+     */
     public function getCssFromCache()
     {
-        $this->_builtCss = file_get_contents($this->_cachefile);
+        $this->setBuiltCss(file_get_contents($this->_cachefile));
     } //end getCssFromCache
 
     public function getFileList()
@@ -247,6 +352,11 @@ class CssAlly
         return $this->_options;
     } //end getOptions
 
+    /**
+     * Output the built CSS string to the browser.
+     *
+     * @return none
+     */
     public function output()
     {
         header("Content-type: text/css");
@@ -261,7 +371,7 @@ class CssAlly
                 $methodNameArr = explode('-', $rule);
                 if (count($methodNameArr) > 1) {
                     $methodName = '';
-                    foreach($methodNameArr as $index => $piece) {
+                    foreach ($methodNameArr as $index => $piece) {
                         if ($index > 0) {
                             $methodName .= ucfirst($piece);
                         } else {
@@ -309,7 +419,9 @@ class CssAlly
     } //end setOption
 
     /**
-     * Writes the cache into file
+     * Write the built CSS string into a file for caching purposes
+     *
+     * @return void
      */
     public function writeCache()
     {

@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * PHP Version 5
- * 
+ *
  * @category   CssAlly
  * @package    CssAlly
  * @subpackage CssAlly_Browser
@@ -55,12 +55,12 @@ require_once dirname(__FILE__) . '/Browser/Webkit.php';
 
 /**
  * Base class for browser CSS rules
- * 
+ *
  * This class contains NOP methods for all CSS rules supported by CssAlly. Any
  * browsers which have vendor-prefixed versions of these rules will override
  * the appropriate method(s). For all other rules, this class simply returns the
  * CSS string as it was passed into the method call.
- * 
+ *
  * In addition, this class holds common regular expressions used in many rules,
  * such as validating a color, length (px, em, etc), or border-type properties.
  *
@@ -80,8 +80,8 @@ abstract class Browser
     /**
      * Generate a string containing a regular expression for valid color choices
      * in CSS
-     * 
-     * @return string 
+     *
+     * @return string
      */
     public function colorRegex()
     {
@@ -122,8 +122,8 @@ abstract class Browser
     /**
      * Generate a string containing a regular expression for valid length values
      * in CSS
-     * 
-     * @return string 
+     *
+     * @return string
      */
     public function lengthRegex()
     {
@@ -134,8 +134,8 @@ abstract class Browser
 
     /**
      * Generate a string containing a regular expression for valid percentages
-     * 
-     * @return string 
+     *
+     * @return string
      */
     public function percentRegex()
     {
@@ -147,8 +147,8 @@ abstract class Browser
     /**
      * Generate a string containing a regular expression for valid border-style
      * values in CSS
-     * 
-     * @return string 
+     *
+     * @return string
      */
     public function borderStyleRegex()
     {
@@ -161,8 +161,8 @@ abstract class Browser
     /**
      * Generate a string containing a regular expression for valid border-width
      * values in CSS
-     * 
-     * @return string 
+     *
+     * @return string
      */
     public function borderWidthRegex()
     {
@@ -178,7 +178,7 @@ abstract class Browser
      * <bg-size> = [<length>|<percentage>|auto]{1,2} | cover | contain
      *
      * @param string $cssString The CSS to be parsed
-     * 
+     *
      * @return string The parsed output
      */
     public function backgroundSize($cssString = '')
@@ -192,7 +192,7 @@ abstract class Browser
      * border-radius: [<length>|<percentage>]{1,4} [ / [<length>|<percentage>]{1,4}]?
      *
      * @param string $cssString The CSS to be parsed
-     * 
+     *
      * @return string The parsed output
      */
     public function borderRadius($cssString = '')
@@ -207,7 +207,7 @@ abstract class Browser
      * <shadow> = inset? && [<length>{2,4} && <color>?]
      *
      * @param string $cssString The CSS to be parsed
-     * 
+     *
      * @return string The parsed output
      */
     public function boxShadow($cssString = '')
@@ -220,7 +220,7 @@ abstract class Browser
      * column-count: <integer> | auto
      *
      * @param string $cssString The CSS to be parsed
-     * 
+     *
      * @return string The parsed output
      */
     public function columnCount($cssString = '')
@@ -233,7 +233,7 @@ abstract class Browser
      * column-gap: <length> | normal
      *
      * @param string $cssString The CSS to be parsed
-     * 
+     *
      * @return string The parsed output
      */
     public function columnGap($cssString = '')
@@ -249,7 +249,7 @@ abstract class Browser
      * column-rule-width: <border-width>
      *
      * @param string $cssString The CSS to be parsed
-     * 
+     *
      * @return string The parsed output
      */
     public function columnRule($cssString = '')
@@ -262,7 +262,7 @@ abstract class Browser
      * column-span: none | all
      *
      * @param string $cssString The CSS to be parsed
-     * 
+     *
      * @return string The parsed output
      */
     public function columnSpan($cssString = '')
@@ -275,7 +275,7 @@ abstract class Browser
      * column-width: <length> | auto
      *
      * @param string $cssString The CSS to be parsed
-     * 
+     *
      * @return string The parsed output
      */
     public function columnWidth($cssString = '')
@@ -288,7 +288,7 @@ abstract class Browser
      * columns: <column-width> | <column-count>
      *
      * @param string $cssString The CSS to be parsed
-     * 
+     *
      * @return string The parsed output
      */
     public function columns($cssString = '')

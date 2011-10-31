@@ -21,12 +21,12 @@
  * 
  * PHP Version 5
  * 
- * @category   CssAlly
- * @package    CssAlly_Tests
- * @author     Bill Parrott <bill@cssally.com>
- * @copyright  2011 Bill Parrott
- * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
- * @link       http://cssally.com/
+ * @category  CssAlly
+ * @package   CssAlly_Tests
+ * @author    Bill Parrott <bill@cssally.com>
+ * @copyright 2011 Bill Parrott
+ * @license   GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link      http://cssally.com/
  */
 
 /**
@@ -34,13 +34,13 @@
  * 
  * Any common functionality for unit tests goes here.
  *
- * @category   CssAlly
- * @package    CssAlly_Tests
- * @author     Bill Parrott <bill@cssally.com>
- * @uses       PHPUnit_Framework_TestCase
- * @copyright  2011 Bill Parrott
- * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
- * @link       http://cssally.com/
+ * @category  CssAlly
+ * @package   CssAlly_Tests
+ * @author    Bill Parrott <bill@cssally.com>
+ * @uses      PHPUnit_Framework_TestCase
+ * @copyright 2011 Bill Parrott
+ * @license   GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @link      http://cssally.com/
  */
 class BaseTest extends PHPUnit_Framework_TestCase
 {

@@ -1,35 +1,4 @@
 
-FILE: E:\Web\cssally\project\tests\src\BaseTest.php
---------------------------------------------------------------------------------
-FOUND 12 ERROR(S) AFFECTING 12 LINE(S)
---------------------------------------------------------------------------------
- 24 | ERROR | @category tag comment indented incorrectly; expected 2 spaces but
-    |       | found 3
- 25 | ERROR | @package tag comment indented incorrectly; expected 3 spaces but
-    |       | found 4
- 26 | ERROR | @author tag comment indented incorrectly; expected 4 spaces but
-    |       | found 5
- 27 | ERROR | @copyright tag comment indented incorrectly; expected 1 spaces
-    |       | but found 2
- 28 | ERROR | @license tag comment indented incorrectly; expected 3 spaces but
-    |       | found 4
- 29 | ERROR | @link tag comment indented incorrectly; expected 6 spaces but
-    |       | found 7
- 37 | ERROR | @category tag comment indented incorrectly; expected 2 spaces but
-    |       | found 3
- 38 | ERROR | @package tag comment indented incorrectly; expected 3 spaces but
-    |       | found 4
- 39 | ERROR | @author tag comment indented incorrectly; expected 4 spaces but
-    |       | found 5
- 41 | ERROR | @copyright tag comment indented incorrectly; expected 1 spaces
-    |       | but found 2
- 42 | ERROR | @license tag comment indented incorrectly; expected 3 spaces but
-    |       | found 4
- 43 | ERROR | @link tag comment indented incorrectly; expected 6 spaces but
-    |       | found 7
---------------------------------------------------------------------------------
-
-
 FILE: E:\Web\cssally\project\tests\src\BrowserTest.php
 --------------------------------------------------------------------------------
 FOUND 49 ERROR(S) AND 4 WARNING(S) AFFECTING 43 LINE(S)
