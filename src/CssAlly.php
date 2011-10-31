@@ -402,6 +402,35 @@ class CssAlly
         exit;
     } //end output
 
+    public function parseVariables()
+    {
+        $varSearch = '/\s*\$([a-zA-Z][_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;/';
+        $variables = array();
+        preg_match_all($varSearch, $this->_builtCss, $variables);
+        $vars = array();
+        foreach ($variables[1] as $index => $varname) {
+            $vars[] = array(
+                'name'  => $varname,
+                'value' => $variables[3][$index],
+            );
+        }
+        $this->removeVariables();
+
+        foreach ($vars as $var) {
+            $search          = '/\$' . $var['name'] . '/';
+            $this->_builtCss = preg_replace($search, $var['value'], $this->_builtCss);
+        }
+    } //end parseVariables
+    
+    /**
+     * @todo: Write test. The test for parseVariables() should depend on this one
+     */
+    public function removeVariables()
+    {
+        $search = '/\s*\$([a-zA-Z][_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;/';
+        $this->_builtCss = preg_replace($search, '', $this->_builtCss);
+    } //end removeVariables
+    
     /**
      * Cycle through the CSS rules in the _rules array and, if enabled (set to
      * true), run the method on the CSS string.

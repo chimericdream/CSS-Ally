@@ -1,0 +1,25 @@
+$varname = "#f0f0f0";
+$varname2 = "#f00";
+$varname3 = "#00f";
+$varname4 = "#0f0";
+$var_name = "#fff";
+
+div.vars-one {
+    color: $varname;
+}
+
+div.vars-two {
+    color: $varname2;
+}
+
+div.vars-three {
+    color: $varname3;
+}
+
+div.vars-four {
+    color: $varname4;
+}
+
+div.vars-five {
+    color: $var_name;
+}

@@ -577,16 +577,16 @@ class CssAllyTest extends BaseTest
      * @depends testSetBuiltCss
      * @dataProvider compressProvider
      * @param type $cssString
-     * @param type $expectedCompressedString
+     * @param type $expectedString
      *
      * @return void
      */
-    public function testCompress($cssString, $expectedCompressedString)
+    public function testCompress($cssString, $expectedString)
     {
         $this->_object->setBuiltCss($cssString);
         $this->_object->compress();
 
-        $this->assertEquals($expectedCompressedString, $this->_object->getBuiltCss());
+        $this->assertEquals($expectedString, $this->_object->getBuiltCss());
     }
 
     public function compressProvider()
@@ -667,5 +667,40 @@ class CssAllyTest extends BaseTest
         closedir($dh);
 
         return array($fileList);
+    }
+
+    /**
+     * @covers CssAlly::parseVariables
+     * @depends testSetBuiltCss
+     * @dataProvider parseVariablesProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testParseVariables($cssString, $expectedString)
+    {
+        $this->_object->setBuiltCss($cssString);
+        $this->_object->parseVariables();
+
+        $this->assertEquals($expectedString, $this->_object->getBuiltCss());
+    }
+
+    public function parseVariablesProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $varCss    = file_get_contents("{$path}/variables/{$file}");
+                $strings[] = array($css, $varCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
     }
 }
