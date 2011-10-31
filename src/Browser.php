@@ -189,7 +189,8 @@ abstract class Browser
     /**
      * Syntax:
      * border-*-*-radius: [<length>|<%>] [<length>|<%>]?
-     * border-radius: [<length>|<percentage>]{1,4} [ / [<length>|<percentage>]{1,4}]?
+     * border-radius: [<length>|<percentage>]{1,4} ...
+     *                [ / [<length>|<percentage>]{1,4}]?
      *
      * @param string $cssString The CSS to be parsed
      *
@@ -243,7 +244,8 @@ abstract class Browser
 
     /**
      * Syntax:
-     * column-rule: <column-rule-width> <column-rule-style> [<column-rule-color>|transparent]
+     * column-rule: <column-rule-width> <column-rule-style> ...
+     *              [<column-rule-color>|transparent]
      * column-rule-color: [<color>|transparent]
      * column-rule-style: <border-style>
      * column-rule-width: <border-width>

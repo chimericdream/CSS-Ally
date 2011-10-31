@@ -94,14 +94,16 @@ class CssAlly
      *
      * @param array $browsers An array of the browsers to target. Each browser
      *                        should have one of the following formats:
-     *                        <code>'name' => true</code> (add prefixes for the browser)
+     *                        <code>'name' => true</code> (add prefixes)
      *                        <code>'name' => null</code> (don't)
      * @param array $options  An array containing override values for the class
      *                        options.
      *
      * @return void
      */
-    public function __construct(array $browsers = array(), array $options = array())
+    public function __construct(
+            array $browsers = array(),
+            array $options = array())
     {
         if (!empty($browsers)) {
             $this->_browsers['explorer']  = (isset($browsers['explorer'])) ?
@@ -132,7 +134,9 @@ class CssAlly
         }
 
         if (is_null($this->_options['cssDir'])) {
-            throw new InvalidArgumentException('You must specify the directory in which your CSS files are stored.');
+            $message = 'You must specify the directory in which your CSS files '
+                     . 'are stored.';
+            throw new InvalidArgumentException($message);
         }
 
         $this->setBrowsers($this->_browsers);
@@ -241,19 +245,24 @@ class CssAlly
     public function compress()
     {
         if ($this->_options['compress']) {
+            $css = $this->_builtCss;
+            
             /* remove comments */
-            $this->_builtCss = preg_replace("!/\*[^*]*\*+([^/][^*]*\*+)*/!", "", $this->_builtCss);
+            $comments = "!/\*[^*]*\*+([^/][^*]*\*+)*/!";
+            $css = preg_replace($comments, '', $css);
 
             /* remove tabs, spaces, newlines, etc. */
-            $arr = array("\r\n", "\r", "\n", "\t", "  ", "    ", "    ");
-            $this->_builtCss = str_replace($arr, "", $this->_builtCss);
+            $whitespace = array("\r\n", "\r", "\n", "\t", '  ', '    ', '    ');
+            $css = str_replace($whitespace, '', $css);
 
             /* remove extra spaces within property declarations */
-            $this->_builtCss = str_replace(', ', ',', $this->_builtCss);
-            $this->_builtCss = str_replace(array('; ', ' ;', ' ; '), ';', $this->_builtCss);
-            $this->_builtCss = str_replace(array(': ', ' :', ' : '), ':', $this->_builtCss);
-            $this->_builtCss = str_replace(array('{ ', ' {', ' { '), '{', $this->_builtCss);
-            $this->_builtCss = str_replace(array('} ', ' }', ' } '), '}', $this->_builtCss);
+            $css = str_replace(', ', ',', $css);
+            $css = str_replace(array('; ', ' ;', ' ; '), ';', $css);
+            $css = str_replace(array(': ', ' :', ' : '), ':', $css);
+            $css = str_replace(array('{ ', ' {', ' { '), '{', $css);
+            $css = str_replace(array('} ', ' }', ' } '), '}', $css);
+            
+            $this->_builtCss = $css;
         }
     } //end compress
 
@@ -304,7 +313,8 @@ class CssAlly
      */
     public function getBrowser($browser)
     {
-        return (isset($this->_browsers[$browser])) ? $this->_browsers[$browser] : null;
+        return (isset($this->_browsers[$browser])) ?
+                $this->_browsers[$browser] : null;
     } //end getBrowser
 
     /**
@@ -366,7 +376,8 @@ class CssAlly
      */
     public function getOption($option)
     {
-        return isset($this->_options[$option]) ? $this->_options[$option] : null;
+        return isset($this->_options[$option]) ?
+                $this->_options[$option] : null;
     } //end getOption
 
     /**
@@ -424,7 +435,8 @@ class CssAlly
      * the second parameter, set the browser option to null.
      *
      * @param string $browser         The name of the browser
-     * @param bool   $useBrowserRules Whether to add prefixed CSS for the browser
+     * @param bool   $useBrowserRules Whether to add prefixed CSS for the
+     *                                browser
      *
      * @return void
      */
@@ -446,11 +458,11 @@ class CssAlly
     /**
      * Set multiple browser objects at once. The array should be formatted as
      * such:
-     * 
+     *
      * <code>'browser' => true|false</code>
-     * 
+     *
      * @param array $browsers An array of browsers to set the rules for
-     * 
+     *
      * @return void
      */
     public function setBrowsers(array $browsers)
@@ -462,9 +474,9 @@ class CssAlly
 
     /**
      * Directly set the CSS string to be parsed
-     * 
+     *
      * @param string $css The CSS string to store in the _builtCss property
-     * 
+     *
      * @return void
      */
     public function setBuiltCss($css)
@@ -474,10 +486,10 @@ class CssAlly
 
     /**
      * Set a particular option's value
-     * 
+     *
      * @param string $option The name of the option to set
      * @param string $value  The value to which to set the option
-     * 
+     *
      * @return void
      */
     public function setOption($option, $value)

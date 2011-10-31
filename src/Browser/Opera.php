@@ -62,7 +62,8 @@ class Browser_Opera extends Browser
     {
         $length     = $this->lengthRegex();
         $percent    = $this->percentRegex();
-        $bgsize     = '((\s*(' . $length . '|' . $percent . '|auto)){1,2}|\s*cover|\s*contain)';
+        $bgsize     = '((\s*(' . $length . '|' . $percent . '|auto)){1,2}|'
+                    . '\s*cover|\s*contain)';
         $value      = '(\s*)(' . $bgsize . '(,\s*' . $bgsize . ')*);?';
         $replace    = '${2}${3}';
         $properties = array(
@@ -74,7 +75,8 @@ class Browser_Opera extends Browser
 
         foreach ($properties as $standard => $opera) {
             $search    = "/(\s*)(?<!-){$standard}:{$value}/";
-            $rep       = '${1}' . "{$opera['prefix']}:{$opera['format']};" . '${1}' . "{$standard}:{$replace};";
+            $rep       = '${1}' . "{$opera['prefix']}:{$opera['format']};"
+                       . '${1}' . "{$standard}:{$replace};";
 
             $cssString = preg_replace($search, $rep, $cssString);
         }
@@ -94,11 +96,14 @@ class Browser_Opera extends Browser
         $length     = $this->lengthRegex();
         $percent    = $this->percentRegex();
         $shorthand  = array(
-            'value'   => '(\s*)((\s*(' . $length . '|' . $percent . ')){1,4}(\s*\/\s*(\s*(' . $length . '|' . $percent . ')){1,4})?);?',
+            'value'   => '(\s*)((\s*(' . $length . '|' . $percent . ')){1,4}'
+                      . '(\s*\/\s*(\s*(' . $length . '|' . $percent . ')){1,4}'
+                      . ')?);?',
             'replace' => '${2}${3}',
         );
         $longhand   = array(
-            'value'   => '(\s*)((' . $length . '|' . $percent . ')(\s\s*(' . $length . '|' . $percent . '))?);?',
+            'value'   => '(\s*)((' . $length . '|' . $percent . ')(\s\s*('
+                      . $length . '|' . $percent . '))?);?',
             'replace' => '${2}${3}',
         );
 
@@ -132,7 +137,8 @@ class Browser_Opera extends Browser
 
         foreach ($properties as $standard => $opera) {
             $search = "/(\s*)(?<!-){$standard}:{$opera['value']}/";
-            $rep = '${1}' . "{$opera['prefix']}:{$opera['replace']};" . '${1}' . "{$standard}:{$opera['replace']};";
+            $rep = '${1}' . "{$opera['prefix']}:{$opera['replace']};"
+                 . '${1}' . "{$standard}:{$opera['replace']};";
             $cssString = preg_replace($search, $rep, $cssString);
         }
 

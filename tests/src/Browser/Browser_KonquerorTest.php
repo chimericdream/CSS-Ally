@@ -51,31 +51,37 @@ require_once dirname(__FILE__) . '/../../../src/Browser/Konqueror.php';
  * @subpackage CssAlly_Tests_Browser
  * @author     Bill Parrott <bill@cssally.com>
  * @uses       BaseTest
- * @see        Browser_Konqueror
  * @copyright  2011 Bill Parrott
  * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * @link       http://cssally.com/
+ * @see        Browser_Konqueror
  */
 class Browser_KonquerorTest extends BaseTest
 {
     /**
      * @var Browser_Konqueror
      */
-    protected $object;
+    protected $_object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
+     *
+     * @return void
      */
-    protected function setUp() {
-        $this->object = new Browser_Konqueror;
+    protected function setUp()
+    {
+        $this->_object = new Browser_Konqueror;
     }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
+     *
+     * @return void
      */
-    protected function tearDown() {
+    protected function tearDown()
+    {
         
     }
 }

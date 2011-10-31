@@ -51,41 +51,51 @@ require_once dirname(__FILE__) . '/../../../src/Browser/Opera.php';
  * @subpackage CssAlly_Tests_Browser
  * @author     Bill Parrott <bill@cssally.com>
  * @uses       BaseTest
- * @see        Browser_Opera
  * @copyright  2011 Bill Parrott
  * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * @link       http://cssally.com/
+ * @see        Browser_Opera
  */
 class Browser_OperaTest extends BaseTest
 {
     /**
      * @var Browser_Opera
      */
-    protected $object;
+    protected $_object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
+     *
+     * @return void
      */
-    protected function setUp() {
-        $this->object = new Browser_Opera;
+    protected function setUp()
+    {
+        $this->_object = new Browser_Opera;
     }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
+     *
+     * @return void
      */
-    protected function tearDown() {
+    protected function tearDown()
+    {
         
     }
 
     /**
      * @covers Browser_Opera::backgroundSize
      * @dataProvider backgroundSizeProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
      */
     public function testBackgroundSize($cssString, $expectedString)
     {
-        $cssString = $this->object->backgroundSize($cssString);
+        $cssString = $this->_object->backgroundSize($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
     
@@ -110,10 +120,14 @@ class Browser_OperaTest extends BaseTest
     /**
      * @covers Browser_Opera::borderRadius
      * @dataProvider borderRadiusProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
      */
     public function testBorderRadius($cssString, $expectedString)
     {
-        $cssString = $this->object->borderRadius($cssString);
+        $cssString = $this->_object->borderRadius($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
     

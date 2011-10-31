@@ -1,0 +1,68 @@
+............................................................  60 / 239
+............................................................ 120 / 239
+............................................................ 180 / 239
+......................................................WWWWW
+
+
+FILE: E:\Web\cssally\project\tests\src\BrowserTest.php
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 1 WARNING(S) AFFECTING 1 LINE(S)
+--------------------------------------------------------------------------------
+ 112 | WARNING | Line exceeds 80 characters; contains 82 characters
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\Browser\Browser_MozillaTest.php
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 8 WARNING(S) AFFECTING 8 LINE(S)
+--------------------------------------------------------------------------------
+ 111 | WARNING | Line exceeds 80 characters; contains 97 characters
+ 143 | WARNING | Line exceeds 80 characters; contains 95 characters
+ 175 | WARNING | Line exceeds 80 characters; contains 92 characters
+ 207 | WARNING | Line exceeds 80 characters; contains 94 characters
+ 239 | WARNING | Line exceeds 80 characters; contains 92 characters
+ 271 | WARNING | Line exceeds 80 characters; contains 93 characters
+ 303 | WARNING | Line exceeds 80 characters; contains 93 characters
+ 335 | WARNING | Line exceeds 80 characters; contains 94 characters
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\Browser\Browser_OperaTest.php
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 2 WARNING(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+ 111 | WARNING | Line exceeds 80 characters; contains 95 characters
+ 143 | WARNING | Line exceeds 80 characters; contains 93 characters
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\Browser\Browser_WebkitTest.php
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 8 WARNING(S) AFFECTING 8 LINE(S)
+--------------------------------------------------------------------------------
+ 111 | WARNING | Line exceeds 80 characters; contains 96 characters
+ 143 | WARNING | Line exceeds 80 characters; contains 94 characters
+ 175 | WARNING | Line exceeds 80 characters; contains 91 characters
+ 207 | WARNING | Line exceeds 80 characters; contains 93 characters
+ 239 | WARNING | Line exceeds 80 characters; contains 91 characters
+ 271 | WARNING | Line exceeds 80 characters; contains 92 characters
+ 303 | WARNING | Line exceeds 80 characters; contains 92 characters
+ 335 | WARNING | Line exceeds 80 characters; contains 93 characters
+--------------------------------------------------------------------------------
+
+
+FILE: E:\Web\cssally\project\tests\src\CssAllyTest.php
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 7 WARNING(S) AFFECTING 7 LINE(S)
+--------------------------------------------------------------------------------
+ 497 | WARNING | Line exceeds 80 characters; contains 87 characters
+ 518 | WARNING | Line exceeds 80 characters; contains 86 characters
+ 554 | WARNING | Line exceeds 80 characters; contains 87 characters
+ 589 | WARNING | Line exceeds 80 characters; contains 86 characters
+ 601 | WARNING | Line exceeds 80 characters; contains 84 characters
+ 621 | WARNING | Line exceeds 80 characters; contains 82 characters
+ 652 | WARNING | Line exceeds 80 characters; contains 82 characters
+--------------------------------------------------------------------------------
+
+Time: 4 seconds, Memory: 6.50Mb
+

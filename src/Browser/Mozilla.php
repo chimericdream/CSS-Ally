@@ -62,7 +62,8 @@ class Browser_Mozilla extends Browser
     {
         $length     = $this->lengthRegex();
         $percent    = $this->percentRegex();
-        $bgsize     = '((\s*(' . $length . '|' . $percent . '|auto)){1,2}|\s*cover|\s*contain)';
+        $bgsize     = '((\s*(' . $length . '|' . $percent . '|auto)){1,2}|'
+                    . '\s*cover|\s*contain)';
         $value      = '(\s*)(' . $bgsize . '(,\s*' . $bgsize . ')*);?';
         $replace    = '${2}${3}';
         $properties = array(
@@ -74,7 +75,8 @@ class Browser_Mozilla extends Browser
 
         foreach ($properties as $standard => $mozilla) {
             $search    = "/(\s*)(?<!-){$standard}:{$value}/";
-            $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};" . '${1}' . "{$standard}:{$replace};";
+            $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};"
+                       . '${1}' . "{$standard}:{$replace};";
 
             $cssString = preg_replace($search, $rep, $cssString);
         }
@@ -94,11 +96,14 @@ class Browser_Mozilla extends Browser
         $length     = $this->lengthRegex();
         $percent    = $this->percentRegex();
         $shorthand  = array(
-            'value'   => '(\s*)((\s*(' . $length . '|' . $percent . ')){1,4}(\s*\/\s*(\s*(' . $length . '|' . $percent . ')){1,4})?);?',
+            'value'   => '(\s*)((\s*(' . $length . '|' . $percent . ')){1,4}'
+                      . '(\s*\/\s*(\s*(' . $length . '|' . $percent . ')){1,4}'
+                      . ')?);?',
             'replace' => '${2}${3}',
         );
         $longhand   = array(
-            'value'   => '(\s*)((' . $length . '|' . $percent . ')(\s\s*(' . $length . '|' . $percent . '))?);?',
+            'value'   => '(\s*)((' . $length . '|' . $percent . ')(\s\s*('
+                      . $length . '|' . $percent . '))?);?',
             'replace' => '${2}${3}',
         );
 
@@ -132,7 +137,8 @@ class Browser_Mozilla extends Browser
 
         foreach ($properties as $standard => $mozilla) {
             $search    = "/(\s*)(?<!-){$standard}:{$mozilla['value']}/";
-            $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['replace']};" . '${1}' . "{$standard}:{$mozilla['replace']};";
+            $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['replace']};"
+                       . '${1}' . "{$standard}:{$mozilla['replace']};";
 
             $cssString = preg_replace($search, $rep, $cssString);
         }
@@ -163,7 +169,8 @@ class Browser_Mozilla extends Browser
 
         foreach ($properties as $standard => $mozilla) {
             $search    = "/(\s*)(?<!-){$standard}:{$value}/";
-            $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};" . '${1}' . "{$standard}:{$replace};";
+            $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};"
+                       . '${1}' . "{$standard}:{$replace};";
             $cssString = preg_replace($search, $rep, $cssString);
         }
 
@@ -180,7 +187,8 @@ class Browser_Mozilla extends Browser
     public function columnCount($cssString = '')
     {
         $search    = '/(\s*)(?<!-)column-count:(\s*)(auto|\d+);?/';
-        $replace   = '${1}-moz-column-count:${2}${3};${1}column-count:${2}${3};';
+        $replace   = '${1}-moz-column-count:${2}${3};${1}'
+                   . 'column-count:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
         return $cssString;
@@ -243,7 +251,8 @@ class Browser_Mozilla extends Browser
 
         foreach ($properties as $standard => $mozilla) {
             $search = "/(\s*)(?<!-){$standard}:{$mozilla['value']}/";
-            $rep    = '${1}' . "{$mozilla['prefix']}:{$mozilla['replace']};" . '${1}' . "{$standard}:{$mozilla['replace']};";
+            $rep    = '${1}' . "{$mozilla['prefix']}:{$mozilla['replace']};"
+                    . '${1}' . "{$standard}:{$mozilla['replace']};";
 
             $cssString = preg_replace($search, $rep, $cssString);
         }
@@ -279,7 +288,8 @@ class Browser_Mozilla extends Browser
         $length = $this->lengthRegex();
 
         $search    = '/(\s*)(?<!-)column-width:(\s*)(auto|' . $length . ');?/';
-        $replace   = '${1}-moz-column-width:${2}${3};${1}column-width:${2}${3};';
+        $replace   = '${1}-moz-column-width:${2}${3};${1}'
+                   . 'column-width:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
         return $cssString;

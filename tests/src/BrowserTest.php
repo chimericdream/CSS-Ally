@@ -1,26 +1,26 @@
 <?php
 /**
  * CssAlly
- * 
+ *
  * Copyright (C) 2011 Bill Parrott
- * 
+ *
  * LICENSE
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  * PHP Version 5
- * 
+ *
  * @category   CssAlly
  * @package    CssAlly_Tests
  * @subpackage CssAlly_Tests_Browser
@@ -31,7 +31,7 @@
  */
 
 /**
- * @see BaseTest 
+ * @see BaseTest
  */
 require_once dirname(__FILE__) . '/BaseTest.php';
 
@@ -42,7 +42,7 @@ require_once dirname(__FILE__) . '/../../src/Browser.php';
 
 /**
  * Test class for browser-prefixed CSS rules
- * 
+ *
  * This class tests each CSS rule in full. In other words, for each CSS rule,
  * the test validates the output when all vendor prefixed versions of the rule
  * have been generated.
@@ -52,43 +52,51 @@ require_once dirname(__FILE__) . '/../../src/Browser.php';
  * @subpackage CssAlly_Tests_Browser
  * @author     Bill Parrott <bill@cssally.com>
  * @uses       BaseTest
- * @see        CssAlly
  * @copyright  2011 Bill Parrott
  * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * @link       http://cssally.com/
+ * @see        CssAlly
  */
 class BrowserTest extends BaseTest
 {
     /**
      * @var CssAlly
      */
-    protected $object;
+    protected $_object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
+     *
+     * @return void
      */
-    protected function setUp() {
-        $this->object = new CssAlly(array(), array('cssDir' => 'path'));
+    protected function setUp()
+    {
+        $this->_object = new CssAlly(array(), array('cssDir' => 'path'));
     }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
+     *
+     * @return void
      */
-    protected function tearDown() {
+    protected function tearDown()
+    {
 
     }
 
     /**
      * @covers Browser::backgroundSize
      * @dataProvider backgroundSizeProvider
-     * @param type $cssString
-     * @param type $expectedString
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
      */
     public function testBackgroundSize($cssString, $expectedString)
     {
-        $cssString = $this->object->backgroundSize($cssString);
+        $cssString = $this->_object->backgroundSize($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -97,28 +105,30 @@ class BrowserTest extends BaseTest
         $path = dirname(__FILE__) . '/../css';
         $dh = opendir($path);
 
-        $testCssStrings = array();
+        $strings = array();
         while (false !== ($file = readdir($dh))) {
             if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $compressed       = file_get_contents("{$path}/background-size/{$file}");
-                $testCssStrings[] = array($css, $compressed);
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/background-size/{$file}");
+                $strings[] = array($css, $bgCss);
             }
         }
         closedir($dh);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
      * @covers Browser::borderRadius
      * @dataProvider borderRadiusProvider
-     * @param type $cssString
-     * @param type $expectedString
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
      */
     public function testBorderRadius($cssString, $expectedString)
     {
-        $cssString = $this->object->borderRadius($cssString);
+        $cssString = $this->_object->borderRadius($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -127,54 +137,58 @@ class BrowserTest extends BaseTest
         $path = dirname(__FILE__) . '/../css';
         $dh = opendir($path);
 
-        $testCssStrings = array();
+        $strings = array();
         while (false !== ($file = readdir($dh))) {
             if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $compressed       = file_get_contents("{$path}/border-radius/{$file}");
-                $testCssStrings[] = array($css, $compressed);
+                $css       = file_get_contents("{$path}/{$file}");
+                $borderCss = file_get_contents("{$path}/border-radius/{$file}");
+                $strings[] = array($css, $borderCss);
             }
         }
         closedir($dh);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
      * @covers Browser::boxShadow
      * @dataProvider boxShadowProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
      */
     public function testBoxShadow($cssString, $expectedString)
     {
-        $cssString = $this->object->boxShadow($cssString);
+        $cssString = $this->_object->boxShadow($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
-    
+
     public function boxShadowProvider()
     {
         $path = dirname(__FILE__) . '/../css';
         $dh = opendir($path);
 
-        $testCssStrings = array();
+        $strings = array();
         while (false !== ($file = readdir($dh))) {
             if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $shadowCss        = file_get_contents("{$path}/box-shadow/{$file}");
-                $testCssStrings[] = array($css, $shadowCss);
+                $css       = file_get_contents("{$path}/{$file}");
+                $shadowCss = file_get_contents("{$path}/box-shadow/{$file}");
+                $strings[] = array($css, $shadowCss);
             }
         }
         closedir($dh);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
      * @covers Browser::columnCount
      * @dataProvider columnCountProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
      */
     public function testColumnCount($cssString, $expectedString)
     {
-        $cssString = $this->object->columnCount($cssString);
+        $cssString = $this->_object->columnCount($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -183,26 +197,28 @@ class BrowserTest extends BaseTest
         $path = dirname(__FILE__) . '/../css';
         $dh = opendir($path);
 
-        $testCssStrings = array();
+        $strings = array();
         while (false !== ($file = readdir($dh))) {
             if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/column-count/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
+                $css       = file_get_contents("{$path}/{$file}");
+                $colCss    = file_get_contents("{$path}/column-count/{$file}");
+                $strings[] = array($css, $colCss);
             }
         }
         closedir($dh);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
      * @covers Browser::columnGap
      * @dataProvider columnGapProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
      */
     public function testColumnGap($cssString, $expectedString)
     {
-        $cssString = $this->object->columnGap($cssString);
+        $cssString = $this->_object->columnGap($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -211,26 +227,28 @@ class BrowserTest extends BaseTest
         $path = dirname(__FILE__) . '/../css';
         $dh = opendir($path);
 
-        $testCssStrings = array();
+        $strings = array();
         while (false !== ($file = readdir($dh))) {
             if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/column-gap/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
+                $css       = file_get_contents("{$path}/{$file}");
+                $colCss    = file_get_contents("{$path}/column-gap/{$file}");
+                $strings[] = array($css, $colCss);
             }
         }
         closedir($dh);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
      * @covers Browser::columnRule
      * @dataProvider columnRuleProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
      */
     public function testColumnRule($cssString, $expectedString)
     {
-        $cssString = $this->object->columnRule($cssString);
+        $cssString = $this->_object->columnRule($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -239,26 +257,28 @@ class BrowserTest extends BaseTest
         $path = dirname(__FILE__) . '/../css';
         $dh = opendir($path);
 
-        $testCssStrings = array();
+        $strings = array();
         while (false !== ($file = readdir($dh))) {
             if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/column-rule/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
+                $css       = file_get_contents("{$path}/{$file}");
+                $colCss    = file_get_contents("{$path}/column-rule/{$file}");
+                $strings[] = array($css, $colCss);
             }
         }
         closedir($dh);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
      * @covers Browser::columnSpan
      * @dataProvider columnSpanProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
      */
     public function testColumnSpan($cssString, $expectedString)
     {
-        $cssString = $this->object->columnSpan($cssString);
+        $cssString = $this->_object->columnSpan($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -267,26 +287,28 @@ class BrowserTest extends BaseTest
         $path = dirname(__FILE__) . '/../css';
         $dh = opendir($path);
 
-        $testCssStrings = array();
+        $strings = array();
         while (false !== ($file = readdir($dh))) {
             if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/column-span/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
+                $css       = file_get_contents("{$path}/{$file}");
+                $colCss    = file_get_contents("{$path}/column-span/{$file}");
+                $strings[] = array($css, $colCss);
             }
         }
         closedir($dh);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
      * @covers Browser::columnWidth
      * @dataProvider columnWidthProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
      */
     public function testColumnWidth($cssString, $expectedString)
     {
-        $cssString = $this->object->columnWidth($cssString);
+        $cssString = $this->_object->columnWidth($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
 
@@ -295,16 +317,16 @@ class BrowserTest extends BaseTest
         $path = dirname(__FILE__) . '/../css';
         $dh = opendir($path);
 
-        $testCssStrings = array();
+        $strings = array();
         while (false !== ($file = readdir($dh))) {
             if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/column-width/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
+                $css       = file_get_contents("{$path}/{$file}");
+                $colCss    = file_get_contents("{$path}/column-width/{$file}");
+                $strings[] = array($css, $colCss);
             }
         }
         closedir($dh);
 
-        return $testCssStrings;
+        return $strings;
     }
 }

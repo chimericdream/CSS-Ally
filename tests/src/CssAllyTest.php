@@ -50,41 +50,49 @@ require_once dirname(__FILE__) . '/../../src/CssAlly.php';
  * @package    CssAlly_Tests
  * @author     Bill Parrott <bill@cssally.com>
  * @uses       BaseTest
- * @see        CssAlly
  * @copyright  2011 Bill Parrott
  * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * @link       http://cssally.com/
+ * @see        CssAlly
  */
 class CssAllyTest extends BaseTest
 {
     /**
      * @var CssAlly
      */
-    protected $object;
+    protected $_object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
+     *
+     * @return void
      */
-    protected function setUp() {
-        $this->object = new CssAlly(array(), array('cssDir' => 'path'));
+    protected function setUp()
+    {
+        $this->_object = new CssAlly(array(), array('cssDir' => 'path'));
     }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
+     *
+     * @return void
      */
-    protected function tearDown() {
+    protected function tearDown()
+    {
 
     }
 
     /**
      * @covers CssAlly::__construct
      * @dataProvider constructorSetsBrowsersProvider
+     *
+     * @return void
      */
     public function testConstructorSetsDefaultBrowsers(array $browsers)
     {
-        $browserList = $this->object->getBrowsers();
+        $browserList = $this->_object->getBrowsers();
         $this->assertInstanceOf('Browser_Explorer', $browserList['explorer']);
         $this->assertNull($browserList['konqueror']);
         $this->assertInstanceOf('Browser_Mozilla', $browserList['mozilla']);
@@ -96,11 +104,13 @@ class CssAllyTest extends BaseTest
      * @covers CssAlly::__construct
      * @covers CssAlly::setBrowsers
      * @dataProvider constructorSetsBrowsersProvider
+     *
+     * @return void
      */
     public function testConstructorSetsBrowsers(array $browsers)
     {
-        $this->object = new CssAlly($browsers, array('cssDir' => 'path'));
-        $browserList = $this->object->getBrowsers();
+        $this->_object = new CssAlly($browsers, array('cssDir' => 'path'));
+        $browserList = $this->_object->getBrowsers();
         foreach ($browsers as $name => $value) {
             if ($value) {
                 $className = 'Browser_' . ucfirst($name);
@@ -409,12 +419,14 @@ class CssAllyTest extends BaseTest
      * @covers CssAlly::__construct
      * @dataProvider constructorWithNonDefaultOptionsProvider
      * @param array $options
+     *
+     * @return void
      */
     public function testConstructorWithNonDefaultOptions(array $options)
     {
-        $this->object = new CssAlly(array(), $options);
+        $this->_object = new CssAlly(array(), $options);
         foreach ($options as $option => $value) {
-            $this->assertEquals($value, $this->object->getOption($option));
+            $this->assertEquals($value, $this->_object->getOption($option));
         }
     }
 
@@ -458,11 +470,13 @@ class CssAllyTest extends BaseTest
 
     /**
      * @covers CssAlly::__construct
+     *
+     * @return void
      */
     public function testConstructorThrowsExceptionWithoutCssDir()
     {
         $this->setExpectedException('InvalidArgumentException');
-        $this->object = new CssAlly();
+        $this->_object = new CssAlly();
         $this->assertEquals(true, true);
     }
 
@@ -471,16 +485,18 @@ class CssAllyTest extends BaseTest
      * @covers CssAlly::getBrowser
      * @dataProvider constructorSetsBrowsersProvider
      * @param type $browser
+     *
+     * @return void
      */
     public function testGetBrowser(array $browsers)
     {
-        $this->object = new CssAlly($browsers, array('cssDir' => 'path'));
+        $this->_object = new CssAlly($browsers, array('cssDir' => 'path'));
         foreach ($browsers as $name => $value) {
             if ($value) {
                 $className = 'Browser_' . ucfirst($name);
-                $this->assertInstanceOf($className, $this->object->getBrowser($name));
+                $this->assertInstanceOf($className, $this->_object->getBrowser($name));
             } else {
-                $this->assertNull($this->object->getBrowser($name));
+                $this->assertNull($this->_object->getBrowser($name));
             }
         }
     }
@@ -491,15 +507,17 @@ class CssAllyTest extends BaseTest
      * @dataProvider setBrowserProvider
      * @param type $browser
      * @param type $generate
+     *
+     * @return void
      */
     public function testSetBrowser($browser, $useBrowserRules)
     {
-        $this->object->setBrowser($browser, $useBrowserRules);
+        $this->_object->setBrowser($browser, $useBrowserRules);
         if ($useBrowserRules) {
             $className = 'Browser_' . ucfirst($browser);
-            $this->assertInstanceOf($className, $this->object->getBrowser($browser));
+            $this->assertInstanceOf($className, $this->_object->getBrowser($browser));
         } else {
-            $this->assertNull($this->object->getBrowser($browser));
+            $this->assertNull($this->_object->getBrowser($browser));
         }
     }
 
@@ -524,16 +542,18 @@ class CssAllyTest extends BaseTest
      * @depends testSetBrowser
      * @dataProvider constructorSetsBrowsersProvider
      * @param array $browsers
+     *
+     * @return void
      */
     public function testSetMultipleBrowsers(array $browsers)
     {
-        $this->object->setBrowsers($browsers);
+        $this->_object->setBrowsers($browsers);
         foreach ($browsers as $name => $value) {
             if ($value) {
                 $className = 'Browser_' . ucfirst($name);
-                $this->assertInstanceOf($className, $this->object->getBrowser($name));
+                $this->assertInstanceOf($className, $this->_object->getBrowser($name));
             } else {
-                $this->assertNull($this->object->getBrowser($name));
+                $this->assertNull($this->_object->getBrowser($name));
             }
         }
     }
@@ -543,11 +563,13 @@ class CssAllyTest extends BaseTest
      * @covers CssAlly::getBuiltCss
      * @dataProvider compressProvider
      * @param type $cssString
+     *
+     * @return void
      */
     public function testSetBuiltCss($cssString)
     {
-        $this->object->setBuiltCss($cssString);
-        $this->assertEquals($cssString, $this->object->getBuiltCss());
+        $this->_object->setBuiltCss($cssString);
+        $this->assertEquals($cssString, $this->_object->getBuiltCss());
     }
 
     /**
@@ -556,13 +578,15 @@ class CssAllyTest extends BaseTest
      * @dataProvider compressProvider
      * @param type $cssString
      * @param type $expectedCompressedString
+     *
+     * @return void
      */
     public function testCompress($cssString, $expectedCompressedString)
     {
-        $this->object->setBuiltCss($cssString);
-        $this->object->compress();
+        $this->_object->setBuiltCss($cssString);
+        $this->_object->compress();
 
-        $this->assertEquals($expectedCompressedString, $this->object->getBuiltCss());
+        $this->assertEquals($expectedCompressedString, $this->_object->getBuiltCss());
     }
 
     public function compressProvider()
@@ -587,12 +611,14 @@ class CssAllyTest extends BaseTest
      * @covers CssAlly::addCssFile
      * @dataProvider addCssFileProvider
      * @param type $filePath
+     *
+     * @return void
      */
     public function testAddCssFile($filePath)
     {
-        $this->object = new CssAlly(array(), array('cssDir' => 'path'));
-        $this->object->addCssFile($filePath);
-        $this->assertContains('path/' . $filePath, $this->object->getFileList());
+        $this->_object = new CssAlly(array(), array('cssDir' => 'path'));
+        $this->_object->addCssFile($filePath);
+        $this->assertContains('path/' . $filePath, $this->_object->getFileList());
     }
 
     public function addCssFileProvider()
@@ -609,24 +635,26 @@ class CssAllyTest extends BaseTest
         closedir($dh);
 
         return $fileList;
-   }
+    }
 
-   /**
-    * @covers CssAlly::addCssFiles
-    * @dataProvider addCssFilesProvider
-    * @param array $files
-    */
-   public function testAddCssFiles(array $files)
-   {
-        $this->object = new CssAlly(array(), array('cssDir' => 'path'));
-        $this->object->addCssFiles($files);
+    /**
+     * @covers CssAlly::addCssFiles
+     * @dataProvider addCssFilesProvider
+     * @param array $files
+     *
+     * @return void
+     */
+    public function testAddCssFiles(array $files)
+    {
+        $this->_object = new CssAlly(array(), array('cssDir' => 'path'));
+        $this->_object->addCssFiles($files);
         foreach ($files as $file) {
-            $this->assertContains('path/' . $file, $this->object->getFileList());
+            $this->assertContains('path/' . $file, $this->_object->getFileList());
         }
-   }
+    }
 
-   public function addCssFilesProvider()
-   {
+    public function addCssFilesProvider()
+    {
         $path = dirname(__FILE__) . '/../css';
         $dh   = opendir($path);
 
@@ -639,5 +667,5 @@ class CssAllyTest extends BaseTest
         closedir($dh);
 
         return array($fileList);
-   }
+    }
 }
