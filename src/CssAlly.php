@@ -417,8 +417,8 @@ class CssAlly
         $this->removeVariables();
 
         foreach ($vars as $var) {
-            $search          = '/\$' . $var['name'] . '/';
-            $this->_builtCss = preg_replace($search, $var['value'], $this->_builtCss);
+            $search          = '/\$' . $var['name'] . '([^_a-zA-Z0-9])/';
+            $this->_builtCss = preg_replace($search, $var['value'] . '${1}', $this->_builtCss);
         }
     } //end parseVariables
     
@@ -427,7 +427,7 @@ class CssAlly
      */
     public function removeVariables()
     {
-        $search = '/\s*\$([a-zA-Z][_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;/';
+        $search = '/\s*\$([a-zA-Z][_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;\s*/';
         $this->_builtCss = preg_replace($search, '', $this->_builtCss);
     } //end removeVariables
     

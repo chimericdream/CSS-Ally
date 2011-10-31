@@ -668,10 +668,45 @@ class CssAllyTest extends BaseTest
 
         return array($fileList);
     }
+    
+    /**
+     * @covers CssAlly::removeVariables
+     * @depends testSetBuiltCss
+     * @dataProvider removeVariablesProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testRemoveVariables($cssString, $expectedString)
+    {
+        $this->_object->setBuiltCss($cssString);
+        $this->_object->removeVariables();
+
+        $this->assertEquals($expectedString, $this->_object->getBuiltCss());
+    }
+
+    public function removeVariablesProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $varCss    = file_get_contents("{$path}/remove-vars/{$file}");
+                $strings[] = array($css, $varCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
 
     /**
      * @covers CssAlly::parseVariables
-     * @depends testSetBuiltCss
+     * @depends testRemoveVariables
      * @dataProvider parseVariablesProvider
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
