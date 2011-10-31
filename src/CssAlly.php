@@ -317,11 +317,21 @@ class CssAlly
         return $this->_browsers;
     } //end getBrowsers
 
+    /**
+     * Get the built CSS string.
+     *
+     * @return string The built CSS
+     */
     public function getBuiltCss()
     {
         return $this->_builtCss;
     } //end getBuiltCss
 
+    /**
+     * Get the name of the cache file where the built CSS is stored.
+     *
+     * @return string The name of the cache file
+     */
     public function getCacheFileName()
     {
         return $this->_cachefile;
@@ -337,16 +347,33 @@ class CssAlly
         $this->setBuiltCss(file_get_contents($this->_cachefile));
     } //end getCssFromCache
 
+    /**
+     * Get the list of files to be parsed.
+     *
+     * @return array The list of CSS files
+     */
     public function getFileList()
     {
         return $this->_files;
     } //end getFileList
 
+    /**
+     * Get the current value of a given option
+     *
+     * @param string $option The name of the option to get the value of
+     *
+     * @return mixed The current value of the option requested
+     */
     public function getOption($option)
     {
         return isset($this->_options[$option]) ? $this->_options[$option] : null;
     } //end getOption
 
+    /**
+     * Get the array of optionst
+     *
+     * @return array All of the options
+     */
     public function getOptions()
     {
         return $this->_options;
@@ -364,13 +391,19 @@ class CssAlly
         exit;
     } //end output
 
+    /**
+     * Cycle through the CSS rules in the _rules array and, if enabled (set to
+     * true), run the method on the CSS string.
+     *
+     * @return void
+     */
     public function runCssRules()
     {
         foreach ($this->_rules as $rule => $run) {
             if ($run) {
                 $methodNameArr = explode('-', $rule);
+                $methodName = '';
                 if (count($methodNameArr) > 1) {
-                    $methodName = '';
                     foreach ($methodNameArr as $index => $piece) {
                         if ($index > 0) {
                             $methodName .= ucfirst($piece);
@@ -386,6 +419,15 @@ class CssAlly
         }
     } //end runCssRules
 
+    /**
+     * Create a Browser_* object for a given browser name. If false is passed as
+     * the second parameter, set the browser option to null.
+     *
+     * @param string $browser         The name of the browser
+     * @param bool   $useBrowserRules Whether to add prefixed CSS for the browser
+     *
+     * @return void
+     */
     public function setBrowser($browser, $useBrowserRules)
     {
         if (!$useBrowserRules) {
@@ -401,6 +443,16 @@ class CssAlly
         $this->_browsers[$browser] = new $className;
     } //end setBrowser
 
+    /**
+     * Set multiple browser objects at once. The array should be formatted as
+     * such:
+     * 
+     * <code>'browser' => true|false</code>
+     * 
+     * @param array $browsers An array of browsers to set the rules for
+     * 
+     * @return void
+     */
     public function setBrowsers(array $browsers)
     {
         foreach ($browsers as $browser => $useBrowserRules) {
@@ -408,11 +460,26 @@ class CssAlly
         }
     } //end setBrowsers
 
+    /**
+     * Directly set the CSS string to be parsed
+     * 
+     * @param string $css The CSS string to store in the _builtCss property
+     * 
+     * @return void
+     */
     public function setBuiltCss($css)
     {
         $this->_builtCss = $css;
     } //end setBuiltCss
 
+    /**
+     * Set a particular option's value
+     * 
+     * @param string $option The name of the option to set
+     * @param string $value  The value to which to set the option
+     * 
+     * @return void
+     */
     public function setOption($option, $value)
     {
         $this->_options[$option] = $value;
