@@ -102,9 +102,9 @@ class CssAlly
      * @return void
      */
     public function __construct(
-            array $browsers = array(),
-            array $options = array())
-    {
+        array $browsers = array(),
+        array $options = array()
+    ) {
         if (!empty($browsers)) {
             $this->_browsers['explorer']  = (isset($browsers['explorer'])) ?
                                             $browsers['explorer'] :
@@ -246,7 +246,7 @@ class CssAlly
     {
         if ($this->_options['compress']) {
             $css = $this->_builtCss;
-            
+
             /* remove comments */
             $comments = "!/\*[^*]*\*+([^/][^*]*\*+)*/!";
             $css = preg_replace($comments, '', $css);
@@ -261,7 +261,7 @@ class CssAlly
             $css = str_replace(array(': ', ' :', ' : '), ':', $css);
             $css = str_replace(array('{ ', ' {', ' { '), '{', $css);
             $css = str_replace(array('} ', ' }', ' } '), '}', $css);
-            
+
             $this->_builtCss = $css;
         }
     } //end compress
@@ -402,35 +402,46 @@ class CssAlly
         exit;
     } //end output
 
+    /**
+     * Parse the CSS string for variables
+     *
+     * @return void
+     */
     public function parseVariables()
     {
-        $varSearch = '/\s*\$([a-zA-Z][_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;/';
-        $variables = array();
-        preg_match_all($varSearch, $this->_builtCss, $variables);
+        $find = '/\s*\$([a-zA-Z][_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;/';
+        $v    = array();
+        preg_match_all($find, $this->_builtCss, $v);
         $vars = array();
-        foreach ($variables[1] as $index => $varname) {
+        foreach ($v[1] as $index => $varname) {
             $vars[] = array(
                 'name'  => $varname,
-                'value' => $variables[3][$index],
+                'value' => $v[3][$index],
             );
         }
         $this->removeVariables();
 
         foreach ($vars as $var) {
-            $search          = '/\$' . $var['name'] . '([^_a-zA-Z0-9])/';
-            $this->_builtCss = preg_replace($search, $var['value'] . '${1}', $this->_builtCss);
+            $find          = '/\$' . $var['name'] . '([^_a-zA-Z0-9])/';
+            $this->_builtCss = preg_replace(
+                $find, 
+                $var['value'] . '${1}', 
+                $this->_builtCss
+            );
         }
     } //end parseVariables
-    
+
     /**
-     * @todo: Write test. The test for parseVariables() should depend on this one
+     * Remove variable declarations from the CSS string
+     *
+     * @return void
      */
     public function removeVariables()
     {
         $search = '/\s*\$([a-zA-Z][_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;\s*/';
         $this->_builtCss = preg_replace($search, '', $this->_builtCss);
     } //end removeVariables
-    
+
     /**
      * Cycle through the CSS rules in the _rules array and, if enabled (set to
      * true), run the method on the CSS string.

@@ -87,8 +87,10 @@ class BrowserTest extends BaseTest
     }
 
     /**
+     * Test all background-size rules together
      * @covers Browser::backgroundSize
      * @dataProvider backgroundSizeProvider
+     * 
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
