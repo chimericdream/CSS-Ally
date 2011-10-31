@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class CssAlly</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class CssAlly</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Core class for CssAlly</p>
+<p class="description"><p>This is the primary class for the CssAlly application. It contains the  functionality to load CSS files, parse them for CSS3 rules, and cache and  output the result. Which browser rules are used may be defined when the class  is instantiated or at any other time. In addition, specific rules may be  turned explicitly on or off (all are on by default).</p><p>Example:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$css&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../CssAlly/CssAlly.html">CssAlly</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$css</span><span class="src-sym">-&gt;</span><a href="../CssAlly/CssAlly.html#methodsetOption">setOption</a><span class="src-sym">(</span><span class="src-str">'cssDir'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'/path/to/css/folder'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$files&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'file1.css'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'file2.css'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'file3.css'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$css</span><span class="src-sym">-&gt;</span><a href="../CssAlly/CssAlly.html#methodaddCssFiles">addCssFiles</a><span class="src-sym">(</span><span class="src-var">$files</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$css</span><span class="src-sym">-&gt;</span><a href="../CssAlly/CssAlly.html#methodgenerate">generate</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../CssAlly/CssAlly.html#methodoutput">output</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Bill Parrott &lt;<a href="mailto:bill@cssally.com">bill@cssally.com</a>&gt;</li>
+				<li><span class="field">copyright:</span> 2011 Bill Parrott</li>
+				<li><span class="field">link:</span> <a href="http://cssally.com/">http://cssally.com/</a></li>
+				<li><span class="field">license:</span> GNU</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_CssAlly.php.html">/CssAlly.php</a> (line <span class="field">62</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																				
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$browsers</span> = <span class="var-default">array()</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addCssFile" title="details" class="method-name">addCssFile</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$filePath</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addCssFiles" title="details" class="method-name">addCssFiles</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$filePaths</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#buildCssString" title="details" class="method-name">buildCssString</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#checkCache" title="details" class="method-name">checkCache</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#compress" title="details" class="method-name">compress</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CssAlly/CssAlly.html">CssAlly</a></span>
+										<a href="#generate" title="details" class="method-name">generate</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#generateFileName" title="details" class="method-name">generateFileName</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">null|<a href="../CssAlly/CssAlly_Browser/Browser.html">Browser</a></span>
+										<a href="#getBrowser" title="details" class="method-name">getBrowser</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$browser</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getBrowsers" title="details" class="method-name">getBrowsers</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBuiltCss" title="details" class="method-name">getBuiltCss</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCacheFileName" title="details" class="method-name">getCacheFileName</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getCssFromCache" title="details" class="method-name">getCssFromCache</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getFileList" title="details" class="method-name">getFileList</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getOption" title="details" class="method-name">getOption</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$option</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getOptions" title="details" class="method-name">getOptions</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">none</span>
+										<a href="#output" title="details" class="method-name">output</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#parseVariables" title="details" class="method-name">parseVariables</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#removeVariables" title="details" class="method-name">removeVariables</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#runCssRules" title="details" class="method-name">runCssRules</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBrowser" title="details" class="method-name">setBrowser</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$browser</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$useBrowserRules</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBrowsers" title="details" class="method-name">setBrowsers</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$browsers</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBuiltCss" title="details" class="method-name">setBuiltCss</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$css</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setOption" title="details" class="method-name">setOption</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$option</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#writeCache" title="details" class="method-name">writeCache</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__call" title="details" class="method-name">__call</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$arguments</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">104</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The constructor sets up the basic settings for the class.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$browsers</span> = <span class="var-default">array()</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$browsers</span><span class="var-description">: An array of the browsers to target. Each browser                         should have one of the following formats:                         <div class="src-code"><ol><li><div class="src-line"><span class="src-str">'name'&nbsp;</span>=&gt;&nbsp;<span class="src-id">true</span></div></li>
+</ol></div> (add prefixes)                         <div class="src-code"><ol><li><div class="src-line"><span class="src-str">'name'&nbsp;</span>=&gt;&nbsp;<span class="src-id">null</span></div></li>
+</ol></div> (don't)</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: An array containing override values for the class                         options.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddCssFile" id="addCssFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addCssFile</span> (line <span class="line-number">181</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add a CSS file to be parsed. The path to the file should be relative to  the one specified in in the 'css-dir' option.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addCssFile
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$filePath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$filePath</span><span class="var-description">: The path to the CSS file to be parsed</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddCssFiles" id="addCssFiles"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addCssFiles</span> (line <span class="line-number">194</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add an array of CSS files to be parsed. The path to each file should be  relative to the one specified in in the 'css-dir' option.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addCssFiles
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$filePaths</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$filePaths</span><span class="var-description">: An array of file paths to queue for parsing</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodbuildCssString" id="buildCssString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">buildCssString</span> (line <span class="line-number">208</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This function gets the contents of each CSS file and concatenates them  together to form the base string which will be parsed for CSS rules  before minifying, caching, etc.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			buildCssString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcheckCache" id="checkCache"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkCache</span> (line <span class="line-number">221</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Compare the modification time of cache file against each of the CSS files  in the _files array.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Whether any CSS files are newer than the cached file</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			checkCache
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcompress" id="compress"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">compress</span> (line <span class="line-number">245</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Compress the built CSS string by removing comments, newlines, and extra  whitespace.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			compress
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgenerate" id="generate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generate</span> (line <span class="line-number">282</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method is where the magic happens. First, it determines the name of</p>
+<p class="description"><p>the cache file, checks for its existence, and does one of two things. If  the cache file exists and is not out of date, it loads the CSS from the  cache file. If the cache file is out of date or does not exist, it runs  all of the CSS rules to build the CSS string and stores that into the  cache file.</p><p>The method returns the <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$this</span></div></li>
+</ol></div> reference so that css can be  output immediately, a la <div class="src-code"><ol><li><div class="src-line"><span class="src-id"><a href="../CssAlly/CssAlly.html">CssAlly</a></span><span class="src-sym">-&gt;</span><a href="../CssAlly/CssAlly.html#methodgenerate">generate</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../CssAlly/CssAlly.html#methodoutput">output</a><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+</ol></div>.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CssAlly/CssAlly.html">CssAlly</a></span>
+		<span class="method-name">
+			generate
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgenerateFileName" id="generateFileName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateFileName</span> (line <span class="line-number">302</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate a file name for the cache file. This is based on the names of  all the CSS files used to generate the built CSS.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			generateFileName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetBrowser" id="getBrowser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBrowser</span> (line <span class="line-number">314</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the Browser object for the requested browser name.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">null|<a href="../CssAlly/CssAlly_Browser/Browser.html">Browser</a></span>
+		<span class="method-name">
+			getBrowser
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$browser</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$browser</span><span class="var-description">: The name of the browser.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetBrowsers" id="getBrowsers"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBrowsers</span> (line <span class="line-number">325</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the array of Browser objects.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getBrowsers
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetBuiltCss" id="getBuiltCss"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBuiltCss</span> (line <span class="line-number">335</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the built CSS string.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The built CSS</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBuiltCss
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetCacheFileName" id="getCacheFileName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCacheFileName</span> (line <span class="line-number">345</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the name of the cache file where the built CSS is stored.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The name of the cache file</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCacheFileName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetCssFromCache" id="getCssFromCache"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCssFromCache</span> (line <span class="line-number">355</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load the CSS string from the cache file.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getCssFromCache
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFileList" id="getFileList"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFileList</span> (line <span class="line-number">365</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the list of files to be parsed.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The list of CSS files</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getFileList
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetOption" id="getOption"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOption</span> (line <span class="line-number">377</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the current value of a given option</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The current value of the option requested</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getOption
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$option</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$option</span><span class="var-description">: The name of the option to get the value of</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetOptions" id="getOptions"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getOptions</span> (line <span class="line-number">388</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the array of optionst</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> All of the options</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getOptions
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodoutput" id="output"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">output</span> (line <span class="line-number">398</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Output the built CSS string to the browser.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">none</span>
+		<span class="method-name">
+			output
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodparseVariables" id="parseVariables"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">parseVariables</span> (line <span class="line-number">410</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse the CSS string for variables</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			parseVariables
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodremoveVariables" id="removeVariables"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">removeVariables</span> (line <span class="line-number">439</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Remove variable declarations from the CSS string</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			removeVariables
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodrunCssRules" id="runCssRules"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">runCssRules</span> (line <span class="line-number">451</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Cycle through the CSS rules in the _rules array and, if enabled (set to  true), run the method on the CSS string.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			runCssRules
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetBrowser" id="setBrowser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBrowser</span> (line <span class="line-number">483</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a Browser_* object for a given browser name. If false is passed as  the second parameter, set the browser option to null.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBrowser
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$browser</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$useBrowserRules</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$browser</span><span class="var-description">: The name of the browser</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$useBrowserRules</span><span class="var-description">: Whether to add prefixed CSS for the                                 browser</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetBrowsers" id="setBrowsers"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBrowsers</span> (line <span class="line-number">508</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set multiple browser objects at once. The array should be formatted as  such:</p>
+<p class="description"><p><div class="src-code"><ol><li><div class="src-line"><span class="src-str">'browser'&nbsp;</span>=&gt;&nbsp;<span class="src-id">true</span>|<span class="src-id">false</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBrowsers
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$browsers</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$browsers</span><span class="var-description">: An array of browsers to set the rules for</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetBuiltCss" id="setBuiltCss"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBuiltCss</span> (line <span class="line-number">522</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Directly set the CSS string to be parsed</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBuiltCss
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$css</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$css</span><span class="var-description">: The CSS string to store in the _builtCss property</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetOption" id="setOption"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setOption</span> (line <span class="line-number">535</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set a particular option's value</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setOption
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$option</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$option</span><span class="var-description">: The name of the option to set</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: The value to which to set the option</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodwriteCache" id="writeCache"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">writeCache</span> (line <span class="line-number">545</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Write the built CSS string into a file for caching purposes</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			writeCache
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="method__call" id="__call"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__call</span> (line <span class="line-number">160</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The __call method usually serves as a means to call arbitrary functions.</p>
+<p class="description"><p>In this case, it is a transparent wrapper for the CSS rules stored in the  Browser and Browser_* classes. This lets us call (for example)  CssAlly-&gt;borderRadius($cssString) without having to directly call the  appropriate method in the Browser* class.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The parsed CSS string</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__call
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$arguments</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method</span><span class="var-description">: The name of the method requested. Assumed to be                           the name of a method in the Browser class.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$arguments</span><span class="var-description">: The arguments to be passed to the method.                           Assumed to contain a single element - the CSS                           string to be parsed.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 31 Oct 2011 15:34:25 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
