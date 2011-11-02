@@ -75,6 +75,26 @@ require_once dirname(__FILE__) . '/Browser/Webkit.php';
  */
 abstract class Browser
 {
+    /**
+     * @todo
+     * Need to figure out a way to NOT match rules inside of comments.
+     * For example, in this code:
+     * 
+     * / **
+     *  * test comment
+     *  * column-count: 3
+     *  * /
+     * div.colums-one {
+     *    columns: 12em;      / * column-width: 12em; column-count: auto * /
+     *    column-count: 5;
+     * }
+     * 
+     * The "column-count: 3" inside the multi-line comment and the
+     * "column-count: auto" inside the single-line comment should not be matched
+     * for a regex that does match for the "column-count: 5;" outside of both
+     * comments.
+     */
+
     const N0_255_REGEX = '([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
 
     /**
