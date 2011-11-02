@@ -298,6 +298,8 @@ class Browser_Mozilla extends Browser
     /**
      * Add Mozilla rules for columns
      *
+     * @todo Finish implementing this, then copy to Webkit
+     * 
      * @param string $cssString The CSS to be parsed
      *
      * @return string The parsed output
