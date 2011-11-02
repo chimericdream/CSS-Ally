@@ -340,4 +340,36 @@ class Browser_MozillaTest extends BaseTest
 
         return $testCssStrings;
     }
+
+    /**
+     * @covers Browser_Mozilla::columns
+     * @dataProvider columnsProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testColumns($cssString, $expectedString)
+    {
+        $cssString = $this->_object->columns($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function columnsProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/columns/mozilla/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
 }

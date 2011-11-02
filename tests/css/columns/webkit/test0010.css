@@ -1,0 +1,29 @@
+div.columns-one {
+    -webkit-columns: 12em;
+    columns: 12em;
+}
+
+div.columns-two {
+    -webkit-columns: auto 12em;
+    columns: auto 12em;
+}
+
+div.columns-three {
+    -webkit-columns: 2;
+    columns: 2;
+}
+
+div.columns-four {
+    -webkit-columns: 2 auto;
+    columns: 2 auto;
+}
+
+div.columns-five {
+    -webkit-columns: auto;
+    columns: auto;
+}
+
+div.columns-six {
+    -webkit-columns: auto auto;
+    columns: auto auto;
+}

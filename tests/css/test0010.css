@@ -1,0 +1,23 @@
+div.columns-one {
+    columns: 12em;
+}
+
+div.columns-two {
+    columns: auto 12em;
+}
+
+div.columns-three {
+    columns: 2;
+}
+
+div.columns-four {
+    columns: 2 auto;
+}
+
+div.columns-five {
+    columns: auto;
+}
+
+div.columns-six {
+    columns: auto auto;
+}

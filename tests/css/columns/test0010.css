@@ -1,0 +1,35 @@
+div.columns-one {
+    -moz-columns: 12em;
+    -webkit-columns: 12em;
+    columns: 12em;
+}
+
+div.columns-two {
+    -moz-columns: auto 12em;
+    -webkit-columns: auto 12em;
+    columns: auto 12em;
+}
+
+div.columns-three {
+    -moz-columns: 2;
+    -webkit-columns: 2;
+    columns: 2;
+}
+
+div.columns-four {
+    -moz-columns: 2 auto;
+    -webkit-columns: 2 auto;
+    columns: 2 auto;
+}
+
+div.columns-five {
+    -moz-columns: auto;
+    -webkit-columns: auto;
+    columns: auto;
+}
+
+div.columns-six {
+    -moz-columns: auto auto;
+    -webkit-columns: auto auto;
+    columns: auto auto;
+}

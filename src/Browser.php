@@ -288,6 +288,9 @@ abstract class Browser
     /**
      * Syntax:
      * columns: <column-width> | <column-count>
+     * 
+     * <column-width> = <length> | auto
+     * <column-count> = <integer> | auto
      *
      * @param string $cssString The CSS to be parsed
      *

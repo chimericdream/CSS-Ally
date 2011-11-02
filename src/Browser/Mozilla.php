@@ -294,4 +294,23 @@ class Browser_Mozilla extends Browser
 
         return $cssString;
     } //end columnWidth
+
+    /**
+     * Add Mozilla rules for columns
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function columns($cssString = '')
+    {
+        $length = $this->lengthRegex();
+
+        $search    = '/(\s*)(?<!-)columns:(\s*)(auto|' . $length . ');?/';
+        $replace   = '${1}-moz-column:${2}${3};${1}'
+                   . 'columns:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end columns
 } //end class Browser_Mozilla

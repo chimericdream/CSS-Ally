@@ -331,4 +331,34 @@ class BrowserTest extends BaseTest
 
         return $strings;
     }
+
+    /**
+     * @covers Browser::columns
+     * @dataProvider columnsProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     */
+    public function testColumns($cssString, $expectedString)
+    {
+        $cssString = $this->_object->columns($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function columnsProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $colCss    = file_get_contents("{$path}/columns/{$file}");
+                $strings[] = array($css, $colCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
 }
