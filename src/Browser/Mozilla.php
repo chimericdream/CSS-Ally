@@ -298,8 +298,6 @@ class Browser_Mozilla extends Browser
     /**
      * Add Mozilla rules for columns
      *
-     * @todo Finish implementing this, then copy to Webkit
-     * 
      * @param string $cssString The CSS to be parsed
      *
      * @return string The parsed output
@@ -308,10 +306,28 @@ class Browser_Mozilla extends Browser
     {
         $length = $this->lengthRegex();
 
-        $search    = '/(\s*)(?<!-)columns:(\s*)(auto|' . $length . ');?/';
-        $replace   = '${1}-moz-column:${2}${3};${1}'
-                   . 'columns:${2}${3};';
-        $cssString = preg_replace($search, $replace, $cssString);
+        $properties = array(
+            array( // matches "columns: auto;" and "columns: auto auto;"
+                'value'   => '((\s*)auto(\s+auto)?)(?! );?',
+                'replace' => '${2}',
+            ),
+            array( // matches "columns: auto 12em;" and "columns: 12em;" and "columns: 12em auto;"
+                'value'   => '((\s*)((auto\s+)?' . $length . '|' . $length . '(\s+auto)?))(?! );?',
+                'replace' => '${2}',
+            ),
+            array( // matches "columns: auto 2;" and "columns: 2;" and "columns: 2 auto;"
+                'value'   => '((\s*)((auto\s+)?([1-9][0-9]*)|([1-9][0-9]*)(\s+auto)?))(?!( |px|em|\d));?',
+                'replace' => '${2}',
+            ),
+        );
+
+        foreach ($properties as $mozilla) {
+            $search    = "/(\s*)(?<!-)columns:{$mozilla['value']}/";
+            $rep       = '${1}' . "-moz-columns:{$mozilla['replace']};"
+                       . '${1}' . "columns:{$mozilla['replace']};";
+
+            $cssString = preg_replace($search, $rep, $cssString);
+        }
 
         return $cssString;
     } //end columns

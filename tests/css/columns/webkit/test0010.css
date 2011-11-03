@@ -27,3 +27,13 @@ div.columns-six {
     -webkit-columns: auto auto;
     columns: auto auto;
 }
+
+div.columns-seven {
+    -webkit-columns: auto 2;
+    columns: auto 2;
+}
+
+div.columns-eight {
+    -webkit-columns: 12em auto;
+    columns: 12em auto;
+}

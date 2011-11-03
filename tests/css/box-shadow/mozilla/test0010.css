@@ -21,3 +21,11 @@ div.columns-five {
 div.columns-six {
     columns: auto auto;
 }
+
+div.columns-seven {
+    columns: auto 2;
+}
+
+div.columns-eight {
+    columns: 12em auto;
+}
