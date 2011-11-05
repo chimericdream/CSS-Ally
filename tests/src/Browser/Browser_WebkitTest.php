@@ -372,4 +372,68 @@ class Browser_WebkitTest extends BaseTest
 
         return $testCssStrings;
     }
+
+    /**
+     * @covers Browser_Webkit::transform
+     * @dataProvider transformProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testTransform($cssString, $expectedString)
+    {
+        $cssString = $this->_object->transform($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function transformProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/transform/webkit/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Webkit::transformOrigin
+     * @dataProvider transformOriginProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testTransformOrigin($cssString, $expectedString)
+    {
+        $cssString = $this->_object->transformOrigin($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function transformOriginProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/transform-origin/webkit/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
 }

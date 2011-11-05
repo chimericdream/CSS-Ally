@@ -361,4 +361,64 @@ class BrowserTest extends BaseTest
 
         return $strings;
     }
+
+    /**
+     * @covers Browser::transform
+     * @dataProvider transformProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     */
+    public function testTransform($cssString, $expectedString)
+    {
+        $cssString = $this->_object->transform($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function transformProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $colCss    = file_get_contents("{$path}/transform/{$file}");
+                $strings[] = array($css, $colCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * @covers Browser::transformOrigin
+     * @dataProvider transformOriginProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     */
+    public function testTransformOrigin($cssString, $expectedString)
+    {
+        $cssString = $this->_object->transformOrigin($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function transformOriginProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $colCss    = file_get_contents("{$path}/transform-origin/{$file}");
+                $strings[] = array($css, $colCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
 }
