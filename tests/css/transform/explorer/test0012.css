@@ -1,0 +1,151 @@
+div.transform-origin1 {
+    transform-origin: 60% 100%;
+}
+
+div.transform-origin2 {
+    transform-origin: 0 0;
+}
+
+div.transform-origin3 {
+    transform-origin: 100% 100%;
+}
+
+div.transform-origin4 {
+    transform-origin: -10em -30em;
+}
+
+div.transform-origin5 {
+    transform-origin: 0 0;
+}
+
+div.transform-origin6 {
+    transform-origin: 100% -30%;
+}
+
+div.transform-origin7 {
+    transform-origin: 0 0;
+}
+
+div.transform-origin8 {
+    transform-origin: 100% 100%;
+}
+
+div.transform-origin9 {
+    transform-origin: left top;
+}
+
+div.transform-origin10 {
+    transform-origin: left center;
+}
+
+div.transform-origin11 {
+    transform-origin: left bottom;
+}
+
+div.transform-origin12 {
+    transform-origin: left 25%;
+}
+
+div.transform-origin13 {
+    transform-origin: left 5em;
+}
+
+div.transform-origin14 {
+    transform-origin: center top;
+}
+
+div.transform-origin15 {
+    transform-origin: center center;
+}
+
+div.transform-origin16 {
+    transform-origin: center bottom;
+}
+
+div.transform-origin17 {
+    transform-origin: center 25%;
+}
+
+div.transform-origin18 {
+    transform-origin: center 5em;
+}
+
+div.transform-origin19 {
+    transform-origin: right top;
+}
+
+div.transform-origin20 {
+    transform-origin: right center;
+}
+
+div.transform-origin21 {
+    transform-origin: right bottom;
+}
+
+div.transform-origin22 {
+    transform-origin: right 25%;
+}
+
+div.transform-origin23 {
+    transform-origin: right 5em;
+}
+
+div.transform-origin24 {
+    transform-origin: 25% top;
+}
+
+div.transform-origin25 {
+    transform-origin: 25% center;
+}
+
+div.transform-origin26 {
+    transform-origin: 25% bottom;
+}
+
+div.transform-origin27 {
+    transform-origin: 25% 25%;
+}
+
+div.transform-origin28 {
+    transform-origin: 25% 5em;
+}
+
+div.transform-origin29 {
+    transform-origin: 5em top;
+}
+
+div.transform-origin30 {
+    transform-origin: 5em center;
+}
+
+div.transform-origin31 {
+    transform-origin: 5em bottom;
+}
+
+div.transform-origin32 {
+    transform-origin: 5em 25%;
+}
+
+div.transform-origin33 {
+    transform-origin: 5em 5em;
+}
+
+div.transform-origin34 {
+    transform-origin: left;
+}
+
+div.transform-origin35 {
+    transform-origin: center;
+}
+
+div.transform-origin36 {
+    transform-origin: right;
+}
+
+div.transform-origin37 {
+    transform-origin: top;
+}
+
+div.transform-origin38 {
+    transform-origin: bottom;
+}

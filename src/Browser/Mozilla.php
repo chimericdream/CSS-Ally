@@ -358,11 +358,11 @@ class Browser_Mozilla extends Browser
             'skewY\(' . $angle . '\)',
             'skew\(' . $angle . '(?:,\s*' . $angle . ')?\)',
         );
-        
+
         $functions = implode('|', $transformFunctions);
 
         $search = '/(\s*)(?<!-)transform:((\s*)(' . $functions . ')(?:\s+(' . $functions . '))*);?/';
-        
+
         $replace = '${1}-moz-transform:${2};${1}'
                 . 'transform:${2};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -371,11 +371,7 @@ class Browser_Mozilla extends Browser
     } //end transform
 
     /**
-     * Syntax:
-     * transform-origin: [[<percentage>|<length>|left|center|right] ...
-     *                       [<percentage>|<length>|top|center|bottom ]?]
-     *                   |
-     *                   [[left|center|right] || [top|center|bottom]]
+     * Add Mozilla rules for transform-origin
      *
      * @param string $cssString The CSS to be parsed
      *
@@ -383,6 +379,19 @@ class Browser_Mozilla extends Browser
      */
     public function transformOrigin($cssString = '')
     {
+        $length  = $this->lengthRegex();
+        $percent = $this->percentRegex();
+
+        $search    = '/(\s*)(?<!-)transform-origin:(\s*)(((0|' . $percent . '|'
+                   . $length . '|left|center|right)(\s+(0|' . $percent . '|'
+                   . $length . '|top|center|bottom))?|((left|center|right)'
+                   . '(\s+(top|center|bottom))?|((left|center|right)\s+)?'
+                   . '(top|center|bottom))));?/';
+        
+        $replace   = '${1}-moz-transform-origin:${2}${3};${1}'
+                   . 'transform-origin:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
         return $cssString;
     } //end transformOrigin
 } //end class Browser_Mozilla
