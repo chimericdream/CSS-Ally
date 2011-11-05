@@ -335,9 +335,6 @@ class Browser_Mozilla extends Browser
     /**
      * Add Mozilla rules for transform
      *
-     * Syntax:
-     * transform: none | <transform-function> [<transform-function>]*
-     *
      * @param string $cssString The CSS to be parsed
      *
      * @return string The parsed output
@@ -345,43 +342,30 @@ class Browser_Mozilla extends Browser
     public function transform($cssString = '')
     {
         $length = $this->lengthRegex();
+        $number = $this->numberRegex();
+        $angle  = $this->angleRegex();
 
-        $properties = array(
-            array( // matches "columns: auto;" and "columns: auto auto;"
-                'value'   => '((\s*)auto(\s+auto)?)(?! );?',
-                'replace' => '${2}',
-            ),
-            array( // matches "columns: auto 12em;" and "columns: 12em;" and "columns: 12em auto;"
-                'value'   => '((\s*)((auto\s+)?' . $length . '|' . $length . '(\s+auto)?))(?! );?',
-                'replace' => '${2}',
-            ),
-            array( // matches "columns: auto 2;" and "columns: 2;" and "columns: 2 auto;"
-                'value'   => '((\s*)((auto\s+)?([1-9][0-9]*)|([1-9][0-9]*)(\s+auto)?))(?!( |px|em|\d));?',
-                'replace' => '${2}',
-            ),
+        $transformFunctions = array(
+            'matrix\(' . $number . '(?:,\s*' . $number . '){5}\)',
+            'translate\(' . $length . '(?:,\s*' . $length . ')?\)',
+            'translateX\(' . $length . '\)',
+            'translateY\(' . $length . '\)',
+            'scale\(' . $number . '(?:,\s*' . $number . ')?\)',
+            'scaleX\(' . $number . '\)',
+            'scaleY\(' . $number . '\)',
+            'rotate\(' . $angle . '\)',
+            'skewX\(' . $angle . '\)',
+            'skewY\(' . $angle . '\)',
+            'skew\(' . $angle . '(?:,\s*' . $angle . ')?\)',
         );
+        
+        $functions = implode('|', $transformFunctions);
 
-        foreach ($properties as $mozilla) {
-            $search    = "/(\s*)(?<!-)columns:{$mozilla['value']}/";
-            $rep       = '${1}' . "-moz-columns:{$mozilla['replace']};"
-                       . '${1}' . "columns:{$mozilla['replace']};";
-
-            $cssString = preg_replace($search, $rep, $cssString);
-        }
-
-/**
-matrix(<number>, <number>, <number>, <number>, <number>, <number>)
-translate(<translation-value>[, <translation-value>])
-translateX(<translation-value>)
-translateY(<translation-value>)
-scale(<number>[, <number>])
-scaleX(<number>)
-scaleY(<number>)
-rotate(<angle>)
-skewX(<angle>)
-skewY(<angle>)
-skew(<angle> [, <angle>]) 
- */
+        $search = '/(\s*)(?<!-)transform:((\s*)(' . $functions . ')(?:\s+(' . $functions . '))*);?/';
+        
+        $replace = '${1}-moz-transform:${2};${1}'
+                . 'transform:${2};';
+        $cssString = preg_replace($search, $replace, $cssString);
 
         return $cssString;
     } //end transform

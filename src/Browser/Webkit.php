@@ -330,4 +330,42 @@ class Browser_Webkit extends Browser
 
         return $cssString;
     } //end columns
+
+    /**
+     * Add Webkit rules for transform
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transform($cssString = '')
+    {
+        $length = $this->lengthRegex();
+        $number = $this->numberRegex();
+        $angle  = $this->angleRegex();
+
+        $transformFunctions = array(
+            'matrix\(' . $number . '(?:,\s*' . $number . '){5}\)',
+            'translate\(' . $length . '(?:,\s*' . $length . ')?\)',
+            'translateX\(' . $length . '\)',
+            'translateY\(' . $length . '\)',
+            'scale\(' . $number . '(?:,\s*' . $number . ')?\)',
+            'scaleX\(' . $number . '\)',
+            'scaleY\(' . $number . '\)',
+            'rotate\(' . $angle . '\)',
+            'skewX\(' . $angle . '\)',
+            'skewY\(' . $angle . '\)',
+            'skew\(' . $angle . '(?:,\s*' . $angle . ')?\)',
+        );
+        
+        $functions = implode('|', $transformFunctions);
+
+        $search = '/(\s*)(?<!-)transform:((\s*)(' . $functions . ')(?:\s+(' . $functions . '))*);?/';
+        
+        $replace = '${1}-webkit-transform:${2};${1}'
+                . 'transform:${2};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end transform
 } //end class Browser_Webkit

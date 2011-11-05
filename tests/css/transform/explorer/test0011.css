@@ -1,0 +1,84 @@
+div.transform1 {
+    -ms-transform: matrix(1, -0.2, 0, 1, 0, 0);
+    transform: matrix(1, -0.2, 0, 1, 0, 0);
+}
+
+div.transform2 {
+    -ms-transform: matrix(1, 0, 0.6, 1, 250, 0);
+    transform: matrix(1, 0, 0.6, 1, 250, 0);
+}
+
+div.transform3 {
+    -ms-transform: translate(100px) rotate(20deg);
+    transform: translate(100px) rotate(20deg);
+}
+
+div.transform4 {
+	-ms-transform: skew(35deg);
+	transform: skew(35deg);
+}
+
+div.transform5 {
+	-ms-transform: scale(1,0.5);
+	transform: scale(1,0.5);
+}
+
+div.transform6 {
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+div.transform7 {
+	-ms-transform: translate(10px, 20px);
+	transform: translate(10px, 20px);
+}
+
+div.transform8 {
+	-ms-transform: skew(30deg) scale(1.1,1.1) rotate(40deg) translate(10px, 20px);
+	transform: skew(30deg) scale(1.1,1.1) rotate(40deg) translate(10px, 20px);
+}
+
+div.transform9 {
+    -ms-transform: translate(15px);
+    transform: translate(15px);
+}
+
+div.transform10 {
+    -ms-transform: translateX(15px);
+    transform: translateX(15px);
+}
+
+div.transform11 {
+    -ms-transform: translateY(15px);
+    transform: translateY(15px);
+}
+
+div.transform12 {
+    -ms-transform: scale(15);
+    transform: scale(15);
+}
+
+div.transform13 {
+    -ms-transform: scaleX(15);
+    transform: scaleX(15);
+}
+
+div.transform14 {
+    -ms-transform: scaleY(15);
+    transform: scaleY(15);
+}
+
+div.transform15 {
+    -ms-transform: skew(15deg);
+    transform: skew(15deg);
+}
+
+div.transform16 {
+    -ms-transform: skewX(45deg);
+    transform: skewX(45deg);
+}
+
+div.transform17 {
+    -ms-transform: skewY(90deg);
+    transform: skewY(90deg);
+}
