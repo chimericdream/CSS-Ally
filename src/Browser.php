@@ -27,27 +27,22 @@
  * @license    GNU GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * @link       http://cssally.com/
  */
-
 /**
  * @see Browser_Explorer
  */
 require_once dirname(__FILE__) . '/Browser/Explorer.php';
-
 /**
  * @see Browser_Konqueror
  */
 require_once dirname(__FILE__) . '/Browser/Konqueror.php';
-
 /**
  * @see Browser_Mozilla
  */
 require_once dirname(__FILE__) . '/Browser/Mozilla.php';
-
 /**
  * @see Browser_Opera
  */
 require_once dirname(__FILE__) . '/Browser/Opera.php';
-
 /**
  * @see Browser_Webkit
  */
@@ -327,7 +322,7 @@ abstract class Browser
     /**
      * Syntax:
      * columns: <column-width> | <column-count>
-     * 
+     *
      * <column-width> = <length> | auto
      * <column-count> = <integer> | auto
      *
@@ -339,4 +334,33 @@ abstract class Browser
     {
         return $cssString;
     } //end columns
+
+    /**
+     * Syntax:
+     * transform: none | <transform-function> [<transform-function>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transform($cssString = '')
+    {
+        return $cssString;
+    } //end transform
+
+    /**
+     * Syntax:
+     * transform-origin: [[<percentage>|<length>|left|center|right] ...
+     *                       [<percentage>|<length>|top|center|bottom ]?]
+     *                   |
+     *                   [[left|center|right] || [top|center|bottom]]
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transformOrigin($cssString = '')
+    {
+        return $cssString;
+    } //end transformOrigin
 } //end abstract class Browser

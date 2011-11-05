@@ -79,14 +79,17 @@ class CssAlly
     private $_files     = array();
     private $_options = array();
     private $_rules = array(
-        'background-size' => true,
-        'border-radius'   => true,
-        'box-shadow'      => true,
-        'column-count'    => true,
-        'column-gap'      => true,
-        'column-rule'     => true,
-        'column-span'     => true,
-        'column-width'    => true,
+        'background-size'  => true,
+        'border-radius'    => true,
+        'box-shadow'       => true,
+        'column-count'     => true,
+        'column-gap'       => true,
+        'column-rule'      => true,
+        'column-span'      => true,
+        'column-width'     => true,
+        'columns'          => true,
+        'transform'        => true,
+        'transform-origin' => true,
     );
 
     /**

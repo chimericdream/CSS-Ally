@@ -331,4 +331,74 @@ class Browser_Mozilla extends Browser
 
         return $cssString;
     } //end columns
+
+    /**
+     * Add Mozilla rules for transform
+     *
+     * Syntax:
+     * transform: none | <transform-function> [<transform-function>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transform($cssString = '')
+    {
+        $length = $this->lengthRegex();
+
+        $properties = array(
+            array( // matches "columns: auto;" and "columns: auto auto;"
+                'value'   => '((\s*)auto(\s+auto)?)(?! );?',
+                'replace' => '${2}',
+            ),
+            array( // matches "columns: auto 12em;" and "columns: 12em;" and "columns: 12em auto;"
+                'value'   => '((\s*)((auto\s+)?' . $length . '|' . $length . '(\s+auto)?))(?! );?',
+                'replace' => '${2}',
+            ),
+            array( // matches "columns: auto 2;" and "columns: 2;" and "columns: 2 auto;"
+                'value'   => '((\s*)((auto\s+)?([1-9][0-9]*)|([1-9][0-9]*)(\s+auto)?))(?!( |px|em|\d));?',
+                'replace' => '${2}',
+            ),
+        );
+
+        foreach ($properties as $mozilla) {
+            $search    = "/(\s*)(?<!-)columns:{$mozilla['value']}/";
+            $rep       = '${1}' . "-moz-columns:{$mozilla['replace']};"
+                       . '${1}' . "columns:{$mozilla['replace']};";
+
+            $cssString = preg_replace($search, $rep, $cssString);
+        }
+
+/**
+matrix(<number>, <number>, <number>, <number>, <number>, <number>)
+translate(<translation-value>[, <translation-value>])
+translateX(<translation-value>)
+translateY(<translation-value>)
+scale(<number>[, <number>])
+scaleX(<number>)
+scaleY(<number>)
+rotate(<angle>)
+skewX(<angle>)
+skewY(<angle>)
+skew(<angle> [, <angle>]) 
+ */
+
+        return $cssString;
+    } //end transform
+
+    /**
+     * Syntax:
+     * transform-origin: [[<percentage>|<length>|left|center|right] ...
+     *                       [<percentage>|<length>|top|center|bottom ]?]
+     *                   |
+     *                   [[left|center|right] || [top|center|bottom]]
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transformOrigin($cssString = '')
+    {
+        return $cssString;
+    } //end transformOrigin
 } //end class Browser_Mozilla
