@@ -182,4 +182,29 @@ class Browser_Opera extends Browser
 
         return $cssString;
     } //end transform
+
+    /**
+     * Add Opera rules for transform-origin
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transformOrigin($cssString = '')
+    {
+        $length  = $this->lengthRegex();
+        $percent = $this->percentRegex();
+
+        $search    = '/(\s*)(?<!-)transform-origin:(\s*)(((0|' . $percent . '|'
+                   . $length . '|left|center|right)(\s+(0|' . $percent . '|'
+                   . $length . '|top|center|bottom))?|((left|center|right)'
+                   . '(\s+(top|center|bottom))?|((left|center|right)\s+)?'
+                   . '(top|center|bottom))));?/';
+        
+        $replace   = '${1}-o-transform-origin:${2}${3};${1}'
+                   . 'transform-origin:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end transformOrigin
 } //end class Browser_Opera

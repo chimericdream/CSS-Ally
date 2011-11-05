@@ -1,7 +1,7 @@
 div.transform-origin1 {
     -ms-transform-origin: 60% 100%;
     -moz-transform-origin: 60% 100%;
-    -o-transform-origin:60% 100%;
+    -o-transform-origin: 60% 100%;
     -webkit-transform-origin: 60% 100%;
     transform-origin: 60% 100%;
 }
