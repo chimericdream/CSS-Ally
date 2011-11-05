@@ -75,27 +75,25 @@ require_once dirname(__FILE__) . '/Browser/Webkit.php';
  */
 abstract class Browser
 {
-    /**
-     * @todo
-     * Need to figure out a way to NOT match rules inside of comments.
-     * For example, in this code:
-     * 
-     * / **
-     *  * test comment
-     *  * column-count: 3
-     *  * /
-     * div.colums-one {
-     *    columns: 12em;      / * column-width: 12em; column-count: auto * /
-     *    column-count: 5;
-     * }
-     * 
-     * The "column-count: 3" inside the multi-line comment and the
-     * "column-count: auto" inside the single-line comment should not be matched
-     * for a regex that does match for the "column-count: 5;" outside of both
-     * comments.
-     */
+    public function angleRegex()
+    {
+        $angle = '(?:\-?(?:[0-2]?[0-9]?[0-9]|3[0-5][0-9]|360)deg)';
+        
+        return $angle;
+    } //end angleRegex
+    
+    public function bgPosRegex()
+    {
+        $pos = '(?:(?:top|bottom)|(?:' . $this->percentRegex() . '|'
+             . $this->lengthRegex() . '|left|center|right)(?:\s+(?:'
+             . $this->percentRegex() . '|' . $this->lengthRegex()
+             . '|top|center|bottom))?|(?:center|(left|right)(?:\s+(?:'
+             . $this->percentRegex() . '|' . $this->lengthRegex()
+             . '))?)\s+(?:center|(?:top|bottom)(?:\s+(?:' . $this->percentRegex() . '|'
+             . $this->lengthRegex() . '))?))';
 
-    const N0_255_REGEX = '([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
+        return $pos;
+    } //end bgPosRegex
 
     /**
      * Generate a string containing a regular expression for valid color choices
@@ -105,8 +103,8 @@ abstract class Browser
      */
     public function colorRegex()
     {
-        $colors = '('
-                    . '#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})\b|'
+        $colors = '(?:'
+                    . $this->hexRegex() . '\b|'
                     . 'aqua|'
                     . 'black|'
                     . 'blue|'
@@ -125,9 +123,9 @@ abstract class Browser
                     . 'white|'
                     . 'yellow|'
                     . 'rgb\(' // Hex value
-                        . '\s*' . self::N0_255_REGEX . '\s*,'
-                        . '\s*' . self::N0_255_REGEX . '\s*,'
-                        . '\s*' . self::N0_255_REGEX . '\s*'
+                        . '\s*' . $this->n0255Regex() . '\s*,'
+                        . '\s*' . $this->n0255Regex() . '\s*,'
+                        . '\s*' . $this->n0255Regex() . '\s*'
                         . '\)|'
                     . 'rgb\(' // Percentage
                         . '\s*(\d{1,2}%|100%)\s*,'
@@ -139,6 +137,13 @@ abstract class Browser
         return $colors;
     } //end colorRegex
 
+    public function hexRegex()
+    {
+        $hex = '(?:#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}))';
+
+        return $hex;
+    } //end hexRegex
+
     /**
      * Generate a string containing a regular expression for valid length values
      * in CSS
@@ -147,10 +152,24 @@ abstract class Browser
      */
     public function lengthRegex()
     {
-        $length = '(\-?\d+\.?\d*)(px|em)';
+        $length = '(?:' . $this->numberRegex() . '(?:em|ex|in|cm|mm|pt|pc|px))';
 
         return $length;
     } //end lengthRegex
+
+    public function n0255Regex()
+    {
+        $num = '(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
+
+        return $num;
+    } //end n0255Regex
+
+    public function numberRegex()
+    {
+        $num = '(?:(?:\+|\-)?\d+\.?\d*)';
+
+        return $num;
+    } //end numberRegex
 
     /**
      * Generate a string containing a regular expression for valid percentages
@@ -159,7 +178,7 @@ abstract class Browser
      */
     public function percentRegex()
     {
-        $percent = '((\-?\d+\.?\d*)%)';
+        $percent = '(?:' . $this->numberRegex() . '%)';
 
         return $percent;
     } //end percentRegex
@@ -172,7 +191,7 @@ abstract class Browser
      */
     public function borderStyleRegex()
     {
-        $border = '(none|hidden|dotted|dashed|solid|'
+        $border = '(?:none|hidden|dotted|dashed|solid|'
                 . 'double|groove|ridge|inset|outset)';
 
         return $border;
@@ -186,7 +205,7 @@ abstract class Browser
      */
     public function borderWidthRegex()
     {
-        $border = '(thin|medium|thin|' . $this->lengthRegex() . ')';
+        $border = '(?:thin|medium|thin|' . $this->lengthRegex() . ')';
 
         return $border;
     } //end borderWidthRegex
