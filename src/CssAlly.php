@@ -88,6 +88,8 @@ class CssAlly
         'column-span'      => true,
         'column-width'     => true,
         'columns'          => true,
+        'linear-gradient'  => true,
+        'radial-gradient'  => true,
         'transform'        => true,
         'transform-origin' => true,
     );

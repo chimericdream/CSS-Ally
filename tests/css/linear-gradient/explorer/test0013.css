@@ -1,83 +1,104 @@
 div.gradient1 {
+    background-image: -ms-linear-gradient(left, red, orange, yellow, green, blue, teal, purple);
     background-image: linear-gradient(left, red, orange, yellow, green, blue, teal, purple);
 }
 
 div.gradient2 {
+    background-image: -ms-linear-gradient(top left, red, rgba(255,0,0,0));
     background-image: linear-gradient(top left, red, rgba(255,0,0,0));
 }
 
 div.gradient3 {
+    background-image: -ms-linear-gradient(bottom, hsl(0, 80%, 70%), #BADA55);
     background-image: linear-gradient(bottom, hsl(0, 80%, 70%), #BADA55);
 }
 
 div.gradient4 {
+    background-image: -ms-linear-gradient(top, blue, white);
     background-image: linear-gradient(top, blue, white);
 }
 
 div.gradient5 {
+    background-image: -ms-linear-gradient(left, blue, white);
     background-image: linear-gradient(left, blue, white);
 }
 
 div.gradient6 {
+    background-image: -ms-linear-gradient(left top, blue, white);
     background-image: linear-gradient(left top, blue, white);
 }
 
 div.gradient7 {
+    background-image: -ms-linear-gradient(left 20deg, black, white);
     background-image: linear-gradient(left 20deg, black, white);
 }
 
 div.gradient8 {
+    background-image: -ms-linear-gradient(90deg, red, white);
     background-image: linear-gradient(90deg, red, white);
 }
 
 div.gradient9 {
+    background-image: -ms-linear-gradient(top, blue, white 80%, orange);
     background-image: linear-gradient(top, blue, white 80%, orange);
 }
 
 div.gradient10 {
+    background-image: -ms-linear-gradient(left, red, orange, yellow, green, blue);
     background-image: linear-gradient(left, red, orange, yellow, green, blue);
 }
 
 div.gradient11 {
+    background-image: -ms-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
     background-image: linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
 }
 
 div.gradient12 {
+    background: -ms-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)), url('http://foo.com/image.jpg');
     background: linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)), url('http://foo.com/image.jpg');
 }
 
 div.gradient13 {
+    background: -ms-linear-gradient(left, red, orange, yellow, green, blue);
     background: linear-gradient(left, red, orange, yellow, green, blue);
 }
 
 div.gradient14 {
+    background: -ms-linear-gradient(top, blue, white 80%, orange);
     background: linear-gradient(top, blue, white 80%, orange);
 }
 
 div.gradient15 {
+    background: -ms-linear-gradient(180deg, red, white);
     background: linear-gradient(180deg, red, white);
 }
 
 div.gradient16 {
+    background: -ms-linear-gradient(-90deg, red, white);
     background: linear-gradient(-90deg, red, white);
 }
 
 div.gradient17 {
+    background: -ms-linear-gradient(left 20deg, black, white);
     background: linear-gradient(left 20deg, black, white);
 }
 
 div.gradient18 {
+    background: -ms-linear-gradient(left top, blue, white);
     background: linear-gradient(left top, blue, white);
 }
 
 div.gradient19 {
+    background: -ms-linear-gradient(left, blue, white);
     background: linear-gradient(left, blue, white);
 }
 
 div.gradient20 {
+    background: -ms-linear-gradient(top, blue, white);
     background: linear-gradient(top, blue, white);
 }
 
 div.gradient21 {
+    background: #00f -ms-linear-gradient(left top, blue, white);
     background: #00f linear-gradient(left top, blue, white);
 }

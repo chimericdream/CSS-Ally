@@ -72,20 +72,23 @@ abstract class Browser
 {
     public function angleRegex()
     {
-        $angle = '(?:\-?(?:[0-2]?[0-9]?[0-9]|3[0-5][0-9]|360)deg)';
-        
+        //0-360deg|0-400grad|(num)rad|(num)turn
+        $angle = '(?:\-?(?:' . $this->n0360Regex() . 'deg|'
+               . $this->n0400Regex() . 'grad|' . $this->numberRegex() . 'rad|'
+               . $this->numberRegex() . 'turn|0))';
+
         return $angle;
     } //end angleRegex
-    
+
     public function bgPosRegex()
     {
-        $pos = '(?:(?:top|bottom)|(?:' . $this->percentRegex() . '|'
-             . $this->lengthRegex() . '|left|center|right)(?:\s+(?:'
+        $pos = '((?:(?:' . $this->percentRegex() . '|' . $this->lengthRegex()
+             . '|left|center|right)(?:\s+(' . $this->percentRegex() . '|'
+             . $this->lengthRegex() . '|top|center|bottom))?)|(?:(?:'
              . $this->percentRegex() . '|' . $this->lengthRegex()
-             . '|top|center|bottom))?|(?:center|(left|right)(?:\s+(?:'
-             . $this->percentRegex() . '|' . $this->lengthRegex()
-             . '))?)\s+(?:center|(?:top|bottom)(?:\s+(?:' . $this->percentRegex() . '|'
-             . $this->lengthRegex() . '))?))';
+             . '|top|center|bottom)(?:\s+(' . $this->percentRegex() . '|'
+             . $this->lengthRegex() . '|left|center|right))?)|(?:'
+             . '(?:left|center|right)|(?:top|center|bottom))|inherit)';
 
         return $pos;
     } //end bgPosRegex
@@ -117,6 +120,29 @@ abstract class Browser
                     . 'teal|'
                     . 'white|'
                     . 'yellow|'
+                    . 'hsl\('
+                        . '\s*' . $this->n0360Regex() . '\s*,'
+                        . '\s*' . $this->percentRegex() . '\s*,'
+                        . '\s*' . $this->percentRegex() . '\s*'
+                        . '\)|'
+                    . 'hsla\('
+                        . '\s*' . $this->n0360Regex() . '\s*,'
+                        . '\s*' . $this->percentRegex() . '\s*,'
+                        . '\s*' . $this->percentRegex() . '\s*,'
+                        . '\s*' . $this->numberRegex() . '\s*'
+                        . '\)|'
+                    . 'rgba\(' // Hex value
+                        . '\s*' . $this->n0255Regex() . '\s*,'
+                        . '\s*' . $this->n0255Regex() . '\s*,'
+                        . '\s*' . $this->n0255Regex() . '\s*,'
+                        . '\s*' . $this->numberRegex() . '\s*'
+                        . '\)|'
+                    . 'rgba\(' // Percentage
+                        . '\s*(\d{1,2}%|100%)\s*,'
+                        . '\s*(\d{1,2}%|100%)\s*,'
+                        . '\s*(\d{1,2}%|100%)\s*,'
+                        . '\s*' . $this->numberRegex() . '\s*'
+                        . '\)|'
                     . 'rgb\(' // Hex value
                         . '\s*' . $this->n0255Regex() . '\s*,'
                         . '\s*' . $this->n0255Regex() . '\s*,'
@@ -158,6 +184,20 @@ abstract class Browser
 
         return $num;
     } //end n0255Regex
+
+    public function n0360Regex()
+    {
+        $num = '(?:[0-9]|[1-9][0-9]|[1-2][0-9][0-9]|3[0-5][0-9]|360)';
+
+        return $num;
+    } //end n0360Regex
+
+    public function n0400Regex()
+    {
+        $num = '(?:[0-9]|[1-9][0-9]|[1-3][0-9][0-9]|400)';
+
+        return $num;
+    } //end n0400Regex
 
     public function numberRegex()
     {
@@ -334,6 +374,39 @@ abstract class Browser
     {
         return $cssString;
     } //end columns
+
+    /**
+     * Syntax:
+     * linear-gradient([<point> || <angle>,]? <stop>, <stop> [,<stop>]*)
+     *
+     * <point> = <background-position>
+     * <stop> = <color> [<percentage>|<length>]?
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function linearGradient($cssString = '')
+    {
+        return $cssString;
+    } //end linearGradient
+
+    /**
+     * Syntax:
+     * radial-gradient([[<shape>,]|[<shape>? [from <position>||to <extent>],]]? <color-stop> [, <color-stop>]+)
+     *
+     * <shape> = circle | ellipse
+     * <extent> = closest-side | farthest-side | closest-corner | farthest-corner | contain | cover | [<length>|<percentage>]{1,2}
+     * <color-stop> = <color> [<percentage>|<length>]?
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function radialGradient($cssString = '')
+    {
+        return $cssString;
+    } //end radialGradient
 
     /**
      * Syntax:

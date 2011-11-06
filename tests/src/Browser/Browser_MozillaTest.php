@@ -374,6 +374,38 @@ class Browser_MozillaTest extends BaseTest
     }
 
     /**
+     * @covers Browser_Mozilla::linearGradient
+     * @dataProvider linearGradientProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testLinearGradient($cssString, $expectedString)
+    {
+        $cssString = $this->_object->linearGradient($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function linearGradientProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/linear-gradient/mozilla/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
      * @covers Browser_Mozilla::transform
      * @dataProvider transformProvider
      * @param string $cssString      The string to be tested
