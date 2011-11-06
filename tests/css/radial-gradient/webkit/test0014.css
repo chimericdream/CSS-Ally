@@ -1,0 +1,104 @@
+div.gradient1 {
+    background-image: -webkit-radial-gradient(center 45deg, circle closest-side, orange 0%, red 100%);
+    background-image: radial-gradient(center 45deg, circle closest-side, orange 0%, red 100%);
+}
+
+div.gradient2 {
+    background-image: -webkit-radial-gradient(45px 45px, ellipse farthest-corner, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+    background-image: radial-gradient(45px 45px, ellipse farthest-corner, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+}
+
+div.gradient3 {
+    background-image: -webkit-radial-gradient(45px 45px 45deg, circle cover, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+    background-image: radial-gradient(45px 45px 45deg, circle cover, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+}
+
+div.gradient4 {
+    background-image: -webkit-radial-gradient(45px 45px, cover, rgb(255, 0, 0) 0%, rgb(0, 0, 255) 100%);
+    background-image: radial-gradient(45px 45px, cover, rgb(255, 0, 0) 0%, rgb(0, 0, 255) 100%);
+}
+
+div.gradient5 {
+    background-image: -webkit-radial-gradient(red, yellow, rgb(30, 144, 255));
+    background-image: radial-gradient(red, yellow, rgb(30, 144, 255));
+}
+
+div.gradient6 {
+    background-image: -webkit-radial-gradient(red 5%, yellow 25%, #1E90FF 50%);
+    background-image: radial-gradient(red 5%, yellow 25%, #1E90FF 50%);
+}
+
+div.gradient7 {
+    background-image: -webkit-radial-gradient(ellipse closest-side, red, yellow 10%, #1E90FF 50%, white);
+    background-image: radial-gradient(ellipse closest-side, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient8 {
+    background-image: -webkit-radial-gradient(ellipse farthest-corner, red, yellow 10%, #1E90FF 50%, white);
+    background-image: radial-gradient(ellipse farthest-corner, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient9 {
+    background-image: -webkit-radial-gradient(circle closest-side, red, yellow 10%, #1E90FF 50%, white);
+    background-image: radial-gradient(circle closest-side, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient10 {
+    background-image: -webkit-radial-gradient(red, yellow, rgb(30, 144, 255)), url('http://foo.com/image.jpg');
+    background-image: radial-gradient(red, yellow, rgb(30, 144, 255)), url('http://foo.com/image.jpg');
+}
+
+div.gradient11 {
+    background: -webkit-radial-gradient(center 45deg, circle closest-side, orange 0%, red 100%);
+    background: radial-gradient(center 45deg, circle closest-side, orange 0%, red 100%);
+}
+
+div.gradient12 {
+    background: -webkit-radial-gradient(45px 45px, ellipse farthest-corner, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+    background: radial-gradient(45px 45px, ellipse farthest-corner, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+}
+
+div.gradient13 {
+    background: -webkit-radial-gradient(45px 45px 45deg, circle cover, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+    background: radial-gradient(45px 45px 45deg, circle cover, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+}
+
+div.gradient14 {
+    background: -webkit-radial-gradient(45px 45px, cover, rgb(255, 0, 0) 0%, rgb(0, 0, 255) 100%);
+    background: radial-gradient(45px 45px, cover, rgb(255, 0, 0) 0%, rgb(0, 0, 255) 100%);
+}
+
+div.gradient15 {
+    background: -webkit-radial-gradient(red, yellow, rgb(30, 144, 255));
+    background: radial-gradient(red, yellow, rgb(30, 144, 255));
+}
+
+div.gradient16 {
+    background: -webkit-radial-gradient(red 5%, yellow 25%, #1E90FF 50%);
+    background: radial-gradient(red 5%, yellow 25%, #1E90FF 50%);
+}
+
+div.gradient17 {
+    background: -webkit-radial-gradient(ellipse closest-side, red, yellow 10%, #1E90FF 50%, white);
+    background: radial-gradient(ellipse closest-side, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient18 {
+    background: -webkit-radial-gradient(ellipse farthest-corner, red, yellow 10%, #1E90FF 50%, white);
+    background: radial-gradient(ellipse farthest-corner, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient19 {
+    background: -webkit-radial-gradient(circle closest-side, red, yellow 10%, #1E90FF 50%, white);
+    background: radial-gradient(circle closest-side, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient20 {
+    background: -webkit-radial-gradient(red, yellow, rgb(30, 144, 255)), url('http://foo.com/image.jpg');
+    background: radial-gradient(red, yellow, rgb(30, 144, 255)), url('http://foo.com/image.jpg');
+}
+
+div.gradient21 {
+    background: #00f -webkit-radial-gradient(red 5%, yellow 25%, #1E90FF 50%);
+    background: #00f radial-gradient(red 5%, yellow 25%, #1E90FF 50%);
+}

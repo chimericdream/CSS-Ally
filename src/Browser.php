@@ -82,7 +82,7 @@ abstract class Browser
 
     public function bgPosRegex()
     {
-        $pos = '((?:(?:' . $this->percentRegex() . '|' . $this->lengthRegex()
+        $pos = '(?:(?:(?:' . $this->percentRegex() . '|' . $this->lengthRegex()
              . '|left|center|right)(?:\s+(' . $this->percentRegex() . '|'
              . $this->lengthRegex() . '|top|center|bottom))?)|(?:(?:'
              . $this->percentRegex() . '|' . $this->lengthRegex()
@@ -393,10 +393,11 @@ abstract class Browser
 
     /**
      * Syntax:
-     * radial-gradient([[<shape>,]|[<shape>? [from <position>||to <extent>],]]? <color-stop> [, <color-stop>]+)
+     * radial-gradient([<position>,]? [[[<shape> || <size>]|[<length> | <percentage>]{2}],]? <color-stop>[, <color-stop>]+)
      *
+     * <position> = <background-position>
      * <shape> = circle | ellipse
-     * <extent> = closest-side | farthest-side | closest-corner | farthest-corner | contain | cover | [<length>|<percentage>]{1,2}
+     * <size> = closest-side | farthest-side | closest-corner | farthest-corner | contain | cover
      * <color-stop> = <color> [<percentage>|<length>]?
      *
      * @param string $cssString The CSS to be parsed

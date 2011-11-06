@@ -334,17 +334,16 @@ class Browser_Mozilla extends Browser
 
     public function linearGradient($cssString = '')
     {
-        $point   = $this->bgPosRegex();
-        $angle   = $this->angleRegex();
-        $color   = $this->colorRegex();
-        $length  = $this->lengthRegex();
-        $percent = $this->percentRegex();
-        $stop    = '(?:' . $color . '(?:\s+(?:' . $percent . '|' . $length . '))?)';
-
-        $linear = '(?<!-)linear-gradient\((?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?' . $stop . '(,\s*' . $stop . ')+\)';
-
+        $point    = $this->bgPosRegex();
+        $angle    = $this->angleRegex();
+        $color    = $this->colorRegex();
+        $length   = $this->lengthRegex();
+        $percent  = $this->percentRegex();
+        $stop     = '(?:' . $color . '(?:\s+(?:' . $percent . '|' . $length . '))?)';
+        $position = '(?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?';
+        $linear   = '(?<!-)linear-gradient\(' . $position . $stop . '(?:,\s*' . $stop . ')+\)';
         $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)(' . $linear . ')([^;\r\n]*);?';
-        $bgrep    = '${1}-moz-${8}${28};${1}${8}${28};';
+        $bgrep    = '${1}-moz-${8}${25};${1}${8}${25};';
         $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $linear . ');?';
         $bgimgrep = '${1}${2}-moz-${3};${1}${2}${3};';
 
@@ -359,9 +358,9 @@ class Browser_Mozilla extends Browser
             ),
         );
 
-        foreach ($properties as $mozilla) {
-            $search = "/{$mozilla['value']}/";
-            $rep    = $mozilla['replace'];
+        foreach ($properties as $prop) {
+            $search = "/{$prop['value']}/";
+            $rep    = $prop['replace'];
 
             $cssString = preg_replace($search, $rep, $cssString);
         }
@@ -371,30 +370,35 @@ class Browser_Mozilla extends Browser
 
     public function radialGradient($cssString = '')
     {
-        $color     = $this->colorRegex();
-        $length    = $this->lengthRegex();
-        $percent   = $this->percentRegex();
-        $position  = $this->bgPosRegex();
-        $colorstop = '(' . $color . '(\s+(' . $percent . '|' . $length . '))?)';
-        $shape     = '(circle|ellipse)';
-        $extent    = '(closest-side|farthest-side|closest-corner|farthest-corner|contain|cover|(?:' . $percent . '|' . $length . '){1,2})';
-
-        $radial = '(?<!-)radial-gradient\((' . $shape . ',\s+|((' . $shape . '\s+)?(from\s+)?' . $position . '\s+(to\s+)' . $extent . '),\s+)?' . $colorstop . '(,\s*' . $colorstop . ')+\)';
-
-        echo "\n\n\n{$radial}\n\n\n";
-        exit;
+        $point    = $this->bgPosRegex();
+        $angle    = $this->angleRegex();
+        $color    = $this->colorRegex();
+        $length   = $this->lengthRegex();
+        $percent  = $this->percentRegex();
+        $stop     = '(?:' . $color . '(?:\s+(?:' . $percent . '|' . $length . '))?)';
+        $position = '(?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?';
+        $shape    = '(?:circle|ellipse)';
+        $size     = '(?:closest-side|closest-corner|farthest-side|farthest-corner|contain|cover)';
+        $radial   = '(?<!-)radial-gradient\(' . $position . '(?:(?:(?:' . $shape . '|' . $size . ')|' . $shape . '\s+' . $size . '|(?:' . $length . '|' . $percent . '){2}),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
+        $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)(' . $radial . ')([^;\r\n]*);?';
+        $bgrep    = '${1}-moz-${8}${25};${1}${8}${25};';
+        $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $radial . ')([^;\r\n]*);?';
+        $bgimgrep = '${1}${2}-moz-${3}${20};${1}${2}${3}${20};';
 
         $properties = array(
             array(
-                'value'   => '((\s*)(?! ));?',
-                'replace' => '${2}',
+                'value'   => $bg,
+                'replace' => $bgrep,
+            ),
+            array(
+                'value'   => $bgimg,
+                'replace' => $bgimgrep,
             ),
         );
 
-        foreach ($properties as $mozilla) {
-            $search    = "/(\s*)(?<!-)background-image:{$mozilla['value']}/";
-            $rep       = '${1}' . "-webkit-columns:{$mozilla['replace']};"
-                       . '${1}' . "columns:{$mozilla['replace']};";
+        foreach ($properties as $prop) {
+            $search = "/{$prop['value']}/";
+            $rep    = $prop['replace'];
 
             $cssString = preg_replace($search, $rep, $cssString);
         }
