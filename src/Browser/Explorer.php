@@ -51,6 +51,43 @@ require_once dirname(__FILE__) . '/../Browser.php';
  */
 class Browser_Explorer extends Browser
 {
+    public function linearGradient($cssString = '')
+    {
+        $point   = $this->bgPosRegex();
+        $angle   = $this->angleRegex();
+        $color   = $this->colorRegex();
+        $length  = $this->lengthRegex();
+        $percent = $this->percentRegex();
+        $stop    = '(?:' . $color . '(?:\s+(?:' . $percent . '|' . $length . '))?)';
+
+        $linear = '(?<!-)linear-gradient\((?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?' . $stop . '(,\s*' . $stop . ')+\)';
+
+        $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)(' . $linear . ')([^;\r\n]*);?';
+        $bgrep    = '${1}-ms-${8}${28};${1}${8}${28};';
+        $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $linear . ');?';
+        $bgimgrep = '${1}${2}-ms-${3};${1}${2}${3};';
+
+        $properties = array(
+            array(
+                'value'   => $bg,
+                'replace' => $bgrep,
+            ),
+            array(
+                'value'   => $bgimg,
+                'replace' => $bgimgrep,
+            ),
+        );
+
+        foreach ($properties as $mozilla) {
+            $search = "/{$mozilla['value']}/";
+            $rep    = $mozilla['replace'];
+
+            $cssString = preg_replace($search, $rep, $cssString);
+        }
+
+        return $cssString;
+    } //end linearGradient
+
     /**
      * Add Explorer rules for transform
      *
