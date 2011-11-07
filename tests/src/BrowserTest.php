@@ -394,7 +394,6 @@ class BrowserTest extends BaseTest
         return $testCssStrings;
     }
 
-
     /**
      * @covers Browser::radialGradient
      * @dataProvider radialGradientProvider

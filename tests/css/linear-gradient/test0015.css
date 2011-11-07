@@ -1,0 +1,167 @@
+div.gradient1 {
+    background-image: -ms-repeating-linear-gradient(left, red, orange, yellow, green, blue, teal, purple);
+    background-image: -moz-repeating-linear-gradient(left, red, orange, yellow, green, blue, teal, purple);
+    background-image: -o-repeating-linear-gradient(left, red, orange, yellow, green, blue, teal, purple);
+    background-image: -webkit-repeating-linear-gradient(left, red, orange, yellow, green, blue, teal, purple);
+    background-image: repeating-linear-gradient(left, red, orange, yellow, green, blue, teal, purple);
+}
+
+div.gradient2 {
+    background-image: -ms-repeating-linear-gradient(top left, red, rgba(255,0,0,0));
+    background-image: -moz-repeating-linear-gradient(top left, red, rgba(255,0,0,0));
+    background-image: -o-repeating-linear-gradient(top left, red, rgba(255,0,0,0));
+    background-image: -webkit-repeating-linear-gradient(top left, red, rgba(255,0,0,0));
+    background-image: repeating-linear-gradient(top left, red, rgba(255,0,0,0));
+}
+
+div.gradient3 {
+    background-image: -ms-repeating-linear-gradient(bottom, hsl(0, 80%, 70%), #BADA55);
+    background-image: -moz-repeating-linear-gradient(bottom, hsl(0, 80%, 70%), #BADA55);
+    background-image: -o-repeating-linear-gradient(bottom, hsl(0, 80%, 70%), #BADA55);
+    background-image: -webkit-repeating-linear-gradient(bottom, hsl(0, 80%, 70%), #BADA55);
+    background-image: repeating-linear-gradient(bottom, hsl(0, 80%, 70%), #BADA55);
+}
+
+div.gradient4 {
+    background-image: -ms-repeating-linear-gradient(top, blue, white);
+    background-image: -moz-repeating-linear-gradient(top, blue, white);
+    background-image: -o-repeating-linear-gradient(top, blue, white);
+    background-image: -webkit-repeating-linear-gradient(top, blue, white);
+    background-image: repeating-linear-gradient(top, blue, white);
+}
+
+div.gradient5 {
+    background-image: -ms-repeating-linear-gradient(left, blue, white);
+    background-image: -moz-repeating-linear-gradient(left, blue, white);
+    background-image: -o-repeating-linear-gradient(left, blue, white);
+    background-image: -webkit-repeating-linear-gradient(left, blue, white);
+    background-image: repeating-linear-gradient(left, blue, white);
+}
+
+div.gradient6 {
+    background-image: -ms-repeating-linear-gradient(left top, blue, white);
+    background-image: -moz-repeating-linear-gradient(left top, blue, white);
+    background-image: -o-repeating-linear-gradient(left top, blue, white);
+    background-image: -webkit-repeating-linear-gradient(left top, blue, white);
+    background-image: repeating-linear-gradient(left top, blue, white);
+}
+
+div.gradient7 {
+    background-image: -ms-repeating-linear-gradient(left 20deg, black, white);
+    background-image: -moz-repeating-linear-gradient(left 20deg, black, white);
+    background-image: -o-repeating-linear-gradient(left 20deg, black, white);
+    background-image: -webkit-repeating-linear-gradient(left 20deg, black, white);
+    background-image: repeating-linear-gradient(left 20deg, black, white);
+}
+
+div.gradient8 {
+    background-image: -ms-repeating-linear-gradient(90deg, red, white);
+    background-image: -moz-repeating-linear-gradient(90deg, red, white);
+    background-image: -o-repeating-linear-gradient(90deg, red, white);
+    background-image: -webkit-repeating-linear-gradient(90deg, red, white);
+    background-image: repeating-linear-gradient(90deg, red, white);
+}
+
+div.gradient9 {
+    background-image: -ms-repeating-linear-gradient(top, blue, white 80%, orange);
+    background-image: -moz-repeating-linear-gradient(top, blue, white 80%, orange);
+    background-image: -o-repeating-linear-gradient(top, blue, white 80%, orange);
+    background-image: -webkit-repeating-linear-gradient(top, blue, white 80%, orange);
+    background-image: repeating-linear-gradient(top, blue, white 80%, orange);
+}
+
+div.gradient10 {
+    background-image: -ms-repeating-linear-gradient(left, red, orange, yellow, green, blue);
+    background-image: -moz-repeating-linear-gradient(left, red, orange, yellow, green, blue);
+    background-image: -o-repeating-linear-gradient(left, red, orange, yellow, green, blue);
+    background-image: -webkit-repeating-linear-gradient(left, red, orange, yellow, green, blue);
+    background-image: repeating-linear-gradient(left, red, orange, yellow, green, blue);
+}
+
+div.gradient11 {
+    background-image: -ms-repeating-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
+    background-image: -moz-repeating-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
+    background-image: -o-repeating-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
+    background-image: -webkit-repeating-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
+    background-image: repeating-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+
+div.gradient12 {
+    background: -ms-repeating-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)), url('http://foo.com/image.jpg');
+    background: -moz-repeating-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)), url('http://foo.com/image.jpg');
+    background: -o-repeating-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)), url('http://foo.com/image.jpg');
+    background: -webkit-repeating-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)), url('http://foo.com/image.jpg');
+    background: repeating-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)), url('http://foo.com/image.jpg');
+}
+
+div.gradient13 {
+    background: -ms-repeating-linear-gradient(left, red, orange, yellow, green, blue);
+    background: -moz-repeating-linear-gradient(left, red, orange, yellow, green, blue);
+    background: -o-repeating-linear-gradient(left, red, orange, yellow, green, blue);
+    background: -webkit-repeating-linear-gradient(left, red, orange, yellow, green, blue);
+    background: repeating-linear-gradient(left, red, orange, yellow, green, blue);
+}
+
+div.gradient14 {
+    background: -ms-repeating-linear-gradient(top, blue, white 80%, orange);
+    background: -moz-repeating-linear-gradient(top, blue, white 80%, orange);
+    background: -o-repeating-linear-gradient(top, blue, white 80%, orange);
+    background: -webkit-repeating-linear-gradient(top, blue, white 80%, orange);
+    background: repeating-linear-gradient(top, blue, white 80%, orange);
+}
+
+div.gradient15 {
+    background: -ms-repeating-linear-gradient(180deg, red, white);
+    background: -moz-repeating-linear-gradient(180deg, red, white);
+    background: -o-repeating-linear-gradient(180deg, red, white);
+    background: -webkit-repeating-linear-gradient(180deg, red, white);
+    background: repeating-linear-gradient(180deg, red, white);
+}
+
+div.gradient16 {
+    background: -ms-repeating-linear-gradient(-90deg, red, white);
+    background: -moz-repeating-linear-gradient(-90deg, red, white);
+    background: -o-repeating-linear-gradient(-90deg, red, white);
+    background: -webkit-repeating-linear-gradient(-90deg, red, white);
+    background: repeating-linear-gradient(-90deg, red, white);
+}
+
+div.gradient17 {
+    background: -ms-repeating-linear-gradient(left 20deg, black, white);
+    background: -moz-repeating-linear-gradient(left 20deg, black, white);
+    background: -o-repeating-linear-gradient(left 20deg, black, white);
+    background: -webkit-repeating-linear-gradient(left 20deg, black, white);
+    background: repeating-linear-gradient(left 20deg, black, white);
+}
+
+div.gradient18 {
+    background: -ms-repeating-linear-gradient(left top, blue, white);
+    background: -moz-repeating-linear-gradient(left top, blue, white);
+    background: -o-repeating-linear-gradient(left top, blue, white);
+    background: -webkit-repeating-linear-gradient(left top, blue, white);
+    background: repeating-linear-gradient(left top, blue, white);
+}
+
+div.gradient19 {
+    background: -ms-repeating-linear-gradient(left, blue, white);
+    background: -moz-repeating-linear-gradient(left, blue, white);
+    background: -o-repeating-linear-gradient(left, blue, white);
+    background: -webkit-repeating-linear-gradient(left, blue, white);
+    background: repeating-linear-gradient(left, blue, white);
+}
+
+div.gradient20 {
+    background: -ms-repeating-linear-gradient(top, blue, white);
+    background: -moz-repeating-linear-gradient(top, blue, white);
+    background: -o-repeating-linear-gradient(top, blue, white);
+    background: -webkit-repeating-linear-gradient(top, blue, white);
+    background: repeating-linear-gradient(top, blue, white);
+}
+
+div.gradient21 {
+    background: #00f -ms-repeating-linear-gradient(left top, blue, white);
+    background: #00f -moz-repeating-linear-gradient(left top, blue, white);
+    background: #00f -o-repeating-linear-gradient(left top, blue, white);
+    background: #00f -webkit-repeating-linear-gradient(left top, blue, white);
+    background: #00f repeating-linear-gradient(left top, blue, white);
+}

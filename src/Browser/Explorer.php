@@ -59,7 +59,7 @@ class Browser_Explorer extends Browser
         $length   = $this->lengthRegex();
         $percent  = $this->percentRegex();
         $stop     = '(?:' . $color . '(?:\s+(?:' . $percent . '|' . $length . '))?)';
-        $linear   = '(?<!-)linear-gradient\((?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
+        $linear   = '(?<!-)(?:repeating-)?linear-gradient\((?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
         $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)(' . $linear . ')([^;\r\n]*);?';
         $bgrep    = '${1}-ms-${8}${25};${1}${8}${25};';
         $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $linear . ');?';
@@ -97,7 +97,7 @@ class Browser_Explorer extends Browser
         $position = '(?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?';
         $shape    = '(?:circle|ellipse)';
         $size     = '(?:closest-side|closest-corner|farthest-side|farthest-corner|contain|cover)';
-        $radial   = '(?<!-)radial-gradient\(' . $position . '(?:(?:(?:' . $shape . '|' . $size . ')|' . $shape . '\s+' . $size . '|(?:' . $length . '|' . $percent . '){2}),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
+        $radial   = '(?<!-)(?:repeating-)?radial-gradient\(' . $position . '(?:(?:(?:' . $shape . '|' . $size . ')|' . $shape . '\s+' . $size . '|(?:' . $length . '|' . $percent . '){2}),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
         $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)(' . $radial . ')([^;\r\n]*);?';
         $bgrep    = '${1}-ms-${8}${25};${1}${8}${25};';
         $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $radial . ')([^;\r\n]*);?';
@@ -150,11 +150,11 @@ class Browser_Explorer extends Browser
             'skewY\(' . $angle . '\)',
             'skew\(' . $angle . '(?:,\s*' . $angle . ')?\)',
         );
-        
+
         $functions = implode('|', $transformFunctions);
 
         $search = '/(\s*)(?<!-)transform:((\s*)(' . $functions . ')(?:\s+(' . $functions . '))*);?/';
-        
+
         $replace = '${1}-ms-transform:${2};${1}'
                 . 'transform:${2};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -179,7 +179,7 @@ class Browser_Explorer extends Browser
                    . $length . '|top|center|bottom))?|((left|center|right)'
                    . '(\s+(top|center|bottom))?|((left|center|right)\s+)?'
                    . '(top|center|bottom))));?/';
-        
+
         $replace   = '${1}-ms-transform-origin:${2}${3};${1}'
                    . 'transform-origin:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
