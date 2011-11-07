@@ -470,6 +470,44 @@ class Browser_Mozilla extends Browser
     } //end transformOrigin
 
     /**
+     * Add Mozilla rules for transition-delay
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transitionDelay($cssString = '')
+    {
+        $time = $this->timeRegex();
+
+        $search    = '/(\s*)(?<!-)transition-delay:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
+        $replace   = '${1}-moz-transition-delay:${2}${3};${1}'
+                   . 'transition-delay:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end transitionDelay
+
+    /**
+     * Add Mozilla rules for transition-duration
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transitionDuration($cssString = '')
+    {
+        $time = $this->timeRegex();
+
+        $search    = '/(\s*)(?<!-)transition-duration:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
+        $replace   = '${1}-moz-transition-duration:${2}${3};${1}'
+                   . 'transition-duration:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end transitionDuration
+
+    /**
      * Add Mozilla rules for transition-property
      *
      * @param string $cssString The CSS to be parsed
@@ -479,7 +517,7 @@ class Browser_Mozilla extends Browser
     public function transitionProperty($cssString = '')
     {
         $property = $this->animatablePropertyRegex();
-        
+
         $search    = '/(\s*)(?<!-)transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
         $replace   = '${1}-moz-transition-property:${2}${3};${1}'
                    . 'transition-property:${2}${3};';
@@ -487,4 +525,25 @@ class Browser_Mozilla extends Browser
 
         return $cssString;
     } //end transitionProprty
+
+    /**
+     * Add Mozilla rules for transition-timing-function
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transitionTimingFunction($cssString = '')
+    {
+        $num  = $this->numberRegex();
+        $func = '(?:ease-in-out|linear|ease-in|ease-out|ease|cubic-bezier\(' . $num . ',\s*' . $num . ',\s*' . $num . ',\s*' . $num . '\))';
+
+        $search    = '/(\s*)(?<!-)transition-timing-function:(\s*)(' . $func . '(?:,\s*' . $func . ')*);?/';
+
+        $replace   = '${1}-moz-transition-timing-function:${2}${3};${1}'
+                   . 'transition-timing-function:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end transitionTimingFunction
 } //end class Browser_Mozilla

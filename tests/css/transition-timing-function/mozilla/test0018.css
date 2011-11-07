@@ -1,0 +1,104 @@
+div.transition1 {
+    -moz-transition-timing-function: ease;
+    transition-timing-function: ease;
+}
+
+div.transition2 {
+    -moz-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+div.transition3 {
+    -moz-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+}
+
+div.transition4 {
+    -moz-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+div.transition5 {
+    -moz-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+div.transition6 {
+    -moz-transition-timing-function: cubic-bezier(1, 2, 3, 4);
+    transition-timing-function: cubic-bezier(1, 2, 3, 4);
+}
+
+div.transition7 {
+    -moz-transition-timing-function: cubic-bezier(1.5, 2.0, 15, 12);
+    transition-timing-function: cubic-bezier(1.5, 2.0, 15, 12);
+}
+
+div.transition8 {
+    -moz-transition-timing-function: ease, linear;
+    transition-timing-function: ease, linear;
+}
+
+div.transition9 {
+    -moz-transition-timing-function: linear, ease-in-out, linear, ease;
+    transition-timing-function: linear, ease-in-out, linear, ease;
+}
+
+div.transition10 {
+    -moz-transition-timing-function: ease-in, ease-out;
+    transition-timing-function: ease-in, ease-out;
+}
+
+div.transition11 {
+    -moz-transition-timing-function: ease-out, linear, cubic-bezier(1.5, 2.0, 15, 12);
+    transition-timing-function: ease-out, linear, cubic-bezier(1.5, 2.0, 15, 12);
+}
+
+div.transition12 {
+    -moz-transition-timing-function: ease-in-out, ease-in-out;
+    transition-timing-function: ease-in-out, ease-in-out;
+}
+
+div.transition13 {
+    -moz-transition-timing-function: cubic-bezier(1, 2, 3, 4), ease-in, ease-out, cubic-bezier(1, 2, 3, 4), ease;
+    transition-timing-function: cubic-bezier(1, 2, 3, 4), ease-in, ease-out, cubic-bezier(1, 2, 3, 4), ease;
+}
+
+div.transition14 {
+    -moz-transition-timing-function: cubic-bezier(1.5, 2.0, 15, 12), ease;
+    transition-timing-function: cubic-bezier(1.5, 2.0, 15, 12), ease;
+}
+
+div.transition15 {
+    -moz-transition-timing-function: ease, ease-in, ease-out;
+    transition-timing-function: ease, ease-in, ease-out;
+}
+
+div.transition16 {
+    -moz-transition-timing-function: linear, ease-in, ease, cubic-bezier(1, 2, 3, 4);
+    transition-timing-function: linear, ease-in, ease, cubic-bezier(1, 2, 3, 4);
+}
+
+div.transition17 {
+    -moz-transition-timing-function: ease-in, ease-out;
+    transition-timing-function: ease-in, ease-out;
+}
+
+div.transition18 {
+    -moz-transition-timing-function: ease-out, cubic-bezier(1, 2, 3, 4);
+    transition-timing-function: ease-out, cubic-bezier(1, 2, 3, 4);
+}
+
+div.transition19 {
+    -moz-transition-timing-function: ease-in-out, cubic-bezier(1.5, 2.0, 15, 12);
+    transition-timing-function: ease-in-out, cubic-bezier(1.5, 2.0, 15, 12);
+}
+
+div.transition20 {
+    -moz-transition-timing-function: cubic-bezier(1, 2, 3, 4), ease-in-out, ease;
+    transition-timing-function: cubic-bezier(1, 2, 3, 4), ease-in-out, ease;
+}
+
+div.transition21 {
+    -moz-transition-timing-function: cubic-bezier(1.5, 2.0, 15, 12), ease, ease-in;
+    transition-timing-function: cubic-bezier(1.5, 2.0, 15, 12), ease, ease-in;
+}

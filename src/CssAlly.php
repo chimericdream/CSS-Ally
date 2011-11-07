@@ -79,19 +79,23 @@ class CssAlly
     private $_files     = array();
     private $_options = array();
     private $_rules = array(
-        'background-size'  => true,
-        'border-radius'    => true,
-        'box-shadow'       => true,
-        'column-count'     => true,
-        'column-gap'       => true,
-        'column-rule'      => true,
-        'column-span'      => true,
-        'column-width'     => true,
-        'columns'          => true,
-        'linear-gradient'  => true,
-        'radial-gradient'  => true,
-        'transform'        => true,
-        'transform-origin' => true,
+        'background-size'            => true,
+        'border-radius'              => true,
+        'box-shadow'                 => true,
+        'column-count'               => true,
+        'column-gap'                 => true,
+        'column-rule'                => true,
+        'column-span'                => true,
+        'column-width'               => true,
+        'columns'                    => true,
+        'linear-gradient'            => true,
+        'radial-gradient'            => true,
+        'transform'                  => true,
+        'transform-origin'           => true,
+        'transition-delay'           => true,
+        'transition-duration'        => true,
+        'transition-property'        => true,
+        'transition-timing-function' => true,
     );
 
     /**

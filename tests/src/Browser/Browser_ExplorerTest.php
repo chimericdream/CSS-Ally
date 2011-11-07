@@ -214,6 +214,70 @@ class Browser_ExplorerTest extends BaseTest
     }
 
     /**
+     * @covers Browser_Explorer::transitionDelay
+     * @dataProvider transitionDelayProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testTransitionDelay($cssString, $expectedString)
+    {
+        $cssString = $this->_object->transitionDelay($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function transitionDelayProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/transition-delay/explorer/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Explorer::transitionDuration
+     * @dataProvider transitionDurationProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testTransitionDuration($cssString, $expectedString)
+    {
+        $cssString = $this->_object->transitionDuration($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function transitionDurationProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/transition-duration/explorer/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
      * @covers Browser_Explorer::transitionProperty
      * @dataProvider transitionPropertyProvider
      * @param string $cssString      The string to be tested
@@ -237,6 +301,38 @@ class Browser_ExplorerTest extends BaseTest
             if (!is_dir("{$path}/{$file}")) {
                 $css              = file_get_contents("{$path}/{$file}");
                 $columnCss        = file_get_contents("{$path}/transition-property/explorer/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Explorer::transitionTimingFunction
+     * @dataProvider transitionTimingFunctionProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testTransitionTimingFunction($cssString, $expectedString)
+    {
+        $cssString = $this->_object->transitionTimingFunction($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function transitionTimingFunctionProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/transition-timing-function/explorer/{$file}");
                 $testCssStrings[] = array($css, $columnCss);
             }
         }

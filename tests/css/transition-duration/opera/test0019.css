@@ -1,0 +1,79 @@
+div.transition1 {
+    -o-transition-duration: 5s;
+    transition-duration: 5s;
+}
+
+div.transition2 {
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+div.transition3 {
+    -o-transition-duration: .5s;
+    transition-duration: .5s;
+}
+
+div.transition4 {
+    -o-transition-duration: .25s;
+    transition-duration: .25s;
+}
+
+div.transition5 {
+    -o-transition-duration: 15s;
+    transition-duration: 15s;
+}
+
+div.transition6 {
+    -o-transition-duration: 5.5s;
+    transition-duration: 5.5s;
+}
+
+div.transition7 {
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+div.transition8 {
+    -o-transition-duration: 1500ms;
+    transition-duration: 1500ms;
+}
+
+div.transition9 {
+    -o-transition-duration: 5s, 500ms, .5s;
+    transition-duration: 5s, 500ms, .5s;
+}
+
+div.transition10 {
+    -o-transition-duration: .25s, 15s;
+    transition-duration: .25s, 15s;
+}
+
+div.transition11 {
+    -o-transition-duration: 5.5s, 0.5s, 1500ms, 5s;
+    transition-duration: 5.5s, 0.5s, 1500ms, 5s;
+}
+
+div.transition12 {
+    -o-transition-duration: 500ms, .5s;
+    transition-duration: 500ms, .5s;
+}
+
+div.transition13 {
+    -o-transition-duration: .25s, 15s, 5.5s;
+    transition-duration: .25s, 15s, 5.5s;
+}
+
+div.transition14 {
+    -o-transition-duration: 0.5s, 1500ms;
+    transition-duration: 0.5s, 1500ms;
+}
+
+div.transition15 {
+    -o-transition-duration: 5s, 500ms;
+    transition-duration: 5s, 500ms;
+}
+
+div.transition16 {
+    -o-transition-duration: .5s, .25s;
+    transition-duration: .5s, .25s;
+}

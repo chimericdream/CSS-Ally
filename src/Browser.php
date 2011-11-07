@@ -252,6 +252,15 @@ abstract class Browser
         return $border;
     } //end borderWidthRegex
 
+    public function timeRegex()
+    {
+        $time = '(?:(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)m?s)';
+        
+        return $time;
+    } //end timeRegex
+    
+    /**************************************************************************/
+    
     /**
      * Syntax:
      * background-size: <bg-size> [, <bg-size>]*
@@ -444,6 +453,32 @@ abstract class Browser
     {
         return $cssString;
     } //end transformOrigin
+    
+    /**
+     * Syntax:
+     * transition-delay: <time>[, <time>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transitionDelay($cssString = '')
+    {
+        return $cssString;
+    } //end transitionDelay
+
+    /**
+     * Syntax:
+     * transition-duration: <time>[, <time>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transitionDuration($cssString = '')
+    {
+        return $cssString;
+    } //end transitionDuration
 
     /**
      * Syntax:
@@ -457,4 +492,20 @@ abstract class Browser
     {
         return $cssString;
     } //end transitionProprty
+
+    /**
+     * Syntax:
+     * transition-timing-function: ease | linear | ease-in | ease-out | ...
+     *     ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) ...
+     *     [, ease | linear | ease-in | ease-out | ease-in-out | ...
+     *     cubic-bezier(<number>, <number>, <number>, <number>)]* 
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transitionTimingFunction($cssString = '')
+    {
+        return $cssString;
+    } //end transitionTimingFunction
 } //end abstract class Browser

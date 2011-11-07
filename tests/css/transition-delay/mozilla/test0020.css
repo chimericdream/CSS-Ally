@@ -1,0 +1,79 @@
+div.transition1 {
+    -moz-transition-delay: 5s;
+    transition-delay: 5s;
+}
+
+div.transition2 {
+    -moz-transition-delay: 500ms;
+    transition-delay: 500ms;
+}
+
+div.transition3 {
+    -moz-transition-delay: .5s;
+    transition-delay: .5s;
+}
+
+div.transition4 {
+    -moz-transition-delay: .25s;
+    transition-delay: .25s;
+}
+
+div.transition5 {
+    -moz-transition-delay: 15s;
+    transition-delay: 15s;
+}
+
+div.transition6 {
+    -moz-transition-delay: 5.5s;
+    transition-delay: 5.5s;
+}
+
+div.transition7 {
+    -moz-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+
+div.transition8 {
+    -moz-transition-delay: 1500ms;
+    transition-delay: 1500ms;
+}
+
+div.transition9 {
+    -moz-transition-delay: 5s, 500ms, .5s;
+    transition-delay: 5s, 500ms, .5s;
+}
+
+div.transition10 {
+    -moz-transition-delay: .25s, 15s;
+    transition-delay: .25s, 15s;
+}
+
+div.transition11 {
+    -moz-transition-delay: 5.5s, 0.5s, 1500ms, 5s;
+    transition-delay: 5.5s, 0.5s, 1500ms, 5s;
+}
+
+div.transition12 {
+    -moz-transition-delay: 500ms, .5s;
+    transition-delay: 500ms, .5s;
+}
+
+div.transition13 {
+    -moz-transition-delay: .25s, 15s, 5.5s;
+    transition-delay: .25s, 15s, 5.5s;
+}
+
+div.transition14 {
+    -moz-transition-delay: 0.5s, 1500ms;
+    transition-delay: 0.5s, 1500ms;
+}
+
+div.transition15 {
+    -moz-transition-delay: 5s, 500ms;
+    transition-delay: 5s, 500ms;
+}
+
+div.transition16 {
+    -moz-transition-delay: .5s, .25s;
+    transition-delay: .5s, .25s;
+}
