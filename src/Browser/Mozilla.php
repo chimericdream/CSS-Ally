@@ -478,7 +478,7 @@ class Browser_Mozilla extends Browser
      */
     public function transitionProperty($cssString = '')
     {
-        $property = $this->propertyRegex();
+        $property = $this->animatablePropertyRegex();
         
         $search    = '/(\s*)(?<!-)transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
         $replace   = '${1}-moz-transition-property:${2}${3};${1}'

@@ -290,7 +290,7 @@ class Browser_Opera extends Browser
      */
     public function transitionProperty($cssString = '')
     {
-        $property = $this->propertyRegex();
+        $property = $this->animatablePropertyRegex();
         
         $search    = '/(\s*)(?<!-)transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
         $replace   = '${1}-o-transition-property:${2}${3};${1}'
