@@ -437,4 +437,17 @@ abstract class Browser
     {
         return $cssString;
     } //end transformOrigin
+
+    /**
+     * Syntax:
+     * transition-property: none | all | [ <IDENT> ] [ ‘,’ <IDENT> ]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transitionProperty($cssString = '')
+    {
+        return $cssString;
+    } //end transitionProprty
 } //end abstract class Browser

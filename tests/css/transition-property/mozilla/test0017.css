@@ -1,0 +1,439 @@
+div.transition1 {
+    -moz-transition-property: opacity, left, top, height;
+    transition-property: opacity, left, top, height;
+}
+
+div.transition2 {
+    -moz-transition-property: opacity, left;
+    transition-property: opacity, left;
+}
+
+div.transition3 {
+    -moz-transition-property: opacity;
+    transition-property: opacity;
+}
+
+div.transition4 {
+    -moz-transition-property: font-size;
+    transition-property: font-size;
+}
+
+div.transition5 {
+    -moz-transition-property: background-color, color;
+    transition-property: background-color, color;
+}
+
+div.transition6 {
+    -moz-transition-property: background-color, color, left;
+    transition-property: background-color, color, left;
+}
+
+div.transition7 {
+    -moz-transition-property: background-color;
+    transition-property: background-color;
+}
+
+div.transition8 {
+    -moz-transition-property: background-image;
+    transition-property: background-image;
+}
+
+div.transition9 {
+    -moz-transition-property: background-position;
+    transition-property: background-position;
+}
+
+div.transition10 {
+    -moz-transition-property: background-size;
+    transition-property: background-size;
+}
+
+div.transition11 {
+    -moz-transition-property: border-color;
+    transition-property: border-color;
+}
+
+div.transition12 {
+    -moz-transition-property: border-radius;
+    transition-property: border-radius;
+}
+
+div.transition13 {
+    -moz-transition-property: border-width;
+    transition-property: border-width;
+}
+
+div.transition14 {
+    -moz-transition-property: border-spacing;
+    transition-property: border-spacing;
+}
+
+div.transition15 {
+    -moz-transition-property: bottom;
+    transition-property: bottom;
+}
+
+div.transition16 {
+    -moz-transition-property: box-shadow;
+    transition-property: box-shadow;
+}
+
+div.transition17 {
+    -moz-transition-property: color;
+    transition-property: color;
+}
+
+div.transition18 {
+    -moz-transition-property: clip;
+    transition-property: clip;
+}
+
+div.transition19 {
+    -moz-transition-property: fill;
+    transition-property: fill;
+}
+
+div.transition20 {
+    -moz-transition-property: fill-opacity;
+    transition-property: fill-opacity;
+}
+
+div.transition21 {
+    -moz-transition-property: flood-color;
+    transition-property: flood-color;
+}
+
+div.transition22 {
+    -moz-transition-property: font-size;
+    transition-property: font-size;
+}
+
+div.transition23 {
+    -moz-transition-property: font-size-adjust;
+    transition-property: font-size-adjust;
+}
+
+div.transition24 {
+    -moz-transition-property: font-stretch;
+    transition-property: font-stretch;
+}
+
+div.transition25 {
+    -moz-transition-property: font-weight;
+    transition-property: font-weight;
+}
+
+div.transition26 {
+    -moz-transition-property: height;
+    transition-property: height;
+}
+
+div.transition27 {
+    -moz-transition-property: left;
+    transition-property: left;
+}
+
+div.transition28 {
+    -moz-transition-property: letter-spacing;
+    transition-property: letter-spacing;
+}
+
+div.transition29 {
+    -moz-transition-property: lighting-color;
+    transition-property: lighting-color;
+}
+
+div.transition30 {
+    -moz-transition-property: line-height;
+    transition-property: line-height;
+}
+
+div.transition31 {
+    -moz-transition-property: margin;
+    transition-property: margin;
+}
+
+div.transition32 {
+    -moz-transition-property: marker-offset;
+    transition-property: marker-offset;
+}
+
+div.transition33 {
+    -moz-transition-property: max-height;
+    transition-property: max-height;
+}
+
+div.transition34 {
+    -moz-transition-property: max-width;
+    transition-property: max-width;
+}
+
+div.transition35 {
+    -moz-transition-property: min-height;
+    transition-property: min-height;
+}
+
+div.transition36 {
+    -moz-transition-property: min-width;
+    transition-property: min-width;
+}
+
+div.transition37 {
+    -moz-transition-property: opacity;
+    transition-property: opacity;
+}
+
+div.transition38 {
+    -moz-transition-property: outline-color;
+    transition-property: outline-color;
+}
+
+div.transition39 {
+    -moz-transition-property: outline-offset;
+    transition-property: outline-offset;
+}
+
+div.transition40 {
+    -moz-transition-property: outline-width;
+    transition-property: outline-width;
+}
+
+div.transition41 {
+    -moz-transition-property: padding;
+    transition-property: padding;
+}
+
+div.transition42 {
+    -moz-transition-property: right;
+    transition-property: right;
+}
+
+div.transition43 {
+    -moz-transition-property: stop-color;
+    transition-property: stop-color;
+}
+
+div.transition44 {
+    -moz-transition-property: stop-opacity;
+    transition-property: stop-opacity;
+}
+
+div.transition45 {
+    -moz-transition-property: stroke;
+    transition-property: stroke;
+}
+
+div.transition46 {
+    -moz-transition-property: stroke-dasharray;
+    transition-property: stroke-dasharray;
+}
+
+div.transition47 {
+    -moz-transition-property: stroke-dashoffset;
+    transition-property: stroke-dashoffset;
+}
+
+div.transition48 {
+    -moz-transition-property: stroke-miterlimit;
+    transition-property: stroke-miterlimit;
+}
+
+div.transition49 {
+    -moz-transition-property: stroke-opacity;
+    transition-property: stroke-opacity;
+}
+
+div.transition50 {
+    -moz-transition-property: stroke-width;
+    transition-property: stroke-width;
+}
+
+div.transition51 {
+    -moz-transition-property: text-indent;
+    transition-property: text-indent;
+}
+
+div.transition52 {
+    -moz-transition-property: text-shadow;
+    transition-property: text-shadow;
+}
+
+div.transition53 {
+    -moz-transition-property: top;
+    transition-property: top;
+}
+
+div.transition54 {
+    -moz-transition-property: vertical-align;
+    transition-property: vertical-align;
+}
+
+div.transition55 {
+    -moz-transition-property: visibility;
+    transition-property: visibility;
+}
+
+div.transition56 {
+    -moz-transition-property: width;
+    transition-property: width;
+}
+
+div.transition57 {
+    -moz-transition-property: word-spacing;
+    transition-property: word-spacing;
+}
+
+div.transition58 {
+    -moz-transition-property: z-index;
+    transition-property: z-index;
+}
+
+div.transition59 {
+    -moz-transition-property: background-color, background-image, background-position, background-size;
+    transition-property: background-color, background-image, background-position, background-size;
+}
+
+div.transition60 {
+    -moz-transition-property: border-color, border-radius, border-width, border-spacing;
+    transition-property: border-color, border-radius, border-width, border-spacing;
+}
+
+div.transition61 {
+    -moz-transition-property: bottom;
+    transition-property: bottom;
+}
+
+div.transition62 {
+    -moz-transition-property: box-shadow;
+    transition-property: box-shadow;
+}
+
+div.transition63 {
+    -moz-transition-property: color;
+    transition-property: color;
+}
+
+div.transition64 {
+    -moz-transition-property: clip;
+    transition-property: clip;
+}
+
+div.transition65 {
+    -moz-transition-property: fill;
+    transition-property: fill;
+}
+
+div.transition66 {
+    -moz-transition-property: fill-opacity;
+    transition-property: fill-opacity;
+}
+
+div.transition67 {
+    -moz-transition-property: flood-color;
+    transition-property: flood-color;
+}
+
+div.transition68 {
+    -moz-transition-property: font-size, font-size-adjust, font-stretch, font-weight;
+    transition-property: font-size, font-size-adjust, font-stretch, font-weight;
+}
+
+div.transition69 {
+    -moz-transition-property: height;
+    transition-property: height;
+}
+
+div.transition70 {
+    -moz-transition-property: left;
+    transition-property: left;
+}
+
+div.transition71 {
+    -moz-transition-property: letter-spacing;
+    transition-property: letter-spacing;
+}
+
+div.transition72 {
+    -moz-transition-property: lighting-color;
+    transition-property: lighting-color;
+}
+
+div.transition73 {
+    -moz-transition-property: line-height;
+    transition-property: line-height;
+}
+
+div.transition74 {
+    -moz-transition-property: margin;
+    transition-property: margin;
+}
+
+div.transition75 {
+    -moz-transition-property: marker-offset;
+    transition-property: marker-offset;
+}
+
+div.transition76 {
+    -moz-transition-property: max-height, max-width, min-height, min-width;
+    transition-property: max-height, max-width, min-height, min-width;
+}
+
+div.transition77 {
+    -moz-transition-property: opacity;
+    transition-property: opacity;
+}
+
+div.transition78 {
+    -moz-transition-property: outline-color, outline-offset, outline-width;
+    transition-property: outline-color, outline-offset, outline-width;
+}
+
+div.transition79 {
+    -moz-transition-property: padding;
+    transition-property: padding;
+}
+
+div.transition80 {
+    -moz-transition-property: right;
+    transition-property: right;
+}
+
+div.transition81 {
+    -moz-transition-property: stop-color, stop-opacity;
+    transition-property: stop-color, stop-opacity;
+}
+
+div.transition82 {
+    -moz-transition-property: stroke;
+    transition-property: stroke;
+}
+
+div.transition83 {
+    -moz-transition-property: stroke-dasharray, stroke-dashoffset, stroke-miterlimit, stroke-opacity, stroke-width;
+    transition-property: stroke-dasharray, stroke-dashoffset, stroke-miterlimit, stroke-opacity, stroke-width;
+}
+
+div.transition84 {
+    -moz-transition-property: text-indent, text-shadow;
+    transition-property: text-indent, text-shadow;
+}
+
+div.transition85 {
+    -moz-transition-property: top;
+    transition-property: top;
+}
+
+div.transition86 {
+    -moz-transition-property: vertical-align;
+    transition-property: vertical-align;
+}
+
+div.transition87 {
+    -moz-transition-property: visibility;
+    transition-property: visibility;
+}
+
+div.transition88 {
+    -moz-transition-property: width, word-spacing, z-index;
+    transition-property: width, word-spacing, z-index;
+}

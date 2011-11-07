@@ -500,4 +500,36 @@ class Browser_MozillaTest extends BaseTest
 
         return $testCssStrings;
     }
+
+    /**
+     * @covers Browser_Mozilla::transitionProperty
+     * @dataProvider transitionPropertyProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testTransitionProperty($cssString, $expectedString)
+    {
+        $cssString = $this->_object->transitionProperty($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function transitionPropertyProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $columnCss        = file_get_contents("{$path}/transition-property/mozilla/{$file}");
+                $testCssStrings[] = array($css, $columnCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
 }

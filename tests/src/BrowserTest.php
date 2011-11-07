@@ -485,4 +485,34 @@ class BrowserTest extends BaseTest
 
         return $strings;
     }
+
+    /**
+     * @covers Browser::transitionProperty
+     * @dataProvider transitionPropertyProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     */
+    public function testTransitionProperty($cssString, $expectedString)
+    {
+        $cssString = $this->_object->transitionProperty($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function transitionPropertyProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $colCss    = file_get_contents("{$path}/transition-property/{$file}");
+                $strings[] = array($css, $colCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
 }

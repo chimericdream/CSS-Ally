@@ -1,0 +1,439 @@
+div.transition1 {
+    -webkit-transition-property: opacity, left, top, height;
+    transition-property: opacity, left, top, height;
+}
+
+div.transition2 {
+    -webkit-transition-property: opacity, left;
+    transition-property: opacity, left;
+}
+
+div.transition3 {
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+}
+
+div.transition4 {
+    -webkit-transition-property: font-size;
+    transition-property: font-size;
+}
+
+div.transition5 {
+    -webkit-transition-property: background-color, color;
+    transition-property: background-color, color;
+}
+
+div.transition6 {
+    -webkit-transition-property: background-color, color, left;
+    transition-property: background-color, color, left;
+}
+
+div.transition7 {
+    -webkit-transition-property: background-color;
+    transition-property: background-color;
+}
+
+div.transition8 {
+    -webkit-transition-property: background-image;
+    transition-property: background-image;
+}
+
+div.transition9 {
+    -webkit-transition-property: background-position;
+    transition-property: background-position;
+}
+
+div.transition10 {
+    -webkit-transition-property: background-size;
+    transition-property: background-size;
+}
+
+div.transition11 {
+    -webkit-transition-property: border-color;
+    transition-property: border-color;
+}
+
+div.transition12 {
+    -webkit-transition-property: border-radius;
+    transition-property: border-radius;
+}
+
+div.transition13 {
+    -webkit-transition-property: border-width;
+    transition-property: border-width;
+}
+
+div.transition14 {
+    -webkit-transition-property: border-spacing;
+    transition-property: border-spacing;
+}
+
+div.transition15 {
+    -webkit-transition-property: bottom;
+    transition-property: bottom;
+}
+
+div.transition16 {
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+}
+
+div.transition17 {
+    -webkit-transition-property: color;
+    transition-property: color;
+}
+
+div.transition18 {
+    -webkit-transition-property: clip;
+    transition-property: clip;
+}
+
+div.transition19 {
+    -webkit-transition-property: fill;
+    transition-property: fill;
+}
+
+div.transition20 {
+    -webkit-transition-property: fill-opacity;
+    transition-property: fill-opacity;
+}
+
+div.transition21 {
+    -webkit-transition-property: flood-color;
+    transition-property: flood-color;
+}
+
+div.transition22 {
+    -webkit-transition-property: font-size;
+    transition-property: font-size;
+}
+
+div.transition23 {
+    -webkit-transition-property: font-size-adjust;
+    transition-property: font-size-adjust;
+}
+
+div.transition24 {
+    -webkit-transition-property: font-stretch;
+    transition-property: font-stretch;
+}
+
+div.transition25 {
+    -webkit-transition-property: font-weight;
+    transition-property: font-weight;
+}
+
+div.transition26 {
+    -webkit-transition-property: height;
+    transition-property: height;
+}
+
+div.transition27 {
+    -webkit-transition-property: left;
+    transition-property: left;
+}
+
+div.transition28 {
+    -webkit-transition-property: letter-spacing;
+    transition-property: letter-spacing;
+}
+
+div.transition29 {
+    -webkit-transition-property: lighting-color;
+    transition-property: lighting-color;
+}
+
+div.transition30 {
+    -webkit-transition-property: line-height;
+    transition-property: line-height;
+}
+
+div.transition31 {
+    -webkit-transition-property: margin;
+    transition-property: margin;
+}
+
+div.transition32 {
+    -webkit-transition-property: marker-offset;
+    transition-property: marker-offset;
+}
+
+div.transition33 {
+    -webkit-transition-property: max-height;
+    transition-property: max-height;
+}
+
+div.transition34 {
+    -webkit-transition-property: max-width;
+    transition-property: max-width;
+}
+
+div.transition35 {
+    -webkit-transition-property: min-height;
+    transition-property: min-height;
+}
+
+div.transition36 {
+    -webkit-transition-property: min-width;
+    transition-property: min-width;
+}
+
+div.transition37 {
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+}
+
+div.transition38 {
+    -webkit-transition-property: outline-color;
+    transition-property: outline-color;
+}
+
+div.transition39 {
+    -webkit-transition-property: outline-offset;
+    transition-property: outline-offset;
+}
+
+div.transition40 {
+    -webkit-transition-property: outline-width;
+    transition-property: outline-width;
+}
+
+div.transition41 {
+    -webkit-transition-property: padding;
+    transition-property: padding;
+}
+
+div.transition42 {
+    -webkit-transition-property: right;
+    transition-property: right;
+}
+
+div.transition43 {
+    -webkit-transition-property: stop-color;
+    transition-property: stop-color;
+}
+
+div.transition44 {
+    -webkit-transition-property: stop-opacity;
+    transition-property: stop-opacity;
+}
+
+div.transition45 {
+    -webkit-transition-property: stroke;
+    transition-property: stroke;
+}
+
+div.transition46 {
+    -webkit-transition-property: stroke-dasharray;
+    transition-property: stroke-dasharray;
+}
+
+div.transition47 {
+    -webkit-transition-property: stroke-dashoffset;
+    transition-property: stroke-dashoffset;
+}
+
+div.transition48 {
+    -webkit-transition-property: stroke-miterlimit;
+    transition-property: stroke-miterlimit;
+}
+
+div.transition49 {
+    -webkit-transition-property: stroke-opacity;
+    transition-property: stroke-opacity;
+}
+
+div.transition50 {
+    -webkit-transition-property: stroke-width;
+    transition-property: stroke-width;
+}
+
+div.transition51 {
+    -webkit-transition-property: text-indent;
+    transition-property: text-indent;
+}
+
+div.transition52 {
+    -webkit-transition-property: text-shadow;
+    transition-property: text-shadow;
+}
+
+div.transition53 {
+    -webkit-transition-property: top;
+    transition-property: top;
+}
+
+div.transition54 {
+    -webkit-transition-property: vertical-align;
+    transition-property: vertical-align;
+}
+
+div.transition55 {
+    -webkit-transition-property: visibility;
+    transition-property: visibility;
+}
+
+div.transition56 {
+    -webkit-transition-property: width;
+    transition-property: width;
+}
+
+div.transition57 {
+    -webkit-transition-property: word-spacing;
+    transition-property: word-spacing;
+}
+
+div.transition58 {
+    -webkit-transition-property: z-index;
+    transition-property: z-index;
+}
+
+div.transition59 {
+    -webkit-transition-property: background-color, background-image, background-position, background-size;
+    transition-property: background-color, background-image, background-position, background-size;
+}
+
+div.transition60 {
+    -webkit-transition-property: border-color, border-radius, border-width, border-spacing;
+    transition-property: border-color, border-radius, border-width, border-spacing;
+}
+
+div.transition61 {
+    -webkit-transition-property: bottom;
+    transition-property: bottom;
+}
+
+div.transition62 {
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+}
+
+div.transition63 {
+    -webkit-transition-property: color;
+    transition-property: color;
+}
+
+div.transition64 {
+    -webkit-transition-property: clip;
+    transition-property: clip;
+}
+
+div.transition65 {
+    -webkit-transition-property: fill;
+    transition-property: fill;
+}
+
+div.transition66 {
+    -webkit-transition-property: fill-opacity;
+    transition-property: fill-opacity;
+}
+
+div.transition67 {
+    -webkit-transition-property: flood-color;
+    transition-property: flood-color;
+}
+
+div.transition68 {
+    -webkit-transition-property: font-size, font-size-adjust, font-stretch, font-weight;
+    transition-property: font-size, font-size-adjust, font-stretch, font-weight;
+}
+
+div.transition69 {
+    -webkit-transition-property: height;
+    transition-property: height;
+}
+
+div.transition70 {
+    -webkit-transition-property: left;
+    transition-property: left;
+}
+
+div.transition71 {
+    -webkit-transition-property: letter-spacing;
+    transition-property: letter-spacing;
+}
+
+div.transition72 {
+    -webkit-transition-property: lighting-color;
+    transition-property: lighting-color;
+}
+
+div.transition73 {
+    -webkit-transition-property: line-height;
+    transition-property: line-height;
+}
+
+div.transition74 {
+    -webkit-transition-property: margin;
+    transition-property: margin;
+}
+
+div.transition75 {
+    -webkit-transition-property: marker-offset;
+    transition-property: marker-offset;
+}
+
+div.transition76 {
+    -webkit-transition-property: max-height, max-width, min-height, min-width;
+    transition-property: max-height, max-width, min-height, min-width;
+}
+
+div.transition77 {
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+}
+
+div.transition78 {
+    -webkit-transition-property: outline-color, outline-offset, outline-width;
+    transition-property: outline-color, outline-offset, outline-width;
+}
+
+div.transition79 {
+    -webkit-transition-property: padding;
+    transition-property: padding;
+}
+
+div.transition80 {
+    -webkit-transition-property: right;
+    transition-property: right;
+}
+
+div.transition81 {
+    -webkit-transition-property: stop-color, stop-opacity;
+    transition-property: stop-color, stop-opacity;
+}
+
+div.transition82 {
+    -webkit-transition-property: stroke;
+    transition-property: stroke;
+}
+
+div.transition83 {
+    -webkit-transition-property: stroke-dasharray, stroke-dashoffset, stroke-miterlimit, stroke-opacity, stroke-width;
+    transition-property: stroke-dasharray, stroke-dashoffset, stroke-miterlimit, stroke-opacity, stroke-width;
+}
+
+div.transition84 {
+    -webkit-transition-property: text-indent, text-shadow;
+    transition-property: text-indent, text-shadow;
+}
+
+div.transition85 {
+    -webkit-transition-property: top;
+    transition-property: top;
+}
+
+div.transition86 {
+    -webkit-transition-property: vertical-align;
+    transition-property: vertical-align;
+}
+
+div.transition87 {
+    -webkit-transition-property: visibility;
+    transition-property: visibility;
+}
+
+div.transition88 {
+    -webkit-transition-property: width, word-spacing, z-index;
+    transition-property: width, word-spacing, z-index;
+}

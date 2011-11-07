@@ -1,0 +1,703 @@
+div.transition1 {
+    -ms-transition-property: opacity, left, top, height;
+    -moz-transition-property: opacity, left, top, height;
+    -o-transition-property: opacity, left, top, height;
+    -webkit-transition-property: opacity, left, top, height;
+    transition-property: opacity, left, top, height;
+}
+
+div.transition2 {
+    -ms-transition-property: opacity, left;
+    -moz-transition-property: opacity, left;
+    -o-transition-property: opacity, left;
+    -webkit-transition-property: opacity, left;
+    transition-property: opacity, left;
+}
+
+div.transition3 {
+    -ms-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+}
+
+div.transition4 {
+    -ms-transition-property: font-size;
+    -moz-transition-property: font-size;
+    -o-transition-property: font-size;
+    -webkit-transition-property: font-size;
+    transition-property: font-size;
+}
+
+div.transition5 {
+    -ms-transition-property: background-color, color;
+    -moz-transition-property: background-color, color;
+    -o-transition-property: background-color, color;
+    -webkit-transition-property: background-color, color;
+    transition-property: background-color, color;
+}
+
+div.transition6 {
+    -ms-transition-property: background-color, color, left;
+    -moz-transition-property: background-color, color, left;
+    -o-transition-property: background-color, color, left;
+    -webkit-transition-property: background-color, color, left;
+    transition-property: background-color, color, left;
+}
+
+div.transition7 {
+    -ms-transition-property: background-color;
+    -moz-transition-property: background-color;
+    -o-transition-property: background-color;
+    -webkit-transition-property: background-color;
+    transition-property: background-color;
+}
+
+div.transition8 {
+    -ms-transition-property: background-image;
+    -moz-transition-property: background-image;
+    -o-transition-property: background-image;
+    -webkit-transition-property: background-image;
+    transition-property: background-image;
+}
+
+div.transition9 {
+    -ms-transition-property: background-position;
+    -moz-transition-property: background-position;
+    -o-transition-property: background-position;
+    -webkit-transition-property: background-position;
+    transition-property: background-position;
+}
+
+div.transition10 {
+    -ms-transition-property: background-size;
+    -moz-transition-property: background-size;
+    -o-transition-property: background-size;
+    -webkit-transition-property: background-size;
+    transition-property: background-size;
+}
+
+div.transition11 {
+    -ms-transition-property: border-color;
+    -moz-transition-property: border-color;
+    -o-transition-property: border-color;
+    -webkit-transition-property: border-color;
+    transition-property: border-color;
+}
+
+div.transition12 {
+    -ms-transition-property: border-radius;
+    -moz-transition-property: border-radius;
+    -o-transition-property: border-radius;
+    -webkit-transition-property: border-radius;
+    transition-property: border-radius;
+}
+
+div.transition13 {
+    -ms-transition-property: border-width;
+    -moz-transition-property: border-width;
+    -o-transition-property: border-width;
+    -webkit-transition-property: border-width;
+    transition-property: border-width;
+}
+
+div.transition14 {
+    -ms-transition-property: border-spacing;
+    -moz-transition-property: border-spacing;
+    -o-transition-property: border-spacing;
+    -webkit-transition-property: border-spacing;
+    transition-property: border-spacing;
+}
+
+div.transition15 {
+    -ms-transition-property: bottom;
+    -moz-transition-property: bottom;
+    -o-transition-property: bottom;
+    -webkit-transition-property: bottom;
+    transition-property: bottom;
+}
+
+div.transition16 {
+    -ms-transition-property: box-shadow;
+    -moz-transition-property: box-shadow;
+    -o-transition-property: box-shadow;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+}
+
+div.transition17 {
+    -ms-transition-property: color;
+    -moz-transition-property: color;
+    -o-transition-property: color;
+    -webkit-transition-property: color;
+    transition-property: color;
+}
+
+div.transition18 {
+    -ms-transition-property: clip;
+    -moz-transition-property: clip;
+    -o-transition-property: clip;
+    -webkit-transition-property: clip;
+    transition-property: clip;
+}
+
+div.transition19 {
+    -ms-transition-property: fill;
+    -moz-transition-property: fill;
+    -o-transition-property: fill;
+    -webkit-transition-property: fill;
+    transition-property: fill;
+}
+
+div.transition20 {
+    -ms-transition-property: fill-opacity;
+    -moz-transition-property: fill-opacity;
+    -o-transition-property: fill-opacity;
+    -webkit-transition-property: fill-opacity;
+    transition-property: fill-opacity;
+}
+
+div.transition21 {
+    -ms-transition-property: flood-color;
+    -moz-transition-property: flood-color;
+    -o-transition-property: flood-color;
+    -webkit-transition-property: flood-color;
+    transition-property: flood-color;
+}
+
+div.transition22 {
+    -ms-transition-property: font-size;
+    -moz-transition-property: font-size;
+    -o-transition-property: font-size;
+    -webkit-transition-property: font-size;
+    transition-property: font-size;
+}
+
+div.transition23 {
+    -ms-transition-property: font-size-adjust;
+    -moz-transition-property: font-size-adjust;
+    -o-transition-property: font-size-adjust;
+    -webkit-transition-property: font-size-adjust;
+    transition-property: font-size-adjust;
+}
+
+div.transition24 {
+    -ms-transition-property: font-stretch;
+    -moz-transition-property: font-stretch;
+    -o-transition-property: font-stretch;
+    -webkit-transition-property: font-stretch;
+    transition-property: font-stretch;
+}
+
+div.transition25 {
+    -ms-transition-property: font-weight;
+    -moz-transition-property: font-weight;
+    -o-transition-property: font-weight;
+    -webkit-transition-property: font-weight;
+    transition-property: font-weight;
+}
+
+div.transition26 {
+    -ms-transition-property: height;
+    -moz-transition-property: height;
+    -o-transition-property: height;
+    -webkit-transition-property: height;
+    transition-property: height;
+}
+
+div.transition27 {
+    -ms-transition-property: left;
+    -moz-transition-property: left;
+    -o-transition-property: left;
+    -webkit-transition-property: left;
+    transition-property: left;
+}
+
+div.transition28 {
+    -ms-transition-property: letter-spacing;
+    -moz-transition-property: letter-spacing;
+    -o-transition-property: letter-spacing;
+    -webkit-transition-property: letter-spacing;
+    transition-property: letter-spacing;
+}
+
+div.transition29 {
+    -ms-transition-property: lighting-color;
+    -moz-transition-property: lighting-color;
+    -o-transition-property: lighting-color;
+    -webkit-transition-property: lighting-color;
+    transition-property: lighting-color;
+}
+
+div.transition30 {
+    -ms-transition-property: line-height;
+    -moz-transition-property: line-height;
+    -o-transition-property: line-height;
+    -webkit-transition-property: line-height;
+    transition-property: line-height;
+}
+
+div.transition31 {
+    -ms-transition-property: margin;
+    -moz-transition-property: margin;
+    -o-transition-property: margin;
+    -webkit-transition-property: margin;
+    transition-property: margin;
+}
+
+div.transition32 {
+    -ms-transition-property: marker-offset;
+    -moz-transition-property: marker-offset;
+    -o-transition-property: marker-offset;
+    -webkit-transition-property: marker-offset;
+    transition-property: marker-offset;
+}
+
+div.transition33 {
+    -ms-transition-property: max-height;
+    -moz-transition-property: max-height;
+    -o-transition-property: max-height;
+    -webkit-transition-property: max-height;
+    transition-property: max-height;
+}
+
+div.transition34 {
+    -ms-transition-property: max-width;
+    -moz-transition-property: max-width;
+    -o-transition-property: max-width;
+    -webkit-transition-property: max-width;
+    transition-property: max-width;
+}
+
+div.transition35 {
+    -ms-transition-property: min-height;
+    -moz-transition-property: min-height;
+    -o-transition-property: min-height;
+    -webkit-transition-property: min-height;
+    transition-property: min-height;
+}
+
+div.transition36 {
+    -ms-transition-property: min-width;
+    -moz-transition-property: min-width;
+    -o-transition-property: min-width;
+    -webkit-transition-property: min-width;
+    transition-property: min-width;
+}
+
+div.transition37 {
+    -ms-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+}
+
+div.transition38 {
+    -ms-transition-property: outline-color;
+    -moz-transition-property: outline-color;
+    -o-transition-property: outline-color;
+    -webkit-transition-property: outline-color;
+    transition-property: outline-color;
+}
+
+div.transition39 {
+    -ms-transition-property: outline-offset;
+    -moz-transition-property: outline-offset;
+    -o-transition-property: outline-offset;
+    -webkit-transition-property: outline-offset;
+    transition-property: outline-offset;
+}
+
+div.transition40 {
+    -ms-transition-property: outline-width;
+    -moz-transition-property: outline-width;
+    -o-transition-property: outline-width;
+    -webkit-transition-property: outline-width;
+    transition-property: outline-width;
+}
+
+div.transition41 {
+    -ms-transition-property: padding;
+    -moz-transition-property: padding;
+    -o-transition-property: padding;
+    -webkit-transition-property: padding;
+    transition-property: padding;
+}
+
+div.transition42 {
+    -ms-transition-property: right;
+    -moz-transition-property: right;
+    -o-transition-property: right;
+    -webkit-transition-property: right;
+    transition-property: right;
+}
+
+div.transition43 {
+    -ms-transition-property: stop-color;
+    -moz-transition-property: stop-color;
+    -o-transition-property: stop-color;
+    -webkit-transition-property: stop-color;
+    transition-property: stop-color;
+}
+
+div.transition44 {
+    -ms-transition-property: stop-opacity;
+    -moz-transition-property: stop-opacity;
+    -o-transition-property: stop-opacity;
+    -webkit-transition-property: stop-opacity;
+    transition-property: stop-opacity;
+}
+
+div.transition45 {
+    -ms-transition-property: stroke;
+    -moz-transition-property: stroke;
+    -o-transition-property: stroke;
+    -webkit-transition-property: stroke;
+    transition-property: stroke;
+}
+
+div.transition46 {
+    -ms-transition-property: stroke-dasharray;
+    -moz-transition-property: stroke-dasharray;
+    -o-transition-property: stroke-dasharray;
+    -webkit-transition-property: stroke-dasharray;
+    transition-property: stroke-dasharray;
+}
+
+div.transition47 {
+    -ms-transition-property: stroke-dashoffset;
+    -moz-transition-property: stroke-dashoffset;
+    -o-transition-property: stroke-dashoffset;
+    -webkit-transition-property: stroke-dashoffset;
+    transition-property: stroke-dashoffset;
+}
+
+div.transition48 {
+    -ms-transition-property: stroke-miterlimit;
+    -moz-transition-property: stroke-miterlimit;
+    -o-transition-property: stroke-miterlimit;
+    -webkit-transition-property: stroke-miterlimit;
+    transition-property: stroke-miterlimit;
+}
+
+div.transition49 {
+    -ms-transition-property: stroke-opacity;
+    -moz-transition-property: stroke-opacity;
+    -o-transition-property: stroke-opacity;
+    -webkit-transition-property: stroke-opacity;
+    transition-property: stroke-opacity;
+}
+
+div.transition50 {
+    -ms-transition-property: stroke-width;
+    -moz-transition-property: stroke-width;
+    -o-transition-property: stroke-width;
+    -webkit-transition-property: stroke-width;
+    transition-property: stroke-width;
+}
+
+div.transition51 {
+    -ms-transition-property: text-indent;
+    -moz-transition-property: text-indent;
+    -o-transition-property: text-indent;
+    -webkit-transition-property: text-indent;
+    transition-property: text-indent;
+}
+
+div.transition52 {
+    -ms-transition-property: text-shadow;
+    -moz-transition-property: text-shadow;
+    -o-transition-property: text-shadow;
+    -webkit-transition-property: text-shadow;
+    transition-property: text-shadow;
+}
+
+div.transition53 {
+    -ms-transition-property: top;
+    -moz-transition-property: top;
+    -o-transition-property: top;
+    -webkit-transition-property: top;
+    transition-property: top;
+}
+
+div.transition54 {
+    -ms-transition-property: vertical-align;
+    -moz-transition-property: vertical-align;
+    -o-transition-property: vertical-align;
+    -webkit-transition-property: vertical-align;
+    transition-property: vertical-align;
+}
+
+div.transition55 {
+    -ms-transition-property: visibility;
+    -moz-transition-property: visibility;
+    -o-transition-property: visibility;
+    -webkit-transition-property: visibility;
+    transition-property: visibility;
+}
+
+div.transition56 {
+    -ms-transition-property: width;
+    -moz-transition-property: width;
+    -o-transition-property: width;
+    -webkit-transition-property: width;
+    transition-property: width;
+}
+
+div.transition57 {
+    -ms-transition-property: word-spacing;
+    -moz-transition-property: word-spacing;
+    -o-transition-property: word-spacing;
+    -webkit-transition-property: word-spacing;
+    transition-property: word-spacing;
+}
+
+div.transition58 {
+    -ms-transition-property: z-index;
+    -moz-transition-property: z-index;
+    -o-transition-property: z-index;
+    -webkit-transition-property: z-index;
+    transition-property: z-index;
+}
+
+div.transition59 {
+    -ms-transition-property: background-color, background-image, background-position, background-size;
+    -moz-transition-property: background-color, background-image, background-position, background-size;
+    -o-transition-property: background-color, background-image, background-position, background-size;
+    -webkit-transition-property: background-color, background-image, background-position, background-size;
+    transition-property: background-color, background-image, background-position, background-size;
+}
+
+div.transition60 {
+    -ms-transition-property: border-color, border-radius, border-width, border-spacing;
+    -moz-transition-property: border-color, border-radius, border-width, border-spacing;
+    -o-transition-property: border-color, border-radius, border-width, border-spacing;
+    -webkit-transition-property: border-color, border-radius, border-width, border-spacing;
+    transition-property: border-color, border-radius, border-width, border-spacing;
+}
+
+div.transition61 {
+    -ms-transition-property: bottom;
+    -moz-transition-property: bottom;
+    -o-transition-property: bottom;
+    -webkit-transition-property: bottom;
+    transition-property: bottom;
+}
+
+div.transition62 {
+    -ms-transition-property: box-shadow;
+    -moz-transition-property: box-shadow;
+    -o-transition-property: box-shadow;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+}
+
+div.transition63 {
+    -ms-transition-property: color;
+    -moz-transition-property: color;
+    -o-transition-property: color;
+    -webkit-transition-property: color;
+    transition-property: color;
+}
+
+div.transition64 {
+    -ms-transition-property: clip;
+    -moz-transition-property: clip;
+    -o-transition-property: clip;
+    -webkit-transition-property: clip;
+    transition-property: clip;
+}
+
+div.transition65 {
+    -ms-transition-property: fill;
+    -moz-transition-property: fill;
+    -o-transition-property: fill;
+    -webkit-transition-property: fill;
+    transition-property: fill;
+}
+
+div.transition66 {
+    -ms-transition-property: fill-opacity;
+    -moz-transition-property: fill-opacity;
+    -o-transition-property: fill-opacity;
+    -webkit-transition-property: fill-opacity;
+    transition-property: fill-opacity;
+}
+
+div.transition67 {
+    -ms-transition-property: flood-color;
+    -moz-transition-property: flood-color;
+    -o-transition-property: flood-color;
+    -webkit-transition-property: flood-color;
+    transition-property: flood-color;
+}
+
+div.transition68 {
+    -ms-transition-property: font-size, font-size-adjust, font-stretch, font-weight;
+    -moz-transition-property: font-size, font-size-adjust, font-stretch, font-weight;
+    -o-transition-property: font-size, font-size-adjust, font-stretch, font-weight;
+    -webkit-transition-property: font-size, font-size-adjust, font-stretch, font-weight;
+    transition-property: font-size, font-size-adjust, font-stretch, font-weight;
+}
+
+div.transition69 {
+    -ms-transition-property: height;
+    -moz-transition-property: height;
+    -o-transition-property: height;
+    -webkit-transition-property: height;
+    transition-property: height;
+}
+
+div.transition70 {
+    -ms-transition-property: left;
+    -moz-transition-property: left;
+    -o-transition-property: left;
+    -webkit-transition-property: left;
+    transition-property: left;
+}
+
+div.transition71 {
+    -ms-transition-property: letter-spacing;
+    -moz-transition-property: letter-spacing;
+    -o-transition-property: letter-spacing;
+    -webkit-transition-property: letter-spacing;
+    transition-property: letter-spacing;
+}
+
+div.transition72 {
+    -ms-transition-property: lighting-color;
+    -moz-transition-property: lighting-color;
+    -o-transition-property: lighting-color;
+    -webkit-transition-property: lighting-color;
+    transition-property: lighting-color;
+}
+
+div.transition73 {
+    -ms-transition-property: line-height;
+    -moz-transition-property: line-height;
+    -o-transition-property: line-height;
+    -webkit-transition-property: line-height;
+    transition-property: line-height;
+}
+
+div.transition74 {
+    -ms-transition-property: margin;
+    -moz-transition-property: margin;
+    -o-transition-property: margin;
+    -webkit-transition-property: margin;
+    transition-property: margin;
+}
+
+div.transition75 {
+    -ms-transition-property: marker-offset;
+    -moz-transition-property: marker-offset;
+    -o-transition-property: marker-offset;
+    -webkit-transition-property: marker-offset;
+    transition-property: marker-offset;
+}
+
+div.transition76 {
+    -ms-transition-property: max-height, max-width, min-height, min-width;
+    -moz-transition-property: max-height, max-width, min-height, min-width;
+    -o-transition-property: max-height, max-width, min-height, min-width;
+    -webkit-transition-property: max-height, max-width, min-height, min-width;
+    transition-property: max-height, max-width, min-height, min-width;
+}
+
+div.transition77 {
+    -ms-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+}
+
+div.transition78 {
+    -ms-transition-property: outline-color, outline-offset, outline-width;
+    -moz-transition-property: outline-color, outline-offset, outline-width;
+    -o-transition-property: outline-color, outline-offset, outline-width;
+    -webkit-transition-property: outline-color, outline-offset, outline-width;
+    transition-property: outline-color, outline-offset, outline-width;
+}
+
+div.transition79 {
+    -ms-transition-property: padding;
+    -moz-transition-property: padding;
+    -o-transition-property: padding;
+    -webkit-transition-property: padding;
+    transition-property: padding;
+}
+
+div.transition80 {
+    -ms-transition-property: right;
+    -moz-transition-property: right;
+    -o-transition-property: right;
+    -webkit-transition-property: right;
+    transition-property: right;
+}
+
+div.transition81 {
+    -ms-transition-property: stop-color, stop-opacity;
+    -moz-transition-property: stop-color, stop-opacity;
+    -o-transition-property: stop-color, stop-opacity;
+    -webkit-transition-property: stop-color, stop-opacity;
+    transition-property: stop-color, stop-opacity;
+}
+
+div.transition82 {
+    -ms-transition-property: stroke;
+    -moz-transition-property: stroke;
+    -o-transition-property: stroke;
+    -webkit-transition-property: stroke;
+    transition-property: stroke;
+}
+
+div.transition83 {
+    -ms-transition-property: stroke-dasharray, stroke-dashoffset, stroke-miterlimit, stroke-opacity, stroke-width;
+    -moz-transition-property: stroke-dasharray, stroke-dashoffset, stroke-miterlimit, stroke-opacity, stroke-width;
+    -o-transition-property: stroke-dasharray, stroke-dashoffset, stroke-miterlimit, stroke-opacity, stroke-width;
+    -webkit-transition-property: stroke-dasharray, stroke-dashoffset, stroke-miterlimit, stroke-opacity, stroke-width;
+    transition-property: stroke-dasharray, stroke-dashoffset, stroke-miterlimit, stroke-opacity, stroke-width;
+}
+
+div.transition84 {
+    -ms-transition-property: text-indent, text-shadow;
+    -moz-transition-property: text-indent, text-shadow;
+    -o-transition-property: text-indent, text-shadow;
+    -webkit-transition-property: text-indent, text-shadow;
+    transition-property: text-indent, text-shadow;
+}
+
+div.transition85 {
+    -ms-transition-property: top;
+    -moz-transition-property: top;
+    -o-transition-property: top;
+    -webkit-transition-property: top;
+    transition-property: top;
+}
+
+div.transition86 {
+    -ms-transition-property: vertical-align;
+    -moz-transition-property: vertical-align;
+    -o-transition-property: vertical-align;
+    -webkit-transition-property: vertical-align;
+    transition-property: vertical-align;
+}
+
+div.transition87 {
+    -ms-transition-property: visibility;
+    -moz-transition-property: visibility;
+    -o-transition-property: visibility;
+    -webkit-transition-property: visibility;
+    transition-property: visibility;
+}
+
+div.transition88 {
+    -ms-transition-property: width, word-spacing, z-index;
+    -moz-transition-property: width, word-spacing, z-index;
+    -o-transition-property: width, word-spacing, z-index;
+    -webkit-transition-property: width, word-spacing, z-index;
+    transition-property: width, word-spacing, z-index;
+}

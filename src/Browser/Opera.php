@@ -280,4 +280,23 @@ class Browser_Opera extends Browser
 
         return $cssString;
     } //end transformOrigin
+
+    /**
+     * Add Opera rules for transition-property
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transitionProperty($cssString = '')
+    {
+        $property = '(?:[-a-zA-Z]+)';
+        
+        $search    = '/(\s*)(?<!-)transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
+        $replace   = '${1}-o-transition-property:${2}${3};${1}'
+                   . 'transition-property:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end transitionProprty
 } //end class Browser_Opera
