@@ -196,7 +196,7 @@ class Browser_Explorer extends Browser
      */
     public function transitionProperty($cssString = '')
     {
-        $property = '(?:[-a-zA-Z]+)';
+        $property = $this->propertyRegex();
         
         $search    = '/(\s*)(?<!-)transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
         $replace   = '${1}-ms-transition-property:${2}${3};${1}'

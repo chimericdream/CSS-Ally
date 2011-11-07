@@ -218,6 +218,13 @@ abstract class Browser
         return $percent;
     } //end percentRegex
 
+    public function propertyRegex()
+    {
+        $property = '(?:[-a-zA-Z]+)';
+        
+        return $property;
+    } //end propertyRegex
+    
     /**
      * Generate a string containing a regular expression for valid border-style
      * values in CSS
