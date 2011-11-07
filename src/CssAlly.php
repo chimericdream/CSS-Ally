@@ -78,8 +78,26 @@ class CssAlly
     );
     private $_files     = array();
     private $_options = array();
+    //@todo: http://www.w3.org/TR/css3-animations/
+    //@todo: http://www.w3.org/TR/2011/CR-css3-background-20110215/#border-images
     private $_rules = array(
+        'animation'                  => true, //@todo: not added yet
+        'animation-delay'            => true, //@todo: not added yet
+        'animation-direction'        => true, //@todo: not added yet
+        'animation-duration'         => true, //@todo: not added yet
+        'animation-iteration-count'  => true, //@todo: not added yet
+        'animation-name'             => true, //@todo: not added yet
+        'animation-play-state'       => true, //@todo: not added yet
+        'animation-timing-function'  => true, //@todo: not added yet
+        'background-clip'            => true, //@todo: not added yet
+        'background-origin'          => true, //@todo: not added yet
         'background-size'            => true,
+        'border-image'               => true, //@todo: not added yet
+        'border-image-outset'        => true, //@todo: not added yet
+        'border-image-slice'         => true, //@todo: not added yet
+        'border-image-source'        => true, //@todo: not added yet
+        'border-image-repeat'        => true, //@todo: not added yet
+        'border-image-width'         => true, //@todo: not added yet
         'border-radius'              => true,
         'box-shadow'                 => true,
         'column-count'               => true,
