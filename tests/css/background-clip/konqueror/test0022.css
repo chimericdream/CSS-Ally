@@ -1,0 +1,134 @@
+div.bgclip1 {
+    -khtml-background-clip: border-box;
+    background-clip: border-box;
+}
+
+div.bgclip2 {
+    -khtml-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+div.bgclip3 {
+    -khtml-background-clip: content-box;
+    background-clip: content-box;
+}
+
+div.bgclip4 {
+    -khtml-background-clip: border-box, padding-box;
+    background-clip: border-box, padding-box;
+}
+
+div.bgclip5 {
+    -khtml-background-clip: border-box, content-box;
+    background-clip: border-box, content-box;
+}
+
+div.bgclip6 {
+    -khtml-background-clip: padding-box, border-box;
+    background-clip: padding-box, border-box;
+}
+
+div.bgclip7 {
+    -khtml-background-clip: padding-box, content-box;
+    background-clip: padding-box, content-box;
+}
+
+div.bgclip8 {
+    -khtml-background-clip: content-box, border-box;
+    background-clip: content-box, border-box;
+}
+
+div.bgclip9 {
+    -khtml-background-clip: content-box, padding-box;
+    background-clip: content-box, padding-box;
+}
+
+div.bgclip10 {
+    -khtml-background-clip: border-box, border-box, padding-box;
+    background-clip: border-box, border-box, padding-box;
+}
+
+div.bgclip11 {
+    -khtml-background-clip: border-box, border-box, content-box;
+    background-clip: border-box, border-box, content-box;
+}
+
+div.bgclip12 {
+    -khtml-background-clip: padding-box, padding-box, border-box;
+    background-clip: padding-box, padding-box, border-box;
+}
+
+div.bgclip13 {
+    -khtml-background-clip: padding-box, padding-box, content-box;
+    background-clip: padding-box, padding-box, content-box;
+}
+
+div.bgclip14 {
+    -khtml-background-clip: content-box, content-box, border-box;
+    background-clip: content-box, content-box, border-box;
+}
+
+div.bgclip15 {
+    -khtml-background-clip: content-box, content-box, padding-box;
+    background-clip: content-box, content-box, padding-box;
+}
+
+div.bgclip16 {
+    -khtml-background-clip: border-box, padding-box, border-box, padding-box;
+    background-clip: border-box, padding-box, border-box, padding-box;
+}
+
+div.bgclip17 {
+    -khtml-background-clip: border-box, content-box, border-box, content-box;
+    background-clip: border-box, content-box, border-box, content-box;
+}
+
+div.bgclip18 {
+    -khtml-background-clip: padding-box, border-box, padding-box, border-box;
+    background-clip: padding-box, border-box, padding-box, border-box;
+}
+
+div.bgclip19 {
+    -khtml-background-clip: padding-box, content-box, padding-box, content-box;
+    background-clip: padding-box, content-box, padding-box, content-box;
+}
+
+div.bgclip20 {
+    -khtml-background-clip: content-box, border-box, content-box, border-box;
+    background-clip: content-box, border-box, content-box, border-box;
+}
+
+div.bgclip21 {
+    -khtml-background-clip: content-box, padding-box, content-box, padding-box;
+    background-clip: content-box, padding-box, content-box, padding-box;
+}
+
+div.bgclip22 {
+    -khtml-background-clip: border-box, padding-box, padding-box;
+    background-clip: border-box, padding-box, padding-box;
+}
+
+div.bgclip23 {
+    -khtml-background-clip: border-box, content-box, content-box;
+    background-clip: border-box, content-box, content-box;
+}
+
+div.bgclip24 {
+    -khtml-background-clip: padding-box, border-box, border-box;
+    background-clip: padding-box, border-box, border-box;
+}
+
+div.bgclip25 {
+    -khtml-background-clip: padding-box, content-box, content-box;
+    background-clip: padding-box, content-box, content-box;
+}
+
+div.bgclip26 {
+    -khtml-background-clip: content-box, border-box, border-box;
+    background-clip: content-box, border-box, border-box;
+}
+
+div.bgclip27 {
+    -khtml-background-clip: content-box, padding-box, padding-box;
+    background-clip: content-box, padding-box, padding-box;
+}

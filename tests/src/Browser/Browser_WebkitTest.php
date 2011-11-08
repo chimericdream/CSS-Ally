@@ -86,6 +86,70 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
+     * @covers Browser_Webkit::backgroundClip
+     * @dataProvider backgroundClipProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testBackgroundClip($cssString, $expectedString)
+    {
+        $cssString = $this->_object->backgroundClip($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+    
+    public function backgroundClipProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $shadowCss        = file_get_contents("{$path}/background-clip/webkit/{$file}");
+                $testCssStrings[] = array($css, $shadowCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
+     * @covers Browser_Webkit::backgroundOrigin
+     * @dataProvider backgroundOriginProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testBackgroundOrigin($cssString, $expectedString)
+    {
+        $cssString = $this->_object->backgroundOrigin($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+    
+    public function backgroundOriginProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $shadowCss        = file_get_contents("{$path}/background-origin/webkit/{$file}");
+                $testCssStrings[] = array($css, $shadowCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
      * @covers Browser_Webkit::backgroundSize
      * @dataProvider backgroundSizeProvider
      * @param string $cssString      The string to be tested

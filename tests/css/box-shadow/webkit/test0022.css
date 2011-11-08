@@ -1,0 +1,107 @@
+div.bgclip1 {
+    background-clip: border-box;
+}
+
+div.bgclip2 {
+    background-clip: padding-box;
+}
+
+div.bgclip3 {
+    background-clip: content-box;
+}
+
+div.bgclip4 {
+    background-clip: border-box, padding-box;
+}
+
+div.bgclip5 {
+    background-clip: border-box, content-box;
+}
+
+div.bgclip6 {
+    background-clip: padding-box, border-box;
+}
+
+div.bgclip7 {
+    background-clip: padding-box, content-box;
+}
+
+div.bgclip8 {
+    background-clip: content-box, border-box;
+}
+
+div.bgclip9 {
+    background-clip: content-box, padding-box;
+}
+
+div.bgclip10 {
+    background-clip: border-box, border-box, padding-box;
+}
+
+div.bgclip11 {
+    background-clip: border-box, border-box, content-box;
+}
+
+div.bgclip12 {
+    background-clip: padding-box, padding-box, border-box;
+}
+
+div.bgclip13 {
+    background-clip: padding-box, padding-box, content-box;
+}
+
+div.bgclip14 {
+    background-clip: content-box, content-box, border-box;
+}
+
+div.bgclip15 {
+    background-clip: content-box, content-box, padding-box;
+}
+
+div.bgclip16 {
+    background-clip: border-box, padding-box, border-box, padding-box;
+}
+
+div.bgclip17 {
+    background-clip: border-box, content-box, border-box, content-box;
+}
+
+div.bgclip18 {
+    background-clip: padding-box, border-box, padding-box, border-box;
+}
+
+div.bgclip19 {
+    background-clip: padding-box, content-box, padding-box, content-box;
+}
+
+div.bgclip20 {
+    background-clip: content-box, border-box, content-box, border-box;
+}
+
+div.bgclip21 {
+    background-clip: content-box, padding-box, content-box, padding-box;
+}
+
+div.bgclip22 {
+    background-clip: border-box, padding-box, padding-box;
+}
+
+div.bgclip23 {
+    background-clip: border-box, content-box, content-box;
+}
+
+div.bgclip24 {
+    background-clip: padding-box, border-box, border-box;
+}
+
+div.bgclip25 {
+    background-clip: padding-box, content-box, content-box;
+}
+
+div.bgclip26 {
+    background-clip: content-box, border-box, border-box;
+}
+
+div.bgclip27 {
+    background-clip: content-box, padding-box, padding-box;
+}

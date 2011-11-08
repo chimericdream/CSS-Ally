@@ -262,11 +262,39 @@ abstract class Browser
     public function uriRegex()
     {
         $uri = '(?:url\(["\']?(?:[^\'"\)]*)["\']?\))';
-        
+
         return $uri;
     } //end uriRegex
-    
+
     /**************************************************************************/
+
+    /**
+     * Syntax:
+     * background-clip: [border-box|padding-box|content-box]...
+     *      [, [border-box|padding-box|content-box]]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function backgroundClip($cssString = '')
+    {
+        return $cssString;
+    } //end backgroundClip
+
+    /**
+     * Syntax:
+     * background-origin: [padding-box|border-box|content-box]...
+     *      [, [border-box|padding-box|content-box]]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function backgroundOrigin($cssString = '')
+    {
+        return $cssString;
+    } //end backgroundOrigin
 
     /**
      * Syntax:

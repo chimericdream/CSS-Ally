@@ -1,0 +1,11 @@
+div.colgap-one {
+    column-gap: 20px;
+}
+
+div.colgap-two {
+    column-gap: normal;
+}
+
+div.colgap-three {
+    column-gap: 2em;
+}

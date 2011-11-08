@@ -87,6 +87,74 @@ class BrowserTest extends BaseTest
     }
 
     /**
+     * Test all background-clip rules together
+     * @covers Browser::backgroundClip
+     * @dataProvider backgroundClipProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testBackgroundClip($cssString, $expectedString)
+    {
+        $cssString = $this->_object->backgroundClip($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function backgroundClipProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/background-clip/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * Test all background-origin rules together
+     * @covers Browser::backgroundOrigin
+     * @dataProvider backgroundOriginProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testBackgroundOrigin($cssString, $expectedString)
+    {
+        $cssString = $this->_object->backgroundOrigin($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function backgroundOriginProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/background-origin/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
      * Test all background-size rules together
      * @covers Browser::backgroundSize
      * @dataProvider backgroundSizeProvider
