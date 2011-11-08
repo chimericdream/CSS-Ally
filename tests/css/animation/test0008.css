@@ -1,0 +1,7 @@
+div.colspan-one {
+    column-span: none;
+}
+
+div.colspan-two {
+    column-span: all;
+}

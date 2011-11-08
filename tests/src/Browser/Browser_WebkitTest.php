@@ -86,6 +86,312 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
+     * Test all animation rules together
+     * @covers Browser_Webkit::animation
+     * @dataProvider animationProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testAnimation($cssString, $expectedString)
+    {
+        $cssString = $this->_object->animation($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function animationProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/animation/webkit/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * Test all animation-delay rules together
+     * @covers Browser_Webkit::animationDelay
+     * @dataProvider animationDelayProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testAnimationDelay($cssString, $expectedString)
+    {
+        $cssString = $this->_object->animationDelay($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function animationDelayProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/animation-delay/webkit/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * Test all animation-direction rules together
+     * @covers Browser_Webkit::animationDirection
+     * @dataProvider animationDirectionProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testAnimationDirection($cssString, $expectedString)
+    {
+        $cssString = $this->_object->animationDirection($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function animationDirectionProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/animation-direction/webkit/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * Test all animation-duration rules together
+     * @covers Browser_Webkit::animationDuration
+     * @dataProvider animationDurationProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testAnimationDuration($cssString, $expectedString)
+    {
+        $cssString = $this->_object->animationDuration($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function animationDurationProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/animation-duration/webkit/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * Test all animation-iteration-count rules together
+     * @covers Browser_Webkit::animationIterationCount
+     * @dataProvider animationIterationCountProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testAnimationIterationCount($cssString, $expectedString)
+    {
+        $cssString = $this->_object->animationIterationCount($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function animationIterationCountProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/animation-iteration-count/webkit/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * Test all animation-keyframes rules together
+     * @covers Browser_Webkit::animationKeyframes
+     * @dataProvider animationKeyframesProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testAnimationKeyframes($cssString, $expectedString)
+    {
+        $cssString = $this->_object->animationKeyframes($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function animationKeyframesProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/animation-keyframes/webkit/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * Test all animation-name rules together
+     * @covers Browser_Webkit::animationName
+     * @dataProvider animationNameProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testAnimationName($cssString, $expectedString)
+    {
+        $cssString = $this->_object->animationName($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function animationNameProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/animation-name/webkit/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * Test all animation-play-state rules together
+     * @covers Browser_Webkit::animationPlayState
+     * @dataProvider animationPlayStateProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testAnimationPlayState($cssString, $expectedString)
+    {
+        $cssString = $this->_object->animationPlayState($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function animationPlayStateProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/animation-play-state/webkit/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * Test all animation-timing-function rules together
+     * @covers Browser_Webkit::animationTimingFunction
+     * @dataProvider animationTimingFunctionProvider
+     * 
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testAnimationTimingFunction($cssString, $expectedString)
+    {
+        $cssString = $this->_object->animationTimingFunction($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+    
+    public function animationTimingFunctionProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/animation-timing-function/webkit/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
      * @covers Browser_Webkit::backgroundClip
      * @dataProvider backgroundClipProvider
      * @param string $cssString      The string to be tested

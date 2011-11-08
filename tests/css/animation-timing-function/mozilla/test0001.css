@@ -1,0 +1,43 @@
+div.radius-one {
+    border-radius: 5px;
+}
+
+div.radius-two {
+    border-top-left-radius: 10px 5px;
+}
+
+div.radius-three {
+    border-top-right-radius: 5px;
+}
+
+div.radius-four {
+    border-top-left-radius: 5px;
+}
+
+div.radius-five {
+    border-bottom-right-radius: 5px;
+}
+
+div.radius-six {
+    border-bottom-left-radius: 5px;
+}
+
+div.radius-seven {
+    border-bottom-right-radius: 10% 5%;
+}
+
+div.radius-eight {
+    border-top-right-radius: 10px;
+}
+
+div.radius-nine {
+    border-radius: 5px 10px 5px 10px / 10px 5px 10px 5px;
+}
+
+div.radius-ten {
+    border-radius: 5px;
+}
+
+div.radius-eleven {
+    border-radius: 5px 10px / 10px;
+}

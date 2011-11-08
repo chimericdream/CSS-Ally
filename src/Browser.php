@@ -270,6 +270,133 @@ abstract class Browser
 
     /**
      * Syntax:
+     * animation: [<name>||<duration>||<func>||<delay>||<count>||<dir>]...
+     *      [, [<name>||<duration>||<func>||<delay>||<count>||<dir>]]*
+     *
+     * <name>     = <animation-name>
+     * <duration> = <animation-duration>
+     * <func>     = <animation-timing-function>
+     * <delay>    = <animation-delay>
+     * <count>    = <animation-iteration-count>
+     * <dir>      = <animation-direction>
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animation($cssString = '')
+    {
+        return $cssString;
+    } //end animation
+
+    /**
+     * Syntax:
+     * animation-delay: <time> [, <time>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationDelay($cssString = '')
+    {
+        return $cssString;
+    } //end animationDelay
+
+    /**
+     * Syntax:
+     * animation-direction: normal|alternate [, normal|alternate]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationDirection($cssString = '')
+    {
+        return $cssString;
+    } //end animationDirection
+
+    /**
+     * Syntax:
+     * animation-duration: <time> [, <time>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationDuration($cssString = '')
+    {
+        return $cssString;
+    } //end animationDuration
+
+    /**
+     * Syntax:
+     * animation-iteration-count: infinite|<number> [, infinite|<number>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationIterationCount($cssString = '')
+    {
+        return $cssString;
+    } //end animationIterationCount
+
+    /**
+     * Syntax:
+     * @keyframes <identifier> {
+     *     [ [from|to|<percentage>] block [, [from|to|<percentage>] block]*]*
+     * }
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationKeyframes($cssString = '')
+    {
+        return $cssString;
+    } //end animationKeyframes
+
+    /**
+     * Syntax:
+     * animation-name: none|<name> [, none|<name>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationName($cssString = '')
+    {
+        return $cssString;
+    } //end animationName
+
+    /**
+     * Syntax:
+     * animation-play-state: running|paused [, running|paused]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationPlayState($cssString = '')
+    {
+        return $cssString;
+    } //end animationPlayState
+
+    /**
+     * Syntax:
+     * animation-timing-function: <timing-function> [, <timing-function>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationTimingFunction($cssString = '')
+    {
+        return $cssString;
+    } //end animationTimingFunction
+
+    /**
+     * Syntax:
      * background-clip: [border-box|padding-box|content-box]...
      *      [, [border-box|padding-box|content-box]]*
      *

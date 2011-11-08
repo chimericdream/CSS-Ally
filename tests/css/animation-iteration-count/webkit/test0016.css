@@ -1,0 +1,83 @@
+div.gradient1 {
+    background-image: repeating-radial-gradient(center 45deg, circle closest-side, orange 0%, red 100%);
+}
+
+div.gradient2 {
+    background-image: repeating-radial-gradient(45px 45px, ellipse farthest-corner, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+}
+
+div.gradient3 {
+    background-image: repeating-radial-gradient(45px 45px 45deg, circle cover, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+}
+
+div.gradient4 {
+    background-image: repeating-radial-gradient(45px 45px, cover, rgb(255, 0, 0) 0%, rgb(0, 0, 255) 100%);
+}
+
+div.gradient5 {
+    background-image: repeating-radial-gradient(red, yellow, rgb(30, 144, 255));
+}
+
+div.gradient6 {
+    background-image: repeating-radial-gradient(red 5%, yellow 25%, #1E90FF 50%);
+}
+
+div.gradient7 {
+    background-image: repeating-radial-gradient(ellipse closest-side, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient8 {
+    background-image: repeating-radial-gradient(ellipse farthest-corner, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient9 {
+    background-image: repeating-radial-gradient(circle closest-side, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient10 {
+    background-image: repeating-radial-gradient(red, yellow, rgb(30, 144, 255)), url('http://foo.com/image.jpg');
+}
+
+div.gradient11 {
+    background: repeating-radial-gradient(center 45deg, circle closest-side, orange 0%, red 100%);
+}
+
+div.gradient12 {
+    background: repeating-radial-gradient(45px 45px, ellipse farthest-corner, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+}
+
+div.gradient13 {
+    background: repeating-radial-gradient(45px 45px 45deg, circle cover, aqua 0%, rgba(0, 0, 255, 0) 100%, blue 95%);
+}
+
+div.gradient14 {
+    background: repeating-radial-gradient(45px 45px, cover, rgb(255, 0, 0) 0%, rgb(0, 0, 255) 100%);
+}
+
+div.gradient15 {
+    background: repeating-radial-gradient(red, yellow, rgb(30, 144, 255));
+}
+
+div.gradient16 {
+    background: repeating-radial-gradient(red 5%, yellow 25%, #1E90FF 50%);
+}
+
+div.gradient17 {
+    background: repeating-radial-gradient(ellipse closest-side, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient18 {
+    background: repeating-radial-gradient(ellipse farthest-corner, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient19 {
+    background: repeating-radial-gradient(circle closest-side, red, yellow 10%, #1E90FF 50%, white);
+}
+
+div.gradient20 {
+    background: repeating-radial-gradient(red, yellow, rgb(30, 144, 255)), url('http://foo.com/image.jpg');
+}
+
+div.gradient21 {
+    background: #00f repeating-radial-gradient(red 5%, yellow 25%, #1E90FF 50%);
+}

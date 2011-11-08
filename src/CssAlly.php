@@ -85,6 +85,7 @@ class CssAlly
         'animation-direction'        => true, //@todo: not added yet
         'animation-duration'         => true, //@todo: not added yet
         'animation-iteration-count'  => true, //@todo: not added yet
+        'animation-keyframes'        => true, //@todo: not added yet
         'animation-name'             => true, //@todo: not added yet
         'animation-play-state'       => true, //@todo: not added yet
         'animation-timing-function'  => true, //@todo: not added yet
