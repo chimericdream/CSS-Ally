@@ -88,8 +88,8 @@ class CssAlly
         'animation-name'             => true, //@todo: not added yet
         'animation-play-state'       => true, //@todo: not added yet
         'animation-timing-function'  => true, //@todo: not added yet
-        'background-clip'            => true, //@todo: not added yet
-        'background-origin'          => true, //@todo: not added yet
+        'background-clip'            => true,
+        'background-origin'          => true,
         'background-size'            => true,
         'border-image'               => true,
         'border-radius'              => true,
