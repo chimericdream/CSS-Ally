@@ -118,6 +118,38 @@ class Browser_WebkitTest extends BaseTest
     }
 
     /**
+     * @covers Browser_Webkit::borderImage
+     * @dataProvider borderImageProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testBorderImage($cssString, $expectedString)
+    {
+        $cssString = $this->_object->borderImage($cssString);
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function borderImageProvider()
+    {
+        $path = dirname(__FILE__) . '/../../css';
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                $radiusCss        = file_get_contents("{$path}/border-image/webkit/{$file}");
+                $testCssStrings[] = array($css, $radiusCss);
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+
+    /**
      * @covers Browser_Webkit::borderRadius
      * @dataProvider borderRadiusProvider
      * @param string $cssString      The string to be tested

@@ -1,0 +1,103 @@
+div.bimg1 {
+    -ms-border-image: url('border.gif') 27 stretch stretch;
+    -moz-border-image: url('border.gif') 27 stretch stretch;
+    -o-border-image: url('border.gif') 27 stretch stretch;
+    -webkit-border-image: url('border.gif') 27 stretch stretch;
+    border-image: url('border.gif') 27 stretch stretch;
+}
+
+div.bimg2 {
+    -ms-border-image: url('border.gif') 27 round round;
+    -moz-border-image: url('border.gif') 27 round round;
+    -o-border-image: url('border.gif') 27 round round;
+    -webkit-border-image: url('border.gif') 27 round round;
+    border-image: url('border.gif') 27 round round;
+}
+
+div.bimg3 {
+    -ms-border-image: url(border.png) 27 27 27 27 round round;
+    -moz-border-image: url(border.png) 27 27 27 27 round round;
+    -o-border-image: url(border.png) 27 27 27 27 round round;
+    -webkit-border-image: url(border.png) 27 27 27 27 round round;
+    border-image: url(border.png) 27 27 27 27 round round;
+}
+
+div.bimg4 {
+    -ms-border-image: url(whiteButton.png) 0 12 0 12 stretch stretch;
+    -moz-border-image: url(whiteButton.png) 0 12 0 12 stretch stretch;
+    -o-border-image: url(whiteButton.png) 0 12 0 12 stretch stretch;
+    -webkit-border-image: url(whiteButton.png) 0 12 0 12 stretch stretch;
+    border-image: url(whiteButton.png) 0 12 0 12 stretch stretch;
+}
+
+div.bimg5 {
+    -ms-border-image: url("border.png") 5 10 5 10 repeat;
+    -moz-border-image: url("border.png") 5 10 5 10 repeat;
+    -o-border-image: url("border.png") 5 10 5 10 repeat;
+    -webkit-border-image: url("border.png") 5 10 5 10 repeat;
+    border-image: url("border.png") 5 10 5 10 repeat;
+}
+
+div.bimg6 {
+    -ms-border-image: url("border.png") 25;
+    -moz-border-image: url("border.png") 25;
+    -o-border-image: url("border.png") 25;
+    -webkit-border-image: url("border.png") 25;
+    border-image: url("border.png") 25;
+}
+
+div.bimg7 {
+    -ms-border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px;
+    -moz-border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px;
+    -o-border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px;
+    -webkit-border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px;
+    border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px;
+}
+
+div.bimg8 {
+    -ms-border-image: url(example.jpg) 50% / 50px round;
+    -moz-border-image: url(example.jpg) 50% / 50px round;
+    -o-border-image: url(example.jpg) 50% / 50px round;
+    -webkit-border-image: url(example.jpg) 50% / 50px round;
+    border-image: url(example.jpg) 50% / 50px round;
+}
+
+div.bimg9 {
+    -ms-border-image: url(example.jpg) 50% / 50px round;
+    -moz-border-image: url(example.jpg) 50% / 50px round;
+    -o-border-image: url(example.jpg) 50% / 50px round;
+    -webkit-border-image: url(example.jpg) 50% / 50px round;
+    border-image: url(example.jpg) 50% / 50px round;
+}
+
+div.bimg10 {
+    -ms-border-image: url(example.jpg) 3 4 6 8 / 10em 12em 14em 22em;
+    -moz-border-image: url(example.jpg) 3 4 6 8 / 10em 12em 14em 22em;
+    -o-border-image: url(example.jpg) 3 4 6 8 / 10em 12em 14em 22em;
+    -webkit-border-image: url(example.jpg) 3 4 6 8 / 10em 12em 14em 22em;
+    border-image: url(example.jpg) 3 4 6 8 / 10em 12em 14em 22em;
+}
+
+div.bimg11 {
+    -ms-border-image: url(example.jpg) 50% 40% / 10px 12px 14px 22px;
+    -moz-border-image: url(example.jpg) 50% 40% / 10px 12px 14px 22px;
+    -o-border-image: url(example.jpg) 50% 40% / 10px 12px 14px 22px;
+    -webkit-border-image: url(example.jpg) 50% 40% / 10px 12px 14px 22px;
+    border-image: url(example.jpg) 50% 40% / 10px 12px 14px 22px;
+}
+
+div.bimg12 {
+    -ms-border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px stretch repeat;
+    -moz-border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px stretch repeat;
+    -o-border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px stretch repeat;
+    -webkit-border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px stretch repeat;
+    border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px stretch repeat;
+}
+
+div.bimg13 {
+    -ms-border-image: none;
+    -moz-border-image: none;
+    -o-border-image: none;
+    -webkit-border-image: none;
+    border-image: none;
+}

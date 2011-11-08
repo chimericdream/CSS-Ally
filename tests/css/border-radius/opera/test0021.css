@@ -1,0 +1,63 @@
+div.transition1 {
+    transition-delay: 5s;
+}
+
+div.transition2 {
+    transition-delay: 500ms;
+}
+
+div.transition3 {
+    transition-delay: .5s;
+}
+
+div.transition4 {
+    transition-delay: .25s;
+}
+
+div.transition5 {
+    transition-delay: 15s;
+}
+
+div.transition6 {
+    transition-delay: 5.5s;
+}
+
+div.transition7 {
+    transition-delay: 0.5s;
+}
+
+div.transition8 {
+    transition-delay: 1500ms;
+}
+
+div.transition9 {
+    transition-delay: 5s, 500ms, .5s;
+}
+
+div.transition10 {
+    transition-delay: .25s, 15s;
+}
+
+div.transition11 {
+    transition-delay: 5.5s, 0.5s, 1500ms, 5s;
+}
+
+div.transition12 {
+    transition-delay: 500ms, .5s;
+}
+
+div.transition13 {
+    transition-delay: .25s, 15s, 5.5s;
+}
+
+div.transition14 {
+    transition-delay: 0.5s, 1500ms;
+}
+
+div.transition15 {
+    transition-delay: 5s, 500ms;
+}
+
+div.transition16 {
+    transition-delay: .5s, .25s;
+}

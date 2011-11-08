@@ -255,12 +255,19 @@ abstract class Browser
     public function timeRegex()
     {
         $time = '(?:(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)m?s)';
-        
+
         return $time;
     } //end timeRegex
+
+    public function uriRegex()
+    {
+        $uri = '(?:url\(["\']?(?:[^\'"\)]*)["\']?\))';
+        
+        return $uri;
+    } //end uriRegex
     
     /**************************************************************************/
-    
+
     /**
      * Syntax:
      * background-size: <bg-size> [, <bg-size>]*
@@ -275,6 +282,19 @@ abstract class Browser
     {
         return $cssString;
     } //end backgroundSize
+
+    /**
+     * Syntax:
+     * border-image: none | [<image> [<number>|<percentage>]{1,4} [/<border-width>{1,4}]?] && [stretch|repeat|round]{0,2}
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function borderImage($cssString = '')
+    {
+        return $cssString;
+    } //end borderImage
 
     /**
      * Syntax:
@@ -453,7 +473,7 @@ abstract class Browser
     {
         return $cssString;
     } //end transformOrigin
-    
+
     /**
      * Syntax:
      * transition-delay: <time>[, <time>]*
@@ -498,7 +518,7 @@ abstract class Browser
      * transition-timing-function: ease | linear | ease-in | ease-out | ...
      *     ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) ...
      *     [, ease | linear | ease-in | ease-out | ease-in-out | ...
-     *     cubic-bezier(<number>, <number>, <number>, <number>)]* 
+     *     cubic-bezier(<number>, <number>, <number>, <number>)]*
      *
      * @param string $cssString The CSS to be parsed
      *

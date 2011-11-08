@@ -93,11 +93,6 @@ class CssAlly
         'background-origin'          => true, //@todo: not added yet
         'background-size'            => true,
         'border-image'               => true, //@todo: not added yet
-        'border-image-outset'        => true, //@todo: not added yet
-        'border-image-slice'         => true, //@todo: not added yet
-        'border-image-source'        => true, //@todo: not added yet
-        'border-image-repeat'        => true, //@todo: not added yet
-        'border-image-width'         => true, //@todo: not added yet
         'border-radius'              => true,
         'box-shadow'                 => true,
         'column-count'               => true,
@@ -288,6 +283,7 @@ class CssAlly
             $css = str_replace(array(': ', ' :', ' : '), ':', $css);
             $css = str_replace(array('{ ', ' {', ' { '), '{', $css);
             $css = str_replace(array('} ', ' }', ' } '), '}', $css);
+            $css = str_replace(array('/ ', ' /', ' / '), '/', $css);
 
             $this->_builtCss = $css;
         }

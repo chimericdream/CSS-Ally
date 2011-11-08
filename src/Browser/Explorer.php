@@ -51,6 +51,30 @@ require_once dirname(__FILE__) . '/../Browser.php';
  */
 class Browser_Explorer extends Browser
 {
+    /**
+     * Syntax:
+     * border-image: none | [<image> [<number>|<percentage>]{1,4} [/<border-width>{1,4}]?] && [stretch|repeat|round]{0,2}
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function borderImage($cssString = '')
+    {
+        $img = $this->uriRegex();
+        $num = $this->numberRegex();
+        $pct = $this->percentRegex();
+        $bwd = $this->borderWidthRegex();
+        
+        $search = '(none|(?:' . $img . '(?:\s+(?:' . $pct . '|' . $num . ')){1,4}(?:\s*\/\s*(?:' . $bwd . ')(?:(?:\s+' . $bwd . '){1,3})?)?(?:\s+(?:stretch|repeat|round)){0,2}))';
+        
+        $search    = '/(\s*)(?<!-)(border-image:(?:\s*))' . $search . ';?/';
+        $replace   = '${1}-ms-${2}${3};${1}${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end borderImage
+
     public function linearGradient($cssString = '')
     {
         $point    = $this->bgPosRegex();

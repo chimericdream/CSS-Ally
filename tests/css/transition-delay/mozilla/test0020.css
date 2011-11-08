@@ -1,79 +1,51 @@
-div.transition1 {
-    -moz-transition-delay: 5s;
-    transition-delay: 5s;
+div.bimg1 {
+    border-image: url('border.gif') 27 stretch stretch;
 }
 
-div.transition2 {
-    -moz-transition-delay: 500ms;
-    transition-delay: 500ms;
+div.bimg2 {
+    border-image: url('border.gif') 27 round round;
 }
 
-div.transition3 {
-    -moz-transition-delay: .5s;
-    transition-delay: .5s;
+div.bimg3 {
+    border-image: url(border.png) 27 27 27 27 round round;
 }
 
-div.transition4 {
-    -moz-transition-delay: .25s;
-    transition-delay: .25s;
+div.bimg4 {
+    border-image: url(whiteButton.png) 0 12 0 12 stretch stretch;
 }
 
-div.transition5 {
-    -moz-transition-delay: 15s;
-    transition-delay: 15s;
+div.bimg5 {
+    border-image: url("border.png") 5 10 5 10 repeat;
 }
 
-div.transition6 {
-    -moz-transition-delay: 5.5s;
-    transition-delay: 5.5s;
+div.bimg6 {
+    border-image: url("border.png") 25;
 }
 
-div.transition7 {
-    -moz-transition-delay: 0.5s;
-    transition-delay: 0.5s;
+div.bimg7 {
+    border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px;
 }
 
-div.transition8 {
-    -moz-transition-delay: 1500ms;
-    transition-delay: 1500ms;
+div.bimg8 {
+    border-image: url(example.jpg) 50% / 50px round;
 }
 
-div.transition9 {
-    -moz-transition-delay: 5s, 500ms, .5s;
-    transition-delay: 5s, 500ms, .5s;
+div.bimg9 {
+    border-image: url(example.jpg) 50% / 50px round;
 }
 
-div.transition10 {
-    -moz-transition-delay: .25s, 15s;
-    transition-delay: .25s, 15s;
+div.bimg10 {
+    border-image: url(example.jpg) 3 4 6 8 / 10em 12em 14em 22em;
 }
 
-div.transition11 {
-    -moz-transition-delay: 5.5s, 0.5s, 1500ms, 5s;
-    transition-delay: 5.5s, 0.5s, 1500ms, 5s;
+div.bimg11 {
+    border-image: url(example.jpg) 50% 40% / 10px 12px 14px 22px;
 }
 
-div.transition12 {
-    -moz-transition-delay: 500ms, .5s;
-    transition-delay: 500ms, .5s;
+div.bimg12 {
+    border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px stretch repeat;
 }
 
-div.transition13 {
-    -moz-transition-delay: .25s, 15s, 5.5s;
-    transition-delay: .25s, 15s, 5.5s;
-}
-
-div.transition14 {
-    -moz-transition-delay: 0.5s, 1500ms;
-    transition-delay: 0.5s, 1500ms;
-}
-
-div.transition15 {
-    -moz-transition-delay: 5s, 500ms;
-    transition-delay: 5s, 500ms;
-}
-
-div.transition16 {
-    -moz-transition-delay: .5s, .25s;
-    transition-delay: .5s, .25s;
+div.bimg13 {
+    border-image: none;
 }
