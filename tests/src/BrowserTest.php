@@ -72,7 +72,14 @@ class BrowserTest extends BaseTest
      */
     protected function setUp()
     {
-        $this->_object = new CssAlly(array(), array('cssDir' => 'path'));
+        $browsers = array(
+            'explorer'  => true,
+            'konqueror' => true,
+            'mozilla'   => true,
+            'opera'     => true,
+            'webkit'    => true,
+        );
+        $this->_object = new CssAlly($browsers, array('cssDir' => 'path'));
     }
 
     /**

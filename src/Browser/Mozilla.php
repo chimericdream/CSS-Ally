@@ -249,6 +249,40 @@ class Browser_Mozilla extends Browser
     } //end animationTimingFunction
 
     /**
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function backgroundClip($cssString = '')
+    {
+        $rule = '(?:(?:padding|border|content)-box)';
+
+        $search    = '/(\s*)(?<!-)background-clip:(\s*)(' . $rule . '(?:,\s*' . $rule . ')*);?/';
+        $replace   = '${1}-moz-background-clip:${2}${3};${1}'
+                   . 'background-clip:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end backgroundClip
+
+    /**
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function backgroundOrigin($cssString = '')
+    {
+        $rule = '(?:(?:padding|border|content)-box)';
+
+        $search    = '/(\s*)(?<!-)background-origin:(\s*)(' . $rule . '(?:,\s*' . $rule . ')*);?/';
+        $replace   = '${1}-moz-background-origin:${2}${3};${1}'
+                   . 'background-origin:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end backgroundOrigin
+
+    /**
      * Add Mozilla rules for background-size
      *
      * @param string $cssString The CSS to be parsed
