@@ -344,7 +344,7 @@ abstract class Browser
     /**
      * Syntax:
      * @keyframes <identifier> {
-     *     [ [from|to|<percentage>] block [, [from|to|<percentage>] block]*]*
+     *     [ [from|to|<percentage>] [, [from|to|<percentage>]]* block ]*
      * }
      *
      * @param string $cssString The CSS to be parsed
