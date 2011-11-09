@@ -78,17 +78,16 @@ class CssAlly
     );
     private $_files     = array();
     private $_options = array();
-    //@todo: http://www.w3.org/TR/css3-animations/
     private $_rules = array(
-        'animation'                  => true, //@todo: not added yet
-        'animation-delay'            => true, //@todo: not added yet
-        'animation-direction'        => true, //@todo: not added yet
-        'animation-duration'         => true, //@todo: not added yet
-        'animation-iteration-count'  => true, //@todo: not added yet
-        'animation-keyframes'        => true, //@todo: not added yet
-        'animation-name'             => true, //@todo: not added yet
-        'animation-play-state'       => true, //@todo: not added yet
-        'animation-timing-function'  => true, //@todo: not added yet
+        'animation'                  => true,
+        'animation-delay'            => true,
+        'animation-direction'        => true,
+        'animation-duration'         => true,
+        'animation-iteration-count'  => true,
+        'animation-keyframes'        => true,
+        'animation-name'             => true,
+        'animation-play-state'       => true,
+        'animation-timing-function'  => true,
         'background-clip'            => true,
         'background-origin'          => true,
         'background-size'            => true,
