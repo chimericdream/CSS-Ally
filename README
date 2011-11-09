@@ -30,15 +30,39 @@ a given CSS rule, the rule is automatically added.
 The following CSS rules can be autmatically prefixed by CSS Ally.
 
 Rule                            Prefixes
-background-size                 Mozilla, Opera, Webkit
-border-radius                   Mozilla, Opera, Webkit
-box-shadow                      Mozilla, Webkit
-column-count                    Mozilla, Webkit
-column-gap                      Mozilla, Webkit
-column-rule                     Mozilla, Webkit
-column-span                     Mozilla, Webkit
-column-width                    Mozilla, Webkit
-columns                         Mozilla, Webkit
+@keyframes                      ms, moz, webkit
+animation                       ms, moz, webkit
+animation-delay                 ms, moz, webkit
+animation-direction             ms, moz, webkit
+animation-duration              ms, moz, webkit
+animation-iteration-count       ms, moz, webkit
+animation-name                  ms, moz, webkit
+animation-play-state            ms, moz, webkit
+animation-timing-function       ms, moz, webkit
+background-clip                 khtml, moz, webkit
+background-origin               khtml, moz, webkit
+background-size                 moz, o, webkit
+border-image                    ms, moz, o, webkit
+border-radius                   moz, o, webkit
+border-top-right-radius         moz, o, webkit
+border-top-left-radius          moz, o, webkit
+border-bottom-right-radius      moz, o, webkit
+border-bottom-left-radius       moz, o, webkit
+box-shadow                      moz, webkit
+column-count                    moz, webkit
+column-gap                      moz, webkit
+column-rule                     moz, webkit
+column-span                     moz, webkit
+column-width                    moz, webkit
+columns                         moz, webkit
+linear-gradient                 ms, moz, o, webkit
+radial-gradient                 ms, moz, o, webkit
+transform                       ms, moz, o, webkit
+transform-origin                ms, moz, o, webkit
+transform-delay                 ms, moz, o, webkit
+transform-duration              ms, moz, o, webkit
+transform-property              ms, moz, o, webkit
+transform-timing-function       ms, moz, o, webkit
 
 ### Variables
 

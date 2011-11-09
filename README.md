@@ -34,42 +34,39 @@ The following CSS rules can be autmatically prefixed by CSS Ally.
         <tr><th>Rule</th><th>Prefixes</th></tr>
     </thead>
     <tbody>
-        <tr>
-            <td>background-size</td>
-            <td>Mozilla, Opera, Webkit</td>
-        </tr>
-        <tr>
-            <td>border-radius</td>
-            <td>Mozilla, Opera, Webkit</td>
-        </tr>
-        <tr>
-            <td>box-shadow</td>
-            <td>Mozilla, Webkit</td>
-        </tr>
-        <tr>
-            <td>column-count</td>
-            <td>Mozilla, Webkit</td>
-        </tr>
-        <tr>
-            <td>column-gap</td>
-            <td>Mozilla, Webkit</td>
-        </tr>
-        <tr>
-            <td>column-rule</td>
-            <td>Mozilla, Webkit</td>
-        </tr>
-        <tr>
-            <td>column-span</td>
-            <td>Mozilla, Webkit</td>
-        </tr>
-        <tr>
-            <td>column-width</td>
-            <td>Mozilla, Webkit</td>
-        </tr>
-        <tr>
-            <td>columns</td>
-            <td>Mozilla, Webkit</td>
-        </tr>
+        <tr><td>@keyframes</td><td>ms, moz, webkit</td></tr>
+        <tr><td>animation</td><td>ms, moz, webkit</td></tr>
+        <tr><td>animation-delay</td><td>ms, moz, webkit</td></tr>
+        <tr><td>animation-direction</td><td>ms, moz, webkit</td></tr>
+        <tr><td>animation-duration</td><td>ms, moz, webkit</td></tr>
+        <tr><td>animation-iteration-count</td><td>ms, moz, webkit</td></tr>
+        <tr><td>animation-name</td><td>ms, moz, webkit</td></tr>
+        <tr><td>animation-play-state</td><td>ms, moz, webkit</td></tr>
+        <tr><td>animation-timing-function</td><td>ms, moz, webkit</td></tr>
+        <tr><td>background-clip</td><td>khtml, moz, webkit</td></tr>
+        <tr><td>background-origin</td><td>khtml, moz, webkit</td></tr>
+        <tr><td>background-size</td><td>moz, o, webkit</td></tr>
+        <tr><td>border-image</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>border-radius</td><td>moz, o, webkit</td></tr>
+        <tr><td>border-top-right-radius</td><td>moz, o, webkit</td></tr>
+        <tr><td>border-top-left-radius</td><td>moz, o, webkit</td></tr>
+        <tr><td>border-bottom-right-radius</td><td>moz, o, webkit</td></tr>
+        <tr><td>border-bottom-left-radius</td><td>moz, o, webkit</td></tr>
+        <tr><td>box-shadow</td><td>moz, webkit</td></tr>
+        <tr><td>column-count</td><td>moz, webkit</td></tr>
+        <tr><td>column-gap</td><td>moz, webkit</td></tr>
+        <tr><td>column-rule</td><td>moz, webkit</td></tr>
+        <tr><td>column-span</td><td>moz, webkit</td></tr>
+        <tr><td>column-width</td><td>moz, webkit</td></tr>
+        <tr><td>columns</td><td>moz, webkit</td></tr>
+        <tr><td>linear-gradient</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>radial-gradient</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transform</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transform-origin</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transform-delay</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transform-duration</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transform-property</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transform-timing-function</td><td>ms, moz, o, webkit</td></tr>
     </tbody>
 </table>
 
