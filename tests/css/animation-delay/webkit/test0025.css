@@ -1,0 +1,79 @@
+div.animation1 {
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+}
+
+div.animation2 {
+    -webkit-animation-delay: 500ms;
+    animation-delay: 500ms;
+}
+
+div.animation3 {
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+}
+
+div.animation4 {
+    -webkit-animation-delay: .25s;
+    animation-delay: .25s;
+}
+
+div.animation5 {
+    -webkit-animation-delay: 15s;
+    animation-delay: 15s;
+}
+
+div.animation6 {
+    -webkit-animation-delay: 5.5s;
+    animation-delay: 5.5s;
+}
+
+div.animation7 {
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+div.animation8 {
+    -webkit-animation-delay: 1500ms;
+    animation-delay: 1500ms;
+}
+
+div.animation9 {
+    -webkit-animation-delay: 5s, 500ms, .5s;
+    animation-delay: 5s, 500ms, .5s;
+}
+
+div.animation10 {
+    -webkit-animation-delay: .25s, 15s;
+    animation-delay: .25s, 15s;
+}
+
+div.animation11 {
+    -webkit-animation-delay: 5.5s, 0.5s, 1500ms, 5s;
+    animation-delay: 5.5s, 0.5s, 1500ms, 5s;
+}
+
+div.animation12 {
+    -webkit-animation-delay: 500ms, .5s;
+    animation-delay: 500ms, .5s;
+}
+
+div.animation13 {
+    -webkit-animation-delay: .25s, 15s, 5.5s;
+    animation-delay: .25s, 15s, 5.5s;
+}
+
+div.animation14 {
+    -webkit-animation-delay: 0.5s, 1500ms;
+    animation-delay: 0.5s, 1500ms;
+}
+
+div.animation15 {
+    -webkit-animation-delay: 5s, 500ms;
+    animation-delay: 5s, 500ms;
+}
+
+div.animation16 {
+    -webkit-animation-delay: .5s, .25s;
+    animation-delay: .5s, .25s;
+}

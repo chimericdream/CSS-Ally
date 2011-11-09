@@ -1,0 +1,69 @@
+div.animation1 {
+    -ms-animation: resize 1s ease-in-out .5s 4 alternate;
+    animation: resize 1s ease-in-out .5s 4 alternate;
+}
+
+div.animation2 {
+    -ms-animation: glow 1s ease-in-out 0 infinite alternate;
+    animation: glow 1s ease-in-out 0 infinite alternate;
+}
+
+div.animation3 {
+    -ms-animation: test 1s 2s 3 alternate;
+    animation: test 1s 2s 3 alternate;
+}
+
+div.animation4 {
+    -ms-animation: first-animation 2s infinite, another-animation 1s;
+    animation: first-animation 2s infinite, another-animation 1s;
+}
+
+div.animation5 {
+    -ms-animation: myanim 5s infinite;
+    animation: myanim 5s infinite;
+}
+
+div.animation6 {
+    -ms-animation: pulse 4s ease-in-out 0 infinite alternate;
+    animation: pulse 4s ease-in-out 0 infinite alternate;
+}
+
+div.animation7 {
+    -ms-animation: resize 1s ease-in-out 4;
+    animation: resize 1s ease-in-out 4;
+}
+
+div.animation8 {
+    -ms-animation: glow 1s ease-in-out alternate;
+    animation: glow 1s ease-in-out alternate;
+}
+
+div.animation9 {
+    -ms-animation: pulse 4s ease-in-out, myanim 5s infinite;
+    animation: pulse 4s ease-in-out, myanim 5s infinite;
+}
+
+div.animation10 {
+    -ms-animation: myanim 5s infinite, myanim 5s infinite;
+    animation: myanim 5s infinite, myanim 5s infinite;
+}
+
+div.animation11 {
+    -ms-animation: pulse 4s ease-in-out 0 infinite alternate, glow 1s ease-in-out alternate;
+    animation: pulse 4s ease-in-out 0 infinite alternate, glow 1s ease-in-out alternate;
+}
+
+div.animation12 {
+    -ms-animation: resize 1s ease-in-out 4, pulse 4s ease-in-out;
+    animation: resize 1s ease-in-out 4, pulse 4s ease-in-out;
+}
+
+div.animation13 {
+    -ms-animation: glow 1s ease-in-out alternate, myanim 5s infinite;
+    animation: glow 1s ease-in-out alternate, myanim 5s infinite;
+}
+
+div.animation14 {
+    -ms-animation: pulse 4s ease-in-out, pulse 4s ease-in-out 0 infinite alternate, glow 1s ease-in-out alternate;
+    animation: pulse 4s ease-in-out, pulse 4s ease-in-out 0 infinite alternate, glow 1s ease-in-out alternate;
+}

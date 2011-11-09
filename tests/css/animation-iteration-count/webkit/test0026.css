@@ -1,0 +1,54 @@
+div.animation1 {
+    -webkit-animation-iteration-count: 5;
+    animation-iteration-count: 5;
+}
+
+div.animation2 {
+    -webkit-animation-iteration-count: 500;
+    animation-iteration-count: 500;
+}
+
+div.animation3 {
+    -webkit-animation-iteration-count: .5;
+    animation-iteration-count: .5;
+}
+
+div.animation4 {
+    -webkit-animation-iteration-count: 0.5;
+    animation-iteration-count: 0.5;
+}
+
+div.animation5 {
+    -webkit-animation-iteration-count: 15;
+    animation-iteration-count: 15;
+}
+
+div.animation6 {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+div.animation7 {
+    -webkit-animation-iteration-count: 0.5;
+    animation-iteration-count: 0.5;
+}
+
+div.animation8 {
+    -webkit-animation-iteration-count: 150;
+    animation-iteration-count: 150;
+}
+
+div.animation9 {
+    -webkit-animation-iteration-count: 5, 500, .5;
+    animation-iteration-count: 5, 500, .5;
+}
+
+div.animation10 {
+    -webkit-animation-iteration-count: .25, 15;
+    animation-iteration-count: .25, 15;
+}
+
+div.animation11 {
+    -webkit-animation-iteration-count: 5.5, 0.5, 150, 5;
+    animation-iteration-count: 5.5, 0.5, 150, 5;
+}

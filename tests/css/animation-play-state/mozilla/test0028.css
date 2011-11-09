@@ -1,0 +1,29 @@
+div.animation1 {
+    -moz-animation-play-state: running;
+    animation-play-state: running;
+}
+
+div.animation2 {
+    -moz-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+div.animation3 {
+    -moz-animation-play-state: running, running;
+    animation-play-state: running, running;
+}
+
+div.animation4 {
+    -moz-animation-play-state: running, running, paused;
+    animation-play-state: running, running, paused;
+}
+
+div.animation5 {
+    -moz-animation-play-state: paused, running;
+    animation-play-state: paused, running;
+}
+
+div.animation6 {
+    -moz-animation-play-state: paused, running, paused, running;
+    animation-play-state: paused, running, paused, running;
+}

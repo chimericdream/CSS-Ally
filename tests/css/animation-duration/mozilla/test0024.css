@@ -1,0 +1,79 @@
+div.animation1 {
+    -moz-animation-duration: 5s;
+    animation-duration: 5s;
+}
+
+div.animation2 {
+    -moz-animation-duration: 500ms;
+    animation-duration: 500ms;
+}
+
+div.animation3 {
+    -moz-animation-duration: .5s;
+    animation-duration: .5s;
+}
+
+div.animation4 {
+    -moz-animation-duration: .25s;
+    animation-duration: .25s;
+}
+
+div.animation5 {
+    -moz-animation-duration: 15s;
+    animation-duration: 15s;
+}
+
+div.animation6 {
+    -moz-animation-duration: 5.5s;
+    animation-duration: 5.5s;
+}
+
+div.animation7 {
+    -moz-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+}
+
+div.animation8 {
+    -moz-animation-duration: 1500ms;
+    animation-duration: 1500ms;
+}
+
+div.animation9 {
+    -moz-animation-duration: 5s, 500ms, .5s;
+    animation-duration: 5s, 500ms, .5s;
+}
+
+div.animation10 {
+    -moz-animation-duration: .25s, 15s;
+    animation-duration: .25s, 15s;
+}
+
+div.animation11 {
+    -moz-animation-duration: 5.5s, 0.5s, 1500ms, 5s;
+    animation-duration: 5.5s, 0.5s, 1500ms, 5s;
+}
+
+div.animation12 {
+    -moz-animation-duration: 500ms, .5s;
+    animation-duration: 500ms, .5s;
+}
+
+div.animation13 {
+    -moz-animation-duration: .25s, 15s, 5.5s;
+    animation-duration: .25s, 15s, 5.5s;
+}
+
+div.animation14 {
+    -moz-animation-duration: 0.5s, 1500ms;
+    animation-duration: 0.5s, 1500ms;
+}
+
+div.animation15 {
+    -moz-animation-duration: 5s, 500ms;
+    animation-duration: 5s, 500ms;
+}
+
+div.animation16 {
+    -moz-animation-duration: .5s, .25s;
+    animation-duration: .5s, .25s;
+}

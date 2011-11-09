@@ -1,0 +1,104 @@
+div.animation1 {
+    -moz-animation-timing-function: ease;
+    animation-timing-function: ease;
+}
+
+div.animation2 {
+    -moz-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+div.animation3 {
+    -moz-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+}
+
+div.animation4 {
+    -moz-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+}
+
+div.animation5 {
+    -moz-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+}
+
+div.animation6 {
+    -moz-animation-timing-function: cubic-bezier(1, 2, 3, 4);
+    animation-timing-function: cubic-bezier(1, 2, 3, 4);
+}
+
+div.animation7 {
+    -moz-animation-timing-function: cubic-bezier(1.5, 2.0, 15, 12);
+    animation-timing-function: cubic-bezier(1.5, 2.0, 15, 12);
+}
+
+div.animation8 {
+    -moz-animation-timing-function: ease, linear;
+    animation-timing-function: ease, linear;
+}
+
+div.animation9 {
+    -moz-animation-timing-function: linear, ease-in-out, linear, ease;
+    animation-timing-function: linear, ease-in-out, linear, ease;
+}
+
+div.animation10 {
+    -moz-animation-timing-function: ease-in, ease-out;
+    animation-timing-function: ease-in, ease-out;
+}
+
+div.animation11 {
+    -moz-animation-timing-function: ease-out, linear, cubic-bezier(1.5, 2.0, 15, 12);
+    animation-timing-function: ease-out, linear, cubic-bezier(1.5, 2.0, 15, 12);
+}
+
+div.animation12 {
+    -moz-animation-timing-function: ease-in-out, ease-in-out;
+    animation-timing-function: ease-in-out, ease-in-out;
+}
+
+div.animation13 {
+    -moz-animation-timing-function: cubic-bezier(1, 2, 3, 4), ease-in, ease-out, cubic-bezier(1, 2, 3, 4), ease;
+    animation-timing-function: cubic-bezier(1, 2, 3, 4), ease-in, ease-out, cubic-bezier(1, 2, 3, 4), ease;
+}
+
+div.animation14 {
+    -moz-animation-timing-function: cubic-bezier(1.5, 2.0, 15, 12), ease;
+    animation-timing-function: cubic-bezier(1.5, 2.0, 15, 12), ease;
+}
+
+div.animation15 {
+    -moz-animation-timing-function: ease, ease-in, ease-out;
+    animation-timing-function: ease, ease-in, ease-out;
+}
+
+div.animation16 {
+    -moz-animation-timing-function: linear, ease-in, ease, cubic-bezier(1, 2, 3, 4);
+    animation-timing-function: linear, ease-in, ease, cubic-bezier(1, 2, 3, 4);
+}
+
+div.animation17 {
+    -moz-animation-timing-function: ease-in, ease-out;
+    animation-timing-function: ease-in, ease-out;
+}
+
+div.animation18 {
+    -moz-animation-timing-function: ease-out, cubic-bezier(1, 2, 3, 4);
+    animation-timing-function: ease-out, cubic-bezier(1, 2, 3, 4);
+}
+
+div.animation19 {
+    -moz-animation-timing-function: ease-in-out, cubic-bezier(1.5, 2.0, 15, 12);
+    animation-timing-function: ease-in-out, cubic-bezier(1.5, 2.0, 15, 12);
+}
+
+div.animation20 {
+    -moz-animation-timing-function: cubic-bezier(1, 2, 3, 4), ease-in-out, ease;
+    animation-timing-function: cubic-bezier(1, 2, 3, 4), ease-in-out, ease;
+}
+
+div.animation21 {
+    -moz-animation-timing-function: cubic-bezier(1.5, 2.0, 15, 12), ease, ease-in;
+    animation-timing-function: cubic-bezier(1.5, 2.0, 15, 12), ease, ease-in;
+}

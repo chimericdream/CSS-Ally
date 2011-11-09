@@ -1,0 +1,63 @@
+div.animation1 {
+    animation-delay: 5s;
+}
+
+div.animation2 {
+    animation-delay: 500ms;
+}
+
+div.animation3 {
+    animation-delay: .5s;
+}
+
+div.animation4 {
+    animation-delay: .25s;
+}
+
+div.animation5 {
+    animation-delay: 15s;
+}
+
+div.animation6 {
+    animation-delay: 5.5s;
+}
+
+div.animation7 {
+    animation-delay: 0.5s;
+}
+
+div.animation8 {
+    animation-delay: 1500ms;
+}
+
+div.animation9 {
+    animation-delay: 5s, 500ms, .5s;
+}
+
+div.animation10 {
+    animation-delay: .25s, 15s;
+}
+
+div.animation11 {
+    animation-delay: 5.5s, 0.5s, 1500ms, 5s;
+}
+
+div.animation12 {
+    animation-delay: 500ms, .5s;
+}
+
+div.animation13 {
+    animation-delay: .25s, 15s, 5.5s;
+}
+
+div.animation14 {
+    animation-delay: 0.5s, 1500ms;
+}
+
+div.animation15 {
+    animation-delay: 5s, 500ms;
+}
+
+div.animation16 {
+    animation-delay: .5s, .25s;
+}

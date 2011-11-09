@@ -1,0 +1,55 @@
+div.animation1 {
+    animation: resize 1s ease-in-out .5s 4 alternate;
+}
+
+div.animation2 {
+    animation: glow 1s ease-in-out 0 infinite alternate;
+}
+
+div.animation3 {
+    animation: test 1s 2s 3 alternate;
+}
+
+div.animation4 {
+    animation: first-animation 2s infinite, another-animation 1s;
+}
+
+div.animation5 {
+    animation: myanim 5s infinite;
+}
+
+div.animation6 {
+    animation: pulse 4s ease-in-out 0 infinite alternate;
+}
+
+div.animation7 {
+    animation: resize 1s ease-in-out 4;
+}
+
+div.animation8 {
+    animation: glow 1s ease-in-out alternate;
+}
+
+div.animation9 {
+    animation: pulse 4s ease-in-out, myanim 5s infinite;
+}
+
+div.animation10 {
+    animation: myanim 5s infinite, myanim 5s infinite;
+}
+
+div.animation11 {
+    animation: pulse 4s ease-in-out 0 infinite alternate, glow 1s ease-in-out alternate;
+}
+
+div.animation12 {
+    animation: resize 1s ease-in-out 4, pulse 4s ease-in-out;
+}
+
+div.animation13 {
+    animation: glow 1s ease-in-out alternate, myanim 5s infinite;
+}
+
+div.animation14 {
+    animation: pulse 4s ease-in-out, pulse 4s ease-in-out 0 infinite alternate, glow 1s ease-in-out alternate;
+}

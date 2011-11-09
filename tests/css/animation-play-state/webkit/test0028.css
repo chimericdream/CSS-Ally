@@ -1,0 +1,29 @@
+div.animation1 {
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+div.animation2 {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+div.animation3 {
+    -webkit-animation-play-state: running, running;
+    animation-play-state: running, running;
+}
+
+div.animation4 {
+    -webkit-animation-play-state: running, running, paused;
+    animation-play-state: running, running, paused;
+}
+
+div.animation5 {
+    -webkit-animation-play-state: paused, running;
+    animation-play-state: paused, running;
+}
+
+div.animation6 {
+    -webkit-animation-play-state: paused, running, paused, running;
+    animation-play-state: paused, running, paused, running;
+}

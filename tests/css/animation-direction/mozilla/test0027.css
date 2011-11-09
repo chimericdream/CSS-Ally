@@ -1,0 +1,29 @@
+div.animation1 {
+    -moz-animation-direction: normal;
+    animation-direction: normal;
+}
+
+div.animation2 {
+    -moz-animation-direction: alternate;
+    animation-direction: alternate;
+}
+
+div.animation3 {
+    -moz-animation-direction: normal, normal;
+    animation-direction: normal, normal;
+}
+
+div.animation4 {
+    -moz-animation-direction: normal, normal, alternate;
+    animation-direction: normal, normal, alternate;
+}
+
+div.animation5 {
+    -moz-animation-direction: alternate, normal;
+    animation-direction: alternate, normal;
+}
+
+div.animation6 {
+    -moz-animation-direction: alternate, normal, alternate, normal;
+    animation-direction: alternate, normal, alternate, normal;
+}

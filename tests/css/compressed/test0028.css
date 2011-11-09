@@ -1,0 +1,1 @@
+div.animation1{animation-play-state:running;}div.animation2{animation-play-state:paused;}div.animation3{animation-play-state:running,running;}div.animation4{animation-play-state:running,running,paused;}div.animation5{animation-play-state:paused,running;}div.animation6{animation-play-state:paused,running,paused,running;}
