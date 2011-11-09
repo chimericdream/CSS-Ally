@@ -165,6 +165,13 @@ abstract class Browser
         return $hex;
     } //end hexRegex
 
+    public function identRegex()
+    {
+        $ident = '(?:[a-zA-Z][-_a-zA-Z0-9]*)';
+
+        return $ident;
+    } //end identRegex
+
     /**
      * Generate a string containing a regular expression for valid length values
      * in CSS
@@ -201,7 +208,7 @@ abstract class Browser
 
     public function numberRegex()
     {
-        $num = '(?:(?:\+|\-)?\d+\.?\d*)';
+        $num = '(?:(?:\+|\-)?(?:\d+\.?\d*|\.\d+))';
 
         return $num;
     } //end numberRegex
@@ -254,11 +261,19 @@ abstract class Browser
 
     public function timeRegex()
     {
-        $time = '(?:(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)m?s)';
+        $time = '(?:(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)m?s|0)';
 
         return $time;
     } //end timeRegex
 
+    public function timingFuncRegex()
+    {
+        $num  = $this->numberRegex();
+        $func = '(?:ease-in-out|linear|ease-in|ease-out|ease|cubic-bezier\(' . $num . ',\s*' . $num . ',\s*' . $num . ',\s*' . $num . '\))';
+        
+        return $func;
+    } //end timingFuncRegex
+    
     public function uriRegex()
     {
         $uri = '(?:url\(["\']?(?:[^\'"\)]*)["\']?\))';

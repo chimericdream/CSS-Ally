@@ -24,6 +24,7 @@
         background-color:rgba(255,0,0,0.9);
     }
 }
+
 @-webkit-keyframes resize {
     0% {
         padding: 0;
@@ -37,6 +38,8 @@
         background-color:rgba(255,0,0,0.9);
     }
 }
+
+
 @keyframes resize {
     0% {
         padding: 0;
@@ -61,6 +64,8 @@
         border-color: rgba(0,0,255,1.0);
     }
 }
+
+
 @-moz-keyframes glow {
     0% {
         box-shadow: 0 0 16px rgba(66, 140, 240, 0.5);
@@ -71,6 +76,9 @@
         border-color: rgba(0,0,255,1.0);
     }
 }
+
+
+
 @-webkit-keyframes glow {
     0% {
         box-shadow: 0 0 16px rgba(66, 140, 240, 0.5);
@@ -81,6 +89,10 @@
         border-color: rgba(0,0,255,1.0);
     }
 }
+
+
+
+
 @keyframes glow {
     0% {
         box-shadow: 0 0 16px rgba(66, 140, 240, 0.5);
@@ -100,6 +112,8 @@
         font-size: 12px;
     }
 }
+
+
 @-moz-keyframes fontbulger {
     0%, 100% {
         font-size: 10px;
@@ -108,6 +122,9 @@
         font-size: 12px;
     }
 }
+
+
+
 @-webkit-keyframes fontbulger {
     0%, 100% {
         font-size: 10px;
@@ -116,6 +133,10 @@
         font-size: 12px;
     }
 }
+
+
+
+
 @keyframes fontbulger {
     0%, 100% {
         font-size: 10px;
@@ -133,6 +154,8 @@
         transform: rotate(360deg);
     }
 }
+
+
 @-moz-keyframes infinite-spinning {
     from {
         transform: rotate(0deg);
@@ -141,6 +164,9 @@
         transform: rotate(360deg);
     }
 }
+
+
+
 @-webkit-keyframes infinite-spinning {
     from {
         transform: rotate(0deg);
@@ -149,6 +175,10 @@
         transform: rotate(360deg);
     }
 }
+
+
+
+
 @keyframes infinite-spinning {
     from {
         transform: rotate(0deg);
@@ -166,6 +196,8 @@
         left: 200px;
     }
 }
+
+
 @-moz-keyframes bounce {
     from {
         left: 0px;
@@ -174,6 +206,9 @@
         left: 200px;
     }
 }
+
+
+
 @-webkit-keyframes bounce {
     from {
         left: 0px;
@@ -182,6 +217,10 @@
         left: 200px;
     }
 }
+
+
+
+
 @keyframes bounce {
     from {
         left: 0px;
@@ -213,6 +252,8 @@
         transform: scale(1.0) rotate(0deg);
     }
 }
+
+
 @-moz-keyframes pulse {
     0% {
         background-color: red;
@@ -235,6 +276,9 @@
         transform: scale(1.0) rotate(0deg);
     }
 }
+
+
+
 @-webkit-keyframes pulse {
     0% {
         background-color: red;
@@ -257,6 +301,10 @@
         transform: scale(1.0) rotate(0deg);
     }
 }
+
+
+
+
 @keyframes pulse {
     0% {
         background-color: red;

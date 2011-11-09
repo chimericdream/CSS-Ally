@@ -52,6 +52,204 @@ require_once dirname(__FILE__) . '/../Browser.php';
 class Browser_Webkit extends Browser
 {
     /**
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animation($cssString = '')
+    {
+        $name  = $this->identRegex();
+        $dur   = $this->timeRegex();
+        $func  = $this->timingFuncRegex();
+        $delay = $this->timeRegex();
+        $count = '(?:infinite|' . $this->numberRegex() . ')';
+        $dir   = '(?:normal|alternate)';
+
+        $anim = '(?:'
+                . $name . '(?:\s+' . $dur . ')?(?:\s+' . $func . ')?(?:\s+' . $delay . ')?(?:\s+' . $count . ')?(?:\s+' . $dir . ')?'
+              . '|'
+                . '(?:' . $name . '\s+)?' . $dur . '(?:\s+' . $func . ')?(?:\s+' . $delay . ')?(?:\s+' . $count . ')?(?:\s+' . $dir . ')?'
+              . '|'
+                . '(?:' . $name . '\s+)?(?:' . $dur . '\s+)?' . $func . '(?:\s+' . $delay . ')?(?:\s+' . $count . ')?(?:\s+' . $dir . ')?'
+              . '|'
+                . '(?:' . $name . '\s+)?(?:' . $dur . '\s+)?(?:' . $func . '\s+)?' . $delay . '(?:\s+' . $count . ')?(?:\s+' . $dir . ')?'
+              . '|'
+                . '(?:' . $name . '\s+)?(?:' . $dur . '\s+)?(?:' . $func . '\s+)?(?:' . $delay . '\s+)?' . $count . '(?:\s+' . $dir . ')?'
+              . '|'
+                . '(?:' . $name . '\s+)?(?:' . $dur . '\s+)?(?:' . $func . '\s+)?(?:' . $delay . '\s+)?(?:' . $count . '\s+)?' . $dir
+              . ')';
+
+        $search    = '/(\s*)(?<!-)(animation:\s*)(' . $anim . '(?:,\s*' . $anim . ')*);?/';
+        $replace   = '${1}-webkit-${2}${3};${1}${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end animation
+
+    /**
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationDelay($cssString = '')
+    {
+        $time = $this->timeRegex();
+
+        $search    = '/(\s*)(?<!-)animation-delay:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
+        $replace   = '${1}-webkit-animation-delay:${2}${3};${1}'
+                   . 'animation-delay:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end animationDelay
+
+    /**
+     * Syntax:
+     * animation-direction: normal|alternate [, normal|alternate]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationDirection($cssString = '')
+    {
+        $dir       = '(?:normal|alternate)';
+
+        $search    = '/(\s*)(?<!-)animation-direction:(\s*)(' . $dir . '(?:,\s*' . $dir . ')*);?/';
+        $replace   = '${1}-webkit-animation-direction:${2}${3};${1}'
+                   . 'animation-direction:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end animationDirection
+
+    /**
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationDuration($cssString = '')
+    {
+        $time = $this->timeRegex();
+
+        $search    = '/(\s*)(?<!-)animation-duration:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
+        $replace   = '${1}-webkit-animation-duration:${2}${3};${1}'
+                   . 'animation-duration:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end animationDuration
+
+    /**
+     * Syntax:
+     * animation-iteration-count: infinite|<number> [, infinite|<number>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationIterationCount($cssString = '')
+    {
+        $number    = $this->numberRegex();
+        $count     = '(?:infinite|' . $number . ')';
+
+        $search    = '/(\s*)(?<!-)animation-iteration-count:(\s*)(' . $count . '(?:,\s*' . $count . ')*);?/';
+        $replace   = '${1}-webkit-animation-iteration-count:${2}${3};${1}'
+                   . 'animation-iteration-count:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end animationIterationCount
+
+    /**
+     * Syntax:
+     * @keyframes <identifier> {
+     *     [ [from|to|<percentage>] [, [from|to|<percentage>]]* block ]*
+     * }
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationKeyframes($cssString = '')
+    {
+        $ident = $this->identRegex();
+        $pct   = $this->percentRegex();
+        $point = '(?:(?:from|to|' . $pct . ')(?:,\s*(?:from|to|' . $pct . '))*)';
+        $block = '(?:\{[^\}]*\})';
+
+        $rules = '(?:\s*' . $point . '\s*' . $block . '\s*)*';
+
+        $search    = '/(\s*)\@(?<!-)(keyframes\s+' . $ident . '\s*\{' . $rules . '\})/';
+        $replace   = '${1}@-webkit-${2}' . "\n" . '${1}@${2}';
+        
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end animationKeyframes
+
+    /**
+     * Syntax:
+     * animation-name: none|<name> [, none|<name>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationName($cssString = '')
+    {
+        $name = $this->identRegex();
+
+        $search    = '/(\s*)(?<!-)animation-name:(\s*)(' . $name . '(?:,\s*' . $name . ')*);?/';
+        $replace   = '${1}-webkit-animation-name:${2}${3};${1}'
+                   . 'animation-name:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end animationName
+
+    /**
+     * Syntax:
+     * animation-play-state: running|paused [, running|paused]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationPlayState($cssString = '')
+    {
+        $state     = '(?:running|paused)';
+
+        $search    = '/(\s*)(?<!-)animation-play-state:(\s*)(' . $state . '(?:,\s*' . $state . ')*);?/';
+        $replace   = '${1}-webkit-animation-play-state:${2}${3};${1}'
+                   . 'animation-play-state:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end animationPlayState
+
+    /**
+     * Syntax:
+     * animation-timing-function: <timing-function> [, <timing-function>]*
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function animationTimingFunction($cssString = '')
+    {
+        $func = $this->timingFuncRegex();
+
+        $search    = '/(\s*)(?<!-)animation-timing-function:(\s*)(' . $func . '(?:,\s*' . $func . ')*);?/';
+
+        $replace   = '${1}-webkit-animation-timing-function:${2}${3};${1}'
+                   . 'animation-timing-function:${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end animationTimingFunction
+
+    /**
      * Add Webkit rules for background-size
      *
      * @param string $cssString The CSS to be parsed
@@ -98,9 +296,9 @@ class Browser_Webkit extends Browser
         $num = $this->numberRegex();
         $pct = $this->percentRegex();
         $bwd = $this->borderWidthRegex();
-        
+
         $search = '(none|(?:' . $img . '(?:\s+(?:' . $pct . '|' . $num . ')){1,4}(?:\s*\/\s*(?:' . $bwd . ')(?:(?:\s+' . $bwd . '){1,3})?)?(?:\s+(?:stretch|repeat|round)){0,2}))';
-        
+
         $search    = '/(\s*)(?<!-)(border-image:(?:\s*))' . $search . ';?/';
         $replace   = '${1}-webkit-${2}${3};${1}${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -454,11 +652,11 @@ class Browser_Webkit extends Browser
             'skewY\(' . $angle . '\)',
             'skew\(' . $angle . '(?:,\s*' . $angle . ')?\)',
         );
-        
+
         $functions = implode('|', $transformFunctions);
 
         $search = '/(\s*)(?<!-)transform:((\s*)(' . $functions . ')(?:\s+(' . $functions . '))*);?/';
-        
+
         $replace = '${1}-webkit-transform:${2};${1}'
                 . 'transform:${2};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -483,7 +681,7 @@ class Browser_Webkit extends Browser
                    . $length . '|top|center|bottom))?|((left|center|right)'
                    . '(\s+(top|center|bottom))?|((left|center|right)\s+)?'
                    . '(top|center|bottom))));?/';
-        
+
         $replace   = '${1}-webkit-transform-origin:${2}${3};${1}'
                    . 'transform-origin:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -539,7 +737,7 @@ class Browser_Webkit extends Browser
     public function transitionProperty($cssString = '')
     {
         $property = $this->animatablePropertyRegex();
-        
+
         $search    = '/(\s*)(?<!-)transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
         $replace   = '${1}-webkit-transition-property:${2}${3};${1}'
                    . 'transition-property:${2}${3};';
