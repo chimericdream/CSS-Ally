@@ -173,7 +173,7 @@ abstract class Browser
      */
     public function lengthRegex()
     {
-        $length = '(?:' . $this->numberRegex() . '(?:em|ex|in|cm|mm|pt|pc|px))';
+        $length = '(?:' . $this->numberRegex() . '(?:em|ex|in|cm|mm|pt|pc|px)|0)';
 
         return $length;
     } //end lengthRegex
