@@ -86,11 +86,10 @@ class CssAllyTest extends BaseTest
 
     /**
      * @covers CssAlly::__construct
-     * @dataProvider constructorSetsBrowsersProvider
      *
      * @return void
      */
-    public function testConstructorSetsDefaultBrowsers(array $browsers)
+    public function testConstructorSetsDefaultBrowsers()
     {
         $browserList = $this->_object->getBrowsers();
         $this->assertInstanceOf('Browser_Explorer', $browserList['explorer']);
@@ -473,11 +472,12 @@ class CssAllyTest extends BaseTest
      *
      * @return void
      */
-    public function testConstructorThrowsExceptionWithoutCssDir()
+    public function testConstructorSetsDefaultDirectoryWithoutCssDir()
     {
-        $this->setExpectedException('InvalidArgumentException');
         $this->_object = new CssAlly();
-        $this->assertEquals(true, true);
+        $cssDir = $this->_object->getOption('cssDir');
+
+        $this->assertEquals('./css', $cssDir);
     }
 
     /**

@@ -155,9 +155,7 @@ class CssAlly
         }
 
         if (is_null($this->_options['cssDir'])) {
-            $message = 'You must specify the directory in which your CSS files '
-                     . 'are stored.';
-            throw new InvalidArgumentException($message);
+            $this->_options['cssDir'] = './css';
         }
 
         $this->setBrowsers($this->_browsers);
