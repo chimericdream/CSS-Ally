@@ -111,7 +111,9 @@ class BrowserTest extends BaseTest
             'opera'     => true,
             'webkit'    => true,
         ));
+        $this->_object->setOption('cssDir', dirname(__FILE__) . '/../css');
         $this->_object->setBuiltCss($cssString);
+        $this->_object->processImports();
         $this->_object->parseVariables();
         $this->_object->runCssRules();
         $this->_object->compress();
@@ -155,7 +157,9 @@ class BrowserTest extends BaseTest
             'opera'     => true,
             'webkit'    => true,
         ));
+        $this->_object->setOption('cssDir', dirname(__FILE__) . '/../css');
         $this->_object->setBuiltCss($cssString);
+        $this->_object->processImports();
         $this->_object->parseVariables();
         $this->_object->runCssRules();
         $cssString = $this->_object->getBuiltCss();

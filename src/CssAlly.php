@@ -453,6 +453,33 @@ class CssAlly
     } //end parseVariables
 
     /**
+     * Parse the CSS string for @import rules
+     *
+     * @return void
+     */
+    public function processImports()
+    {
+        $find = '/\@import\s+(?:url\((\'|")([^\'"\)]+)\1\)|(\'|")([^\'"]+)\3);\s*/';
+        $imports    = array();
+        preg_match_all($find, $this->_builtCss, $imports);
+        $imps = array_merge($imports[2], $imports[4]);
+
+        foreach ($imps as $import) {
+            if (empty($import)) {
+                continue;
+            }
+            $css = file_get_contents($this->getOption('cssDir') . '/' . $import) . "\n\n";
+            $name = str_replace('.', '\.', $import);
+            $find = '/\@import\s+(?:url\((\'|")' . $name . '\1\)|(\'|")' . $name . '\2);\s*/';
+            $this->_builtCss = preg_replace(
+                $find, 
+                $css, 
+                $this->_builtCss
+            );
+        }
+    } //end processImports
+
+    /**
      * Remove variable declarations from the CSS string
      *
      * @return void

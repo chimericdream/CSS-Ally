@@ -705,6 +705,41 @@ class CssAllyTest extends BaseTest
     }
 
     /**
+     * @covers CssAlly::processImports
+     * @dataProvider processImportsProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testProcessImports($cssString, $expectedString)
+    {
+        $this->_object->setOption('cssDir', dirname(__FILE__) . '/../css');
+        $this->_object->setBuiltCss($cssString);
+        $this->_object->processImports();
+
+        $this->assertEquals($expectedString, $this->_object->getBuiltCss());
+    }
+
+    public function processImportsProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $varCss    = file_get_contents("{$path}/import/{$file}");
+                $strings[] = array($css, $varCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
      * @covers CssAlly::parseVariables
      * @depends testRemoveVariables
      * @dataProvider parseVariablesProvider

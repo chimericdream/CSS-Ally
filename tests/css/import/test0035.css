@@ -1,0 +1,131 @@
+div.transition1 {
+    transition-duration: 5s;
+}
+
+div.transition2 {
+    transition-duration: 500ms;
+}
+
+div.transition3 {
+    transition-duration: .5s;
+}
+
+div.transition4 {
+    transition-duration: .25s;
+}
+
+div.transition5 {
+    transition-duration: 15s;
+}
+
+div.transition6 {
+    transition-duration: 5.5s;
+}
+
+div.transition7 {
+    transition-duration: 0.5s;
+}
+
+div.transition8 {
+    transition-duration: 1500ms;
+}
+
+div.transition9 {
+    transition-duration: 5s, 500ms, .5s;
+}
+
+div.transition10 {
+    transition-duration: .25s, 15s;
+}
+
+div.transition11 {
+    transition-duration: 5.5s, 0.5s, 1500ms, 5s;
+}
+
+div.transition12 {
+    transition-duration: 500ms, .5s;
+}
+
+div.transition13 {
+    transition-duration: .25s, 15s, 5.5s;
+}
+
+div.transition14 {
+    transition-duration: 0.5s, 1500ms;
+}
+
+div.transition15 {
+    transition-duration: 5s, 500ms;
+}
+
+div.transition16 {
+    transition-duration: .5s, .25s;
+}
+
+div.bimg1 {
+    border-image: url('border.gif') 27 stretch stretch;
+}
+
+div.bimg2 {
+    border-image: url('border.gif') 27 round round;
+}
+
+div.bimg3 {
+    border-image: url(border.png) 27 27 27 27 round round;
+}
+
+div.bimg4 {
+    border-image: url(whiteButton.png) 0 12 0 12 stretch stretch;
+}
+
+div.bimg5 {
+    border-image: url("border.png") 5 10 5 10 repeat;
+}
+
+div.bimg6 {
+    border-image: url("border.png") 25;
+}
+
+div.bimg7 {
+    border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px;
+}
+
+div.bimg8 {
+    border-image: url(example.jpg) 50% / 50px round;
+}
+
+div.bimg9 {
+    border-image: url(example.jpg) 50% / 50px round;
+}
+
+div.bimg10 {
+    border-image: url(example.jpg) 3 4 6 8 / 10em 12em 14em 22em;
+}
+
+div.bimg11 {
+    border-image: url(example.jpg) 50% 40% / 10px 12px 14px 22px;
+}
+
+div.bimg12 {
+    border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px stretch repeat;
+}
+
+div.bimg13 {
+    border-image: none;
+}
+
+hr {
+    background: #ccc;
+    color: #ccc;
+    width: 100%;
+    height: 2px;
+    margin: 2em 0;
+    padding: 0;
+    border: none;
+}
+
+hr.space {
+    background: #fff;
+    color: #fff;
+    visibility: hidden;
+}
