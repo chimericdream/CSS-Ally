@@ -1,0 +1,97 @@
+div.animation1 {
+    -ms-animation-name: name5;
+    -moz-animation-name: name5;
+    -webkit-animation-name: name5;
+    animation-name: name5;
+}
+
+div.animation2 {
+    -ms-animation-name: name3;
+    -moz-animation-name: name3;
+    -webkit-animation-name: name3;
+    animation-name: name3;
+}
+
+div.animation3 {
+    -ms-animation-name: name1;
+    -moz-animation-name: name1;
+    -webkit-animation-name: name1;
+    animation-name: name1;
+}
+
+div.animation4 {
+    -ms-animation-name: name2;
+    -moz-animation-name: name2;
+    -webkit-animation-name: name2;
+    animation-name: name2;
+}
+
+div.animation5 {
+    -ms-animation-name: name4;
+    -moz-animation-name: name4;
+    -webkit-animation-name: name4;
+    animation-name: name4;
+}
+
+div.animation6 {
+    -ms-animation-name: none;
+    -moz-animation-name: none;
+    -webkit-animation-name: none;
+    animation-name: none;
+}
+
+div.animation7 {
+    -ms-animation-name: none, name3;
+    -moz-animation-name: none, name3;
+    -webkit-animation-name: none, name3;
+    animation-name: none, name3;
+}
+
+div.animation8 {
+    -ms-animation-name: name5, name3;
+    -moz-animation-name: name5, name3;
+    -webkit-animation-name: name5, name3;
+    animation-name: name5, name3;
+}
+
+div.animation9 {
+    -ms-animation-name: name3, name4, name3, name5;
+    -moz-animation-name: name3, name4, name3, name5;
+    -webkit-animation-name: name3, name4, name3, name5;
+    animation-name: name3, name4, name3, name5;
+}
+
+div.animation10 {
+    -ms-animation-name: name1, name2;
+    -moz-animation-name: name1, name2;
+    -webkit-animation-name: name1, name2;
+    animation-name: name1, name2;
+}
+
+div.animation11 {
+    -ms-animation-name: name2, name3;
+    -moz-animation-name: name2, name3;
+    -webkit-animation-name: name2, name3;
+    animation-name: name2, name3;
+}
+
+div.animation12 {
+    -ms-animation-name: name4, name4;
+    -moz-animation-name: name4, name4;
+    -webkit-animation-name: name4, name4;
+    animation-name: name4, name4;
+}
+
+div.animation13 {
+    -ms-animation-name: name1, name2, name5;
+    -moz-animation-name: name1, name2, name5;
+    -webkit-animation-name: name1, name2, name5;
+    animation-name: name1, name2, name5;
+}
+
+div.animation14 {
+    -ms-animation-name: name5, name1;
+    -moz-animation-name: name5, name1;
+    -webkit-animation-name: name5, name1;
+    animation-name: name5, name1;
+}

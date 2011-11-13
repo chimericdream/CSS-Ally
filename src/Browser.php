@@ -646,6 +646,20 @@ abstract class Browser
 
     /**
      * Syntax:
+     * transition: [ <transition-property> || <transition-duration> || ...
+     *      <transition-timing-function> || <transition-delay> ]
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transition($cssString = '')
+    {
+        return $cssString;
+    } //end transition
+    
+    /**
+     * Syntax:
      * transition-delay: <time>[, <time>]*
      *
      * @param string $cssString The CSS to be parsed

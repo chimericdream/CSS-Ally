@@ -1,0 +1,188 @@
+div.bgorigin1 {
+    -khtml-background-origin: border-box;
+    -moz-background-origin: border-box;
+    -webkit-background-origin: border-box;
+    background-origin: border-box;
+}
+
+div.bgorigin2 {
+    -khtml-background-origin: padding-box;
+    -moz-background-origin: padding-box;
+    -webkit-background-origin: padding-box;
+    background-origin: padding-box;
+}
+
+div.bgorigin3 {
+    -khtml-background-origin: content-box;
+    -moz-background-origin: content-box;
+    -webkit-background-origin: content-box;
+    background-origin: content-box;
+}
+
+div.bgorigin4 {
+    -khtml-background-origin: border-box, padding-box;
+    -moz-background-origin: border-box, padding-box;
+    -webkit-background-origin: border-box, padding-box;
+    background-origin: border-box, padding-box;
+}
+
+div.bgorigin5 {
+    -khtml-background-origin: border-box, content-box;
+    -moz-background-origin: border-box, content-box;
+    -webkit-background-origin: border-box, content-box;
+    background-origin: border-box, content-box;
+}
+
+div.bgorigin6 {
+    -khtml-background-origin: padding-box, border-box;
+    -moz-background-origin: padding-box, border-box;
+    -webkit-background-origin: padding-box, border-box;
+    background-origin: padding-box, border-box;
+}
+
+div.bgorigin7 {
+    -khtml-background-origin: padding-box, content-box;
+    -moz-background-origin: padding-box, content-box;
+    -webkit-background-origin: padding-box, content-box;
+    background-origin: padding-box, content-box;
+}
+
+div.bgorigin8 {
+    -khtml-background-origin: content-box, border-box;
+    -moz-background-origin: content-box, border-box;
+    -webkit-background-origin: content-box, border-box;
+    background-origin: content-box, border-box;
+}
+
+div.bgorigin9 {
+    -khtml-background-origin: content-box, padding-box;
+    -moz-background-origin: content-box, padding-box;
+    -webkit-background-origin: content-box, padding-box;
+    background-origin: content-box, padding-box;
+}
+
+div.bgorigin10 {
+    -khtml-background-origin: border-box, border-box, padding-box;
+    -moz-background-origin: border-box, border-box, padding-box;
+    -webkit-background-origin: border-box, border-box, padding-box;
+    background-origin: border-box, border-box, padding-box;
+}
+
+div.bgorigin11 {
+    -khtml-background-origin: border-box, border-box, content-box;
+    -moz-background-origin: border-box, border-box, content-box;
+    -webkit-background-origin: border-box, border-box, content-box;
+    background-origin: border-box, border-box, content-box;
+}
+
+div.bgorigin12 {
+    -khtml-background-origin: padding-box, padding-box, border-box;
+    -moz-background-origin: padding-box, padding-box, border-box;
+    -webkit-background-origin: padding-box, padding-box, border-box;
+    background-origin: padding-box, padding-box, border-box;
+}
+
+div.bgorigin13 {
+    -khtml-background-origin: padding-box, padding-box, content-box;
+    -moz-background-origin: padding-box, padding-box, content-box;
+    -webkit-background-origin: padding-box, padding-box, content-box;
+    background-origin: padding-box, padding-box, content-box;
+}
+
+div.bgorigin14 {
+    -khtml-background-origin: content-box, content-box, border-box;
+    -moz-background-origin: content-box, content-box, border-box;
+    -webkit-background-origin: content-box, content-box, border-box;
+    background-origin: content-box, content-box, border-box;
+}
+
+div.bgorigin15 {
+    -khtml-background-origin: content-box, content-box, padding-box;
+    -moz-background-origin: content-box, content-box, padding-box;
+    -webkit-background-origin: content-box, content-box, padding-box;
+    background-origin: content-box, content-box, padding-box;
+}
+
+div.bgorigin16 {
+    -khtml-background-origin: border-box, padding-box, border-box, padding-box;
+    -moz-background-origin: border-box, padding-box, border-box, padding-box;
+    -webkit-background-origin: border-box, padding-box, border-box, padding-box;
+    background-origin: border-box, padding-box, border-box, padding-box;
+}
+
+div.bgorigin17 {
+    -khtml-background-origin: border-box, content-box, border-box, content-box;
+    -moz-background-origin: border-box, content-box, border-box, content-box;
+    -webkit-background-origin: border-box, content-box, border-box, content-box;
+    background-origin: border-box, content-box, border-box, content-box;
+}
+
+div.bgorigin18 {
+    -khtml-background-origin: padding-box, border-box, padding-box, border-box;
+    -moz-background-origin: padding-box, border-box, padding-box, border-box;
+    -webkit-background-origin: padding-box, border-box, padding-box, border-box;
+    background-origin: padding-box, border-box, padding-box, border-box;
+}
+
+div.bgorigin19 {
+    -khtml-background-origin: padding-box, content-box, padding-box, content-box;
+    -moz-background-origin: padding-box, content-box, padding-box, content-box;
+    -webkit-background-origin: padding-box, content-box, padding-box, content-box;
+    background-origin: padding-box, content-box, padding-box, content-box;
+}
+
+div.bgorigin20 {
+    -khtml-background-origin: content-box, border-box, content-box, border-box;
+    -moz-background-origin: content-box, border-box, content-box, border-box;
+    -webkit-background-origin: content-box, border-box, content-box, border-box;
+    background-origin: content-box, border-box, content-box, border-box;
+}
+
+div.bgorigin21 {
+    -khtml-background-origin: content-box, padding-box, content-box, padding-box;
+    -moz-background-origin: content-box, padding-box, content-box, padding-box;
+    -webkit-background-origin: content-box, padding-box, content-box, padding-box;
+    background-origin: content-box, padding-box, content-box, padding-box;
+}
+
+div.bgorigin22 {
+    -khtml-background-origin: border-box, padding-box, padding-box;
+    -moz-background-origin: border-box, padding-box, padding-box;
+    -webkit-background-origin: border-box, padding-box, padding-box;
+    background-origin: border-box, padding-box, padding-box;
+}
+
+div.bgorigin23 {
+    -khtml-background-origin: border-box, content-box, content-box;
+    -moz-background-origin: border-box, content-box, content-box;
+    -webkit-background-origin: border-box, content-box, content-box;
+    background-origin: border-box, content-box, content-box;
+}
+
+div.bgorigin24 {
+    -khtml-background-origin: padding-box, border-box, border-box;
+    -moz-background-origin: padding-box, border-box, border-box;
+    -webkit-background-origin: padding-box, border-box, border-box;
+    background-origin: padding-box, border-box, border-box;
+}
+
+div.bgorigin25 {
+    -khtml-background-origin: padding-box, content-box, content-box;
+    -moz-background-origin: padding-box, content-box, content-box;
+    -webkit-background-origin: padding-box, content-box, content-box;
+    background-origin: padding-box, content-box, content-box;
+}
+
+div.bgorigin26 {
+    -khtml-background-origin: content-box, border-box, border-box;
+    -moz-background-origin: content-box, border-box, border-box;
+    -webkit-background-origin: content-box, border-box, border-box;
+    background-origin: content-box, border-box, border-box;
+}
+
+div.bgorigin27 {
+    -khtml-background-origin: content-box, padding-box, padding-box;
+    -moz-background-origin: content-box, padding-box, padding-box;
+    -webkit-background-origin: content-box, padding-box, padding-box;
+    background-origin: content-box, padding-box, padding-box;
+}

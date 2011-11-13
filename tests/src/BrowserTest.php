@@ -94,10 +94,97 @@ class BrowserTest extends BaseTest
     }
 
     /**
+     * Test all rules together
+     * @dataProvider fullRuleSetProvider
+     *
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testFullRuleSet($cssString, $expectedString)
+    {
+        $this->_object->setBrowsers(array(
+            'explorer'  => true,
+            'konqueror' => true,
+            'mozilla'   => true,
+            'opera'     => true,
+            'webkit'    => true,
+        ));
+        $this->_object->setBuiltCss($cssString);
+        $this->_object->parseVariables();
+        $this->_object->runCssRules();
+        $this->_object->compress();
+        $cssString = $this->_object->getBuiltCss();
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function fullRuleSetProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/_full/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
+     * Test all rules together
+     * @dataProvider fullRuleSetNoCompressionProvider
+     *
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testFullRuleSetNoCompression($cssString, $expectedString)
+    {
+        $this->_object->setBrowsers(array(
+            'explorer'  => true,
+            'konqueror' => true,
+            'mozilla'   => true,
+            'opera'     => true,
+            'webkit'    => true,
+        ));
+        $this->_object->setBuiltCss($cssString);
+        $this->_object->parseVariables();
+        $this->_object->runCssRules();
+        $cssString = $this->_object->getBuiltCss();
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function fullRuleSetNoCompressionProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $dh = opendir($path);
+
+        $strings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css       = file_get_contents("{$path}/{$file}");
+                $bgCss     = file_get_contents("{$path}/_fullnocompress/{$file}");
+                $strings[] = array($css, $bgCss);
+            }
+        }
+        closedir($dh);
+
+        return $strings;
+    }
+
+    /**
      * Test all animation rules together
      * @covers Browser::animation
      * @dataProvider animationProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -131,7 +218,7 @@ class BrowserTest extends BaseTest
      * Test all animation-delay rules together
      * @covers Browser::animationDelay
      * @dataProvider animationDelayProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -165,7 +252,7 @@ class BrowserTest extends BaseTest
      * Test all animation-direction rules together
      * @covers Browser::animationDirection
      * @dataProvider animationDirectionProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -199,7 +286,7 @@ class BrowserTest extends BaseTest
      * Test all animation-duration rules together
      * @covers Browser::animationDuration
      * @dataProvider animationDurationProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -233,7 +320,7 @@ class BrowserTest extends BaseTest
      * Test all animation-iteration-count rules together
      * @covers Browser::animationIterationCount
      * @dataProvider animationIterationCountProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -267,7 +354,7 @@ class BrowserTest extends BaseTest
      * Test all animation-keyframes rules together
      * @covers Browser::animationKeyframes
      * @dataProvider animationKeyframesProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -301,7 +388,7 @@ class BrowserTest extends BaseTest
      * Test all animation-name rules together
      * @covers Browser::animationName
      * @dataProvider animationNameProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -335,7 +422,7 @@ class BrowserTest extends BaseTest
      * Test all animation-play-state rules together
      * @covers Browser::animationPlayState
      * @dataProvider animationPlayStateProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -369,7 +456,7 @@ class BrowserTest extends BaseTest
      * Test all animation-timing-function rules together
      * @covers Browser::animationTimingFunction
      * @dataProvider animationTimingFunctionProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -380,7 +467,7 @@ class BrowserTest extends BaseTest
         $cssString = $this->_object->animationTimingFunction($cssString);
         $this->assertEquals($expectedString, $cssString);
     }
-    
+
     public function animationTimingFunctionProvider()
     {
         $path = dirname(__FILE__) . '/../css';
@@ -403,7 +490,7 @@ class BrowserTest extends BaseTest
      * Test all background-clip rules together
      * @covers Browser::backgroundClip
      * @dataProvider backgroundClipProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -437,7 +524,7 @@ class BrowserTest extends BaseTest
      * Test all background-origin rules together
      * @covers Browser::backgroundOrigin
      * @dataProvider backgroundOriginProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *
@@ -471,7 +558,7 @@ class BrowserTest extends BaseTest
      * Test all background-size rules together
      * @covers Browser::backgroundSize
      * @dataProvider backgroundSizeProvider
-     * 
+     *
      * @param string $cssString      The string to be tested
      * @param string $expectedString The expected result
      *

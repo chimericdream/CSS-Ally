@@ -1,0 +1,39 @@
+div.transition1 {
+    transition: color .25s linear;
+}
+
+div.transition2 {
+    transition: color .25s linear .1s;
+}
+
+div.transition3 {
+    transition: color .25s linear, background-color .15s linear .1s;
+}
+
+div.transition4 {
+    transition: color .25s linear, background-color .25s linear, border-color .25s linear;
+}
+
+div.transition5 {
+    transition: all .3s linear;
+}
+
+div.transition6 {
+    transition: background-color .5s linear;
+}
+
+div.transition7 {
+    transition: opacity 1s linear;
+}
+
+div.transition8 {
+    transition: color 1s ease-in;
+}
+
+div.transition9 {
+    transition: color 1s ease-in .1s;
+}
+
+div.transition10 {
+    transition: background-color .5s linear .5s;
+}

@@ -104,6 +104,7 @@ class CssAlly
         'radial-gradient'            => true,
         'transform'                  => true,
         'transform-origin'           => true,
+        'transition'                 => true,
         'transition-delay'           => true,
         'transition-duration'        => true,
         'transition-property'        => true,
@@ -485,7 +486,7 @@ class CssAlly
                 } else {
                     $methodName = $methodNameArr[0];
                 }
-                $this->$methodName();
+                $this->_builtCss = $this->$methodName($this->_builtCss);
             }
         }
     } //end runCssRules

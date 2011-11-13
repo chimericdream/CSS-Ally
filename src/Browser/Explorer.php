@@ -409,6 +409,37 @@ class Browser_Explorer extends Browser
     } //end transformOrigin
 
     /**
+     * Add Webkit rules for transition
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transition($cssString = '')
+    {
+        $prop = $this->animatablePropertyRegex();
+        $dur   = $this->timeRegex();
+        $func  = $this->timingFuncRegex();
+        $delay = $this->timeRegex();
+
+        $trans = '(?:'
+                . $prop . '(?:\s+' . $dur . ')?(?:\s+' . $func . ')?(?:\s+' . $delay . ')?'
+              . '|'
+                . '(?:' . $prop . '\s+)?' . $dur . '(?:\s+' . $func . ')?(?:\s+' . $delay . ')?'
+              . '|'
+                . '(?:' . $prop . '\s+)?(?:' . $dur . '\s+)?' . $func . '(?:\s+' . $delay . ')?'
+              . '|'
+                . '(?:' . $prop . '\s+)?(?:' . $dur . '\s+)?(?:' . $func . '\s+)?' . $delay
+              . ')';
+
+        $search    = '/(\s*)(?<!-)(transition:\s*)(' . $trans . '(?:,\s*' . $trans . ')*);?/';
+        $replace   = '${1}-ms-${2}${3};${1}${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end transition
+
+    /**
      * Add Explorer rules for transition-delay
      *
      * @param string $cssString The CSS to be parsed

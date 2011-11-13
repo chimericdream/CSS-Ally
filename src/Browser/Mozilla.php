@@ -725,6 +725,37 @@ class Browser_Mozilla extends Browser
     } //end transformOrigin
 
     /**
+     * Add Mozilla rules for transition
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transition($cssString = '')
+    {
+        $prop = $this->animatablePropertyRegex();
+        $dur   = $this->timeRegex();
+        $func  = $this->timingFuncRegex();
+        $delay = $this->timeRegex();
+
+        $trans = '(?:'
+                . $prop . '(?:\s+' . $dur . ')?(?:\s+' . $func . ')?(?:\s+' . $delay . ')?'
+              . '|'
+                . '(?:' . $prop . '\s+)?' . $dur . '(?:\s+' . $func . ')?(?:\s+' . $delay . ')?'
+              . '|'
+                . '(?:' . $prop . '\s+)?(?:' . $dur . '\s+)?' . $func . '(?:\s+' . $delay . ')?'
+              . '|'
+                . '(?:' . $prop . '\s+)?(?:' . $dur . '\s+)?(?:' . $func . '\s+)?' . $delay
+              . ')';
+
+        $search    = '/(\s*)(?<!-)(transition:\s*)(' . $trans . '(?:,\s*' . $trans . ')*);?/';
+        $replace   = '${1}-moz-${2}${3};${1}${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end transition
+
+    /**
      * Add Mozilla rules for transition-delay
      *
      * @param string $cssString The CSS to be parsed

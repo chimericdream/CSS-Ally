@@ -1,0 +1,51 @@
+div.bimg1 {
+    border-image: url('border.gif') 27 stretch stretch;
+}
+
+div.bimg2 {
+    border-image: url('border.gif') 27 round round;
+}
+
+div.bimg3 {
+    border-image: url(border.png) 27 27 27 27 round round;
+}
+
+div.bimg4 {
+    border-image: url(whiteButton.png) 0 12 0 12 stretch stretch;
+}
+
+div.bimg5 {
+    border-image: url("border.png") 5 10 5 10 repeat;
+}
+
+div.bimg6 {
+    border-image: url("border.png") 25;
+}
+
+div.bimg7 {
+    border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px;
+}
+
+div.bimg8 {
+    border-image: url(example.jpg) 50% / 50px round;
+}
+
+div.bimg9 {
+    border-image: url(example.jpg) 50% / 50px round;
+}
+
+div.bimg10 {
+    border-image: url(example.jpg) 3 4 6 8 / 10em 12em 14em 22em;
+}
+
+div.bimg11 {
+    border-image: url(example.jpg) 50% 40% / 10px 12px 14px 22px;
+}
+
+div.bimg12 {
+    border-image: url(example.jpg) 3 4 6 8 / 10px 12px 14px 22px stretch repeat;
+}
+
+div.bimg13 {
+    border-image: none;
+}

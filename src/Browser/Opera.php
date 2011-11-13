@@ -98,9 +98,9 @@ class Browser_Opera extends Browser
         $num = $this->numberRegex();
         $pct = $this->percentRegex();
         $bwd = $this->borderWidthRegex();
-        
+
         $search = '(none|(?:' . $img . '(?:\s+(?:' . $pct . '|' . $num . ')){1,4}(?:\s*\/\s*(?:' . $bwd . ')(?:(?:\s+' . $bwd . '){1,3})?)?(?:\s+(?:stretch|repeat|round)){0,2}))';
-        
+
         $search    = '/(\s*)(?<!-)(border-image:(?:\s*))' . $search . ';?/';
         $replace   = '${1}-o-${2}${3};${1}${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -268,11 +268,11 @@ class Browser_Opera extends Browser
             'skewY\(' . $angle . '\)',
             'skew\(' . $angle . '(?:,\s*' . $angle . ')?\)',
         );
-        
+
         $functions = implode('|', $transformFunctions);
 
         $search = '/(\s*)(?<!-)transform:((\s*)(' . $functions . ')(?:\s+(' . $functions . '))*);?/';
-        
+
         $replace = '${1}-o-transform:${2};${1}'
                 . 'transform:${2};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -297,13 +297,44 @@ class Browser_Opera extends Browser
                    . $length . '|top|center|bottom))?|((left|center|right)'
                    . '(\s+(top|center|bottom))?|((left|center|right)\s+)?'
                    . '(top|center|bottom))));?/';
-        
+
         $replace   = '${1}-o-transform-origin:${2}${3};${1}'
                    . 'transform-origin:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
         return $cssString;
     } //end transformOrigin
+
+    /**
+     * Add Opera rules for transition
+     *
+     * @param string $cssString The CSS to be parsed
+     *
+     * @return string The parsed output
+     */
+    public function transition($cssString = '')
+    {
+        $prop = $this->animatablePropertyRegex();
+        $dur   = $this->timeRegex();
+        $func  = $this->timingFuncRegex();
+        $delay = $this->timeRegex();
+
+        $trans = '(?:'
+                . $prop . '(?:\s+' . $dur . ')?(?:\s+' . $func . ')?(?:\s+' . $delay . ')?'
+              . '|'
+                . '(?:' . $prop . '\s+)?' . $dur . '(?:\s+' . $func . ')?(?:\s+' . $delay . ')?'
+              . '|'
+                . '(?:' . $prop . '\s+)?(?:' . $dur . '\s+)?' . $func . '(?:\s+' . $delay . ')?'
+              . '|'
+                . '(?:' . $prop . '\s+)?(?:' . $dur . '\s+)?(?:' . $func . '\s+)?' . $delay
+              . ')';
+
+        $search    = '/(\s*)(?<!-)(transition:\s*)(' . $trans . '(?:,\s*' . $trans . ')*);?/';
+        $replace   = '${1}-o-${2}${3};${1}${2}${3};';
+        $cssString = preg_replace($search, $replace, $cssString);
+
+        return $cssString;
+    } //end transition
 
     /**
      * Add Opera rules for transition-delay
@@ -353,7 +384,7 @@ class Browser_Opera extends Browser
     public function transitionProperty($cssString = '')
     {
         $property = $this->animatablePropertyRegex();
-        
+
         $search    = '/(\s*)(?<!-)transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
         $replace   = '${1}-o-transition-property:${2}${3};${1}'
                    . 'transition-property:${2}${3};';
