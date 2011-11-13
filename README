@@ -59,10 +59,11 @@ linear-gradient                 ms, moz, o, webkit
 radial-gradient                 ms, moz, o, webkit
 transform                       ms, moz, o, webkit
 transform-origin                ms, moz, o, webkit
-transform-delay                 ms, moz, o, webkit
-transform-duration              ms, moz, o, webkit
-transform-property              ms, moz, o, webkit
-transform-timing-function       ms, moz, o, webkit
+transition                      ms, moz, o, webkit
+transition-delay                ms, moz, o, webkit
+transition-duration             ms, moz, o, webkit
+transition-property             ms, moz, o, webkit
+transition-timing-function      ms, moz, o, webkit
 
 ### Variables
 

@@ -63,10 +63,11 @@ The following CSS rules can be autmatically prefixed by CSS Ally.
         <tr><td>radial-gradient</td><td>ms, moz, o, webkit</td></tr>
         <tr><td>transform</td><td>ms, moz, o, webkit</td></tr>
         <tr><td>transform-origin</td><td>ms, moz, o, webkit</td></tr>
-        <tr><td>transform-delay</td><td>ms, moz, o, webkit</td></tr>
-        <tr><td>transform-duration</td><td>ms, moz, o, webkit</td></tr>
-        <tr><td>transform-property</td><td>ms, moz, o, webkit</td></tr>
-        <tr><td>transform-timing-function</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transition</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transition-delay</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transition-duration</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transition-property</td><td>ms, moz, o, webkit</td></tr>
+        <tr><td>transition-timing-function</td><td>ms, moz, o, webkit</td></tr>
     </tbody>
 </table>
 
