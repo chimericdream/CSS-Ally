@@ -1,0 +1,23 @@
+div.vars-one {
+    color: $varname;
+}
+
+div.vars-two {
+    color: $varname2;
+}
+
+div.vars-three {
+    color: $varname3;
+}
+
+div.vars-four {
+    color: $varname4;
+}
+
+div.vars-five {
+    color: $var_name;
+}
+
+div.vars-six {
+    color: $var-name;
+}
