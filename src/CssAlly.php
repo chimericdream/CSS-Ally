@@ -430,7 +430,7 @@ class CssAlly
      */
     public function parseVariables()
     {
-        $find = '/\s*\$([a-zA-Z][_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;/';
+        $find = '/\s*\$([a-zA-Z][-_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;/';
         $v    = array();
         preg_match_all($find, $this->_builtCss, $v);
         $vars = array();
@@ -486,7 +486,7 @@ class CssAlly
      */
     public function removeVariables()
     {
-        $search = '/\s*\$([a-zA-Z][_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;\s*/';
+        $search = '/\s*\$([a-zA-Z][-_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;\s*/';
         $this->_builtCss = preg_replace($search, '', $this->_builtCss);
     } //end removeVariables
 
