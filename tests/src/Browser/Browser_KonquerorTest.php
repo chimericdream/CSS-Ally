@@ -102,19 +102,11 @@ class Browser_KonquerorTest extends BaseTest
     public function backgroundClipProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'background-clip/konqueror';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $shadowCss        = file_get_contents("{$path}/background-clip/konqueror/{$file}");
-                $testCssStrings[] = array($css, $shadowCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -134,18 +126,10 @@ class Browser_KonquerorTest extends BaseTest
     public function backgroundOriginProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'background-origin/konqueror';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $shadowCss        = file_get_contents("{$path}/background-origin/konqueror/{$file}");
-                $testCssStrings[] = array($css, $shadowCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 }
