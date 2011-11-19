@@ -592,19 +592,11 @@ class CssAllyTest extends BaseTest
     public function compressProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'compressed';
+        
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $compressed       = file_get_contents("{$path}/compressed/{$file}");
-                $testCssStrings[] = array($css, $compressed);
-            }
-        }
-        closedir($dh);
-
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -689,17 +681,9 @@ class CssAllyTest extends BaseTest
     public function removeVariablesProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
-
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $varCss    = file_get_contents("{$path}/remove-vars/{$file}");
-                $strings[] = array($css, $varCss);
-            }
-        }
-        closedir($dh);
+        $subFolder = 'remove-vars';
+        
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -724,17 +708,9 @@ class CssAllyTest extends BaseTest
     public function processImportsProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
-
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $varCss    = file_get_contents("{$path}/import/{$file}");
-                $strings[] = array($css, $varCss);
-            }
-        }
-        closedir($dh);
+        $subFolder = 'import';
+        
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -759,17 +735,9 @@ class CssAllyTest extends BaseTest
     public function parseVariablesProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
-
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $varCss    = file_get_contents("{$path}/variables/{$file}");
-                $strings[] = array($css, $varCss);
-            }
-        }
-        closedir($dh);
+        $subFolder = 'variables';
+        
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }

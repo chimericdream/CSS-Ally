@@ -124,17 +124,9 @@ class BrowserTest extends BaseTest
     public function fullRuleSetProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = '_full';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/_full/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -169,17 +161,9 @@ class BrowserTest extends BaseTest
     public function fullRuleSetNoCompressionProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = '_fullnocompress';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/_fullnocompress/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -203,17 +187,9 @@ class BrowserTest extends BaseTest
     public function animationProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'animation';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -237,17 +213,9 @@ class BrowserTest extends BaseTest
     public function animationDelayProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-delay';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-delay/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -271,17 +239,9 @@ class BrowserTest extends BaseTest
     public function animationDirectionProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-direction';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-direction/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -305,17 +265,9 @@ class BrowserTest extends BaseTest
     public function animationDurationProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-duration';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-duration/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -339,17 +291,9 @@ class BrowserTest extends BaseTest
     public function animationIterationCountProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-iteration-count';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-iteration-count/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -373,17 +317,9 @@ class BrowserTest extends BaseTest
     public function animationKeyframesProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-keyframes';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-keyframes/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -407,17 +343,9 @@ class BrowserTest extends BaseTest
     public function animationNameProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-name';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-name/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -441,17 +369,9 @@ class BrowserTest extends BaseTest
     public function animationPlayStateProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-play-state';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-play-state/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -475,17 +395,9 @@ class BrowserTest extends BaseTest
     public function animationTimingFunctionProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-timing-function';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-timing-function/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -509,17 +421,9 @@ class BrowserTest extends BaseTest
     public function backgroundClipProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'background-clip';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/background-clip/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -543,17 +447,9 @@ class BrowserTest extends BaseTest
     public function backgroundOriginProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'background-origin';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/background-origin/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -577,17 +473,9 @@ class BrowserTest extends BaseTest
     public function backgroundSizeProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'background-size';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/background-size/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -609,19 +497,11 @@ class BrowserTest extends BaseTest
     public function borderImageProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'border-image';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $radiusCss        = file_get_contents("{$path}/border-image/{$file}");
-                $testCssStrings[] = array($css, $radiusCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -641,17 +521,9 @@ class BrowserTest extends BaseTest
     public function borderRadiusProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'border-radius';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $borderCss = file_get_contents("{$path}/border-radius/{$file}");
-                $strings[] = array($css, $borderCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -671,17 +543,9 @@ class BrowserTest extends BaseTest
     public function boxShadowProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'box-shadow';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $shadowCss = file_get_contents("{$path}/box-shadow/{$file}");
-                $strings[] = array($css, $shadowCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -701,17 +565,9 @@ class BrowserTest extends BaseTest
     public function columnCountProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'column-count';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/column-count/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -731,17 +587,9 @@ class BrowserTest extends BaseTest
     public function columnGapProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'column-gap';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/column-gap/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -761,17 +609,9 @@ class BrowserTest extends BaseTest
     public function columnRuleProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'column-rule';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/column-rule/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -791,17 +631,9 @@ class BrowserTest extends BaseTest
     public function columnSpanProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'column-span';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/column-span/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -821,17 +653,9 @@ class BrowserTest extends BaseTest
     public function columnWidthProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'column-width';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/column-width/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -851,17 +675,9 @@ class BrowserTest extends BaseTest
     public function columnsProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'columns';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/columns/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -883,19 +699,11 @@ class BrowserTest extends BaseTest
     public function linearGradientProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'linear-gradient';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/linear-gradient/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -915,19 +723,11 @@ class BrowserTest extends BaseTest
     public function radialGradientProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'radial-gradient';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/radial-gradient/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -945,17 +745,9 @@ class BrowserTest extends BaseTest
     public function transformProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'transform';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/transform/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -975,17 +767,9 @@ class BrowserTest extends BaseTest
     public function transformOriginProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'transform-origin';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/transform-origin/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -1005,17 +789,9 @@ class BrowserTest extends BaseTest
     public function transitionDelayProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-delay';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/transition-delay/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -1035,17 +811,9 @@ class BrowserTest extends BaseTest
     public function transitionDurationProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-duration';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/transition-duration/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -1065,17 +833,9 @@ class BrowserTest extends BaseTest
     public function transitionPropertyProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-property';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/transition-property/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -1095,17 +855,9 @@ class BrowserTest extends BaseTest
     public function transitionTimingFunctionProvider()
     {
         $path = dirname(__FILE__) . '/../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-timing-function';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $colCss    = file_get_contents("{$path}/transition-timing-function/{$file}");
-                $strings[] = array($css, $colCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
