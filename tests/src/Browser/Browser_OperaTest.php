@@ -102,19 +102,11 @@ class Browser_OperaTest extends BaseTest
     public function backgroundSizeProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'background-size/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $shadowCss        = file_get_contents("{$path}/background-size/opera/{$file}");
-                $testCssStrings[] = array($css, $shadowCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -134,19 +126,11 @@ class Browser_OperaTest extends BaseTest
     public function borderImageProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'border-image/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $radiusCss        = file_get_contents("{$path}/border-image/opera/{$file}");
-                $testCssStrings[] = array($css, $radiusCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -166,19 +150,11 @@ class Browser_OperaTest extends BaseTest
     public function borderRadiusProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'border-radius/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $radiusCss        = file_get_contents("{$path}/border-radius/opera/{$file}");
-                $testCssStrings[] = array($css, $radiusCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -198,19 +174,11 @@ class Browser_OperaTest extends BaseTest
     public function linearGradientProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'linear-gradient/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/linear-gradient/opera/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -230,19 +198,11 @@ class Browser_OperaTest extends BaseTest
     public function radialGradientProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'radial-gradient/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/radial-gradient/opera/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -262,19 +222,11 @@ class Browser_OperaTest extends BaseTest
     public function transformProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transform/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transform/opera/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -294,19 +246,11 @@ class Browser_OperaTest extends BaseTest
     public function transformOriginProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transform-origin/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transform-origin/opera/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -326,19 +270,11 @@ class Browser_OperaTest extends BaseTest
     public function transitionDelayProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-delay/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transition-delay/opera/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -358,19 +294,11 @@ class Browser_OperaTest extends BaseTest
     public function transitionDurationProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-duration/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transition-duration/opera/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -390,19 +318,11 @@ class Browser_OperaTest extends BaseTest
     public function transitionPropertyProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-property/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transition-property/opera/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -422,18 +342,10 @@ class Browser_OperaTest extends BaseTest
     public function transitionTimingFunctionProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-timing-function/opera';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transition-timing-function/opera/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 }

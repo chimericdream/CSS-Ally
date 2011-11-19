@@ -104,17 +104,9 @@ class Browser_MozillaTest extends BaseTest
     public function animationProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'animation/mozilla';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation/mozilla/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -138,17 +130,9 @@ class Browser_MozillaTest extends BaseTest
     public function animationDelayProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-delay/mozilla';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-delay/mozilla/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -172,17 +156,9 @@ class Browser_MozillaTest extends BaseTest
     public function animationDirectionProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-direction/mozilla';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-direction/mozilla/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -206,17 +182,9 @@ class Browser_MozillaTest extends BaseTest
     public function animationDurationProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-duration/mozilla';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-duration/mozilla/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -240,17 +208,9 @@ class Browser_MozillaTest extends BaseTest
     public function animationIterationCountProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-iteration-count/mozilla';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-iteration-count/mozilla/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -274,17 +234,9 @@ class Browser_MozillaTest extends BaseTest
     public function animationKeyframesProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-keyframes/mozilla';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-keyframes/mozilla/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -308,17 +260,9 @@ class Browser_MozillaTest extends BaseTest
     public function animationNameProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-name/mozilla';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-name/mozilla/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -342,17 +286,9 @@ class Browser_MozillaTest extends BaseTest
     public function animationPlayStateProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-play-state/mozilla';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-play-state/mozilla/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -376,17 +312,9 @@ class Browser_MozillaTest extends BaseTest
     public function animationTimingFunctionProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'animation-timing-function/mozilla';
 
-        $strings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css       = file_get_contents("{$path}/{$file}");
-                $bgCss     = file_get_contents("{$path}/animation-timing-function/mozilla/{$file}");
-                $strings[] = array($css, $bgCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
     }
@@ -408,19 +336,11 @@ class Browser_MozillaTest extends BaseTest
     public function backgroundClipProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'background-clip/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $shadowCss        = file_get_contents("{$path}/background-clip/mozilla/{$file}");
-                $testCssStrings[] = array($css, $shadowCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -440,19 +360,11 @@ class Browser_MozillaTest extends BaseTest
     public function backgroundOriginProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'background-origin/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $shadowCss        = file_get_contents("{$path}/background-origin/mozilla/{$file}");
-                $testCssStrings[] = array($css, $shadowCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -472,19 +384,11 @@ class Browser_MozillaTest extends BaseTest
     public function backgroundSizeProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'background-size/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $shadowCss        = file_get_contents("{$path}/background-size/mozilla/{$file}");
-                $testCssStrings[] = array($css, $shadowCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -504,19 +408,11 @@ class Browser_MozillaTest extends BaseTest
     public function borderImageProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'border-image/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $radiusCss        = file_get_contents("{$path}/border-image/mozilla/{$file}");
-                $testCssStrings[] = array($css, $radiusCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -536,19 +432,11 @@ class Browser_MozillaTest extends BaseTest
     public function borderRadiusProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'border-radius/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $radiusCss        = file_get_contents("{$path}/border-radius/mozilla/{$file}");
-                $testCssStrings[] = array($css, $radiusCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -568,19 +456,11 @@ class Browser_MozillaTest extends BaseTest
     public function boxShadowProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'box-shadow/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $shadowCss        = file_get_contents("{$path}/box-shadow/mozilla/{$file}");
-                $testCssStrings[] = array($css, $shadowCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -600,19 +480,11 @@ class Browser_MozillaTest extends BaseTest
     public function columnCountProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'column-count/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/column-count/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -632,19 +504,11 @@ class Browser_MozillaTest extends BaseTest
     public function columnGapProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'column-gap/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/column-gap/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -664,19 +528,11 @@ class Browser_MozillaTest extends BaseTest
     public function columnRuleProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'column-rule/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/column-rule/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -696,19 +552,11 @@ class Browser_MozillaTest extends BaseTest
     public function columnSpanProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'column-span/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/column-span/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -728,19 +576,11 @@ class Browser_MozillaTest extends BaseTest
     public function columnWidthProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'column-width/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/column-width/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -760,19 +600,11 @@ class Browser_MozillaTest extends BaseTest
     public function columnsProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'columns/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/columns/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -792,19 +624,11 @@ class Browser_MozillaTest extends BaseTest
     public function linearGradientProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'linear-gradient/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/linear-gradient/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -824,19 +648,11 @@ class Browser_MozillaTest extends BaseTest
     public function radialGradientProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'radial-gradient/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/radial-gradient/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -856,19 +672,11 @@ class Browser_MozillaTest extends BaseTest
     public function transformProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transform/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transform/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -888,19 +696,11 @@ class Browser_MozillaTest extends BaseTest
     public function transformOriginProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transform-origin/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transform-origin/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -920,19 +720,11 @@ class Browser_MozillaTest extends BaseTest
     public function transitionDelayProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-delay/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transition-delay/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -952,19 +744,11 @@ class Browser_MozillaTest extends BaseTest
     public function transitionDurationProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-duration/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transition-duration/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -984,19 +768,11 @@ class Browser_MozillaTest extends BaseTest
     public function transitionPropertyProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-property/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transition-property/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 
     /**
@@ -1016,18 +792,10 @@ class Browser_MozillaTest extends BaseTest
     public function transitionTimingFunctionProvider()
     {
         $path = dirname(__FILE__) . '/../../css';
-        $dh = opendir($path);
+        $subFolder = 'transition-timing-function/mozilla';
 
-        $testCssStrings = array();
-        while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
-                $css              = file_get_contents("{$path}/{$file}");
-                $columnCss        = file_get_contents("{$path}/transition-timing-function/mozilla/{$file}");
-                $testCssStrings[] = array($css, $columnCss);
-            }
-        }
-        closedir($dh);
+        $strings = $this->getCssStrings($path, $subFolder);
 
-        return $testCssStrings;
+        return $strings;
     }
 }

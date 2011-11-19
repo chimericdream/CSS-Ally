@@ -44,4 +44,29 @@
  */
 class BaseTest extends PHPUnit_Framework_TestCase
 {
+    public function getCssStrings($path, $subFolder = null)
+    {
+        $dh = opendir($path);
+
+        $testCssStrings = array();
+        while (false !== ($file = readdir($dh))) {
+            if (!is_dir("{$path}/{$file}")) {
+                $css              = file_get_contents("{$path}/{$file}");
+                if (!is_null($subFolder)) {
+                    $expcted          = file_get_contents("{$path}/{$subFolder}/{$file}");
+                    $testCssStrings[] = array($css, $expcted);
+                } else {
+                    $testCssStrings[] = array();
+                }
+            }
+        }
+        closedir($dh);
+
+        return $testCssStrings;
+    }
+    
+    public function getCssFileList()
+    {
+        
+    }
 }
