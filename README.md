@@ -88,6 +88,57 @@ and contains letters, numbers, hyphens, and underscores.
 variables in your CSS, then your files can be used with or without this
 software.
 
+### Mixins
+
+CSS Ally supports mixins in your CSS! We use the same syntax as SASS, a CSS
+pre-processor written Ruby. A simple example mixin would look like this:
+
+`@mixin rounded() {
+    border-radius: 5px;
+}
+
+div.myclass {
+    @include rounded();
+}`
+
+Using this in your code would result in the following output:
+
+`div.myclass {
+    border-radius: 5px;
+}`
+
+Mixins can optionally include parameters, giving you the ability to change the
+specifics of the code included in your mixin.
+
+`@mixin rounded($side: top-left, $radius: 10px, $color: green) {
+    border-#{$side}-radius: $radius;
+    border-color: $color;
+}
+
+div.myclass {
+    @include rounded();
+}
+
+div.myclass2 {
+    @include rounded(bottom-right, 2px, blue);
+}`
+
+Results in:
+
+`div.myclass {
+    border-top-left-radius: 10px;
+    border-color: green;
+}
+
+div.myclass2 {
+    border-bottom-right-radius: 2px;
+    border-color: blue;
+}`
+
+*Note:* Mixins are an optional part of CSS Ally. If you choose not to use
+mixins in your CSS, then your files can be used with or without this
+software.
+
 ### Cleaning Up Your Code
 
 CSS Ally has more than one way to clean up your code.
