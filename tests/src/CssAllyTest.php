@@ -1,26 +1,26 @@
 <?php
 /**
  * CssAlly
- * 
+ *
  * Copyright (C) 2011 Bill Parrott
- * 
+ *
  * LICENSE
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  * PHP Version 5
- * 
+ *
  * @category   CssAlly
  * @package    CssAlly_Tests
  * @author     Bill Parrott <bill@cssally.com>
@@ -30,7 +30,7 @@
  */
 
 /**
- * @see BaseTest 
+ * @see BaseTest
  */
 require_once dirname(__FILE__) . '/BaseTest.php';
 
@@ -41,7 +41,7 @@ require_once dirname(__FILE__) . '/../../src/CssAlly.php';
 
 /**
  * Test class for CssAlly utility functions
- * 
+ *
  * This class tests the utility functions of the CssAlly class. These functions
  * include such things as setting which browsers are targeted, adding CSS files
  * to be parsed, and so on.
@@ -593,7 +593,7 @@ class CssAllyTest extends BaseTest
     {
         $path = dirname(__FILE__) . '/../css';
         $subFolder = 'compressed';
-        
+
         $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
@@ -660,7 +660,7 @@ class CssAllyTest extends BaseTest
 
         return array($fileList);
     }
-    
+
     /**
      * @covers CssAlly::removeVariables
      * @depends testSetBuiltCss
@@ -682,7 +682,7 @@ class CssAllyTest extends BaseTest
     {
         $path = dirname(__FILE__) . '/../css';
         $subFolder = 'remove-vars';
-        
+
         $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
@@ -709,7 +709,7 @@ class CssAllyTest extends BaseTest
     {
         $path = dirname(__FILE__) . '/../css';
         $subFolder = 'import';
-        
+
         $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;
@@ -736,7 +736,61 @@ class CssAllyTest extends BaseTest
     {
         $path = dirname(__FILE__) . '/../css';
         $subFolder = 'variables';
-        
+
+        $strings = $this->getCssStrings($path, $subFolder);
+
+        return $strings;
+    }
+
+    /**
+     * @covers CssAlly::removeMixins
+     * @depends testSetBuiltCss
+     * @dataProvider removeMixinsProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testRemoveMixins($cssString, $expectedString)
+    {
+        $this->_object->setBuiltCss($cssString);
+        $this->_object->removeMixins();
+
+        $this->assertEquals($expectedString, $this->_object->getBuiltCss());
+    }
+
+    public function removeMixinsProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $subFolder = 'remove-mixins';
+
+        $strings = $this->getCssStrings($path, $subFolder);
+
+        return $strings;
+    }
+
+    /**
+     * @covers CssAlly::processMixins
+     * @depends testRemoveMixins
+     * @dataProvider processMixinsProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testProcessMixins($cssString, $expectedString)
+    {
+        $this->_object->setBuiltCss($cssString);
+        $this->_object->processMixins();
+
+        $this->assertEquals($expectedString, $this->_object->getBuiltCss());
+    }
+
+    public function processMixinsProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $subFolder = 'mixins';
+
         $strings = $this->getCssStrings($path, $subFolder);
 
         return $strings;

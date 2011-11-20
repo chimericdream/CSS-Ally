@@ -1,0 +1,64 @@
+@mixin rounded($side, $radius: 10px) {
+    border-#{$side}-radius: $radius;
+}
+
+@mixin rounded2($side, $radius) {
+    border-#{$side}-radius: $radius;
+}
+
+@mixin rounded3($side) {
+    border-#{$side}-radius: 10px;
+}
+
+@mixin rounded4($side: top) {
+    border-#{$side}-radius: 10px;
+}
+
+@mixin rounded5($side: top, $radius: 10px, $color: green) {
+    border-#{$side}-radius: $radius;
+    border-color: $color;
+}
+
+@mixin rounded6() {
+    border-radius: 5px;
+}
+
+div.mixin1 {
+    @include rounded(top);
+}
+
+div.mixin2 {
+    @include rounded2(top, 5px);
+}
+
+div.mixin3 {
+    @include rounded(left, 8px);
+}
+
+div.mixin4 {
+    @include rounded3(right);
+}
+
+div.mixin5 {
+    @include rounded4();
+}
+
+div.mixin6 {
+    @include rounded5();
+}
+
+div.mixin7 {
+    @include rounded5(left);
+}
+
+div.mixin8 {
+    @include rounded5(right, 5px);
+}
+
+div.mixin9 {
+    @include rounded5(bottom, 2px, blue);
+}
+
+div.mixin10 {
+    @include rounded6();
+}

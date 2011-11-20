@@ -479,6 +479,45 @@ class CssAlly
         }
     } //end processImports
 
+    public function processMixins()
+    {
+        $find = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:[-_a-zA-Z0-9:$;\s#]|\{\$[^}]+\})+)\}/';
+        $m    = array();
+        preg_match_all($find, $this->_builtCss, $m);
+        echo "\n\n<pre>\n";
+        var_dump($m);
+        echo "\n</pre>\n\n";
+        $mixins = array();
+        foreach ($m[1] as $index => $mixinName) {
+            $mixins[] = array(
+                'name'    => $mixinName,
+                'params'  => $m[2][$index],
+                'content' => $m[3][$index],
+            );
+        }
+        $this->removeMixins();
+
+        foreach ($mixins as $mix) {
+//            $find          = '/\$' . $mix['name'] . '([^_a-zA-Z0-9])/';
+//            $this->_builtCss = preg_replace(
+//                $find, 
+//                $mix['value'] . '${1}', 
+//                $this->_builtCss
+//            );
+        }
+    } //end processMixins
+    
+    /**
+     * Remove mixin declarations and imports from the CSS string
+     *
+     * @return void
+     */
+    public function removeMixins()
+    {
+        $search = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:[-_a-zA-Z0-9:$;\s#]|\{\$[^}]+\})+)\}\s*/';
+        $this->_builtCss = preg_replace($search, '', $this->_builtCss);
+    } //end removeMixins
+    
     /**
      * Remove variable declarations from the CSS string
      *
