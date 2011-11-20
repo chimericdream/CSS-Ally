@@ -171,7 +171,6 @@ FUTURE DEVELOPMENT
 - Complete the implementation of common CSS rules which require vendor-specific
   code to work.
 - Add support for targeting specific versions of specific browsers
-- Add mixin support (similar to LESS, SASS, and others)
 - ??? (Have a suggestion? [Email me!](mailto:bill@cssally.com "Send me your suggestions"))
 - PROFIT!
 
