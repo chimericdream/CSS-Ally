@@ -20,6 +20,7 @@
 }
 
 @mixin rounded6() {
+    -o-border-radius: 5px;
     border-radius: 5px;
 }
 

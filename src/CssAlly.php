@@ -445,8 +445,8 @@ class CssAlly
         foreach ($vars as $var) {
             $find          = '/\$' . $var['name'] . '([^_a-zA-Z0-9])/';
             $this->_builtCss = preg_replace(
-                $find, 
-                $var['value'] . '${1}', 
+                $find,
+                $var['value'] . '${1}',
                 $this->_builtCss
             );
         }
@@ -472,8 +472,8 @@ class CssAlly
             $name = str_replace('.', '\.', $import);
             $find = '/\@import\s+(?:url\((\'|")' . $name . '\1\)|(\'|")' . $name . '\2);\s*/';
             $this->_builtCss = preg_replace(
-                $find, 
-                $css, 
+                $find,
+                $css,
                 $this->_builtCss
             );
         }
@@ -481,34 +481,92 @@ class CssAlly
 
     public function processMixins()
     {
-        $find = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:[-_a-zA-Z0-9:$;\s#]|\{\$[^}]+\})+)\}/';
-        $m    = array();
-        preg_match_all($find, $this->_builtCss, $m);
-        echo "\n\n<pre>\n";
-        var_dump($m);
-        echo "\n</pre>\n\n";
+        $find   = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:[-_a-zA-Z0-9:$;\s#]|\{\$[^}]+\})+)\}/';
+        $m      = array();
         $mixins = array();
+
+        preg_match_all($find, $this->_builtCss, $m);
         foreach ($m[1] as $index => $mixinName) {
+            $pars      = preg_split('/,\s*/', $m[2][$index]);
+            $params    = array();
+            $reqParams = 0;
+            $optParams = 0;
+            if (!empty($pars[0])) {
+                foreach ($pars as $p) {
+                    $p                = preg_split('/:\s*/', $p);
+                    $param            = array();
+                    $param['name']    = substr($p[0], 1);
+                    $param['default'] = isset($p[1]) ? $p[1] : '';
+
+                    if (isset($p[1])) {
+                        $optParams++;
+                    } else {
+                        $reqParams++;
+                    }
+                    $params[] = $param;
+                }
+            }
             $mixins[] = array(
-                'name'    => $mixinName,
-                'params'  => $m[2][$index],
-                'content' => $m[3][$index],
+                'name'          => $mixinName,
+                'params'        => $params,
+                'content'       => trim($m[3][$index]),
+                'reqParamCount' => $reqParams,
+                'optParamCount' => $optParams,
             );
         }
         $this->removeMixins();
 
+        $singlePar = '(?:[^,\)]+)';
         foreach ($mixins as $mix) {
-//            $find          = '/\$' . $mix['name'] . '([^_a-zA-Z0-9])/';
-//            $this->_builtCss = preg_replace(
-//                $find, 
-//                $mix['value'] . '${1}', 
-//                $this->_builtCss
-//            );
+            $m      = array();
+            $pcount = count($mix['params']);
+            $pReg   = '()';
+            if ($pcount >= 1) {
+                $pReg  = '(';
+                $start = ($pcount - 2) < 0 ? 0 : $pcount - 2;
+
+                for ($r = 1; $r <= $mix['reqParamCount']; $r++) {
+                    if ($r > 1) {
+                        $pReg .= ',\s*';
+                    }
+                    $pReg .= $singlePar;
+                }
+
+                for ($o = 1; $o <= $mix['optParamCount']; $o++) {
+                    $pReg .= '(?:';
+                    if ($o > 1 || $mix['reqParamCount'] > 0) {
+                        $pReg .= ',\s*';
+                    }
+                    $pReg .= $singlePar . ')?';
+                }
+
+                $pReg .= ')';
+            }
+            $find = "/(\s*)\@include\s+({$mix['name']}\({$pReg}\));/";
+            preg_match_all($find, $this->_builtCss, $m);
+            foreach ($m[0] as $index => $include) {
+                $content = $m[1][$index] . preg_replace('/[\r\n]+\s*/', $m[1][$index], $mix['content']);
+                $params  = preg_split('/,\s*/', $m[3][$index]);
+                foreach ($mix['params'] as $pindex => $param) {
+                    if (isset($params[$pindex]) && !empty($params[$pindex])) {
+                        $replace = $params[$pindex];
+                    } else {
+                        $replace = $mix['params'][$pindex]['default'];
+                    }
+                    $pname = $mix['params'][$pindex]['name'];
+                    $content = preg_replace('/#\{\$' . $pname . '\}/', $replace, $content);
+                    $content = preg_replace('/\$' . $pname . '/', $replace, $content);
+                }
+                $includeRep = '/\s*\@include\s+' . $m[2][$index] . ';/';
+                $includeRep = str_replace('(', '\(', $includeRep);
+                $includeRep = str_replace(')', '\)', $includeRep);
+                $this->_builtCss = preg_replace($includeRep, $content, $this->_builtCss, 1);
+            }
         }
     } //end processMixins
-    
+
     /**
-     * Remove mixin declarations and imports from the CSS string
+     * Remove mixin declarations from the CSS string
      *
      * @return void
      */
@@ -517,7 +575,7 @@ class CssAlly
         $search = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:[-_a-zA-Z0-9:$;\s#]|\{\$[^}]+\})+)\}\s*/';
         $this->_builtCss = preg_replace($search, '', $this->_builtCss);
     } //end removeMixins
-    
+
     /**
      * Remove variable declarations from the CSS string
      *

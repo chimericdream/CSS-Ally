@@ -50,7 +50,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
         $testCssStrings = array();
         while (false !== ($file = readdir($dh))) {
-            if (!is_dir("{$path}/{$file}")) {
+            if (!is_dir("{$path}/{$file}") && substr($file, -3) == 'css') {
                 $css              = file_get_contents("{$path}/{$file}");
                 if (!is_null($subFolder)) {
                     $expcted          = file_get_contents("{$path}/{$subFolder}/{$file}");
