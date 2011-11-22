@@ -234,6 +234,9 @@ class CssAlly
         foreach ($this->_files as $file) {
             $this->_builtCss .= file_get_contents($file);
         }
+        $this->processImports();
+        $this->processMixins();
+        $this->parseVariables();
     } //end buildCssString
 
     /**
