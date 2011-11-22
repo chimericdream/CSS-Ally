@@ -1,0 +1,209 @@
+EEEEEEE
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+ 432 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+ 436 | ERROR | Parameters must appear immediately after the comment
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Explorer.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+ 306 | ERROR | You must use "/**" style comments for a function comment
+ 345 | ERROR | You must use "/**" style comments for a function comment
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Konqueror.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AND 2 WARNING(S) AFFECTING 4 LINE(S)
+--------------------------------------------------------------------------------
+ 55 | ERROR   | There must be exactly one blank line before the tags in
+    |         | function comment
+ 63 | WARNING | Line exceeds 85 characters; contains 97 characters
+ 72 | ERROR   | There must be exactly one blank line before the tags in
+    |         | function comment
+ 80 | WARNING | Line exceeds 85 characters; contains 99 characters
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Mozilla.php
+--------------------------------------------------------------------------------
+FOUND 9 ERROR(S) AND 42 WARNING(S) AFFECTING 51 LINE(S)
+--------------------------------------------------------------------------------
+  55 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  69 | WARNING | Line exceeds 85 characters; contains 133 characters
+  71 | WARNING | Line exceeds 85 characters; contains 138 characters
+  73 | WARNING | Line exceeds 85 characters; contains 138 characters
+  75 | WARNING | Line exceeds 85 characters; contains 138 characters
+  77 | WARNING | Line exceeds 85 characters; contains 138 characters
+  79 | WARNING | Line exceeds 85 characters; contains 133 characters
+  82 | WARNING | Line exceeds 85 characters; contains 91 characters
+  90 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  98 | WARNING | Line exceeds 85 characters; contains 97 characters
+ 118 | WARNING | Line exceeds 85 characters; contains 99 characters
+ 127 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 135 | WARNING | Line exceeds 85 characters; contains 100 characters
+ 156 | WARNING | Line exceeds 85 characters; contains 109 characters
+ 166 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 170 | ERROR   | Parameters must appear immediately after the comment
+ 183 | WARNING | Line exceeds 85 characters; contains 88 characters
+ 202 | WARNING | Line exceeds 85 characters; contains 96 characters
+ 222 | WARNING | Line exceeds 85 characters; contains 104 characters
+ 242 | WARNING | Line exceeds 85 characters; contains 107 characters
+ 252 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 260 | WARNING | Line exceeds 85 characters; contains 97 characters
+ 269 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 277 | WARNING | Line exceeds 85 characters; contains 99 characters
+ 320 | WARNING | Line exceeds 85 characters; contains 121 characters
+ 333 | WARNING | Line exceeds 85 characters; contains 179 characters
+ 569 | WARNING | Line exceeds 85 characters; contains 98 characters
+ 570 | WARNING | Line exceeds 85 characters; contains 99 characters
+ 573 | WARNING | Line exceeds 85 characters; contains 89 characters
+ 574 | WARNING | Line exceeds 85 characters; contains 106 characters
+ 590 | ERROR   | You must use "/**" style comments for a function comment
+ 598 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 599 | WARNING | Line exceeds 85 characters; contains 110 characters
+ 600 | WARNING | Line exceeds 85 characters; contains 100 characters
+ 626 | ERROR   | You must use "/**" style comments for a function comment
+ 634 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 636 | WARNING | Line exceeds 85 characters; contains 98 characters
+ 637 | WARNING | Line exceeds 85 characters; contains 231 characters
+ 638 | WARNING | Line exceeds 85 characters; contains 100 characters
+ 640 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 693 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 742 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 744 | WARNING | Line exceeds 85 characters; contains 96 characters
+ 746 | WARNING | Line exceeds 85 characters; contains 96 characters
+ 748 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 751 | WARNING | Line exceeds 85 characters; contains 94 characters
+ 769 | WARNING | Line exceeds 85 characters; contains 98 characters
+ 788 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 807 | WARNING | Line exceeds 85 characters; contains 118 characters
+ 825 | WARNING | Line exceeds 85 characters; contains 140 characters
+ 827 | WARNING | Line exceeds 85 characters; contains 108 characters
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Opera.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AND 20 WARNING(S) AFFECTING 22 LINE(S)
+--------------------------------------------------------------------------------
+  89 | WARNING | Line exceeds 85 characters; contains 121 characters
+ 102 | WARNING | Line exceeds 85 characters; contains 179 characters
+ 172 | ERROR   | You must use "/**" style comments for a function comment
+ 180 | WARNING | Line exceeds 85 characters; contains 176 characters
+ 181 | WARNING | Line exceeds 85 characters; contains 100 characters
+ 207 | ERROR   | You must use "/**" style comments for a function comment
+ 215 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 217 | WARNING | Line exceeds 85 characters; contains 98 characters
+ 218 | WARNING | Line exceeds 85 characters; contains 231 characters
+ 219 | WARNING | Line exceeds 85 characters; contains 100 characters
+ 221 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 274 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 323 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 325 | WARNING | Line exceeds 85 characters; contains 96 characters
+ 327 | WARNING | Line exceeds 85 characters; contains 96 characters
+ 329 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 332 | WARNING | Line exceeds 85 characters; contains 94 characters
+ 350 | WARNING | Line exceeds 85 characters; contains 98 characters
+ 369 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 388 | WARNING | Line exceeds 85 characters; contains 118 characters
+ 406 | WARNING | Line exceeds 85 characters; contains 140 characters
+ 408 | WARNING | Line exceeds 85 characters; contains 108 characters
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Webkit.php
+--------------------------------------------------------------------------------
+FOUND 9 ERROR(S) AND 41 WARNING(S) AFFECTING 50 LINE(S)
+--------------------------------------------------------------------------------
+  55 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  69 | WARNING | Line exceeds 85 characters; contains 133 characters
+  71 | WARNING | Line exceeds 85 characters; contains 138 characters
+  73 | WARNING | Line exceeds 85 characters; contains 138 characters
+  75 | WARNING | Line exceeds 85 characters; contains 138 characters
+  77 | WARNING | Line exceeds 85 characters; contains 138 characters
+  79 | WARNING | Line exceeds 85 characters; contains 133 characters
+  82 | WARNING | Line exceeds 85 characters; contains 91 characters
+  90 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  98 | WARNING | Line exceeds 85 characters; contains 97 characters
+ 118 | WARNING | Line exceeds 85 characters; contains 99 characters
+ 127 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 135 | WARNING | Line exceeds 85 characters; contains 100 characters
+ 156 | WARNING | Line exceeds 85 characters; contains 109 characters
+ 166 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 170 | ERROR   | Parameters must appear immediately after the comment
+ 183 | WARNING | Line exceeds 85 characters; contains 88 characters
+ 203 | WARNING | Line exceeds 85 characters; contains 96 characters
+ 223 | WARNING | Line exceeds 85 characters; contains 104 characters
+ 243 | WARNING | Line exceeds 85 characters; contains 107 characters
+ 253 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 261 | WARNING | Line exceeds 85 characters; contains 97 characters
+ 270 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 278 | WARNING | Line exceeds 85 characters; contains 99 characters
+ 321 | WARNING | Line exceeds 85 characters; contains 121 characters
+ 334 | WARNING | Line exceeds 85 characters; contains 179 characters
+ 569 | WARNING | Line exceeds 85 characters; contains 98 characters
+ 570 | WARNING | Line exceeds 85 characters; contains 99 characters
+ 573 | WARNING | Line exceeds 85 characters; contains 89 characters
+ 574 | WARNING | Line exceeds 85 characters; contains 106 characters
+ 590 | ERROR   | You must use "/**" style comments for a function comment
+ 598 | WARNING | Line exceeds 85 characters; contains 176 characters
+ 599 | WARNING | Line exceeds 85 characters; contains 100 characters
+ 625 | ERROR   | You must use "/**" style comments for a function comment
+ 633 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 635 | WARNING | Line exceeds 85 characters; contains 98 characters
+ 636 | WARNING | Line exceeds 85 characters; contains 231 characters
+ 637 | WARNING | Line exceeds 85 characters; contains 100 characters
+ 639 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 692 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 741 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 743 | WARNING | Line exceeds 85 characters; contains 96 characters
+ 745 | WARNING | Line exceeds 85 characters; contains 96 characters
+ 747 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 750 | WARNING | Line exceeds 85 characters; contains 94 characters
+ 769 | WARNING | Line exceeds 85 characters; contains 98 characters
+ 788 | WARNING | Line exceeds 85 characters; contains 101 characters
+ 807 | WARNING | Line exceeds 85 characters; contains 118 characters
+ 825 | WARNING | Line exceeds 85 characters; contains 140 characters
+ 827 | WARNING | Line exceeds 85 characters; contains 108 characters
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/CssAlly.php
+--------------------------------------------------------------------------------
+FOUND 1 ERROR(S) AND 9 WARNING(S) AFFECTING 10 LINE(S)
+--------------------------------------------------------------------------------
+ 471 | WARNING | Line exceeds 85 characters; contains 90 characters
+ 473 | WARNING | Line exceeds 85 characters; contains 94 characters
+ 482 | ERROR   | You must use "/**" style comments for a function comment
+ 484 | WARNING | Line exceeds 85 characters; contains 185 characters
+ 548 | WARNING | Line exceeds 85 characters; contains 104 characters
+ 557 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 558 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 563 | WARNING | Line exceeds 85 characters; contains 92 characters
+ 575 | WARNING | Line exceeds 85 characters; contains 188 characters
+ 586 | WARNING | Line exceeds 85 characters; contains 86 characters
+--------------------------------------------------------------------------------
+
+Time: 3 seconds, Memory: 8.25Mb
+

@@ -70,6 +70,11 @@ require_once dirname(__FILE__) . '/Browser/Webkit.php';
  */
 abstract class Browser
 {
+    /**
+     * Generate a string containing a regular expression for valid angles in CSS
+     *
+     * @return string
+     */
     public function angleRegex()
     {
         //0-360deg|0-400grad|(num)rad|(num)turn
@@ -80,6 +85,12 @@ abstract class Browser
         return $angle;
     } //end angleRegex
 
+    /**
+     * Generate a string containing a regular expression for valid background
+     * positions in CSS
+     *
+     * @return string
+     */
     public function bgPosRegex()
     {
         $pos = '(?:(?:(?:' . $this->percentRegex() . '|' . $this->lengthRegex()
@@ -158,6 +169,12 @@ abstract class Browser
         return $colors;
     } //end colorRegex
 
+    /**
+     * Generate a string containing a regular expression for valid hexadecimal
+     * colors
+     *
+     * @return string
+     */
     public function hexRegex()
     {
         $hex = '(?:#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}))';
@@ -165,6 +182,12 @@ abstract class Browser
         return $hex;
     } //end hexRegex
 
+    /**
+     * Generate a string containing a regular expression for valid identifiers
+     * in CSS
+     *
+     * @return string
+     */
     public function identRegex()
     {
         $ident = '(?:[a-zA-Z][-_a-zA-Z0-9]*)';
@@ -180,11 +203,17 @@ abstract class Browser
      */
     public function lengthRegex()
     {
-        $length = '(?:' . $this->numberRegex() . '(?:em|ex|in|cm|mm|pt|pc|px)|0)';
+        $len = '(?:' . $this->numberRegex() . '(?:em|ex|in|cm|mm|pt|pc|px)|0)';
 
-        return $length;
+        return $len;
     } //end lengthRegex
 
+    /**
+     * Generate a string containing a regular expression for a number between
+     * 0-255
+     *
+     * @return string
+     */
     public function n0255Regex()
     {
         $num = '(?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])';
@@ -192,6 +221,12 @@ abstract class Browser
         return $num;
     } //end n0255Regex
 
+    /**
+     * Generate a string containing a regular expression for a number between
+     * 0-360
+     *
+     * @return string
+     */
     public function n0360Regex()
     {
         $num = '(?:[0-9]|[1-9][0-9]|[1-2][0-9][0-9]|3[0-5][0-9]|360)';
@@ -199,6 +234,12 @@ abstract class Browser
         return $num;
     } //end n0360Regex
 
+    /**
+     * Generate a string containing a regular expression for a number between
+     * 0-400
+     *
+     * @return string
+     */
     public function n0400Regex()
     {
         $num = '(?:[0-9]|[1-9][0-9]|[1-3][0-9][0-9]|400)';
@@ -206,6 +247,12 @@ abstract class Browser
         return $num;
     } //end n0400Regex
 
+    /**
+     * Generate a string containing a regular expression for valid numbers in
+     * CSS
+     *
+     * @return string
+     */
     public function numberRegex()
     {
         $num = '(?:(?:\+|\-)?(?:\d+\.?\d*|\.\d+))';
@@ -225,6 +272,12 @@ abstract class Browser
         return $percent;
     } //end percentRegex
 
+    /**
+     * Generate a string containing a regular expression for valid animatable
+     * properties
+     *
+     * @return string
+     */
     public function animatablePropertyRegex()
     {
         $property = '(?:[-a-zA-Z]+)';
@@ -259,6 +312,12 @@ abstract class Browser
         return $border;
     } //end borderWidthRegex
 
+    /**
+     * Generate a string containing a regular expression for a valid time (s or
+     * ms)
+     *
+     * @return string
+     */
     public function timeRegex()
     {
         $time = '(?:(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)m?s|0)';
@@ -266,14 +325,26 @@ abstract class Browser
         return $time;
     } //end timeRegex
 
+    /**
+     * Generate a string containing a regular expression for valid timing
+     * functions
+     *
+     * @return string
+     */
     public function timingFuncRegex()
     {
         $num  = $this->numberRegex();
-        $func = '(?:ease-in-out|linear|ease-in|ease-out|ease|cubic-bezier\(' . $num . ',\s*' . $num . ',\s*' . $num . ',\s*' . $num . '\))';
+        $func = '(?:ease-in-out|linear|ease-in|ease-out|ease|cubic-bezier\('
+              . $num . ',\s*' . $num . ',\s*' . $num . ',\s*' . $num . '\))';
         
         return $func;
     } //end timingFuncRegex
     
+    /**
+     * Generate a string containing a regular expression for a valid URI
+     *
+     * @return string
+     */
     public function uriRegex()
     {
         $uri = '(?:url\(["\']?(?:[^\'"\)]*)["\']?\))';
@@ -361,7 +432,7 @@ abstract class Browser
      * @keyframes <identifier> {
      *     [ [from|to|<percentage>] [, [from|to|<percentage>]]* block ]*
      * }
-     *
+     * 
      * @param string $cssString The CSS to be parsed
      *
      * @return string The parsed output
@@ -455,7 +526,8 @@ abstract class Browser
 
     /**
      * Syntax:
-     * border-image: none | [<image> [<number>|<percentage>]{1,4} [/<border-width>{1,4}]?] && [stretch|repeat|round]{0,2}
+     * border-image: none | [<image> [<number>|<percentage>]{1,4} ...
+     *      [/<border-width>{1,4}]?] && [stretch|repeat|round]{0,2}
      *
      * @param string $cssString The CSS to be parsed
      *
@@ -599,11 +671,14 @@ abstract class Browser
 
     /**
      * Syntax:
-     * radial-gradient([<position>,]? [[[<shape> || <size>]|[<length> | <percentage>]{2}],]? <color-stop>[, <color-stop>]+)
+     * radial-gradient([<position>,]? ...
+     *      [[[<shape> || <size>]|[<length> | <percentage>]{2}],]? ...
+     *      <color-stop>[, <color-stop>]+)
      *
      * <position> = <background-position>
      * <shape> = circle | ellipse
-     * <size> = closest-side | farthest-side | closest-corner | farthest-corner | contain | cover
+     * <size> = closest-side | farthest-side | closest-corner | farthest-corner
+     *      | contain | cover
      * <color-stop> = <color> [<percentage>|<length>]?
      *
      * @param string $cssString The CSS to be parsed

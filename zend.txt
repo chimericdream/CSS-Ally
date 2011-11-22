@@ -1,0 +1,200 @@
+.WEEEWE
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser.php
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 1 WARNING(S) AFFECTING 1 LINE(S)
+--------------------------------------------------------------------------------
+ 778 | WARNING | Line exceeds 80 characters; contains 81 characters
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Konqueror.php
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 2 WARNING(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+ 63 | WARNING | Line exceeds 80 characters; contains 97 characters
+ 80 | WARNING | Line exceeds 80 characters; contains 99 characters
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Mozilla.php
+--------------------------------------------------------------------------------
+FOUND 10 ERROR(S) AND 35 WARNING(S) AFFECTING 45 LINE(S)
+--------------------------------------------------------------------------------
+  69 | ERROR   | Line exceeds maximum limit of 120 characters; contains 133
+     |         | characters
+  71 | ERROR   | Line exceeds maximum limit of 120 characters; contains 138
+     |         | characters
+  73 | ERROR   | Line exceeds maximum limit of 120 characters; contains 138
+     |         | characters
+  75 | ERROR   | Line exceeds maximum limit of 120 characters; contains 138
+     |         | characters
+  77 | ERROR   | Line exceeds maximum limit of 120 characters; contains 138
+     |         | characters
+  79 | ERROR   | Line exceeds maximum limit of 120 characters; contains 133
+     |         | characters
+  82 | WARNING | Line exceeds 80 characters; contains 91 characters
+  98 | WARNING | Line exceeds 80 characters; contains 97 characters
+ 118 | WARNING | Line exceeds 80 characters; contains 99 characters
+ 135 | WARNING | Line exceeds 80 characters; contains 100 characters
+ 156 | WARNING | Line exceeds 80 characters; contains 109 characters
+ 178 | WARNING | Line exceeds 80 characters; contains 81 characters
+ 183 | WARNING | Line exceeds 80 characters; contains 88 characters
+ 202 | WARNING | Line exceeds 80 characters; contains 96 characters
+ 222 | WARNING | Line exceeds 80 characters; contains 104 characters
+ 242 | WARNING | Line exceeds 80 characters; contains 107 characters
+ 260 | WARNING | Line exceeds 80 characters; contains 97 characters
+ 277 | WARNING | Line exceeds 80 characters; contains 99 characters
+ 320 | ERROR   | Line exceeds maximum limit of 120 characters; contains 121
+     |         | characters
+ 333 | ERROR   | Line exceeds maximum limit of 120 characters; contains 179
+     |         | characters
+ 569 | WARNING | Line exceeds 80 characters; contains 98 characters
+ 570 | WARNING | Line exceeds 80 characters; contains 99 characters
+ 573 | WARNING | Line exceeds 80 characters; contains 89 characters
+ 574 | WARNING | Line exceeds 80 characters; contains 106 characters
+ 597 | WARNING | Line exceeds 80 characters; contains 85 characters
+ 598 | WARNING | Line exceeds 80 characters; contains 101 characters
+ 599 | WARNING | Line exceeds 80 characters; contains 110 characters
+ 600 | WARNING | Line exceeds 80 characters; contains 100 characters
+ 633 | WARNING | Line exceeds 80 characters; contains 85 characters
+ 634 | WARNING | Line exceeds 80 characters; contains 101 characters
+ 636 | WARNING | Line exceeds 80 characters; contains 98 characters
+ 637 | ERROR   | Line exceeds maximum limit of 120 characters; contains 231
+     |         | characters
+ 638 | WARNING | Line exceeds 80 characters; contains 100 characters
+ 640 | WARNING | Line exceeds 80 characters; contains 86 characters
+ 693 | WARNING | Line exceeds 80 characters; contains 101 characters
+ 742 | WARNING | Line exceeds 80 characters; contains 91 characters
+ 744 | WARNING | Line exceeds 80 characters; contains 96 characters
+ 746 | WARNING | Line exceeds 80 characters; contains 96 characters
+ 748 | WARNING | Line exceeds 80 characters; contains 91 characters
+ 751 | WARNING | Line exceeds 80 characters; contains 94 characters
+ 769 | WARNING | Line exceeds 80 characters; contains 98 characters
+ 788 | WARNING | Line exceeds 80 characters; contains 101 characters
+ 807 | WARNING | Line exceeds 80 characters; contains 118 characters
+ 825 | ERROR   | Line exceeds maximum limit of 120 characters; contains 140
+     |         | characters
+ 827 | WARNING | Line exceeds 80 characters; contains 108 characters
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Opera.php
+--------------------------------------------------------------------------------
+FOUND 5 ERROR(S) AND 17 WARNING(S) AFFECTING 22 LINE(S)
+--------------------------------------------------------------------------------
+  89 | ERROR   | Line exceeds maximum limit of 120 characters; contains 121
+     |         | characters
+ 102 | ERROR   | Line exceeds maximum limit of 120 characters; contains 179
+     |         | characters
+ 179 | WARNING | Line exceeds 80 characters; contains 85 characters
+ 180 | ERROR   | Line exceeds maximum limit of 120 characters; contains 176
+     |         | characters
+ 181 | WARNING | Line exceeds 80 characters; contains 100 characters
+ 214 | WARNING | Line exceeds 80 characters; contains 85 characters
+ 215 | WARNING | Line exceeds 80 characters; contains 101 characters
+ 217 | WARNING | Line exceeds 80 characters; contains 98 characters
+ 218 | ERROR   | Line exceeds maximum limit of 120 characters; contains 231
+     |         | characters
+ 219 | WARNING | Line exceeds 80 characters; contains 100 characters
+ 221 | WARNING | Line exceeds 80 characters; contains 86 characters
+ 274 | WARNING | Line exceeds 80 characters; contains 101 characters
+ 323 | WARNING | Line exceeds 80 characters; contains 91 characters
+ 325 | WARNING | Line exceeds 80 characters; contains 96 characters
+ 327 | WARNING | Line exceeds 80 characters; contains 96 characters
+ 329 | WARNING | Line exceeds 80 characters; contains 91 characters
+ 332 | WARNING | Line exceeds 80 characters; contains 94 characters
+ 350 | WARNING | Line exceeds 80 characters; contains 98 characters
+ 369 | WARNING | Line exceeds 80 characters; contains 101 characters
+ 388 | WARNING | Line exceeds 80 characters; contains 118 characters
+ 406 | ERROR   | Line exceeds maximum limit of 120 characters; contains 140
+     |         | characters
+ 408 | WARNING | Line exceeds 80 characters; contains 108 characters
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Webkit.php
+--------------------------------------------------------------------------------
+FOUND 11 ERROR(S) AND 33 WARNING(S) AFFECTING 44 LINE(S)
+--------------------------------------------------------------------------------
+  69 | ERROR   | Line exceeds maximum limit of 120 characters; contains 133
+     |         | characters
+  71 | ERROR   | Line exceeds maximum limit of 120 characters; contains 138
+     |         | characters
+  73 | ERROR   | Line exceeds maximum limit of 120 characters; contains 138
+     |         | characters
+  75 | ERROR   | Line exceeds maximum limit of 120 characters; contains 138
+     |         | characters
+  77 | ERROR   | Line exceeds maximum limit of 120 characters; contains 138
+     |         | characters
+  79 | ERROR   | Line exceeds maximum limit of 120 characters; contains 133
+     |         | characters
+  82 | WARNING | Line exceeds 80 characters; contains 91 characters
+  98 | WARNING | Line exceeds 80 characters; contains 97 characters
+ 118 | WARNING | Line exceeds 80 characters; contains 99 characters
+ 135 | WARNING | Line exceeds 80 characters; contains 100 characters
+ 156 | WARNING | Line exceeds 80 characters; contains 109 characters
+ 178 | WARNING | Line exceeds 80 characters; contains 81 characters
+ 183 | WARNING | Line exceeds 80 characters; contains 88 characters
+ 203 | WARNING | Line exceeds 80 characters; contains 96 characters
+ 223 | WARNING | Line exceeds 80 characters; contains 104 characters
+ 243 | WARNING | Line exceeds 80 characters; contains 107 characters
+ 261 | WARNING | Line exceeds 80 characters; contains 97 characters
+ 278 | WARNING | Line exceeds 80 characters; contains 99 characters
+ 321 | ERROR   | Line exceeds maximum limit of 120 characters; contains 121
+     |         | characters
+ 334 | ERROR   | Line exceeds maximum limit of 120 characters; contains 179
+     |         | characters
+ 569 | WARNING | Line exceeds 80 characters; contains 98 characters
+ 570 | WARNING | Line exceeds 80 characters; contains 99 characters
+ 573 | WARNING | Line exceeds 80 characters; contains 89 characters
+ 574 | WARNING | Line exceeds 80 characters; contains 106 characters
+ 597 | WARNING | Line exceeds 80 characters; contains 85 characters
+ 598 | ERROR   | Line exceeds maximum limit of 120 characters; contains 176
+     |         | characters
+ 599 | WARNING | Line exceeds 80 characters; contains 100 characters
+ 632 | WARNING | Line exceeds 80 characters; contains 85 characters
+ 633 | WARNING | Line exceeds 80 characters; contains 101 characters
+ 635 | WARNING | Line exceeds 80 characters; contains 98 characters
+ 636 | ERROR   | Line exceeds maximum limit of 120 characters; contains 231
+     |         | characters
+ 637 | WARNING | Line exceeds 80 characters; contains 100 characters
+ 639 | WARNING | Line exceeds 80 characters; contains 86 characters
+ 692 | WARNING | Line exceeds 80 characters; contains 101 characters
+ 741 | WARNING | Line exceeds 80 characters; contains 91 characters
+ 743 | WARNING | Line exceeds 80 characters; contains 96 characters
+ 745 | WARNING | Line exceeds 80 characters; contains 96 characters
+ 747 | WARNING | Line exceeds 80 characters; contains 91 characters
+ 750 | WARNING | Line exceeds 80 characters; contains 94 characters
+ 769 | WARNING | Line exceeds 80 characters; contains 98 characters
+ 788 | WARNING | Line exceeds 80 characters; contains 101 characters
+ 807 | WARNING | Line exceeds 80 characters; contains 118 characters
+ 825 | ERROR   | Line exceeds maximum limit of 120 characters; contains 140
+     |         | characters
+ 827 | WARNING | Line exceeds 80 characters; contains 108 characters
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/bill/Sites/personal/cssally/project/src/CssAlly.php
+--------------------------------------------------------------------------------
+FOUND 3 ERROR(S) AND 9 WARNING(S) AFFECTING 12 LINE(S)
+--------------------------------------------------------------------------------
+ 129 | ERROR   | Opening brace should be on a new line
+ 433 | WARNING | Line exceeds 80 characters; contains 81 characters
+ 462 | WARNING | Line exceeds 80 characters; contains 84 characters
+ 471 | WARNING | Line exceeds 80 characters; contains 90 characters
+ 473 | WARNING | Line exceeds 80 characters; contains 94 characters
+ 484 | ERROR   | Line exceeds maximum limit of 120 characters; contains 185
+     |         | characters
+ 548 | WARNING | Line exceeds 80 characters; contains 104 characters
+ 557 | WARNING | Line exceeds 80 characters; contains 91 characters
+ 558 | WARNING | Line exceeds 80 characters; contains 86 characters
+ 563 | WARNING | Line exceeds 80 characters; contains 92 characters
+ 575 | ERROR   | Line exceeds maximum limit of 120 characters; contains 188
+     |         | characters
+ 586 | WARNING | Line exceeds 80 characters; contains 86 characters
+--------------------------------------------------------------------------------
+
+Time: 2 seconds, Memory: 6.75Mb
+
