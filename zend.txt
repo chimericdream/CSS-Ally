@@ -1,7 +1,7 @@
 .WEEEWE
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser.php
+FILE: E:\Web\cssally\project\src\Browser.php
 --------------------------------------------------------------------------------
 FOUND 0 ERROR(S) AND 1 WARNING(S) AFFECTING 1 LINE(S)
 --------------------------------------------------------------------------------
@@ -9,7 +9,7 @@ FOUND 0 ERROR(S) AND 1 WARNING(S) AFFECTING 1 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Konqueror.php
+FILE: E:\Web\cssally\project\src\Browser\Konqueror.php
 --------------------------------------------------------------------------------
 FOUND 0 ERROR(S) AND 2 WARNING(S) AFFECTING 2 LINE(S)
 --------------------------------------------------------------------------------
@@ -18,7 +18,7 @@ FOUND 0 ERROR(S) AND 2 WARNING(S) AFFECTING 2 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Mozilla.php
+FILE: E:\Web\cssally\project\src\Browser\Mozilla.php
 --------------------------------------------------------------------------------
 FOUND 10 ERROR(S) AND 35 WARNING(S) AFFECTING 45 LINE(S)
 --------------------------------------------------------------------------------
@@ -80,7 +80,7 @@ FOUND 10 ERROR(S) AND 35 WARNING(S) AFFECTING 45 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Opera.php
+FILE: E:\Web\cssally\project\src\Browser\Opera.php
 --------------------------------------------------------------------------------
 FOUND 5 ERROR(S) AND 17 WARNING(S) AFFECTING 22 LINE(S)
 --------------------------------------------------------------------------------
@@ -114,7 +114,7 @@ FOUND 5 ERROR(S) AND 17 WARNING(S) AFFECTING 22 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Webkit.php
+FILE: E:\Web\cssally\project\src\Browser\Webkit.php
 --------------------------------------------------------------------------------
 FOUND 11 ERROR(S) AND 33 WARNING(S) AFFECTING 44 LINE(S)
 --------------------------------------------------------------------------------
@@ -176,25 +176,25 @@ FOUND 11 ERROR(S) AND 33 WARNING(S) AFFECTING 44 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/CssAlly.php
+FILE: E:\Web\cssally\project\src\CssAlly.php
 --------------------------------------------------------------------------------
 FOUND 3 ERROR(S) AND 9 WARNING(S) AFFECTING 12 LINE(S)
 --------------------------------------------------------------------------------
  129 | ERROR   | Opening brace should be on a new line
- 433 | WARNING | Line exceeds 80 characters; contains 81 characters
- 462 | WARNING | Line exceeds 80 characters; contains 84 characters
- 471 | WARNING | Line exceeds 80 characters; contains 90 characters
- 473 | WARNING | Line exceeds 80 characters; contains 94 characters
- 484 | ERROR   | Line exceeds maximum limit of 120 characters; contains 185
+ 437 | WARNING | Line exceeds 80 characters; contains 81 characters
+ 466 | WARNING | Line exceeds 80 characters; contains 84 characters
+ 475 | WARNING | Line exceeds 80 characters; contains 90 characters
+ 477 | WARNING | Line exceeds 80 characters; contains 94 characters
+ 488 | ERROR   | Line exceeds maximum limit of 120 characters; contains 185
      |         | characters
- 548 | WARNING | Line exceeds 80 characters; contains 104 characters
- 557 | WARNING | Line exceeds 80 characters; contains 91 characters
- 558 | WARNING | Line exceeds 80 characters; contains 86 characters
- 563 | WARNING | Line exceeds 80 characters; contains 92 characters
- 575 | ERROR   | Line exceeds maximum limit of 120 characters; contains 188
+ 552 | WARNING | Line exceeds 80 characters; contains 104 characters
+ 561 | WARNING | Line exceeds 80 characters; contains 91 characters
+ 562 | WARNING | Line exceeds 80 characters; contains 86 characters
+ 567 | WARNING | Line exceeds 80 characters; contains 92 characters
+ 579 | ERROR   | Line exceeds maximum limit of 120 characters; contains 188
      |         | characters
- 586 | WARNING | Line exceeds 80 characters; contains 86 characters
+ 590 | WARNING | Line exceeds 80 characters; contains 86 characters
 --------------------------------------------------------------------------------
 
-Time: 2 seconds, Memory: 6.75Mb
+Time: 3 seconds, Memory: 7.25Mb
 

@@ -1,7 +1,7 @@
 EEEEEEE
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser.php
+FILE: E:\Web\cssally\project\src\Browser.php
 --------------------------------------------------------------------------------
 FOUND 2 ERROR(S) AFFECTING 2 LINE(S)
 --------------------------------------------------------------------------------
@@ -11,16 +11,19 @@ FOUND 2 ERROR(S) AFFECTING 2 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Explorer.php
+FILE: E:\Web\cssally\project\src\Browser\Explorer.php
 --------------------------------------------------------------------------------
-FOUND 2 ERROR(S) AFFECTING 2 LINE(S)
+FOUND 4 ERROR(S) AFFECTING 4 LINE(S)
 --------------------------------------------------------------------------------
+ 189 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+ 193 | ERROR | Parameters must appear immediately after the comment
  306 | ERROR | You must use "/**" style comments for a function comment
  345 | ERROR | You must use "/**" style comments for a function comment
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Konqueror.php
+FILE: E:\Web\cssally\project\src\Browser\Konqueror.php
 --------------------------------------------------------------------------------
 FOUND 2 ERROR(S) AND 2 WARNING(S) AFFECTING 4 LINE(S)
 --------------------------------------------------------------------------------
@@ -33,7 +36,7 @@ FOUND 2 ERROR(S) AND 2 WARNING(S) AFFECTING 4 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Mozilla.php
+FILE: E:\Web\cssally\project\src\Browser\Mozilla.php
 --------------------------------------------------------------------------------
 FOUND 9 ERROR(S) AND 42 WARNING(S) AFFECTING 51 LINE(S)
 --------------------------------------------------------------------------------
@@ -97,7 +100,7 @@ FOUND 9 ERROR(S) AND 42 WARNING(S) AFFECTING 51 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Opera.php
+FILE: E:\Web\cssally\project\src\Browser\Opera.php
 --------------------------------------------------------------------------------
 FOUND 2 ERROR(S) AND 20 WARNING(S) AFFECTING 22 LINE(S)
 --------------------------------------------------------------------------------
@@ -126,7 +129,7 @@ FOUND 2 ERROR(S) AND 20 WARNING(S) AFFECTING 22 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/Browser/Webkit.php
+FILE: E:\Web\cssally\project\src\Browser\Webkit.php
 --------------------------------------------------------------------------------
 FOUND 9 ERROR(S) AND 41 WARNING(S) AFFECTING 50 LINE(S)
 --------------------------------------------------------------------------------
@@ -189,21 +192,21 @@ FOUND 9 ERROR(S) AND 41 WARNING(S) AFFECTING 50 LINE(S)
 --------------------------------------------------------------------------------
 
 
-FILE: /Users/bill/Sites/personal/cssally/project/src/CssAlly.php
+FILE: E:\Web\cssally\project\src\CssAlly.php
 --------------------------------------------------------------------------------
 FOUND 1 ERROR(S) AND 9 WARNING(S) AFFECTING 10 LINE(S)
 --------------------------------------------------------------------------------
- 471 | WARNING | Line exceeds 85 characters; contains 90 characters
- 473 | WARNING | Line exceeds 85 characters; contains 94 characters
- 482 | ERROR   | You must use "/**" style comments for a function comment
- 484 | WARNING | Line exceeds 85 characters; contains 185 characters
- 548 | WARNING | Line exceeds 85 characters; contains 104 characters
- 557 | WARNING | Line exceeds 85 characters; contains 91 characters
- 558 | WARNING | Line exceeds 85 characters; contains 86 characters
- 563 | WARNING | Line exceeds 85 characters; contains 92 characters
- 575 | WARNING | Line exceeds 85 characters; contains 188 characters
- 586 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 475 | WARNING | Line exceeds 85 characters; contains 90 characters
+ 477 | WARNING | Line exceeds 85 characters; contains 94 characters
+ 486 | ERROR   | You must use "/**" style comments for a function comment
+ 488 | WARNING | Line exceeds 85 characters; contains 185 characters
+ 552 | WARNING | Line exceeds 85 characters; contains 104 characters
+ 561 | WARNING | Line exceeds 85 characters; contains 91 characters
+ 562 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 567 | WARNING | Line exceeds 85 characters; contains 92 characters
+ 579 | WARNING | Line exceeds 85 characters; contains 188 characters
+ 590 | WARNING | Line exceeds 85 characters; contains 86 characters
 --------------------------------------------------------------------------------
 
-Time: 3 seconds, Memory: 8.25Mb
+Time: 2 seconds, Memory: 9.00Mb
 
