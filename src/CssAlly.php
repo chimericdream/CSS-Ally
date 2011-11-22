@@ -196,11 +196,13 @@ class CssAlly
      *
      * @param string $filePath The path to the CSS file to be parsed
      *
-     * @return void
+     * @return self
      */
     public function addCssFile($filePath)
     {
         $this->_files[] = $this->_options['cssDir'] . "/{$filePath}";
+
+        return $this;
     } //end addCssFile
 
     /**
@@ -209,13 +211,15 @@ class CssAlly
      *
      * @param array $filePaths An array of file paths to queue for parsing
      *
-     * @return void
+     * @return self
      */
     public function addCssFiles(array $filePaths)
     {
         foreach ($filePaths as $file) {
             $this->addCssFile($file);
         }
+
+        return $this;
     } //end addCssFiles
 
     /**
@@ -298,7 +302,7 @@ class CssAlly
      * The method returns the <code>$this</code> reference so that css can be
      * output immediately, a la <code>CssAlly->generate()->output()</code>.
      *
-     * @return CssAlly
+     * @return self
      */
     public function generate()
     {
@@ -623,7 +627,7 @@ class CssAlly
      * @param bool   $useBrowserRules Whether to add prefixed CSS for the
      *                                browser
      *
-     * @return void
+     * @return self
      */
     public function setBrowser($browser, $useBrowserRules)
     {
@@ -638,6 +642,8 @@ class CssAlly
         }
 
         $this->_browsers[$browser] = new $className;
+
+        return $this;
     } //end setBrowser
 
     /**
@@ -648,13 +654,15 @@ class CssAlly
      *
      * @param array $browsers An array of browsers to set the rules for
      *
-     * @return void
+     * @return self
      */
     public function setBrowsers(array $browsers)
     {
         foreach ($browsers as $browser => $useBrowserRules) {
             $this->setBrowser($browser, $useBrowserRules);
         }
+
+        return $this;
     } //end setBrowsers
 
     /**
@@ -675,11 +683,13 @@ class CssAlly
      * @param string $option The name of the option to set
      * @param string $value  The value to which to set the option
      *
-     * @return void
+     * @return self
      */
     public function setOption($option, $value)
     {
         $this->_options[$option] = $value;
+
+        return $this;
     } //end setOption
 
     /**
