@@ -116,6 +116,7 @@ class BrowserTest extends BaseTest
         $this->_object->processImports();
         $this->_object->processMixins();
         $this->_object->parseVariables();
+        $this->_object->processNestedRules();
         $this->_object->runCssRules();
         $this->_object->compress();
         $cssString = $this->_object->getBuiltCss();
@@ -155,6 +156,7 @@ class BrowserTest extends BaseTest
         $this->_object->processImports();
         $this->_object->processMixins();
         $this->_object->parseVariables();
+        $this->_object->processNestedRules();
         $this->_object->runCssRules();
         $cssString = $this->_object->getBuiltCss();
         $this->assertEquals($expectedString, $cssString);

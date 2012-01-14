@@ -237,6 +237,7 @@ class CssAlly
         $this->processImports();
         $this->processMixins();
         $this->parseVariables();
+        $this->processNestedRules();
     } //end buildCssString
 
     /**
@@ -294,6 +295,14 @@ class CssAlly
         }
     } //end compress
 
+    public function deObfuscateKeyframes($css)
+    {
+        $css = preg_replace('/<<kf/', '{', $css);
+        $css = preg_replace('/kf>>/', '}', $css);
+        
+        return $css;
+    } //end deObfuscateKeyframes
+    
     /**
      * This method is where the magic happens. First, it determines the name of
      * the cache file, checks for its existence, and does one of two things. If
@@ -418,6 +427,21 @@ class CssAlly
         return $this->_options;
     } //end getOptions
 
+    public function obfuscateKeyframes($css)
+    {
+        $css = preg_replace('/(@keyframes[^{]+){/', '$1<<kf', $css);
+
+        $pattern = '/(<<kf[^{]*){([^}]*)}/';
+        $replace = '$1<<kf$2kf>>';
+        while (preg_match($pattern, $css) == 1) {
+            $css = preg_replace($pattern, $replace, $css);
+        }
+        
+        $css = preg_replace('/(kf>>[^{}<>]+)}/', '$1kf>>', $css);
+        
+        return $css;
+    } //end obfuscateKeyframes
+    
     /**
      * Output the built CSS string to the browser.
      *
@@ -571,6 +595,65 @@ class CssAlly
             }
         }
     } //end processMixins
+
+    public function processNestedRules()
+    {
+        $css = $this->obfuscateKeyframes($this->_builtCss);
+        $somethingMatched = false;
+
+        $step1 = '/(\s*([^\r\n{}]+){[^{}]*?\s*)(\s*[^\r\n{}]*{[^{}]*})([^{}]*})/';
+        $step1replace = "$1$4\n\n$2$3\n\n";
+        while (preg_match($step1, $css) == 1) {
+            $css = preg_replace($step1, $step1replace, $css);
+            $somethingMatched = true;
+        }
+
+        $step2 = '/(\s*([^\r\n{}]+){)([^{]+?)(((?:[^{;]+{[^{}]*})+)([^{;]+{[^{}]*})[^{}]*})/';
+        $step2replace = "$1$3$5\n}\n\n$2$6\n\n";
+        while (preg_match($step2, $css) == 1) {
+            $css = preg_replace($step2, $step2replace, $css);
+            $somethingMatched = true;
+        }
+
+        $step3 = '/(\s*([^\r\n{}]+){)([^{};]+;)*([^{};]+[^{;]+{[^{}]*})([^{}]+})/';
+        $step3replace = "\n$1$3$5\n\n$2$4\n\n";
+        while (preg_match($step3, $css) == 1) {
+            $css = preg_replace($step3, $step3replace, $css);
+            $somethingMatched = true;
+        }
+
+        if ($somethingMatched) {
+            $step4 = '/({|;)\s*(\S)/';
+            $step4replace = "$1\n    $2";
+
+            $step5 = '/\s*}/';
+            $step5replace = "\n}";
+
+            $step6 = '/([^{}\s;])\s*[\r\n]\s*([^{}\s;])/';
+            $step6replace = "$1 $2";
+
+            $step7 = '/[\r\n]{2,}/';
+            $step7replace = "\n\n";
+
+            $step8 = '/\s*&:hover/';
+            $step8replace = ":hover";
+
+            $css = preg_replace($step4, $step4replace, $css);
+            $css = preg_replace($step5, $step5replace, $css);
+            $css = preg_replace($step6, $step6replace, $css);
+            $css = preg_replace($step7, $step7replace, $css);
+            $css = preg_replace($step8, $step8replace, $css);
+
+            $this->_builtCss = $this->deObfuscateKeyframes($css);
+            
+//            echo "<pre>\n\n";
+//            var_dump($this->_builtCss);
+//            echo "\n\n";
+//            var_dump($css);
+//            echo "</pre>";
+//            exit;
+        }
+    } //end processNestedRules
 
     /**
      * Remove mixin declarations from the CSS string
