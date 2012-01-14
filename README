@@ -133,6 +133,36 @@ div.myclass2 {
 mixins in your CSS, then your files can be used with or without this
 software.
 
+### Nested selectors
+
+Like other CSS preprocessors, CSS Ally supports nesting selectors in your CSS,
+giving you the ability to write cleaner CSS rules which will be compiled into
+valid hierarchical CSS rules.
+
+.class1 {
+    border: 1px solid red;
+    margin: 5px;
+    
+    .innerClass1 {
+        border: 5px dashed blue;
+    }
+}
+
+Using this in your code would result in the following output:
+
+.class1 {
+    border: 1px solid red;
+    margin: 5px;
+}
+
+.class1 .innerClass1 {
+    border: 5px dashed blue;
+}
+
+*Note:* Nested selectors are an optional part of CSS Ally. If you choose not to
+use nesting in your CSS, then your files can be used with or without this
+software.
+
 ### Cleaning Up Your Code
 
 CSS Ally has more than one way to clean up your code.
