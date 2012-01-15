@@ -795,4 +795,30 @@ class CssAllyTest extends BaseTest
 
         return $strings;
     }
+
+    /**
+     * @covers CssAlly::processNestedRules
+     * @dataProvider processNestedRulesProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testProcessNestedRules($cssString, $expectedString)
+    {
+        $this->_object->setBuiltCss($cssString);
+        $this->_object->processNestedRules();
+
+        $this->assertEquals($expectedString, $this->_object->getBuiltCss());
+    }
+
+    public function processNestedRulesProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $subFolder = 'nesting';
+
+        $strings = $this->getCssStrings($path, $subFolder);
+
+        return $strings;
+    }
 }

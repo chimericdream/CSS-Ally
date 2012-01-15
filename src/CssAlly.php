@@ -303,6 +303,14 @@ class CssAlly
         return $css;
     } //end deObfuscateKeyframes
     
+    public function deObfuscateMixins($css)
+    {
+        $css = preg_replace('/<<mi/', '{', $css);
+        $css = preg_replace('/mi>>/', '}', $css);
+        
+        return $css;
+    } //end deObfuscateMixins
+    
     /**
      * This method is where the magic happens. First, it determines the name of
      * the cache file, checks for its existence, and does one of two things. If
@@ -441,6 +449,21 @@ class CssAlly
         
         return $css;
     } //end obfuscateKeyframes
+    
+    public function obfuscateMixins($css)
+    {
+        $css = preg_replace('/(@mixin[^{]+){/', '$1<<mi', $css);
+
+        $pattern = '/(<<mi[^{}]*){([^{}]*)}/';
+        $replace = '$1<<mi$2mi>>';
+        while (preg_match($pattern, $css) == 1) {
+            $css = preg_replace($pattern, $replace, $css);
+        }
+        
+        $css = preg_replace('/((?:mi>>|<<mi)[^{}<>]+)}/', '$1mi>>', $css);
+        
+        return $css;
+    } //end obfuscateMixins
     
     /**
      * Output the built CSS string to the browser.
@@ -598,7 +621,10 @@ class CssAlly
 
     public function processNestedRules()
     {
-        $css = $this->obfuscateKeyframes($this->_builtCss);
+        $css = $this->_builtCss;
+
+        $css = $this->obfuscateMixins($css);
+        $css = $this->obfuscateKeyframes($css);
         $somethingMatched = false;
 
         $step1 = '/(\s*([^\r\n{}]+){[^{}]*?\s*)(\s*[^\r\n{}]*{[^{}]*})([^{}]*})/';
@@ -644,14 +670,10 @@ class CssAlly
             $css = preg_replace($step7, $step7replace, $css);
             $css = preg_replace($step8, $step8replace, $css);
 
-            $this->_builtCss = $this->deObfuscateKeyframes($css);
-            
-//            echo "<pre>\n\n";
-//            var_dump($this->_builtCss);
-//            echo "\n\n";
-//            var_dump($css);
-//            echo "</pre>";
-//            exit;
+            $css = $this->deObfuscateKeyframes($css);
+            $css = $this->deObfuscateMixins($css);
+
+            $this->_builtCss = $css;
         }
     } //end processNestedRules
 
