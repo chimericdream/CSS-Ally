@@ -1,0 +1,102 @@
+/**
+ * Some comments here
+*/
+
+/**
+ * More comments
+ */
+
+html {
+    background: #000;
+}
+
+body {
+    background: #000 url('/path/to/image.jpg') no-repeat fixed top center;
+    color: #444;
+    font-family: "Trebuchet, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif";
+    font-size: 16px;
+}
+
+#logo {
+    background: transparent url('/path/to/logo.png') no-repeat top left;
+    height: 139px;
+    width: 378px;
+}
+
+#logo a {
+    display: block;
+    height: 100%;
+    text-indent: -9999px;
+    width: 100%;
+}
+
+#logo a:hover {
+    border: 0;
+}
+
+a {
+    color: #777;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 1px dashed #777;
+    color: #777;
+}
+
+.container > header {
+    height: 140px;
+    position: relative;
+}
+
+body > footer {
+    background-color: transparent;
+    background-image: url('/path/to/image1.png'), url('/path/to/image2.png');
+    background-repeat: repeat-x, repeat-x;
+    background-position: top left, left 600px;
+    color: #ddd;
+    margin: -600px auto 0 auto;
+    padding: 610px 10px 10px 10px;
+}
+
+body > footer h5 {
+    color: #ddd;
+}
+
+#copyright-admin-bar {
+}
+
+#copyright-admin-bar span {
+    float: right;
+}
+
+ul ul li {
+    margin-left: 20px;
+}
+
+.popular-posts {
+}
+
+.popular-posts ul {
+    margin: 0;
+}
+
+.popular-posts .post-stats {
+    font-size: 100%;
+}
+
+figure {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+figure figcaption {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+figure p {
+    display: none;
+}
+
