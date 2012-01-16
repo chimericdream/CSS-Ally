@@ -223,23 +223,27 @@ class CssAlly
     } //end addCssFiles
 
     /**
-     * This function gets the contents of each CSS file and concatenates them
-     * together to form the base string which will be parsed for CSS rules
-     * before minifying, caching, etc.
+     * This function parses the base string for imports, mixins, variables, and
+     * nested rules.
      *
      * @return void
      */
     public function buildCssString()
     {
-        foreach ($this->_files as $file) {
-            $this->_builtCss .= file_get_contents($file);
-        }
+        $this->buildRawCssString();
         $this->processImports();
         $this->processMixins();
         $this->parseVariables();
         $this->processNestedRules();
     } //end buildCssString
 
+    public function buildRawCssString()
+    {
+        foreach ($this->_files as $file) {
+            $this->_builtCss .= file_get_contents($file);
+        }
+    } //end buildRawCssString
+    
     /**
      * Compare the modification time of cache file against each of the CSS files
      * in the _files array.
