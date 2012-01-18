@@ -709,8 +709,8 @@ class CssAlly
             $somethingMatched = true;
         }
 
-        $step3 = '/(\s*([^\r\n{}]+){)([^{};]+;)*([^{};]+[^{;]+{[^{}]*})([^{}]+})/';
-        $step3replace = "\n$1$3$5\n\n$2$4\n\n";
+        $step3 = '/(\s*([^\r\n{}]+){)(([^{};]+;)*)([^{};]+[^{;]+{[^{}]*})([^{}]+})/';
+        $step3replace = "\n$1$3$6\n\n$2$5\n\n";
         while (preg_match($step3, $css) == 1) {
             $css = preg_replace($step3, $step3replace, $css);
             $somethingMatched = true;
@@ -723,14 +723,14 @@ class CssAlly
             $step5 = '/\s*}/';
             $step5replace = "\n}";
 
-            $step6 = '/([^{}\s;])\s*[\r\n]\s*([^{}\s;])/';
+            $step6 = '/([^{}\/\*\s;])\s*[\r\n]\s*([^{}\*\s;])/';
             $step6replace = "$1 $2";
 
             $step7 = '/[\r\n]{2,}/';
             $step7replace = "\n\n";
 
-            $step8 = '/\s*&:hover/';
-            $step8replace = ":hover";
+            $step8 = '/\s*&:(hover|focus)/';
+            $step8replace = ":$1";
 
             $css = preg_replace($step4, $step4replace, $css);
             $css = preg_replace($step5, $step5replace, $css);
