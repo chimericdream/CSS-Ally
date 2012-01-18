@@ -514,11 +514,22 @@ class CssAlly
      *
      * @return void
      */
-    public function parseVariables()
+    public function parseVariables(array $files = array())
+    {
+        if (empty($files)) {
+            $this->_builtCss = $this->parseVariablesInCssString($this->_builtCss);
+            return;
+        }
+
+        $this->parseVariablesInFilesArray($files);
+        return;
+    } //end parseVariables
+
+    private function parseVariablesInCssString($css = '')
     {
         $find = '/\s*\$([a-zA-Z][-_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;/';
         $v    = array();
-        preg_match_all($find, $this->_builtCss, $v);
+        preg_match_all($find, $css, $v);
         $vars = array();
         foreach ($v[1] as $index => $varname) {
             $vars[] = array(
@@ -526,18 +537,50 @@ class CssAlly
                 'value' => $v[3][$index],
             );
         }
-        $this->removeVariables();
+        $css = $this->removeVariables($css);
 
         foreach ($vars as $var) {
             $find          = '/\$' . $var['name'] . '([^_a-zA-Z0-9])/';
-            $this->_builtCss = preg_replace(
+            $css = preg_replace(
                 $find,
                 $var['value'] . '${1}',
-                $this->_builtCss
+                $css
             );
         }
-    } //end parseVariables
+        
+        return $css;
+    } //end parseVariablesInCssString
+    
+    private function parseVariablesInFilesArray(array $files)
+    {
+        $find = '/\s*\$([a-zA-Z][-_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;/';
+        $vars = array();
+        foreach ($files as &$file) {
+            $v    = array();
+            preg_match_all($find, $file['parsedCss'], $v);
 
+            foreach ($v[1] as $index => $varname) {
+                $vars[] = array(
+                    'name'  => $varname,
+                    'value' => $v[3][$index],
+                );
+            }
+            
+            $file['parsedCss'] = $this->removeVariables($file['parsedCss']);
+        }
+        
+        foreach ($files as &$file) {
+            foreach ($vars as $var) {
+                $find          = '/\$' . $var['name'] . '([^_a-zA-Z0-9])/';
+                $file['parsedCss'] = preg_replace(
+                    $find,
+                    $var['value'] . '${1}',
+                    $file['parsedCss']
+                );
+            }
+        }
+    } //end parseVariablesInFilesArray
+    
     /**
      * Parse the CSS string for @import rules
      *
@@ -545,35 +588,48 @@ class CssAlly
      */
     public function processImports(array $files = array())
     {
-        $find = '/\@import\s+(?:url\((\'|")([^\'"\)]+)\1\)|(\'|")([^\'"]+)\3);\s*/';
         if (empty($files)) {
-            $imports    = array();
-            preg_match_all($find, $this->_builtCss, $imports);
-            $imps = array_merge($imports[2], $imports[4]);
-
-            foreach ($imps as $import) {
-                if (empty($import)) {
-                    continue;
-                }
-
-                $path = $this->getOption('cssDir') . '/' . $import;
-                $css  = file_get_contents($path);
-
-                $name = str_replace('.', '\.', $import);
-                $find = '/\@import\s+(?:url\((\'|")' . $name . '\1\)|(\'|")' . $name . '\2);\s*/';
-                $this->_builtCss = preg_replace(
-                    $find,
-                    $css . "\n\n",
-                    $this->_builtCss
-                );
-            }
-
+            $this->_builtCss = $this->processImportsInCssString($this->_builtCss);
             return;
         }
 
+        $this->processImportsInFilesArray($files);
+        return;
+    } //end processImports
+
+    private function processImportsInCssString($css = '')
+    {
+        $find = '/\@import\s+(?:url\((\'|")([^\'"\)]+)\1\)|(\'|")([^\'"]+)\3);\s*/';
+        $imports    = array();
+        preg_match_all($find, $css, $imports);
+        $imps = array_merge($imports[2], $imports[4]);
+
+        foreach ($imps as $import) {
+            if (empty($import)) {
+                continue;
+            }
+
+            $path = $this->getOption('cssDir') . '/' . $import;
+            $fileCss  = file_get_contents($path);
+
+            $name = str_replace('.', '\.', $import);
+            $find = '/\@import\s+(?:url\((\'|")' . $name . '\1\)|(\'|")' . $name . '\2);\s*/';
+            $css = preg_replace(
+                $find,
+                $fileCss . "\n\n",
+                $css
+            );
+        }
+
+        return $css;
+    } //end processImportsInCssString
+
+    private function processImportsInFilesArray(array $files)
+    {
+        $find = '/\@import\s+(?:url\((\'|")([^\'"\)]+)\1\)|(\'|")([^\'"]+)\3);\s*/';
         foreach ($files as &$file) {
             $imports    = array();
-            preg_match_all($find, $file['rawCss'], $imports);
+            preg_match_all($find, $file['parsedCss'], $imports);
             $imps = array_merge($imports[2], $imports[4]);
 
             foreach ($imps as $import) {
@@ -598,9 +654,13 @@ class CssAlly
                     'imports'   => array(),
                 );
             }
-        }
-    } //end processImports
 
+            if (!empty($file['imports'])) {
+                $this->processImportsInFilesArray($file['imports']);
+            }
+        }
+    } //end processImportsInFilesArray
+    
     public function processMixins()
     {
         $find   = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:[-_a-zA-Z0-9:$;\s#]|\{\$[^}]+\})+)\}/';
@@ -761,10 +821,12 @@ class CssAlly
      *
      * @return void
      */
-    public function removeVariables()
+    public function removeVariables($css = '')
     {
         $search = '/\s*\$([a-zA-Z][-_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;\s*/';
-        $this->_builtCss = preg_replace($search, '', $this->_builtCss);
+        $css = preg_replace($search, '', $css);
+        
+        return $css;
     } //end removeVariables
 
     /**

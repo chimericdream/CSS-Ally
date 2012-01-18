@@ -674,10 +674,9 @@ class CssAllyTest extends BaseTest
      */
     public function testRemoveVariables($cssString, $expectedString)
     {
-        $this->_object->setBuiltCss($cssString);
-        $this->_object->removeVariables();
+        $cssString = $this->_object->removeVariables($cssString);
 
-        $this->assertEquals($expectedString, $this->_object->getBuiltCss());
+        $this->assertEquals($expectedString, $cssString);
     }
 
     public function removeVariablesProvider()
