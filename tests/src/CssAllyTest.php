@@ -608,9 +608,10 @@ class CssAllyTest extends BaseTest
      */
     public function testAddCssFile($filePath)
     {
-        $this->_object = new CssAlly(array(), array('cssDir' => 'path'));
+        $path = dirname(__FILE__) . '/../css';
+        $this->_object = new CssAlly(array(), array('cssDir' => $path));
         $this->_object->addCssFile($filePath);
-        $this->assertContains('path/' . $filePath, $this->_object->getFileList());
+        $this->assertContains($path . '/' . $filePath, $this->_object->getFileList());
     }
 
     public function addCssFileProvider()
@@ -638,10 +639,11 @@ class CssAllyTest extends BaseTest
      */
     public function testAddCssFiles(array $files)
     {
-        $this->_object = new CssAlly(array(), array('cssDir' => 'path'));
+        $path = dirname(__FILE__) . '/../css';
+        $this->_object = new CssAlly(array(), array('cssDir' => $path));
         $this->_object->addCssFiles($files);
         foreach ($files as $file) {
-            $this->assertContains('path/' . $file, $this->_object->getFileList());
+            $this->assertContains($path . '/' . $file, $this->_object->getFileList());
         }
     }
 

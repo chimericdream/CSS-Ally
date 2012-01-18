@@ -77,8 +77,9 @@ class CssAlly
         'cssDir'   => null,
     );
     private $_files     = array();
-    private $_options = array();
-    private $_rules = array(
+    private $_fileList  = array();
+    private $_options   = array();
+    private $_rules     = array(
         'animation'                  => true,
         'animation-delay'            => true,
         'animation-direction'        => true,
@@ -200,7 +201,16 @@ class CssAlly
      */
     public function addCssFile($filePath)
     {
-        $this->_files[] = $this->_options['cssDir'] . "/{$filePath}";
+        $path = $this->_options['cssDir'] . "/{$filePath}";
+        $css  = file_get_contents($path);
+        $file = array(
+            'path'      => $path,
+            'rawCss'    => $css,
+            'parsedCss' => $css,
+            'imports'   => array(),
+        );
+        $this->_files[]    = $file;
+        $this->_fileList[] = $path;
 
         return $this;
     } //end addCssFile
@@ -230,20 +240,30 @@ class CssAlly
      */
     public function buildCssString()
     {
-        $this->buildRawCssString();
-        $this->processImports();
-        $this->processMixins();
-        $this->parseVariables();
-        $this->processNestedRules();
+        $this->_builtCss = '';
+        foreach ($this->_files as $file) {
+            foreach ($file['imports'] as $import) {
+                $this->_builtCss .= "\n\n" . $import['parsedCss'];
+            }
+            $this->_builtCss .= "\n\n" . $file['parsedCss'];
+        }
+
+        return $this;
     } //end buildCssString
 
     public function buildRawCssString()
     {
+        $this->_builtCss = '';
         foreach ($this->_files as $file) {
-            $this->_builtCss .= file_get_contents($file);
+            foreach ($file['imports'] as $import) {
+                $this->_builtCss .= "\n\n" . $import['rawCss'];
+            }
+            $this->_builtCss .= "\n\n" . $file['rawCss'];
         }
+
+        return $this;
     } //end buildRawCssString
-    
+
     /**
      * Compare the modification time of cache file against each of the CSS files
      * in the _files array.
@@ -303,18 +323,18 @@ class CssAlly
     {
         $css = preg_replace('/<<kf/', '{', $css);
         $css = preg_replace('/kf>>/', '}', $css);
-        
+
         return $css;
     } //end deObfuscateKeyframes
-    
+
     public function deObfuscateMixins($css)
     {
         $css = preg_replace('/<<mi/', '{', $css);
         $css = preg_replace('/mi>>/', '}', $css);
-        
+
         return $css;
     } //end deObfuscateMixins
-    
+
     /**
      * This method is where the magic happens. First, it determines the name of
      * the cache file, checks for its existence, and does one of two things. If
@@ -332,7 +352,10 @@ class CssAlly
     {
         $this->generateFileName();
         if (!$this->checkCache()) {
-            $this->buildCssString();
+            $this->processImports($this->_files);
+            $this->processMixins();
+            $this->parseVariables();
+            $this->processNestedRules();
             $this->runCssRules();
             $this->compress();
             $this->writeCache();
@@ -413,8 +436,13 @@ class CssAlly
      */
     public function getFileList()
     {
-        return $this->_files;
+        return $this->_fileList;
     } //end getFileList
+
+    public function getFiles()
+    {
+        return $this->_files;
+    } //end getFiles
 
     /**
      * Get the current value of a given option
@@ -448,12 +476,12 @@ class CssAlly
         while (preg_match($pattern, $css) == 1) {
             $css = preg_replace($pattern, $replace, $css);
         }
-        
+
         $css = preg_replace('/(kf>>[^{}<>]+)}/', '$1kf>>', $css);
-        
+
         return $css;
     } //end obfuscateKeyframes
-    
+
     public function obfuscateMixins($css)
     {
         $css = preg_replace('/(@mixin[^{]+){/', '$1<<mi', $css);
@@ -463,12 +491,12 @@ class CssAlly
         while (preg_match($pattern, $css) == 1) {
             $css = preg_replace($pattern, $replace, $css);
         }
-        
+
         $css = preg_replace('/((?:mi>>|<<mi)[^{}<>]+)}/', '$1mi>>', $css);
-        
+
         return $css;
     } //end obfuscateMixins
-    
+
     /**
      * Output the built CSS string to the browser.
      *
@@ -515,25 +543,61 @@ class CssAlly
      *
      * @return void
      */
-    public function processImports()
+    public function processImports(array $files = array())
     {
         $find = '/\@import\s+(?:url\((\'|")([^\'"\)]+)\1\)|(\'|")([^\'"]+)\3);\s*/';
-        $imports    = array();
-        preg_match_all($find, $this->_builtCss, $imports);
-        $imps = array_merge($imports[2], $imports[4]);
+        if (empty($files)) {
+            $imports    = array();
+            preg_match_all($find, $this->_builtCss, $imports);
+            $imps = array_merge($imports[2], $imports[4]);
 
-        foreach ($imps as $import) {
-            if (empty($import)) {
-                continue;
+            foreach ($imps as $import) {
+                if (empty($import)) {
+                    continue;
+                }
+
+                $path = $this->getOption('cssDir') . '/' . $import;
+                $css  = file_get_contents($path);
+
+                $name = str_replace('.', '\.', $import);
+                $find = '/\@import\s+(?:url\((\'|")' . $name . '\1\)|(\'|")' . $name . '\2);\s*/';
+                $this->_builtCss = preg_replace(
+                    $find,
+                    $css . "\n\n",
+                    $this->_builtCss
+                );
             }
-            $css = file_get_contents($this->getOption('cssDir') . '/' . $import) . "\n\n";
-            $name = str_replace('.', '\.', $import);
-            $find = '/\@import\s+(?:url\((\'|")' . $name . '\1\)|(\'|")' . $name . '\2);\s*/';
-            $this->_builtCss = preg_replace(
-                $find,
-                $css,
-                $this->_builtCss
-            );
+
+            return;
+        }
+
+        foreach ($files as &$file) {
+            $imports    = array();
+            preg_match_all($find, $file['rawCss'], $imports);
+            $imps = array_merge($imports[2], $imports[4]);
+
+            foreach ($imps as $import) {
+                if (empty($import)) {
+                    continue;
+                }
+
+                $name = str_replace('.', '\.', $import);
+                $find = '/\@import\s+(?:url\((\'|")' . $name . '\1\)|(\'|")' . $name . '\2);\s*/';
+                $file['parsedCss'] = preg_replace(
+                    $find,
+                    '',
+                    $file['parsedCss']
+                );
+
+                $path = $this->getOption('cssDir') . '/' . $import;
+                $css  = file_get_contents($path);
+                $file['imports'][] = array(
+                    'path'      => $path,
+                    'rawCss'    => $css,
+                    'parsedCss' => $css,
+                    'imports'   => array(),
+                );
+            }
         }
     } //end processImports
 
