@@ -754,10 +754,9 @@ class CssAllyTest extends BaseTest
      */
     public function testRemoveMixins($cssString, $expectedString)
     {
-        $this->_object->setBuiltCss($cssString);
-        $this->_object->removeMixins();
+        $cssString = $this->_object->removeMixins($cssString);
 
-        $this->assertEquals($expectedString, $this->_object->getBuiltCss());
+        $this->assertEquals($expectedString, $cssString);
     }
 
     public function removeMixinsProvider()
