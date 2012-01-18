@@ -274,7 +274,7 @@ class CssAlly
     {
         if (file_exists($this->_cachefile)) {
             $lastModified = 0;
-            foreach ($this->_files as $file) {
+            foreach ($this->_fileList as $file) {
                 $cssModified = filemtime($file);
                 if ($cssModified > $lastModified) {
                     $lastModified = $cssModified;
@@ -373,7 +373,7 @@ class CssAlly
      */
     public function generateFileName()
     {
-        $this->_cachefile = md5(implode('', $this->_files)) . '.css';
+        $this->_cachefile = md5(implode('', $this->_fileList)) . '.css';
     } //end generateFileName
 
     /**
