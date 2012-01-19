@@ -514,7 +514,7 @@ class CssAlly
      *
      * @return void
      */
-    public function parseVariables(array $files = array())
+    public function parseVariables(array &$files = array())
     {
         if (empty($files)) {
             $this->_builtCss = $this->parseVariablesInCssString($this->_builtCss);
@@ -551,7 +551,7 @@ class CssAlly
         return $css;
     } //end parseVariablesInCssString
 
-    private function parseVariablesInFilesArray(array $files)
+    private function parseVariablesInFilesArray(array &$files)
     {
         $find = '/\s*\$([a-zA-Z][-_a-zA-Z0-9]{0,31})\s*=\s*([\'"])([^\'"]+)\2;/';
         $vars = array();
@@ -586,7 +586,7 @@ class CssAlly
      *
      * @return void
      */
-    public function processImports(array $files = array())
+    public function processImports(array &$files = array())
     {
         if (empty($files)) {
             $this->_builtCss = $this->processImportsInCssString($this->_builtCss);
@@ -624,7 +624,7 @@ class CssAlly
         return $css;
     } //end processImportsInCssString
 
-    private function processImportsInFilesArray(array $files)
+    private function processImportsInFilesArray(array &$files)
     {
         $find = '/\@import\s+(?:url\((\'|")([^\'"\)]+)\1\)|(\'|")([^\'"]+)\3);\s*/';
         foreach ($files as &$file) {
@@ -661,7 +661,7 @@ class CssAlly
         }
     } //end processImportsInFilesArray
 
-    public function processMixins(array $files = array())
+    public function processMixins(array &$files = array())
     {
         if (empty($files)) {
             $this->_builtCss = $this->processMixinsInCssString($this->_builtCss);
@@ -760,7 +760,7 @@ class CssAlly
         return $css;
     } //end processMixinsInCssString
 
-    private function processMixinsInFilesArray(array $files)
+    private function processMixinsInFilesArray(array &$files)
     {
         $find   = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:[-_a-zA-Z0-9:$;\s#]|\{\$[^}]+\})+)\}/';
         $m      = array();
@@ -850,10 +850,19 @@ class CssAlly
         }
     } //end processMixinsInFilesArray
 
-    public function processNestedRules()
+    public function processNestedRules(array &$files = array())
     {
-        $css = $this->_builtCss;
+        if (empty($files)) {
+            $this->_builtCss = $this->processNestedRulesInCssString($this->_builtCss);
+            return;
+        }
 
+        $this->processNestedRulesInFilesArray($files);
+        return;
+    } //end processNestedRules
+
+    private function processNestedRulesInCssString($css = '')
+    {
         $css = $this->obfuscateMixins($css);
         $css = $this->obfuscateKeyframes($css);
         $somethingMatched = false;
@@ -900,13 +909,20 @@ class CssAlly
             $css = preg_replace($step6, $step6replace, $css);
             $css = preg_replace($step7, $step7replace, $css);
             $css = preg_replace($step8, $step8replace, $css);
-
-            $css = $this->deObfuscateKeyframes($css);
-            $css = $this->deObfuscateMixins($css);
-
-            $this->_builtCss = $css;
         }
-    } //end processNestedRules
+
+        $css = $this->deObfuscateKeyframes($css);
+        $css = $this->deObfuscateMixins($css);
+
+        return $css;
+    } //end processNestedRulesInCssString
+
+    private function processNestedRulesInFilesArray(array &$files)
+    {
+        foreach ($files as &$file) {
+            $file['parsedCss'] = $this->processNestedRulesInCssString($file['parsedCss']);
+        }
+    } //end processNestedRulesInFilesArray
 
     /**
      * Remove mixin declarations from the CSS string
