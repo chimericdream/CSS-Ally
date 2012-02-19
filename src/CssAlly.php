@@ -242,10 +242,7 @@ class CssAlly
     {
         $this->_builtCss = '';
         foreach ($this->_files as $file) {
-            foreach ($file['imports'] as $import) {
-                $this->_builtCss .= "\n\n" . $import['parsedCss'];
-            }
-            $this->_builtCss .= "\n\n" . $file['parsedCss'];
+            $this->_builtCss .= "\n\n" . $this->getParsedCss($file);
         }
 
         return $this;
@@ -353,9 +350,10 @@ class CssAlly
         $this->generateFileName();
         if (!$this->checkCache()) {
             $this->processImports($this->_files);
-            $this->processMixins();
-            $this->parseVariables();
-            $this->processNestedRules();
+            $this->processMixins($this->_files);
+            $this->parseVariables($this->_files);
+            $this->processNestedRules($this->_files);
+            $this->buildCssString();
             $this->runCssRules();
             $this->compress();
             $this->writeCache();
@@ -467,6 +465,17 @@ class CssAlly
         return $this->_options;
     } //end getOptions
 
+    private function getParsedCss(array $file)
+    {
+        $css = '';
+        foreach ($file['imports'] as $import) {
+            $css .= "\n\n" . $this->getParsedCss($import);
+        }
+        $css .= "\n\n" . $file['parsedCss'];
+        
+        return $css;
+    } //end getParsedCss
+    
     public function obfuscateKeyframes($css)
     {
         $css = preg_replace('/(@keyframes[^{]+){/', '$1<<kf', $css);
@@ -630,7 +639,11 @@ class CssAlly
         foreach ($files as &$file) {
             $imports    = array();
             preg_match_all($find, $file['parsedCss'], $imports);
-            $imps = array_merge($imports[2], $imports[4]);
+
+            $imps = array();
+            if (isset($imports[2]) && isset($imports[4])) {
+                $imps = array_merge($imports[2], $imports[4]);
+            }
 
             foreach ($imps as $import) {
                 if (empty($import)) {
