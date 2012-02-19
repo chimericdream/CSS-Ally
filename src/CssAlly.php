@@ -637,7 +637,7 @@ class CssAlly
                     continue;
                 }
 
-                $name = str_replace('.', '\.', $import);
+                $name = str_replace(array('.', '/'), array('\.', '\/'), $import);
                 $find = '/\@import\s+(?:url\((\'|")' . $name . '\1\)|(\'|")' . $name . '\2);\s*/';
                 $file['parsedCss'] = preg_replace(
                     $find,
