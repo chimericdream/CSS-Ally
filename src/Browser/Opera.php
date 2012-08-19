@@ -74,7 +74,7 @@ class Browser_Opera extends Browser
         );
 
         foreach ($properties as $standard => $opera) {
-            $search    = "/(\s*)(?<!-){$standard}:{$value}/";
+            $search    = "/(\s*)(?<![-$]){$standard}:{$value}/";
             $rep       = '${1}' . "{$opera['prefix']}:{$opera['format']};"
                        . '${1}' . "{$standard}:{$replace};";
 
@@ -101,7 +101,7 @@ class Browser_Opera extends Browser
 
         $search = '(none|(?:' . $img . '(?:\s+(?:' . $pct . '|' . $num . ')){1,4}(?:\s*\/\s*(?:' . $bwd . ')(?:(?:\s+' . $bwd . '){1,3})?)?(?:\s+(?:stretch|repeat|round)){0,2}))';
 
-        $search    = '/(\s*)(?<!-)(border-image:(?:\s*))' . $search . ';?/';
+        $search    = '/(\s*)(?<![-$])(border-image:(?:\s*))' . $search . ';?/';
         $replace   = '${1}-o-${2}${3};${1}${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
@@ -160,7 +160,7 @@ class Browser_Opera extends Browser
         );
 
         foreach ($properties as $standard => $opera) {
-            $search = "/(\s*)(?<!-){$standard}:{$opera['value']}/";
+            $search = "/(\s*)(?<![-$]){$standard}:{$opera['value']}/";
             $rep = '${1}' . "{$opera['prefix']}:{$opera['replace']};"
                  . '${1}' . "{$standard}:{$opera['replace']};";
             $cssString = preg_replace($search, $rep, $cssString);
@@ -177,10 +177,10 @@ class Browser_Opera extends Browser
         $length   = $this->lengthRegex();
         $percent  = $this->percentRegex();
         $stop     = '(?:' . $color . '(?:\s+(?:' . $percent . '|' . $length . '))?)';
-        $linear   = '(?<!-)(?:repeating-)?linear-gradient\((?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
-        $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)(' . $linear . ')([^;\r\n]*);?';
+        $linear   = '(?<![-$])(?:repeating-)?linear-gradient\((?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
+        $bg       = '(\s*(?<![-$])background:\s*(?:' . $color . '\s+)?)(' . $linear . ')([^;\r\n]*);?';
         $bgrep    = '${1}-o-${8}${25};${1}${8}${25};';
-        $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $linear . ');?';
+        $bgimg    = '(\s*(?<![-$])background-image:)(\s*)(' . $linear . ');?';
         $bgimgrep = '${1}${2}-o-${3};${1}${2}${3};';
 
         $properties = array(
@@ -215,10 +215,10 @@ class Browser_Opera extends Browser
         $position = '(?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?';
         $shape    = '(?:circle|ellipse)';
         $size     = '(?:closest-side|closest-corner|farthest-side|farthest-corner|contain|cover)';
-        $radial   = '(?<!-)(?:repeating-)?radial-gradient\(' . $position . '(?:(?:(?:' . $shape . '|' . $size . ')|' . $shape . '\s+' . $size . '|(?:' . $length . '|' . $percent . '){2}),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
-        $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)(' . $radial . ')([^;\r\n]*);?';
+        $radial   = '(?<![-$])(?:repeating-)?radial-gradient\(' . $position . '(?:(?:(?:' . $shape . '|' . $size . ')|' . $shape . '\s+' . $size . '|(?:' . $length . '|' . $percent . '){2}),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
+        $bg       = '(\s*(?<![-$])background:\s*(?:' . $color . '\s+)?)(' . $radial . ')([^;\r\n]*);?';
         $bgrep    = '${1}-o-${8}${25};${1}${8}${25};';
-        $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $radial . ')([^;\r\n]*);?';
+        $bgimg    = '(\s*(?<![-$])background-image:)(\s*)(' . $radial . ')([^;\r\n]*);?';
         $bgimgrep = '${1}${2}-o-${3}${20};${1}${2}${3}${20};';
 
         $properties = array(
@@ -271,7 +271,7 @@ class Browser_Opera extends Browser
 
         $functions = implode('|', $transformFunctions);
 
-        $search = '/(\s*)(?<!-)transform:((\s*)(' . $functions . ')(?:\s+(' . $functions . '))*);?/';
+        $search = '/(\s*)(?<![-$])transform:((\s*)(' . $functions . ')(?:\s+(' . $functions . '))*);?/';
 
         $replace = '${1}-o-transform:${2};${1}'
                 . 'transform:${2};';
@@ -292,7 +292,7 @@ class Browser_Opera extends Browser
         $length  = $this->lengthRegex();
         $percent = $this->percentRegex();
 
-        $search    = '/(\s*)(?<!-)transform-origin:(\s*)(((0|' . $percent . '|'
+        $search    = '/(\s*)(?<![-$])transform-origin:(\s*)(((0|' . $percent . '|'
                    . $length . '|left|center|right)(\s+(0|' . $percent . '|'
                    . $length . '|top|center|bottom))?|((left|center|right)'
                    . '(\s+(top|center|bottom))?|((left|center|right)\s+)?'
@@ -329,7 +329,7 @@ class Browser_Opera extends Browser
                 . '(?:' . $prop . '\s+)?(?:' . $dur . '\s+)?(?:' . $func . '\s+)?' . $delay
               . ')';
 
-        $search    = '/(\s*)(?<!-)(transition:\s*)(' . $trans . '(?:,\s*' . $trans . ')*);?/';
+        $search    = '/(\s*)(?<![-$])(transition:\s*)(' . $trans . '(?:,\s*' . $trans . ')*);?/';
         $replace   = '${1}-o-${2}${3};${1}${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
@@ -347,7 +347,7 @@ class Browser_Opera extends Browser
     {
         $time = $this->timeRegex();
 
-        $search    = '/(\s*)(?<!-)transition-delay:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
+        $search    = '/(\s*)(?<![-$])transition-delay:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
         $replace   = '${1}-o-transition-delay:${2}${3};${1}'
                    . 'transition-delay:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -366,7 +366,7 @@ class Browser_Opera extends Browser
     {
         $time = $this->timeRegex();
 
-        $search    = '/(\s*)(?<!-)transition-duration:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
+        $search    = '/(\s*)(?<![-$])transition-duration:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
         $replace   = '${1}-o-transition-duration:${2}${3};${1}'
                    . 'transition-duration:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -385,7 +385,7 @@ class Browser_Opera extends Browser
     {
         $property = $this->animatablePropertyRegex();
 
-        $search    = '/(\s*)(?<!-)transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
+        $search    = '/(\s*)(?<![-$])transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
         $replace   = '${1}-o-transition-property:${2}${3};${1}'
                    . 'transition-property:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -405,7 +405,7 @@ class Browser_Opera extends Browser
         $num  = $this->numberRegex();
         $func = '(?:ease-in-out|linear|ease-in|ease-out|ease|cubic-bezier\(' . $num . ',\s*' . $num . ',\s*' . $num . ',\s*' . $num . '\))';
 
-        $search    = '/(\s*)(?<!-)transition-timing-function:(\s*)(' . $func . '(?:,\s*' . $func . ')*);?/';
+        $search    = '/(\s*)(?<![-$])transition-timing-function:(\s*)(' . $func . '(?:,\s*' . $func . ')*);?/';
 
         $replace   = '${1}-o-transition-timing-function:${2}${3};${1}'
                    . 'transition-timing-function:${2}${3};';

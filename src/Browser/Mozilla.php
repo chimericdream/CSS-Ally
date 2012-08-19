@@ -79,7 +79,7 @@ class Browser_Mozilla extends Browser
                 . '(?:' . $name . '\s+)?(?:' . $dur . '\s+)?(?:' . $func . '\s+)?(?:' . $delay . '\s+)?(?:' . $count . '\s+)?' . $dir
               . ')';
 
-        $search    = '/(\s*)(?<!-)(animation:\s*)(' . $anim . '(?:,\s*' . $anim . ')*);?/';
+        $search    = '/(\s*)(?<![-$])(animation:\s*)(' . $anim . '(?:,\s*' . $anim . ')*);?/';
         $replace   = '${1}-moz-${2}${3};${1}${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
@@ -95,7 +95,7 @@ class Browser_Mozilla extends Browser
     {
         $time = $this->timeRegex();
 
-        $search    = '/(\s*)(?<!-)animation-delay:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
+        $search    = '/(\s*)(?<![-$])animation-delay:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
         $replace   = '${1}-moz-animation-delay:${2}${3};${1}'
                    . 'animation-delay:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -115,7 +115,7 @@ class Browser_Mozilla extends Browser
     {
         $dir       = '(?:normal|alternate)';
 
-        $search    = '/(\s*)(?<!-)animation-direction:(\s*)(' . $dir . '(?:,\s*' . $dir . ')*);?/';
+        $search    = '/(\s*)(?<![-$])animation-direction:(\s*)(' . $dir . '(?:,\s*' . $dir . ')*);?/';
         $replace   = '${1}-moz-animation-direction:${2}${3};${1}'
                    . 'animation-direction:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -132,7 +132,7 @@ class Browser_Mozilla extends Browser
     {
         $time = $this->timeRegex();
 
-        $search    = '/(\s*)(?<!-)animation-duration:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
+        $search    = '/(\s*)(?<![-$])animation-duration:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
         $replace   = '${1}-moz-animation-duration:${2}${3};${1}'
                    . 'animation-duration:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -153,7 +153,7 @@ class Browser_Mozilla extends Browser
         $number    = $this->numberRegex();
         $count     = '(?:infinite|' . $number . ')';
 
-        $search    = '/(\s*)(?<!-)animation-iteration-count:(\s*)(' . $count . '(?:,\s*' . $count . ')*);?/';
+        $search    = '/(\s*)(?<![-$])animation-iteration-count:(\s*)(' . $count . '(?:,\s*' . $count . ')*);?/';
         $replace   = '${1}-moz-animation-iteration-count:${2}${3};${1}'
                    . 'animation-iteration-count:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -180,7 +180,7 @@ class Browser_Mozilla extends Browser
 
         $rules = '(?:\s*' . $point . '\s*' . $block . '\s*)*';
 
-        $search    = '/(\s*)\@(?<!-)(keyframes\s+' . $ident . '\s*\{' . $rules . '\})/';
+        $search    = '/(\s*)\@(?<![-$])(keyframes\s+' . $ident . '\s*\{' . $rules . '\})/';
         $replace   = '${1}@-moz-${2}' . "\n" . '${1}@${2}';
         $cssString = preg_replace($search, $replace, $cssString);
 
@@ -199,7 +199,7 @@ class Browser_Mozilla extends Browser
     {
         $name = $this->identRegex();
 
-        $search    = '/(\s*)(?<!-)animation-name:(\s*)(' . $name . '(?:,\s*' . $name . ')*);?/';
+        $search    = '/(\s*)(?<![-$])animation-name:(\s*)(' . $name . '(?:,\s*' . $name . ')*);?/';
         $replace   = '${1}-moz-animation-name:${2}${3};${1}'
                    . 'animation-name:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -219,7 +219,7 @@ class Browser_Mozilla extends Browser
     {
         $state     = '(?:running|paused)';
 
-        $search    = '/(\s*)(?<!-)animation-play-state:(\s*)(' . $state . '(?:,\s*' . $state . ')*);?/';
+        $search    = '/(\s*)(?<![-$])animation-play-state:(\s*)(' . $state . '(?:,\s*' . $state . ')*);?/';
         $replace   = '${1}-moz-animation-play-state:${2}${3};${1}'
                    . 'animation-play-state:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -239,7 +239,7 @@ class Browser_Mozilla extends Browser
     {
         $func = $this->timingFuncRegex();
 
-        $search    = '/(\s*)(?<!-)animation-timing-function:(\s*)(' . $func . '(?:,\s*' . $func . ')*);?/';
+        $search    = '/(\s*)(?<![-$])animation-timing-function:(\s*)(' . $func . '(?:,\s*' . $func . ')*);?/';
 
         $replace   = '${1}-moz-animation-timing-function:${2}${3};${1}'
                    . 'animation-timing-function:${2}${3};';
@@ -257,7 +257,7 @@ class Browser_Mozilla extends Browser
     {
         $rule = '(?:(?:padding|border|content)-box)';
 
-        $search    = '/(\s*)(?<!-)background-clip:(\s*)(' . $rule . '(?:,\s*' . $rule . ')*);?/';
+        $search    = '/(\s*)(?<![-$])background-clip:(\s*)(' . $rule . '(?:,\s*' . $rule . ')*);?/';
         $replace   = '${1}-moz-background-clip:${2}${3};${1}'
                    . 'background-clip:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -274,7 +274,7 @@ class Browser_Mozilla extends Browser
     {
         $rule = '(?:(?:padding|border|content)-box)';
 
-        $search    = '/(\s*)(?<!-)background-origin:(\s*)(' . $rule . '(?:,\s*' . $rule . ')*);?/';
+        $search    = '/(\s*)(?<![-$])background-origin:(\s*)(' . $rule . '(?:,\s*' . $rule . ')*);?/';
         $replace   = '${1}-moz-background-origin:${2}${3};${1}'
                    . 'background-origin:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -305,7 +305,7 @@ class Browser_Mozilla extends Browser
         );
 
         foreach ($properties as $standard => $mozilla) {
-            $search    = "/(\s*)(?<!-){$standard}:{$value}/";
+            $search    = "/(\s*)(?<![-$]){$standard}:{$value}/";
             $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};"
                        . '${1}' . "{$standard}:{$replace};";
 
@@ -332,7 +332,7 @@ class Browser_Mozilla extends Browser
 
         $search = '(none|(?:' . $img . '(?:\s+(?:' . $pct . '|' . $num . ')){1,4}(?:\s*\/\s*(?:' . $bwd . ')(?:(?:\s+' . $bwd . '){1,3})?)?(?:\s+(?:stretch|repeat|round)){0,2}))';
 
-        $search    = '/(\s*)(?<!-)(border-image:(?:\s*))' . $search . ';?/';
+        $search    = '/(\s*)(?<![-$])(border-image:(?:\s*))' . $search . ';?/';
         $replace   = '${1}-moz-${2}${3};${1}${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
@@ -391,7 +391,7 @@ class Browser_Mozilla extends Browser
         );
 
         foreach ($properties as $standard => $mozilla) {
-            $search    = "/(\s*)(?<!-){$standard}:{$mozilla['value']}/";
+            $search    = "/(\s*)(?<![-$]){$standard}:{$mozilla['value']}/";
             $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['replace']};"
                        . '${1}' . "{$standard}:{$mozilla['replace']};";
 
@@ -423,7 +423,7 @@ class Browser_Mozilla extends Browser
         );
 
         foreach ($properties as $standard => $mozilla) {
-            $search    = "/(\s*)(?<!-){$standard}:{$value}/";
+            $search    = "/(\s*)(?<![-$]){$standard}:{$value}/";
             $rep       = '${1}' . "{$mozilla['prefix']}:{$mozilla['format']};"
                        . '${1}' . "{$standard}:{$replace};";
             $cssString = preg_replace($search, $rep, $cssString);
@@ -441,7 +441,7 @@ class Browser_Mozilla extends Browser
      */
     public function columnCount($cssString = '')
     {
-        $search    = '/(\s*)(?<!-)column-count:(\s*)(auto|\d+);?/';
+        $search    = '/(\s*)(?<![-$])column-count:(\s*)(auto|\d+);?/';
         $replace   = '${1}-moz-column-count:${2}${3};${1}'
                    . 'column-count:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -459,7 +459,7 @@ class Browser_Mozilla extends Browser
     public function columnGap($cssString = '')
     {
         $length    = $this->lengthRegex();
-        $search    = '/(\s*)(?<!-)column-gap:(\s*)(normal|' . $length . ');?/';
+        $search    = '/(\s*)(?<![-$])column-gap:(\s*)(normal|' . $length . ');?/';
         $replace   = '${1}-moz-column-gap:${2}${3};${1}column-gap:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
@@ -505,7 +505,7 @@ class Browser_Mozilla extends Browser
         );
 
         foreach ($properties as $standard => $mozilla) {
-            $search = "/(\s*)(?<!-){$standard}:{$mozilla['value']}/";
+            $search = "/(\s*)(?<![-$]){$standard}:{$mozilla['value']}/";
             $rep    = '${1}' . "{$mozilla['prefix']}:{$mozilla['replace']};"
                     . '${1}' . "{$standard}:{$mozilla['replace']};";
 
@@ -524,7 +524,7 @@ class Browser_Mozilla extends Browser
      */
     public function columnSpan($cssString = '')
     {
-        $search    = '/(\s*)(?<!-)column-span:(\s*)(all|none);?/';
+        $search    = '/(\s*)(?<![-$])column-span:(\s*)(all|none);?/';
         $replace   = '${1}-moz-column-span:${2}${3};${1}column-span:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
@@ -542,7 +542,7 @@ class Browser_Mozilla extends Browser
     {
         $length = $this->lengthRegex();
 
-        $search    = '/(\s*)(?<!-)column-width:(\s*)(auto|' . $length . ');?/';
+        $search    = '/(\s*)(?<![-$])column-width:(\s*)(auto|' . $length . ');?/';
         $replace   = '${1}-moz-column-width:${2}${3};${1}'
                    . 'column-width:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -577,7 +577,7 @@ class Browser_Mozilla extends Browser
         );
 
         foreach ($properties as $mozilla) {
-            $search    = "/(\s*)(?<!-)columns:{$mozilla['value']}/";
+            $search    = "/(\s*)(?<![-$])columns:{$mozilla['value']}/";
             $rep       = '${1}' . "-moz-columns:{$mozilla['replace']};"
                        . '${1}' . "columns:{$mozilla['replace']};";
 
@@ -596,10 +596,10 @@ class Browser_Mozilla extends Browser
         $percent  = $this->percentRegex();
         $stop     = '(?:' . $color . '(?:\s+(?:' . $percent . '|' . $length . '))?)';
         $position = '(?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?';
-        $linear   = '(?<!-)(?:repeating-)?linear-gradient\(' . $position . $stop . '(?:,\s*' . $stop . ')+\)';
-        $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)(' . $linear . ')([^;\r\n]*);?';
+        $linear   = '(?<![-$])(?:repeating-)?linear-gradient\(' . $position . $stop . '(?:,\s*' . $stop . ')+\)';
+        $bg       = '(\s*(?<![-$])background:\s*(?:' . $color . '\s+)?)(' . $linear . ')([^;\r\n]*);?';
         $bgrep    = '${1}-moz-${8}${25};${1}${8}${25};';
-        $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $linear . ');?';
+        $bgimg    = '(\s*(?<![-$])background-image:)(\s*)(' . $linear . ');?';
         $bgimgrep = '${1}${2}-moz-${3};${1}${2}${3};';
 
         $properties = array(
@@ -634,10 +634,10 @@ class Browser_Mozilla extends Browser
         $position = '(?:(?:(?:' . $point . '|' . $angle . ')|' . $point . '\s+' . $angle . '),\s*)?';
         $shape    = '(?:circle|ellipse)';
         $size     = '(?:closest-side|closest-corner|farthest-side|farthest-corner|contain|cover)';
-        $radial   = '(?<!-)(?:repeating-)?radial-gradient\(' . $position . '(?:(?:(?:' . $shape . '|' . $size . ')|' . $shape . '\s+' . $size . '|(?:' . $length . '|' . $percent . '){2}),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
-        $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)(' . $radial . ')([^;\r\n]*);?';
+        $radial   = '(?<![-$])(?:repeating-)?radial-gradient\(' . $position . '(?:(?:(?:' . $shape . '|' . $size . ')|' . $shape . '\s+' . $size . '|(?:' . $length . '|' . $percent . '){2}),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
+        $bg       = '(\s*(?<![-$])background:\s*(?:' . $color . '\s+)?)(' . $radial . ')([^;\r\n]*);?';
         $bgrep    = '${1}-moz-${8}${25};${1}${8}${25};';
-        $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $radial . ')([^;\r\n]*);?';
+        $bgimg    = '(\s*(?<![-$])background-image:)(\s*)(' . $radial . ')([^;\r\n]*);?';
         $bgimgrep = '${1}${2}-moz-${3}${20};${1}${2}${3}${20};';
 
         $properties = array(
@@ -690,7 +690,7 @@ class Browser_Mozilla extends Browser
 
         $functions = implode('|', $transformFunctions);
 
-        $search = '/(\s*)(?<!-)transform:((\s*)(' . $functions . ')(?:\s+(' . $functions . '))*);?/';
+        $search = '/(\s*)(?<![-$])transform:((\s*)(' . $functions . ')(?:\s+(' . $functions . '))*);?/';
 
         $replace = '${1}-moz-transform:${2};${1}'
                 . 'transform:${2};';
@@ -711,7 +711,7 @@ class Browser_Mozilla extends Browser
         $length  = $this->lengthRegex();
         $percent = $this->percentRegex();
 
-        $search    = '/(\s*)(?<!-)transform-origin:(\s*)(((0|' . $percent . '|'
+        $search    = '/(\s*)(?<![-$])transform-origin:(\s*)(((0|' . $percent . '|'
                    . $length . '|left|center|right)(\s+(0|' . $percent . '|'
                    . $length . '|top|center|bottom))?|((left|center|right)'
                    . '(\s+(top|center|bottom))?|((left|center|right)\s+)?'
@@ -748,7 +748,7 @@ class Browser_Mozilla extends Browser
                 . '(?:' . $prop . '\s+)?(?:' . $dur . '\s+)?(?:' . $func . '\s+)?' . $delay
               . ')';
 
-        $search    = '/(\s*)(?<!-)(transition:\s*)(' . $trans . '(?:,\s*' . $trans . ')*);?/';
+        $search    = '/(\s*)(?<![-$])(transition:\s*)(' . $trans . '(?:,\s*' . $trans . ')*);?/';
         $replace   = '${1}-moz-${2}${3};${1}${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
@@ -766,7 +766,7 @@ class Browser_Mozilla extends Browser
     {
         $time = $this->timeRegex();
 
-        $search    = '/(\s*)(?<!-)transition-delay:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
+        $search    = '/(\s*)(?<![-$])transition-delay:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
         $replace   = '${1}-moz-transition-delay:${2}${3};${1}'
                    . 'transition-delay:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -785,7 +785,7 @@ class Browser_Mozilla extends Browser
     {
         $time = $this->timeRegex();
 
-        $search    = '/(\s*)(?<!-)transition-duration:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
+        $search    = '/(\s*)(?<![-$])transition-duration:(\s*)(' . $time . '(?:,\s*' . $time . ')*);?/';
         $replace   = '${1}-moz-transition-duration:${2}${3};${1}'
                    . 'transition-duration:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -804,7 +804,7 @@ class Browser_Mozilla extends Browser
     {
         $property = $this->animatablePropertyRegex();
 
-        $search    = '/(\s*)(?<!-)transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
+        $search    = '/(\s*)(?<![-$])transition-property:(\s*)(none|all|' . $property . '(?:,\s*' . $property . ')*);?/';
         $replace   = '${1}-moz-transition-property:${2}${3};${1}'
                    . 'transition-property:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -824,7 +824,7 @@ class Browser_Mozilla extends Browser
         $num  = $this->numberRegex();
         $func = '(?:ease-in-out|linear|ease-in|ease-out|ease|cubic-bezier\(' . $num . ',\s*' . $num . ',\s*' . $num . ',\s*' . $num . '\))';
 
-        $search    = '/(\s*)(?<!-)transition-timing-function:(\s*)(' . $func . '(?:,\s*' . $func . ')*);?/';
+        $search    = '/(\s*)(?<![-$])transition-timing-function:(\s*)(' . $func . '(?:,\s*' . $func . ')*);?/';
 
         $replace   = '${1}-moz-transition-timing-function:${2}${3};${1}'
                    . 'transition-timing-function:${2}${3};';

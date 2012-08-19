@@ -93,7 +93,7 @@ class Browser_Explorer extends Browser
                     . $dir
               . ')';
 
-        $search    = '/(\s*)(?<!-)(animation:\s*)(' . $anim . '(?:,\s*' . $anim
+        $search    = '/(\s*)(?<![-$])(animation:\s*)(' . $anim . '(?:,\s*' . $anim
                    . ')*);?/';
         $replace   = '${1}-ms-${2}${3};${1}${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -112,7 +112,7 @@ class Browser_Explorer extends Browser
     {
         $time = $this->timeRegex();
 
-        $search    = '/(\s*)(?<!-)animation-delay:(\s*)(' . $time . '(?:,\s*'
+        $search    = '/(\s*)(?<![-$])animation-delay:(\s*)(' . $time . '(?:,\s*'
                    . $time . ')*);?/';
         $replace   = '${1}-ms-animation-delay:${2}${3};${1}'
                    . 'animation-delay:${2}${3};';
@@ -133,7 +133,7 @@ class Browser_Explorer extends Browser
     {
         $dir       = '(?:normal|alternate)';
 
-        $search    = '/(\s*)(?<!-)animation-direction:(\s*)(' . $dir
+        $search    = '/(\s*)(?<![-$])animation-direction:(\s*)(' . $dir
                    . '(?:,\s*' . $dir . ')*);?/';
         $replace   = '${1}-ms-animation-direction:${2}${3};${1}'
                    . 'animation-direction:${2}${3};';
@@ -153,7 +153,7 @@ class Browser_Explorer extends Browser
     {
         $time = $this->timeRegex();
 
-        $search    = '/(\s*)(?<!-)animation-duration:(\s*)(' . $time
+        $search    = '/(\s*)(?<![-$])animation-duration:(\s*)(' . $time
                    . '(?:,\s*' . $time . ')*);?/';
         $replace   = '${1}-ms-animation-duration:${2}${3};${1}'
                    . 'animation-duration:${2}${3};';
@@ -175,7 +175,7 @@ class Browser_Explorer extends Browser
         $number    = $this->numberRegex();
         $count     = '(?:infinite|' . $number . ')';
 
-        $search    = '/(\s*)(?<!-)animation-iteration-count:(\s*)(' . $count
+        $search    = '/(\s*)(?<![-$])animation-iteration-count:(\s*)(' . $count
                    . '(?:,\s*' . $count . ')*);?/';
         $replace   = '${1}-ms-animation-iteration-count:${2}${3};${1}'
                    . 'animation-iteration-count:${2}${3};';
@@ -204,7 +204,7 @@ class Browser_Explorer extends Browser
 
         $rules = '(?:\s*' . $point . '\s*' . $block . '\s*)*';
 
-        $search    = '/(\s*)\@(?<!-)(keyframes\s+' . $ident . '\s*\{' . $rules
+        $search    = '/(\s*)\@(?<![-$])(keyframes\s+' . $ident . '\s*\{' . $rules
                    . '\})/';
         $replace   = '${1}@-ms-${2}' . "\n" . '${1}@${2}';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -224,7 +224,7 @@ class Browser_Explorer extends Browser
     {
         $name = $this->identRegex();
 
-        $search    = '/(\s*)(?<!-)animation-name:(\s*)(' . $name . '(?:,\s*'
+        $search    = '/(\s*)(?<![-$])animation-name:(\s*)(' . $name . '(?:,\s*'
                    . $name . ')*);?/';
         $replace   = '${1}-ms-animation-name:${2}${3};${1}'
                    . 'animation-name:${2}${3};';
@@ -245,7 +245,7 @@ class Browser_Explorer extends Browser
     {
         $state     = '(?:running|paused)';
 
-        $search    = '/(\s*)(?<!-)animation-play-state:(\s*)(' . $state
+        $search    = '/(\s*)(?<![-$])animation-play-state:(\s*)(' . $state
                    . '(?:,\s*' . $state . ')*);?/';
         $replace   = '${1}-ms-animation-play-state:${2}${3};${1}'
                    . 'animation-play-state:${2}${3};';
@@ -266,7 +266,7 @@ class Browser_Explorer extends Browser
     {
         $func = $this->timingFuncRegex();
 
-        $search    = '/(\s*)(?<!-)animation-timing-function:(\s*)(' . $func
+        $search    = '/(\s*)(?<![-$])animation-timing-function:(\s*)(' . $func
                    . '(?:,\s*' . $func . ')*);?/';
 
         $replace   = '${1}-ms-animation-timing-function:${2}${3};${1}'
@@ -296,7 +296,7 @@ class Browser_Explorer extends Browser
                 . ')){1,4}(?:\s*\/\s*(?:' . $bwd . ')(?:(?:\s+' . $bwd
                 . '){1,3})?)?(?:\s+(?:stretch|repeat|round)){0,2}))';
 
-        $search    = '/(\s*)(?<!-)(border-image:(?:\s*))' . $search . ';?/';
+        $search    = '/(\s*)(?<![-$])(border-image:(?:\s*))' . $search . ';?/';
         $replace   = '${1}-ms-${2}${3};${1}${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
 
@@ -312,13 +312,13 @@ class Browser_Explorer extends Browser
         $percent  = $this->percentRegex();
         $stop     = '(?:' . $color . '(?:\s+(?:' . $percent . '|'
                   . $length . '))?)';
-        $linear   = '(?<!-)(?:repeating-)?linear-gradient\((?:(?:(?:'
+        $linear   = '(?<![-$])(?:repeating-)?linear-gradient\((?:(?:(?:'
                   . $point . '|' . $angle . ')|' . $point . '\s+' . $angle
                   . '),\s*)?' . $stop . '(?:,\s*' . $stop . ')+\)';
-        $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)('
+        $bg       = '(\s*(?<![-$])background:\s*(?:' . $color . '\s+)?)('
                   . $linear . ')([^;\r\n]*);?';
         $bgrep    = '${1}-ms-${8}${25};${1}${8}${25};';
-        $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $linear . ');?';
+        $bgimg    = '(\s*(?<![-$])background-image:)(\s*)(' . $linear . ');?';
         $bgimgrep = '${1}${2}-ms-${3};${1}${2}${3};';
 
         $properties = array(
@@ -356,14 +356,14 @@ class Browser_Explorer extends Browser
         $shape    = '(?:circle|ellipse)';
         $size     = '(?:closest-side|closest-corner|farthest-side|'
                   . 'farthest-corner|contain|cover)';
-        $radial   = '(?<!-)(?:repeating-)?radial-gradient\(' . $position
+        $radial   = '(?<![-$])(?:repeating-)?radial-gradient\(' . $position
                   . '(?:(?:(?:' . $shape . '|' . $size . ')|' . $shape . '\s+'
                   . $size . '|(?:' . $length . '|' . $percent . '){2}),\s*)?'
                   . $stop . '(?:,\s*' . $stop . ')+\)';
-        $bg       = '(\s*(?<!-)background:\s*(?:' . $color . '\s+)?)('
+        $bg       = '(\s*(?<![-$])background:\s*(?:' . $color . '\s+)?)('
                   . $radial . ')([^;\r\n]*);?';
         $bgrep    = '${1}-ms-${8}${25};${1}${8}${25};';
-        $bgimg    = '(\s*(?<!-)background-image:)(\s*)(' . $radial
+        $bgimg    = '(\s*(?<![-$])background-image:)(\s*)(' . $radial
                   . ')([^;\r\n]*);?';
         $bgimgrep = '${1}${2}-ms-${3}${20};${1}${2}${3}${20};';
 
@@ -417,7 +417,7 @@ class Browser_Explorer extends Browser
 
         $functions = implode('|', $transformFunctions);
 
-        $search = '/(\s*)(?<!-)transform:((\s*)(' . $functions . ')(?:\s+('
+        $search = '/(\s*)(?<![-$])transform:((\s*)(' . $functions . ')(?:\s+('
                 . $functions . '))*);?/';
 
         $replace = '${1}-ms-transform:${2};${1}'
@@ -439,7 +439,7 @@ class Browser_Explorer extends Browser
         $length  = $this->lengthRegex();
         $percent = $this->percentRegex();
 
-        $search    = '/(\s*)(?<!-)transform-origin:(\s*)(((0|' . $percent . '|'
+        $search    = '/(\s*)(?<![-$])transform-origin:(\s*)(((0|' . $percent . '|'
                    . $length . '|left|center|right)(\s+(0|' . $percent . '|'
                    . $length . '|top|center|bottom))?|((left|center|right)'
                    . '(\s+(top|center|bottom))?|((left|center|right)\s+)?'
@@ -480,7 +480,7 @@ class Browser_Explorer extends Browser
                     . '\s+)?' . $delay
                . ')';
 
-        $search    = '/(\s*)(?<!-)(transition:\s*)(' . $trans
+        $search    = '/(\s*)(?<![-$])(transition:\s*)(' . $trans
                    . '(?:,\s*' . $trans . ')*);?/';
         $replace   = '${1}-ms-${2}${3};${1}${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -499,7 +499,7 @@ class Browser_Explorer extends Browser
     {
         $time = $this->timeRegex();
 
-        $search    = '/(\s*)(?<!-)transition-delay:(\s*)(' . $time
+        $search    = '/(\s*)(?<![-$])transition-delay:(\s*)(' . $time
                    . '(?:,\s*' . $time . ')*);?/';
         $replace   = '${1}-ms-transition-delay:${2}${3};${1}'
                    . 'transition-delay:${2}${3};';
@@ -519,7 +519,7 @@ class Browser_Explorer extends Browser
     {
         $time = $this->timeRegex();
 
-        $search    = '/(\s*)(?<!-)transition-duration:(\s*)(' . $time
+        $search    = '/(\s*)(?<![-$])transition-duration:(\s*)(' . $time
                    . '(?:,\s*' . $time . ')*);?/';
         $replace   = '${1}-ms-transition-duration:${2}${3};${1}'
                    . 'transition-duration:${2}${3};';
@@ -539,7 +539,7 @@ class Browser_Explorer extends Browser
     {
         $property = $this->animatablePropertyRegex();
 
-        $search    = '/(\s*)(?<!-)transition-property:(\s*)(none|all|'
+        $search    = '/(\s*)(?<![-$])transition-property:(\s*)(none|all|'
                    . $property . '(?:,\s*' . $property . ')*);?/';
         $replace   = '${1}-ms-transition-property:${2}${3};${1}'
                    . 'transition-property:${2}${3};';
@@ -559,7 +559,7 @@ class Browser_Explorer extends Browser
     {
         $func = $this->timingFuncRegex();
 
-        $search    = '/(\s*)(?<!-)transition-timing-function:(\s*)('
+        $search    = '/(\s*)(?<![-$])transition-timing-function:(\s*)('
                    . $func . '(?:,\s*' . $func . ')*);?/';
 
         $replace   = '${1}-ms-transition-timing-function:${2}${3};${1}'

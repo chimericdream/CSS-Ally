@@ -60,7 +60,7 @@ class Browser_Konqueror extends Browser
     {
         $rule = '(?:(?:padding|border|content)-box)';
 
-        $search    = '/(\s*)(?<!-)background-clip:(\s*)(' . $rule . '(?:,\s*' . $rule . ')*);?/';
+        $search    = '/(\s*)(?<![-$])background-clip:(\s*)(' . $rule . '(?:,\s*' . $rule . ')*);?/';
         $replace   = '${1}-khtml-background-clip:${2}${3};${1}'
                    . 'background-clip:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
@@ -77,7 +77,7 @@ class Browser_Konqueror extends Browser
     {
         $rule = '(?:(?:padding|border|content)-box)';
 
-        $search    = '/(\s*)(?<!-)background-origin:(\s*)(' . $rule . '(?:,\s*' . $rule . ')*);?/';
+        $search    = '/(\s*)(?<![-$])background-origin:(\s*)(' . $rule . '(?:,\s*' . $rule . ')*);?/';
         $replace   = '${1}-khtml-background-origin:${2}${3};${1}'
                    . 'background-origin:${2}${3};';
         $cssString = preg_replace($search, $replace, $cssString);
