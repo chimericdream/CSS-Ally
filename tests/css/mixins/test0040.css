@@ -21,8 +21,11 @@ $min-width: 999999;
 $correction: 0.5 / $min-width * 100;
 */
 
-/* The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/ */
-@mixin clearfix() {
+/* The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/ *//**
+ * GRID
+ */
+body {
+	width: 100%;
 	*zoom:1;
 
 	&:before,
@@ -33,47 +36,7 @@ $correction: 0.5 / $min-width * 100;
 	&:after {
 	    clear:both;
 	}
-}
-
-/**
- * GRID
- */
-body {
-	width: 100%;
-	@include clearfix();
-}
-
-@mixin row($columns:$columns) {
-	display: block;
-	width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns));
-	margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1);
-/*
-	*width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns))-$correction;
-	*margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1)-$correction;
-*/
-	@include clearfix();
-}
-
-@mixin column($x,$columns:$columns) {
-	display: inline;
-	float: left;
-	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns));
-	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
-/*
-	*width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns))-$correction;
-	*margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
-*/
-}
-
-@mixin push($offset:1) {
-	margin-left: $total-width*((($gutter-width+$column-width)*$offset) / gridsystem-width($columns)) + $total-width*(($gutter-width*.5)/gridsystem-width($columns));
-}
-
-@mixin pull($offset:1) {
-	margin-right: $total-width*((($gutter-width+$column-width)*$offset) / gridsystem-width($columns)) + $total-width*(($gutter-width*.5)/gridsystem-width($columns));
-}
-
-/**
+}/**
  * GRID
  */
 
@@ -94,15 +57,36 @@ div.center {
 
 /* header */
 header#top {
-    @include column(12);
+	display: inline;
+	float: left;
+	width: $total-width*(((($gutter-width+$column-width)*12)-$gutter-width) / gridsystem-width($columns));
+	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+/*
+	*width: $total-width*(((($gutter-width+$column-width)*12)-$gutter-width) / gridsystem-width($columns))-$correction;
+	*margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+*/
     margin-bottom: 1em;
 }
 
 /* main and sidebar */
 #maincolumn {
-    @include column(9);
+	display: inline;
+	float: left;
+	width: $total-width*(((($gutter-width+$column-width)*9)-$gutter-width) / gridsystem-width($columns));
+	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+/*
+	*width: $total-width*(((($gutter-width+$column-width)*9)-$gutter-width) / gridsystem-width($columns))-$correction;
+	*margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+*/
 }
 
 #sidebar {
-    @include column(3);
+	display: inline;
+	float: left;
+	width: $total-width*(((($gutter-width+$column-width)*3)-$gutter-width) / gridsystem-width($columns));
+	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+/*
+	*width: $total-width*(((($gutter-width+$column-width)*3)-$gutter-width) / gridsystem-width($columns))-$correction;
+	*margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+*/
 }
