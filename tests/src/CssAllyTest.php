@@ -797,6 +797,59 @@ class CssAllyTest extends BaseTest
     }
 
     /**
+     * @covers CssAlly::removeFunctions
+     * @depends testSetBuiltCss
+     * @dataProvider removeFunctionsProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testRemoveFunctions($cssString, $expectedString)
+    {
+        $cssString = $this->_object->removeFunctions($cssString);
+
+        $this->assertEquals($expectedString, $cssString);
+    }
+
+    public function removeFunctionsProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $subFolder = 'remove-functions';
+
+        $strings = $this->getCssStrings($path, $subFolder);
+
+        return $strings;
+    }
+
+    /**
+     * @covers CssAlly::processFunctions
+     * @depends testRemoveFunctions
+     * @dataProvider processFunctionsProvider
+     * @param string $cssString      The string to be tested
+     * @param string $expectedString The expected result
+     *
+     * @return void
+     */
+    public function testProcessFunctions($cssString, $expectedString)
+    {
+        $this->_object->setBuiltCss($cssString);
+        $this->_object->processFunctions();
+
+        $this->assertEquals($expectedString, $this->_object->getBuiltCss());
+    }
+
+    public function processFunctionsProvider()
+    {
+        $path = dirname(__FILE__) . '/../css';
+        $subFolder = 'functions';
+
+        $strings = $this->getCssStrings($path, $subFolder);
+
+        return $strings;
+    }
+
+    /**
      * @covers CssAlly::processNestedRules
      * @dataProvider processNestedRulesProvider
      * @param string $cssString      The string to be tested
