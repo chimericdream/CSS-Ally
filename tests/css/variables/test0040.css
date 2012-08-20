@@ -3,7 +3,7 @@
  */
 
 /* Defaults which you can freely override *//* Utility function - you should never need to modify this */
-@function gridsystem-width($columns:12) {
+@function gridsystem-width(12:12) {
 	@return (60px * 12) + (20px * 12);
 }
 
@@ -38,10 +38,10 @@ body {
 	@include clearfix();
 }
 
-@mixin row($columns:12) {
+@mixin row(12:12) {
 	display: block;
-	margin: 0 $total-width*(((20px*.5)/gridsystem-width(12))*-1);
 	width: $total-width*((20px + gridsystem-width(12))/gridsystem-width(12));
+	margin: 0 $total-width*(((20px*.5)/gridsystem-width(12))*-1);
 /*
 	*width: $total-width*((20px + gridsystem-width(12))/gridsystem-width(12))-$correction;
 	*margin: 0 $total-width*(((20px*.5)/gridsystem-width(12))*-1)-$correction;
@@ -49,11 +49,11 @@ body {
 	@include clearfix();
 }
 
-@mixin column($x,$columns:12) {
+@mixin column($x,12:12) {
 	display: inline;
 	float: left;
-	margin: 0 $total-width*((20px*.5)/gridsystem-width(12));
 	width: $total-width*((((20px+60px)*$x)-20px) / gridsystem-width(12));
+	margin: 0 $total-width*((20px*.5)/gridsystem-width(12));
 /*
 	*width: $total-width*((((20px+60px)*$x)-20px) / gridsystem-width(12))-$correction;
 	*margin: 0 $total-width*((20px*.5)/gridsystem-width(12))-$correction;
