@@ -313,7 +313,7 @@ class CssAlly
             $css = str_replace(array('/ ', ' /', ' / '), '/', $css);
             $css = str_replace(array('= ', ' =', ' = '), '=', $css);
             $css = str_replace(array('+ ', ' +', ' + '), '+', $css);
-            $css = str_replace(array('- ', ' -', ' - '), '-', $css);
+            $css = str_replace(array('- ', ' - '), '-', $css);
             $css = str_replace(array('* ', ' *', ' * '), '*', $css);
 
             $this->_builtCss = $css;
