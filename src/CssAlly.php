@@ -356,6 +356,7 @@ class CssAlly
             $this->processImports($this->_files);
             $this->processMixins($this->_files);
             $this->parseVariables($this->_files);
+            $this->processFunctions($this->_files);
             $this->processNestedRules($this->_files);
             $this->buildCssString();
             $this->runCssRules();
@@ -593,6 +594,201 @@ class CssAlly
             }
         }
     } //end parseVariablesInFilesArray
+
+    public function processFunctions(array &$files = array())
+    {
+        if (empty($files)) {
+            $this->_builtCss = $this->processFunctionsInCssString($this->_builtCss);
+            return;
+        }
+
+        $this->processFunctionsInFilesArray($files);
+        return;
+    } //end processFunctions
+
+    private function processFunctionsInCssString($css = '')
+    {
+        $find      = '/\s*\@function\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:(?:[^\{\}])*|(?:[^\{\}]*\{[^\{\}]*\}[^\{\}]*)+))\}/';
+        $f         = array();
+        $functions = array();
+
+        preg_match_all($find, $css, $f);
+        foreach ($f[1] as $index => $functionName) {
+            $pars      = preg_split('/,\s*/', $f[2][$index]);
+            $params    = array();
+            $reqParams = 0;
+            $optParams = 0;
+            if (!empty($pars[0])) {
+                foreach ($pars as $p) {
+                    $p                = preg_split('/:\s*/', $p);
+                    $param            = array();
+                    $param['name']    = substr($p[0], 1);
+                    $param['default'] = isset($p[1]) ? $p[1] : '';
+
+                    if (isset($p[1])) {
+                        $optParams++;
+                    } else {
+                        $reqParams++;
+                    }
+                    $params[] = $param;
+                }
+            }
+            $funcValue = trim($f[3][$index]);
+            $funcValue = str_replace('@return ', '', $funcValue);
+            $funcValue = substr($funcValue, 0, -1);
+            $functions[] = array(
+                'name'          => $functionName,
+                'params'        => $params,
+                'content'       => $funcValue,
+                'reqParamCount' => $reqParams,
+                'optParamCount' => $optParams,
+            );
+        }
+        $css = $this->removeFunctions($css);
+
+        $singlePar = '(?:[^,\)]+)';
+        foreach ($functions as $func) {
+            $f      = array();
+            $pcount = count($func['params']);
+            $pReg   = '()';
+            if ($pcount >= 1) {
+                $pReg  = '(';
+                $start = ($pcount - 2) < 0 ? 0 : $pcount - 2;
+
+                for ($r = 1; $r <= $func['reqParamCount']; $r++) {
+                    if ($r > 1) {
+                        $pReg .= ',\s*';
+                    }
+                    $pReg .= $singlePar;
+                }
+
+                for ($o = 1; $o <= $func['optParamCount']; $o++) {
+                    $pReg .= '(?:';
+                    if ($o > 1 || $func['reqParamCount'] > 0) {
+                        $pReg .= ',\s*';
+                    }
+                    $pReg .= $singlePar . ')?';
+                }
+
+                $pReg .= ')';
+            }
+            $find = "/(\s*)\s+({$func['name']}\({$pReg}\));/";
+            preg_match_all($find, $css, $f);
+            foreach ($f[0] as $index => $include) {
+                $content = $f[1][$index] . preg_replace('/[\r\n]+\s*/', $f[1][$index], $func['content']);
+                $params  = preg_split('/,\s*/', $f[3][$index]);
+                foreach ($func['params'] as $pindex => $param) {
+                    if (isset($params[$pindex]) && !empty($params[$pindex])) {
+                        $replace = $params[$pindex];
+                    } else {
+                        $replace = $func['params'][$pindex]['default'];
+                    }
+                    $pname = $func['params'][$pindex]['name'];
+                    $content = preg_replace('/#\{\$' . $pname . '\}/', $replace, $content);
+                    $content = preg_replace('/\$' . $pname . '/', $replace, $content);
+                }
+                $funcRep = '/\s+' . $f[2][$index] . ';/';
+                $funcRep = str_replace('(', '\(', $funcRep);
+                $funcRep = str_replace(')', '\)', $funcRep);
+                $css = preg_replace($funcRep, $content, $css, 1);
+            }
+        }
+
+        return $css;
+    } //end processFunctionsInCssString
+
+    private function processFunctionsInFilesArray(array &$files)
+    {
+        $find      = '/\s*\@function\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:(?:[^\{\}])*|(?:[^\{\}]*\{[^\{\}]*\}[^\{\}]*)+))\}/';
+        $f         = array();
+        $functions = array();
+
+        foreach ($files as &$file) {
+            preg_match_all($find, $file['parsedCss'], $f);
+            foreach ($f[1] as $index => $functionName) {
+                $pars      = preg_split('/,\s*/', $f[2][$index]);
+                $params    = array();
+                $reqParams = 0;
+                $optParams = 0;
+                if (!empty($pars[0])) {
+                    foreach ($pars as $p) {
+                        $p                = preg_split('/:\s*/', $p);
+                        $param            = array();
+                        $param['name']    = substr($p[0], 1);
+                        $param['default'] = isset($p[1]) ? $p[1] : '';
+
+                        if (isset($p[1])) {
+                            $optParams++;
+                        } else {
+                            $reqParams++;
+                        }
+                        $params[] = $param;
+                    }
+                }
+                $funcValue = trim($f[3][$index]);
+                $funcValue = str_replace('@return ', '', $funcValue);
+                $funcValue = substr($funcValue, 0, -1);
+                $functions[] = array(
+                    'name'          => $functionName,
+                    'params'        => $params,
+                    'content'       => $funcValue,
+                    'reqParamCount' => $reqParams,
+                    'optParamCount' => $optParams,
+                );
+            }
+            $file['parsedCss'] = $this->removeFunctions($file['parsedCss']);
+        }
+
+        $singlePar = '(?:[^,\)]+)';
+        foreach ($files as &$file) {
+            foreach ($functions as $func) {
+                $f      = array();
+                $pcount = count($func['params']);
+                $pReg   = '()';
+                if ($pcount >= 1) {
+                    $pReg  = '(';
+                    $start = ($pcount - 2) < 0 ? 0 : $pcount - 2;
+
+                    for ($r = 1; $r <= $func['reqParamCount']; $r++) {
+                        if ($r > 1) {
+                            $pReg .= ',\s*';
+                        }
+                        $pReg .= $singlePar;
+                    }
+
+                    for ($o = 1; $o <= $func['optParamCount']; $o++) {
+                        $pReg .= '(?:';
+                        if ($o > 1 || $func['reqParamCount'] > 0) {
+                            $pReg .= ',\s*';
+                        }
+                        $pReg .= $singlePar . ')?';
+                    }
+
+                    $pReg .= ')';
+                }
+                $find = "/(\s*)\s+({$func['name']}\({$pReg}\));/";
+                preg_match_all($find, $file['parsedCss'], $f);
+                foreach ($f[0] as $index => $include) {
+                    $content = $f[1][$index] . preg_replace('/[\r\n]+\s*/', $f[1][$index], $func['content']);
+                    $params  = preg_split('/,\s*/', $f[3][$index]);
+                    foreach ($func['params'] as $pindex => $param) {
+                        if (isset($params[$pindex]) && !empty($params[$pindex])) {
+                            $replace = $params[$pindex];
+                        } else {
+                            $replace = $func['params'][$pindex]['default'];
+                        }
+                        $pname = $func['params'][$pindex]['name'];
+                        $content = preg_replace('/#\{\$' . $pname . '\}/', $replace, $content);
+                        $content = preg_replace('/\$' . $pname . '/', $replace, $content);
+                    }
+                    $funcRep = '/\s+' . $f[2][$index] . ';/';
+                    $funcRep = str_replace('(', '\(', $funcRep);
+                    $funcRep = str_replace(')', '\)', $funcRep);
+                    $file['parsedCss'] = preg_replace($funcRep, $content, $file['parsedCss'], 1);
+                }
+            }
+        }
+    } //end processFunctionsInFilesArray
 
     /**
      * Parse the CSS string for @import rules
@@ -940,6 +1136,19 @@ class CssAlly
             $file['parsedCss'] = $this->processNestedRulesInCssString($file['parsedCss']);
         }
     } //end processNestedRulesInFilesArray
+
+    /**
+     * Remove function declarations from the CSS string
+     *
+     * @return void
+     */
+    public function removeFunctions($css = '')
+    {
+        $search = '/\s*\@function\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:(?:[^\{\}])*|(?:[^\{\}]*\{[^\{\}]*\}[^\{\}]*)+))\}\s*/';
+        $css = preg_replace($search, '', $css);
+
+        return $css;
+    } //end removeFunctions
 
     /**
      * Remove mixin declarations from the CSS string
