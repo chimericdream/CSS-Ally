@@ -9,7 +9,7 @@ $columns = "12";
 
 /* Utility function - you should never need to modify this */
 @function gridsystem-width($columns:$columns) {
-	@return ($column-width * $columns) + ($gutter-width * $columns);
+    @return ($column-width * $columns) + ($gutter-width * $columns);
 }
 
 /* Set $total-width to 100% for a fluid layout */
@@ -25,17 +25,16 @@ $correction: 0.5 / $min-width * 100;
  * GRID
  */
 body {
-	width: 100%;
-	*zoom:1;
-
-	&:before,
-	&:after {
-	    content:"";
-	    display:table;
-	}
-	&:after {
-	    clear:both;
-	}
+    width: 100%;
+    *zoom:1;
+    &:before,
+    &:after {
+    content:"";
+    display:table;
+    }
+    &:after {
+    clear:both;
+    }
 }/**
  * GRID
  */
@@ -57,36 +56,36 @@ div.center {
 
 /* header */
 header#top {
-	display: inline;
-	float: left;
-	width: $total-width*(((($gutter-width+$column-width)*12)-$gutter-width) / gridsystem-width($columns));
-	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
-/*
-	*width: $total-width*(((($gutter-width+$column-width)*12)-$gutter-width) / gridsystem-width($columns))-$correction;
-	*margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
-*/
+    display: inline;
+    float: left;
+    width: $total-width*(((($gutter-width+$column-width)*12)-$gutter-width) / gridsystem-width($columns));
+    margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+    /*
+    *width: $total-width*(((($gutter-width+$column-width)*12)-$gutter-width) / gridsystem-width($columns))-$correction;
+    *margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+    */
     margin-bottom: 1em;
 }
 
 /* main and sidebar */
 #maincolumn {
-	display: inline;
-	float: left;
-	width: $total-width*(((($gutter-width+$column-width)*9)-$gutter-width) / gridsystem-width($columns));
-	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
-/*
-	*width: $total-width*(((($gutter-width+$column-width)*9)-$gutter-width) / gridsystem-width($columns))-$correction;
-	*margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
-*/
+    display: inline;
+    float: left;
+    width: $total-width*(((($gutter-width+$column-width)*9)-$gutter-width) / gridsystem-width($columns));
+    margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+    /*
+    *width: $total-width*(((($gutter-width+$column-width)*9)-$gutter-width) / gridsystem-width($columns))-$correction;
+    *margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+    */
 }
 
 #sidebar {
-	display: inline;
-	float: left;
-	width: $total-width*(((($gutter-width+$column-width)*3)-$gutter-width) / gridsystem-width($columns));
-	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
-/*
-	*width: $total-width*(((($gutter-width+$column-width)*3)-$gutter-width) / gridsystem-width($columns))-$correction;
-	*margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
-*/
+    display: inline;
+    float: left;
+    width: $total-width*(((($gutter-width+$column-width)*3)-$gutter-width) / gridsystem-width($columns));
+    margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+    /*
+    *width: $total-width*(((($gutter-width+$column-width)*3)-$gutter-width) / gridsystem-width($columns))-$correction;
+    *margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+    */
 }

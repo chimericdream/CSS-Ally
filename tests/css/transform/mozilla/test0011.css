@@ -14,28 +14,28 @@ div.transform3 {
 }
 
 div.transform4 {
-	-moz-transform: skew(35deg);
-	transform: skew(35deg);
+    -moz-transform: skew(35deg);
+    transform: skew(35deg);
 }
 
 div.transform5 {
-	-moz-transform: scale(1,0.5);
-	transform: scale(1,0.5);
+    -moz-transform: scale(1,0.5);
+    transform: scale(1,0.5);
 }
 
 div.transform6 {
-	-moz-transform: rotate(45deg);
-	transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 div.transform7 {
-	-moz-transform: translate(10px, 20px);
-	transform: translate(10px, 20px);
+    -moz-transform: translate(10px, 20px);
+    transform: translate(10px, 20px);
 }
 
 div.transform8 {
-	-moz-transform: skew(30deg) scale(1.1,1.1) rotate(40deg) translate(10px, 20px);
-	transform: skew(30deg) scale(1.1,1.1) rotate(40deg) translate(10px, 20px);
+    -moz-transform: skew(30deg) scale(1.1,1.1) rotate(40deg) translate(10px, 20px);
+    transform: skew(30deg) scale(1.1,1.1) rotate(40deg) translate(10px, 20px);
 }
 
 div.transform9 {

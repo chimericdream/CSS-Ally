@@ -691,7 +691,7 @@ class CssAlly
 
     private function processMixinsInCssString($css = '')
     {
-        $find   = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:[-_a-zA-Z0-9:$;\s#]|\{\$[^}]+\})+)\}/';
+        $find   = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:(?:[^\{\}])*|(?:[^\{\}]*\{[^\{\}]*\}[^\{\}]*)+))\}/';
         $m      = array();
         $mixins = array();
 
@@ -779,7 +779,7 @@ class CssAlly
 
     private function processMixinsInFilesArray(array &$files)
     {
-        $find   = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:[-_a-zA-Z0-9:$;\s#]|\{\$[^}]+\})+)\}/';
+        $find   = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:(?:[^\{\}])*|(?:[^\{\}]*\{[^\{\}]*\}[^\{\}]*)+))\}/';
         $m      = array();
         $mixins = array();
 
@@ -948,7 +948,7 @@ class CssAlly
      */
     public function removeMixins($css = '')
     {
-        $search = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:[-_a-zA-Z0-9:$;\s#]|\{\$[^}]+\})+)\}\s*/';
+        $search = '/\s*\@mixin\s+([a-zA-Z][-_a-zA-Z0-9]+)\(((?:\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?(?:,\s*\$[a-zA-Z]+(?:\:\s*[^,\s\)]+)?)*)?)\)\s*\{((?:(?:[^\{\}])*|(?:[^\{\}]*\{[^\{\}]*\}[^\{\}]*)+))\}\s*/';
         $css = preg_replace($search, '', $css);
 
         return $css;

@@ -4,7 +4,7 @@
 
 /* Defaults which you can freely override *//* Utility function - you should never need to modify this */
 @function gridsystem-width(12:12) {
-	@return (60px * 12) + (20px * 12);
+    @return (60px * 12) + (20px * 12);
 }
 
 /* Set $total-width to 100% for a fluid layout */
@@ -18,54 +18,54 @@ $correction: 0.5 / $min-width * 100;
 
 /* The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/ */
 @mixin clearfix() {
-	*zoom:1;
+    *zoom:1;
 
-	&:before,
-	&:after {
-	    content:"";
-	    display:table;
-	}
-	&:after {
-	    clear:both;
-	}
+    &:before,
+    &:after {
+        content:"";
+        display:table;
+    }
+    &:after {
+        clear:both;
+    }
 }
 
 /**
  * GRID
  */
 body {
-	width: 100%;
-	@include clearfix();
+    width: 100%;
+    @include clearfix();
 }
 
 @mixin row(12:12) {
-	display: block;
-	width: $total-width*((20px + gridsystem-width(12))/gridsystem-width(12));
-	margin: 0 $total-width*(((20px*.5)/gridsystem-width(12))*-1);
+    display: block;
+    width: $total-width*((20px + gridsystem-width(12))/gridsystem-width(12));
+    margin: 0 $total-width*(((20px*.5)/gridsystem-width(12))*-1);
 /*
-	*width: $total-width*((20px + gridsystem-width(12))/gridsystem-width(12))-$correction;
-	*margin: 0 $total-width*(((20px*.5)/gridsystem-width(12))*-1)-$correction;
+    *width: $total-width*((20px + gridsystem-width(12))/gridsystem-width(12))-$correction;
+    *margin: 0 $total-width*(((20px*.5)/gridsystem-width(12))*-1)-$correction;
 */
-	@include clearfix();
+    @include clearfix();
 }
 
 @mixin column($x,12:12) {
-	display: inline;
-	float: left;
-	width: $total-width*((((20px+60px)*$x)-20px) / gridsystem-width(12));
-	margin: 0 $total-width*((20px*.5)/gridsystem-width(12));
+    display: inline;
+    float: left;
+    width: $total-width*((((20px+60px)*$x)-20px) / gridsystem-width(12));
+    margin: 0 $total-width*((20px*.5)/gridsystem-width(12));
 /*
-	*width: $total-width*((((20px+60px)*$x)-20px) / gridsystem-width(12))-$correction;
-	*margin: 0 $total-width*((20px*.5)/gridsystem-width(12))-$correction;
+    *width: $total-width*((((20px+60px)*$x)-20px) / gridsystem-width(12))-$correction;
+    *margin: 0 $total-width*((20px*.5)/gridsystem-width(12))-$correction;
 */
 }
 
 @mixin push($offset:1) {
-	margin-left: $total-width*(((20px+60px)*$offset) / gridsystem-width(12)) + $total-width*((20px*.5)/gridsystem-width(12));
+    margin-left: $total-width*(((20px+60px)*$offset) / gridsystem-width(12)) + $total-width*((20px*.5)/gridsystem-width(12));
 }
 
 @mixin pull($offset:1) {
-	margin-right: $total-width*(((20px+60px)*$offset) / gridsystem-width(12)) + $total-width*((20px*.5)/gridsystem-width(12));
+    margin-right: $total-width*(((20px+60px)*$offset) / gridsystem-width(12)) + $total-width*((20px*.5)/gridsystem-width(12));
 }
 
 /**
