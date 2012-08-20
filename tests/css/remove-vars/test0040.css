@@ -2,12 +2,7 @@
  * Semantic.gs for CSSAlly: http://cssally.com/
  */
 
-/* Defaults which you can freely override */
-$column-width = "60px";
-$gutter-width = "20px";
-$columns = "12";
-
-/* Utility function - you should never need to modify this */
+/* Defaults which you can freely override *//* Utility function - you should never need to modify this */
 @function gridsystem-width($columns:$columns) {
 	@return ($column-width * $columns) + ($gutter-width * $columns);
 }
@@ -77,12 +72,7 @@ body {
  * GRID
  */
 
-/* Specify the number of columns and set column and gutter widths */
-$columns = "12";
-$column-width = "60px";
-$gutter-width = "20px";
-
-/**
+/* Specify the number of columns and set column and gutter widths *//**
  * LAYOUT
  */
 /* center the contents */
