@@ -1,0 +1,43 @@
+div.mixin1 {
+    border-top-right-radius: 10px;
+}
+
+div.mixin2 {
+    border-top-left-radius: 5px;
+}
+
+div.mixin3 {
+    border-bottom-left-radius: 8px;
+}
+
+div.mixin4 {
+    border-top-right-radius: 10px;
+}
+
+div.mixin5 {
+    border-top-left-radius: 10px;
+}
+
+div.mixin6 {
+    border-top-left-radius: 10px;
+    border-color: green;
+}
+
+div.mixin7 {
+    border-bottom-left-radius: 10px;
+    border-color: green;
+}
+
+div.mixin8 {
+    border-top-right-radius: 5px;
+    border-color: green;
+}
+
+div.mixin9 {
+    border-bottom-right-radius: 2px;
+    border-color: blue;
+}
+
+div.mixin10 {
+    border-radius: 5px;
+}

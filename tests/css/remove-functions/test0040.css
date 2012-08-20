@@ -1,0 +1,103 @@
+/**
+ * Semantic.gs for CSSAlly: http://cssally.com/
+ */
+
+/* Defaults which you can freely override */
+$column-width = "60px";
+$gutter-width = "20px";
+$columns = "12";
+
+/* Utility function - you should never need to modify this *//* Set $total-width to 100% for a fluid layout */
+$total-width: gridsystem-width($columns);
+
+/* Uncomment these two lines and the star-hack width/margin lines below to enable sub-pixel fix for IE6 & 7. See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html */
+/*
+$min-width: 999999;
+$correction: 0.5 / $min-width * 100;
+*/
+
+/* The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/ */
+@mixin clearfix() {
+	*zoom:1;
+
+	&:before,
+	&:after {
+	    content:"";
+	    display:table;
+	}
+	&:after {
+	    clear:both;
+	}
+}
+
+/**
+ * GRID
+ */
+body {
+	width: 100%;
+	@include clearfix();
+}
+
+@mixin row($columns:$columns) {
+	display: block;
+	width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns));
+	margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1);
+/*
+	*width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns))-$correction;
+	*margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1)-$correction;
+*/
+	@include clearfix();
+}
+
+@mixin column($x,$columns:$columns) {
+	display: inline;
+	float: left;
+	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns));
+	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+/*
+	*width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns))-$correction;
+	*margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns))-$correction;
+*/
+}
+
+@mixin push($offset:1) {
+	margin-left: $total-width*((($gutter-width+$column-width)*$offset) / gridsystem-width($columns)) + $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+}
+
+@mixin pull($offset:1) {
+	margin-right: $total-width*((($gutter-width+$column-width)*$offset) / gridsystem-width($columns)) + $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+}
+
+/**
+ * GRID
+ */
+
+/* Specify the number of columns and set column and gutter widths */
+$columns = "12";
+$column-width = "60px";
+$gutter-width = "20px";
+
+/**
+ * LAYOUT
+ */
+/* center the contents */
+div.center {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* header */
+header#top {
+    @include column(12);
+    margin-bottom: 1em;
+}
+
+/* main and sidebar */
+#maincolumn {
+    @include column(9);
+}
+
+#sidebar {
+    @include column(3);
+}
