@@ -311,6 +311,10 @@ class CssAlly
             $css = str_replace(array('{ ', ' {', ' { '), '{', $css);
             $css = str_replace(array('} ', ' }', ' } '), '}', $css);
             $css = str_replace(array('/ ', ' /', ' / '), '/', $css);
+            $css = str_replace(array('= ', ' =', ' = '), '=', $css);
+            $css = str_replace(array('+ ', ' +', ' + '), '+', $css);
+            $css = str_replace(array('- ', ' -', ' - '), '-', $css);
+            $css = str_replace(array('* ', ' *', ' * '), '*', $css);
 
             $this->_builtCss = $css;
         }
@@ -472,10 +476,10 @@ class CssAlly
             $css .= "\n\n" . $this->getParsedCss($import);
         }
         $css .= "\n\n" . $file['parsedCss'];
-        
+
         return $css;
     } //end getParsedCss
-    
+
     public function obfuscateKeyframes($css)
     {
         $css = preg_replace('/(@keyframes[^{]+){/', '$1<<kf', $css);
