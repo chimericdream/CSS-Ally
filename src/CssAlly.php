@@ -713,7 +713,7 @@ class CssAlly
 
                 $pReg .= ')';
             }
-            $find = "/(\s*)\s+({$func['name']}\({$pReg}\));/";
+            $find = "/(?<!\@function)(\s*)\s+({$func['name']}\({$pReg}\))/";
             preg_match_all($find, $css, $f);
             foreach ($f[0] as $index => $include) {
                 $content = $f[1][$index] . preg_replace('/[\r\n]+\s*/', $f[1][$index], $func['content']);
@@ -728,10 +728,11 @@ class CssAlly
                     $content = preg_replace('/#\{\$' . $pname . '\}/', $replace, $content);
                     $content = preg_replace('/\$' . $pname . '/', $replace, $content);
                 }
-                $funcRep = '/\s+' . $f[2][$index] . ';/';
+                $funcRep = '/(\s*)' . $f[2][$index] . '/';
                 $funcRep = str_replace('(', '\(', $funcRep);
                 $funcRep = str_replace(')', '\)', $funcRep);
-                $css = preg_replace($funcRep, $content, $css, 1);
+                $funcRep = str_replace('$', '\$', $funcRep);
+                $css = preg_replace($funcRep, '${1}\(' . $content . '\)', $css, 1);
             }
         }
 
