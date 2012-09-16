@@ -320,6 +320,23 @@ class CssAlly
         }
     } //end compress
 
+    public function deObfuscateAtRules($css)
+    {
+        $css = $this->deObfuscateKeyframes($css);
+        $css = $this->deObfuscateMixins($css);
+        $css = $this->deObfuscateFunctions($css);
+
+        return $css;
+    } //end deObfuscateAtRules
+
+    public function deObfuscateFunctions($css)
+    {
+        $css = preg_replace('/<<func/', '{', $css);
+        $css = preg_replace('/func>>/', '}', $css);
+
+        return $css;
+    } //end deObfuscateFunctions
+
     public function deObfuscateKeyframes($css)
     {
         $css = preg_replace('/<<kf/', '{', $css);
@@ -480,6 +497,30 @@ class CssAlly
 
         return $css;
     } //end getParsedCss
+
+    public function obfuscateAtRules($css)
+    {
+        $css = $this->obfuscateMixins($css);
+        $css = $this->obfuscateKeyframes($css);
+        $css = $this->obfuscateFunctions($css);
+
+        return $css;
+    } //end obfuscateAtRules
+
+    public function obfuscateFunctions($css)
+    {
+        $css = preg_replace('/(@function[^{]+){/', '$1<<func', $css);
+
+        $pattern = '/(<<func[^{}]*){([^{}]*)}/';
+        $replace = '$1<<func$2func>>';
+        while (preg_match($pattern, $css) == 1) {
+            $css = preg_replace($pattern, $replace, $css);
+        }
+
+        $css = preg_replace('/((?:func>>|<<func)[^{}<>]+)}/', '$1func>>', $css);
+
+        return $css;
+    } //end obfuscateFunctions
 
     public function obfuscateKeyframes($css)
     {
@@ -1076,8 +1117,7 @@ class CssAlly
 
     private function processNestedRulesInCssString($css = '')
     {
-        $css = $this->obfuscateMixins($css);
-        $css = $this->obfuscateKeyframes($css);
+        $css = $this->obfuscateAtRules($css);
         $somethingMatched = false;
 
         $step1 = '/(\s*([^\r\n{}]+){[^{}]*?\s*)(\s*[^\r\n{}]*{[^{}]*})([^{}]*})/';
@@ -1124,8 +1164,7 @@ class CssAlly
             $css = preg_replace($step8, $step8replace, $css);
         }
 
-        $css = $this->deObfuscateKeyframes($css);
-        $css = $this->deObfuscateMixins($css);
+        $css = $this->deObfuscateAtRules($css);
 
         return $css;
     } //end processNestedRulesInCssString
